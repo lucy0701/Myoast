@@ -29,7 +29,9 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/app/layout.jsx",
-    "pages/index.jsx"
-, "src/components/Footer/index.tsx", "src/utils/util.ts"  ],
+    "pages/index.jsx",
+    "src/components/layout/Footer/index.tsx",
+    "src/utils/util.ts"
+  ],
   "exclude": ["node_modules"]
 }
