@@ -9,8 +9,29 @@
   }
 }
 .wrap {
+  padding: 10px 25px;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: white;
+}
+/* main mbti */
+.mbtiTast {
+  width: 100%;
+  overflow: hidden;
+  margin: 10px 0 20px 0;
+}
+/* randomTest */
+.randomTast {
+  width: 100%;
+  margin-bottom: 20px;
+
+}
+/* 최신 심테 */
+.newTestWrap {
+  margin: 10px 0 20px 0;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px 10px;
 }

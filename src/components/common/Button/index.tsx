@@ -8,30 +8,24 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   className?: string;
   link?: string;
-  size?: 'tiny' | 'small';
-  skin?: 'startBtn' | 'bottomBtn' | 'answer' | 'backBtn';
+  skin?: 'startBtn' | 'bottomBtn' | 'answerBtn' | 'backBtn';
 }
 
 const Button = (props: Props) => {
-  const { className, link, ...rest } = props;
+  const { children, className, link, skin } = props;
 
   if (link) {
     return (
-      <Link
-        href={link}
-        className={cx(styles.wrap, className, styles[props.size ?? 'normal'], styles[props.skin ?? 'normal'])}
-      >
-        {props.children}
+      <Link href={link} className={cx(styles.wrap, className, styles[skin ?? 'normal'])}>
+        {children}
       </Link>
     );
   }
 
   return (
-    <button
-      {...rest}
-      className={cx(styles.wrap, className, styles[props.size ?? 'normal'], styles[props.skin ?? 'normal'])}
-    >
-      {props.children}
+    <button className={cx(styles.wrap, className, styles[skin ?? 'normal'])}>
+      {children}
+      <div className={styles.nexticon} />
     </button>
   );
 };

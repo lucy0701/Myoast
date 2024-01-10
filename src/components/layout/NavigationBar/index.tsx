@@ -40,7 +40,11 @@ export default function NavigationBar({ menuClicked, setMenuClicked }: Props) {
             </ul>
             <ul className={styles.ulWrap}>
               <p>마이 페이지</p>
-              <li>나의 결과 기록</li>
+              <li>
+                <Link href="/mypage" onClick={() => setMenuClicked(false)}>
+                  나의 결과 기록
+                </Link>
+              </li>
             </ul>
           </li>
           <li>

@@ -9,23 +9,24 @@ interface Props {
   className?: string;
   link: string;
   size?: 'small' | 'medium' | 'large';
-  skin?: 'mypageCard' | 'testCard';
+  type?: 'myTestCade' | 'testCard';
   testTitle?: string;
   testResult?: string;
+  playCount?: string;
 }
 
 const TestCard = (props: Props) => {
-  const { children, className, link, ...rest } = props;
+  const { children, className, link, size, type, testTitle, testResult, playCount } = props;
 
-  if (rest.skin === 'mypageCard') {
+  if (type === 'myTestCade') {
     return (
-      <div className={styles.testCade}>
-        <Link href={link} className={cx(className, styles[props.size ?? 'normal'], styles[props.skin ?? 'normal'])}>
+      <div className={styles.myTestCadeWrap}>
+        <Link href={link} className={cx(className, styles[size ?? 'normal'], styles[type ?? 'normal'])}>
           <div>{children}</div>
-          <span>
-            {props.testTitle}
-            <p>{props.testResult}</p>
-          </span>
+          <div className={styles.textWrp}>
+            <span className={styles.title}>{props.testTitle}</span>
+            <p>{testResult}</p>
+          </div>
         </Link>
       </div>
     );
@@ -33,9 +34,13 @@ const TestCard = (props: Props) => {
 
   return (
     <div className={styles.testCade}>
-      <Link href={link} className={cx(className, styles[props.size ?? 'normal'], styles[props.skin ?? 'normal'])}>
-        <div>{children}</div>
-        <span>{props.testTitle}</span>
+      <Link href={link} className={cx(className, styles[size ?? 'normal'], styles[type ?? 'normal'])}>
+        <div className={styles.iconBox}>
+          <div></div>
+          <p>{playCount}</p>
+        </div>
+        <div className={styles.child}>{children}</div>
+        <span className={styles.title}>{testTitle}</span>
       </Link>
     </div>
   );

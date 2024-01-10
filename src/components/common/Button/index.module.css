@@ -4,6 +4,7 @@
     max-width: 345px;
   }
 }
+
 @media (min-width: 376px) {
   .wrap {
     width: 100%;
@@ -13,7 +14,8 @@
 
 .startBtn {
   height: 2.5rem;
-  font-size: 1rem;
+  font-size: 1.1rem;
+  font-weight: bold;
   border-radius: 1rem;
   background-color: #ffc52f;
   color: white;
@@ -25,6 +27,7 @@
   margin: 10px 0 10px 0;
   transition: background-color 0.3s ease-in-out;
 }
+
 .startBtn:hover {
   background-color: #f8b713;
 }
@@ -35,10 +38,14 @@
   height: 50px;
   font-size: 17px;
   font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 10px 10px 0 0;
   background-color: #ffc52f;
   color: white;
   position: fixed;
+  bottom: 0;
   transform: translateY(0%);
   transition: all 0.5s ease-in-out;
 }
@@ -46,14 +53,24 @@
   background-color: #f8b713;
 }
 
-.answer {
+.startBtn div, 
+.bottomBtn div{
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+  background-image: url('../../../../public/svgs/nextIcon.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.answerBtn {
   width: 80%;
   background-color: #ffffff;
   border: 1px solid #e6e6e6;
   border-radius: 1rem;
   padding: 20px 0 20px 0;
   text-align: center;
-  cursor: pointer;
   user-select: none;
   transition: background-color 0.1s ease-in-out;
   padding: 20px;
@@ -62,10 +79,22 @@
 .backBtn {
   width: 30%;
   max-width: 400px;
-  padding: 10px 20px 10px 30px;
+  height: 40px;
   font-size: 0.9rem;
-  font-weight: 300;
+  font-weight: 500;
   border-radius: 13px;
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  justify-content: center;
   background-color: #a4d9e4;
   color: white;
+}
+.backBtn div {
+  width: 1rem;
+  height: 1rem;
+  background-image: url('../../../../public/svgs/leftArrowIcon.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 }
