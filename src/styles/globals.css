@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-size: 16px;
 }
 
 html,
@@ -18,6 +17,7 @@ html {
 
 body {
   font-style: normal;
+  font-size: 16px;
   font-weight: 400;
   line-height: 1.5;
   letter-spacing: -0.02em;
@@ -50,16 +50,37 @@ img {
   max-width: 100%;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 16px;
+  font-family: 'DIGICO', 'Noto Sans KR', sans-serif;
+}
+
+textarea,
+select {
+  font-family: 'DIGICO', 'Noto Sans KR', sans-serif;
+  font-size: 16px;
+}
+
 select {
   border: none;
   border-radius: 0;
 }
 
-input[type='submit'],
+input,
 button {
   margin: 0;
   padding: 0;
+  font-family: 'DIGICO', 'Noto Sans KR', sans-serif;
+  font-size: 16px;
   border: none;
+}
+input[type='submit'],
+button {
   cursor: pointer;
 }
 

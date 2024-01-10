@@ -12,14 +12,11 @@
 }
 
 .wrap {
-  color: #979797;
-  font-size: 0.7rem;
-  background-color: white;
-  margin-top: 10px;
+  margin: 30px 0 20px 0;
 }
-
-.upper > p:first-child {
-  margin-bottom: 2px;
+.wrap p {
+  font-size: 0.7rem;
+  color: #979797;
 }
 
 .under {
@@ -34,18 +31,16 @@
   bottom: -10px;
   right: 0;
 }
-
 .under > div:first-child {
   display: flex;
   flex-direction: row;
 }
 
-.under .gitHub {
+.gitHubIcon {
   margin-right: 8px;
 }
 
-.under .gitHub > a {
-  background-image: url('../../../public/images/footer/gitHub.svg');
+.under a {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -53,13 +48,12 @@
   height: 20px;
 }
 
-.under .instagram > a {
-  background-image: url('../../../public/images/footer/instagram.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  width: 20px;
-  height: 20px;
+.gitHubIcon a {
+  background-image: url('../../../../public/svgs/gitHub.svg');
+}
+
+.instagramIcon a {
+  background-image: url('../../../../public/images/instagram.png');
 }
 
 .docs {
@@ -71,8 +65,4 @@
 
 .docs > span:first-child {
   margin-right: 10px;
-}
-
-.docs p {
-  color: #979797;
 }

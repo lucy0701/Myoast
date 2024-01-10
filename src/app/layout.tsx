@@ -1,13 +1,12 @@
 import '../styles/globals.css';
-import { Noto_Sans_KR, Roboto_Mono } from 'next/font/google';
+import { Noto_Sans_KR } from 'next/font/google';
 import { ReactNode } from 'react';
 import { Metadata } from 'next';
 
-export const notoSansKr = Noto_Sans_KR({
-  weight: ['500'],
-  subsets: ['latin'],
-});
-const roboto_mono = Roboto_Mono({
+import Header from '@/components/layout/Header';
+
+const notoSansKr = Noto_Sans_KR({
+  weight: ['100', '300', '400', '500', '700', '900'],
   subsets: ['latin'],
   display: 'swap',
 });
@@ -15,6 +14,7 @@ const roboto_mono = Roboto_Mono({
 interface Props {
   children: ReactNode;
 }
+
 export const metadata: Metadata = {
   title: '몽빗(MongBit)',
   description: 'MBTI 심리테스트 공작소',
@@ -24,7 +24,10 @@ export const metadata: Metadata = {
 export default function RootLayout(props: Props) {
   return (
     <html lang="en">
-      <body className={roboto_mono.className}>{props.children}</body>
+      <body className={notoSansKr.className}>
+        <Header />
+        {props.children}
+      </body>
     </html>
   );
 }
