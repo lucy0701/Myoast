@@ -18,7 +18,7 @@ export default function Mypage() {
           link={'/test/result'}
           testTitle={testData1.testTitle}
           imgUrl={testData1.imgUrl}
-          playCount={testData1.playCount}
+          playCount={0}
           testResult={testData1.testResult}
           type={TYPE_MY_TEST_CARD}
         ></TestCard>

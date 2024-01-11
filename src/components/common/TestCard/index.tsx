@@ -12,7 +12,7 @@ interface Props {
   size?: 'small' | 'medium' | 'large';
   type?: 'myTestCade' | 'testCard';
   testResult?: string;
-  playCount?: string;
+  playCount?: number;
 }
 
 interface MainTestCardProps {
@@ -28,7 +28,7 @@ export const TestCard = (props: Props) => {
     return (
       <div className={styles.myTestCadeWrap}>
         <Link href={link} className={cx(className, styles[size ?? 'normal'], styles[type ?? 'normal'])}>
-          <img className={styles.child} src={imgUrl} alt={testTitle} />
+          <img className={styles.testImg} src={imgUrl} alt={testTitle} />
           <div className={styles.textWrp}>
             <span className={styles.title}>{props.testTitle}</span>
             <p>{testResult}</p>
@@ -44,7 +44,7 @@ export const TestCard = (props: Props) => {
           <div className={styles.playIcon} />
           <p>{playCount}</p>
         </div>
-        <img className={styles.child} src={imgUrl} alt={testTitle} />
+        <img className={styles.testImg} src={imgUrl} alt={testTitle} />
         <span className={styles.title}>{testTitle}</span>
       </Link>
     </div>
@@ -59,7 +59,7 @@ export const MainTestCard = (props: MainTestCardProps) => {
         <div className={styles.iconBox}>
           <div className={styles.playIcon} />
         </div>
-        <img className={styles.child} src={imgUrl} alt={testTitle} />
+        <img className={styles.testImg} src={imgUrl} alt={testTitle} />
         <span className={styles.title}>{testTitle}</span>
       </div>
     </div>

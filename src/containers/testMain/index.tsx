@@ -18,7 +18,7 @@ export default function TestMain() {
     <div className={styles.wrap}>
       <div>
         <MainTestCard testTitle={testData1.testTitle} imgUrl={testData1.imgUrl} />
-        <CountIcon playCount={testData1.playCount} type={TYPE_play_CNT} />
+        <CountIcon playCount={0} type={TYPE_play_CNT} />
       </div>
       <div className={styles.textBox}>
         <p>테스트 설명1</p>
@@ -26,8 +26,8 @@ export default function TestMain() {
       <Button link={'/test/play'} skin={TYPE_START_BTN}>
         테스트 시작
       </Button>
-      <CountBtn likeCnt={testData1.likeCount}></CountBtn>
-      <AddComment commentCount={testData1.commentCount} />
+      <CountBtn likeCount={0}></CountBtn>
+      <AddComment commentCount={0} />
       <Comments
         imgUrl={commentData.imgUrl}
         userName={commentData.name}

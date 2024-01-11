@@ -8,24 +8,23 @@ interface Props {
   link: string;
   testTitle: string;
   imgUrl: string;
-  playCount: string;
-  likeCount: string;
-  commentCount: string;
+  playCount: number;
+  likeCount: number;
+  commentCount: number;
 }
 
 const TestCardList = (props: Props) => {
   const { link, testTitle, imgUrl, playCount, likeCount, commentCount } = props;
+
   return (
-    <div className={styles.cardList}>
-      <div className={styles.card}>
-        <TestCard link={link} imgUrl={imgUrl} size={TEST_CARD_SIZE_L} testTitle={testTitle} />
-        <CountIcon
-          type={TYPE_ALL_CNT}
-          playCount={playCount}
-          likeCount={likeCount}
-          commentCount={commentCount}
-        ></CountIcon>
-      </div>
+    <div className={styles.card}>
+      <TestCard link={link} imgUrl={imgUrl} size={TEST_CARD_SIZE_L} testTitle={testTitle} />
+      <CountIcon
+        type={TYPE_ALL_CNT}
+        playCount={playCount}
+        likeCount={likeCount}
+        commentCount={commentCount}
+      ></CountIcon>
     </div>
   );
 };

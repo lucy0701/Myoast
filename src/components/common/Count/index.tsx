@@ -3,9 +3,9 @@ import React from 'react';
 import styles from './index.module.css';
 
 interface Props {
-  playCount: string;
-  likeCount?: string;
-  commentCount?: string;
+  playCount: number;
+  likeCount?: number;
+  commentCount?: number;
   type: 'allCnt' | 'playCnt';
 }
 

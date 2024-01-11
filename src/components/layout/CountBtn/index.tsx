@@ -1,11 +1,11 @@
 import styles from './index.module.css';
 
 interface Props {
-  likeCnt: string;
+  likeCount: number;
 }
 
 export const CountBtn = (props: Props) => {
-  const { likeCnt } = props;
+  const { likeCount } = props;
   return (
     <div className={styles.wrap}>
       <div className={styles.btnWarp}>
@@ -16,7 +16,7 @@ export const CountBtn = (props: Props) => {
         <div className={styles.btnBox}>
           <button className={styles.likeBtn}/>
           <p>추천</p>
-          <p className={styles.likeCnt}>{likeCnt}</p>
+          <p className={styles.likeCnt}>{likeCount}</p>
         </div>
         <div className={styles.btnBox}>
           <button className={styles.shareBtn}/>
@@ -28,7 +28,7 @@ export const CountBtn = (props: Props) => {
 };
 
 export const ResultCountBtn = (props: Props) => {
-  const { likeCnt } = props;
+  const { likeCount } = props;
   return (
     <div className={styles.wrap}>
       <div className={styles.btnWarp}>
@@ -43,7 +43,7 @@ export const ResultCountBtn = (props: Props) => {
         <div className={styles.btnBox}>
           <button className={styles.likeBtn}/>
           <p>추천</p>
-          <p className={styles.likeCnt}>{likeCnt}</p>
+          <p className={styles.likeCnt}>{likeCount}</p>
         </div>
       </div>
     </div>
