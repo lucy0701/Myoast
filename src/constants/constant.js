@@ -9,8 +9,8 @@ export const TYPE_BACK_BTN = 'backBtn';
 export const TYPE_COMMENT_BTN = 'comment';
 
 // count
-export const TYPE_ALL_CTN = 'allCtn';
-export const TYPE_PLAY_CTN = 'playCtn';
+export const TYPE_ALL_CNT = 'allCnt';
+export const TYPE_play_CNT = 'playCnt';
 export const TYPE_LIKE_CNT = 'likeCnt';
 export const TYPE_COMMENT_CNT = 'commentCnt';
 

@@ -1,68 +1,67 @@
 @media (max-width: 375px) {
-    .wrap {
-      width: 375px;
-    }
-  }
-  
-  @media (min-width: 376px) {
-    .wrap {
-      width: 400px;
-    }
-  }
-  
   .wrap {
-    z-index: 1;
+    width: 375px;
   }
+}
 
-  .headerWrap {
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    background-color: white;
+@media (min-width: 376px) {
+  .wrap {
+    width: 400px;
   }
+}
 
-  .logoWrap {
-    display: flex;
-    flex-direction: row;
-    padding: 0 30px 0 30px;
-    cursor: pointer;
-  }
+.wrap {
+  z-index: 1;
+}
 
-  .logoIcon,
-  .logoTitle,
-  .menuIcon,
-  .myPageIcon {
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-  }
-  
-  /* ICON */
-  .logoIcon {
-    width: 5rem;
-    height: 5.5rem;
-    background-image: url('../../../../public/svgs/logo_dog.svg');
-  }
-  
-  .logoTitle {
-    width: 7rem;
-    height: 5.7rem;
-    background-image: url('../../../../public/svgs/logo_title.svg');
-  }
+.headerWrap {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
+}
 
-  .menuIcon {
-    width: 1rem;
-    height: 1rem;
-    cursor: pointer;
-    background-image: url('../../../../public/svgs/menuIcon.svg');
-  }
-  
-  .myPageIcon {
-    width: 15px;
-    height: 15px;
-    border-style: none;
-    background-image: url('../../../../public/svgs/user.svg');
-  }
-  
+.logoWrap {
+  display: flex;
+  flex-direction: row;
+  padding: 0 30px 0 30px;
+  cursor: pointer;
+}
+
+.logoIcon,
+.logoTitle,
+.menuIcon,
+.myPageIcon {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+/* ICON */
+.logoIcon {
+  width: 5rem;
+  height: 5.5rem;
+  background-image: url('../../../../public/svgs/logo_dog.svg');
+}
+
+.logoTitle {
+  width: 7rem;
+  height: 5.7rem;
+  background-image: url('../../../../public/svgs/logo_title.svg');
+}
+
+.menuIcon {
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+  background-image: url('../../../../public/svgs/menuIcon.svg');
+}
+
+.myPageIcon {
+  width: 15px;
+  height: 15px;
+  border-style: none;
+  background-image: url('../../../../public/svgs/user.svg');
+}

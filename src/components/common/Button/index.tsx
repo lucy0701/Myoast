@@ -18,6 +18,7 @@ const Button = (props: Props) => {
     return (
       <Link href={link} className={cx(styles.wrap, className, styles[skin ?? 'normal'])}>
         {children}
+        <div className={styles.nexticon} />
       </Link>
     );
   }

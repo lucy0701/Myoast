@@ -113,6 +113,7 @@
 .myTestCade {
   display: flex;
 }
+.myTestCadeWrap img,
 .myTestCadeWrap div {
   width: 50%;
 }
@@ -126,7 +127,6 @@
   font-size: 1rem;
   margin-bottom: 5px;
   white-space: nowrap;
-
 }
 .textWrp p {
   font-size: 0.9rem;

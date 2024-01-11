@@ -1,10 +1,11 @@
 'use client';
 
 import { TYPE_MY_TEST_CARD } from '@/constants/constant';
+import { testData1 } from '@/utils/testData';
 
 import Footer from '@/components/layout/Footer';
 import styles from './index.module.css';
-import TestCard from '@/components/common/TestCard';
+import { TestCard } from '@/components/common/TestCard';
 import Title from '@/components/common/Title';
 
 export default function Mypage() {
@@ -15,20 +16,13 @@ export default function Mypage() {
       <div className={styles.cardList}>
         <TestCard
           link={'/'}
+          testTitle={testData1.testTitle}
+          imgUrl={testData1.imgUrl}
+          playCount={testData1.playCount}
+          testResult={testData1.testResult}
           type={TYPE_MY_TEST_CARD}
-          testTitle={'리리 귀여1워111111111111111111'}
-          testResult={'122222'}
-        >
-          <img src="/images/test/card.jpeg" alt={'MBTI'} />
-        </TestCard>
-        <TestCard link={'/'} type={TYPE_MY_TEST_CARD} testTitle={'리리 귀여1워111111111111111111'} testResult={'123'}>
-          <img src="/images/test/card.jpeg" alt={'MBTI'} />
-        </TestCard>
-        <TestCard link={'/'} type={TYPE_MY_TEST_CARD} testTitle={'리리 귀여1워111111111111111111'} testResult={'123'}>
-          <img src="/images/test/card.jpeg" alt={'MBTI'} />
-        </TestCard>
+        ></TestCard>
       </div>
-
       <Footer />
     </div>
   );

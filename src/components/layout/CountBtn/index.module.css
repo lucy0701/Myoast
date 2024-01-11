@@ -1,0 +1,51 @@
+.wrap {
+  width: 100%;
+  margin: 20px 0;
+  border-bottom: 1px solid #ddd;
+}
+.btnWarp {
+  width: 90%;
+  height: 135px;
+  padding: 10px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.btnBox {
+  width: 75px;
+  height: 100%;
+  text-align: center;
+}
+
+.likeCnt {
+  color: #999;
+}
+
+.linkCopyBtn,
+.likeBtn,
+.shareBtn,
+.replay {
+  width: 3rem;
+  height: 3rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-color: transparent;
+}
+
+.linkCopyBtn {
+  background-image: url('../../../../public/svgs/noneLinkCopyIcon.svg');
+}
+
+.likeBtn {
+  background-image: url('../../../../public/svgs/noneLiked.svg');
+}
+
+.shareBtn {
+  background-image: url('../../../../public/svgs/shareIcon.svg');
+}
+
+.replayBtn {
+  background-image: url('../../../../public/svgs/retryIcon.svg');
+}

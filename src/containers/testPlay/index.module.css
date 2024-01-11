@@ -1,0 +1,87 @@
+@media (max-width: 375px) {
+  .wrap {
+    width: 375px;
+  }
+}
+@media (min-width: 376px) {
+  .wrap {
+    width: 400px;
+  }
+}
+
+.wrap {
+  height: 750px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+}
+.playWrap {
+  width: 100%;
+  height: 680px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(241, 233, 221);
+}
+
+/* 진행 게이지 */
+.progressBarWrap {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 15px;
+}
+.progressBarWrap p {
+    font-size: 0.8rem;
+    margin: 5px 10px;
+    font-weight: 300;
+    color: #999;
+}
+.progressBarWrap span {
+    color: #b78989;
+    font-weight: 500;
+    margin: 0 3px 0 8px;
+}
+
+.barWrap {
+    width: 360px;
+    height: 12px;
+    border-radius: 5em;
+    overflow: hidden;
+    background-color: #ffffff76;
+}
+.gaugeBar {
+    width: 11%;
+    height: 12px;
+    border-radius: 5em;
+    background-color: #b78989;
+}
+
+/* 질문 */
+.questionWrap {
+  width: 100%;
+  height: 300px;
+  padding: 50px;
+  display: flex;
+  align-items: center;
+}
+.questionWrap p {
+  width: 100%;
+  font-size: 1.5rem;
+  font-weight: 800px;
+  text-align: center;
+  overflow-wrap: break-word;
+}
+
+/* 응답 */
+.answerWrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 160px;
+}

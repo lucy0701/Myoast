@@ -1,0 +1,52 @@
+@media (max-width: 375px) {
+  .wrap {
+    width: 375px;
+  }
+}
+@media (min-width: 376px) {
+  .wrap {
+    width: 400px;
+  }
+}
+
+.commentWrap {
+  padding: 10px 25px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.imgUrl {
+  width: 60px;
+  height: 60px;
+  background-color: rgb(215, 126, 126);
+  border-radius: 50%;
+}
+
+.textBox {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.textBox > div {
+  display: flex;
+  justify-content: space-between;
+}
+.textBox span {
+  font-size: 1rem;
+  margin-right: 8px;
+  color: #777;
+}
+.textBox p {
+  width: 100%;
+}
+
+.commentBtn button {
+  width: 35px;
+  margin-left: 5px;
+  color: #999;
+  background-color: transparent;
+}
