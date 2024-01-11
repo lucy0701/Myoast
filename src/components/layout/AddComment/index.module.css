@@ -52,6 +52,7 @@
   padding: 15px;
   background-image: url('../../../../public/svgs/addComment.svg');
   background-color: transparent;
+margin-right: 5px;
 }
 
 .commentText span,

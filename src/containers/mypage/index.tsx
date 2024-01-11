@@ -15,7 +15,7 @@ export default function Mypage() {
       <div className={styles.user}>이름 등등</div>
       <div className={styles.cardList}>
         <TestCard
-          link={'/'}
+          link={'/test/result'}
           testTitle={testData1.testTitle}
           imgUrl={testData1.imgUrl}
           playCount={testData1.playCount}

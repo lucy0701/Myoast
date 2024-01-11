@@ -46,8 +46,8 @@
   color: white;
   position: fixed;
   bottom: 0;
-  transform: translateY(0%);
-  transition: all 0.5s ease-in-out;
+  /* transform: translateY(0%);
+  transition: all 0.5s ease-in-out; */
 }
 .bottomBtn:hover {
   background-color: #f8b713;

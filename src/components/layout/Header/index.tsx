@@ -23,7 +23,11 @@ export default function Header() {
           </Link>
         </div>
         {/* 로그인 */}
-        <div className={styles.myPageIcon}></div>
+        <div>
+          <Link href="/login">
+            <div className={styles.myPageIcon}></div>
+          </Link>
+        </div>
       </div>
       <NavigationBar menuClicked={menuClicked} setMenuClicked={setMenuClicked} />
     </div>
