@@ -31,7 +31,7 @@ export default function TestPlay() {
   }, [setQstStageIndex]);
 
   useEffect(() => {
-    let timer: NodeJS.Timeout;
+    let timer:ReturnType<typeof setTimeout>
     if (testDone.lastClick) {
       timer = setTimeout(() => {
         setTestDone((prev) => ({ ...prev, state: true }));

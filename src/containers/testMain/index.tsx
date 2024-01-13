@@ -45,7 +45,7 @@ export default function TestMain(props: Props) {
         </Button>
         <CountBtn likeCount={likeCount} />
         <AddComment commentCount={commentCount} />
-        <Comments commentList={commentList}></Comments>
+        <Comments commentList={commentList}/>
         <Footer />
       </div>
     );

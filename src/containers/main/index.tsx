@@ -37,7 +37,7 @@ export default function Main() {
       </div>
       <div className={styles.randomTast}>
         <Title title={'랜덤 심리테스트'} contents={'일단 시작 하자'} />
-        <Button skin={TYPE_START_BTN}>아무거나 하기</Button>
+        <Button link={'/test/random'} skin={TYPE_START_BTN}>아무거나 시작</Button>
       </div>
       <Title title={'최신 심테'} />
       <div className={styles.newTestWrap}>

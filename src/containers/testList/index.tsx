@@ -28,7 +28,7 @@ export default function TestList() {
             />
           ))}
       </div>
-      <Button link={'/'} skin={TYPE_BOTTOM_BTN}>
+      <Button link={'/test/random'} skin={TYPE_BOTTOM_BTN}>
         아무거나 시작
       </Button>
     </div>
