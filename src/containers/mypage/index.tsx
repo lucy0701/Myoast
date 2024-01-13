@@ -5,7 +5,7 @@ import { testData1 } from '@/utils/testData';
 
 import Footer from '@/components/layout/Footer';
 import styles from './index.module.css';
-import { TestCard } from '@/components/common/TestCard';
+import { TestCard } from '@/components/layout/TestCard';
 import Title from '@/components/common/Title';
 
 export default function Mypage() {
@@ -15,7 +15,7 @@ export default function Mypage() {
       <div className={styles.user}>이름 등등</div>
       <div className={styles.cardList}>
         <TestCard
-          link={'/test/result'}
+          testId={'/test/result'}
           testTitle={testData1.testTitle}
           imgUrl={testData1.imgUrl}
           playCount={0}

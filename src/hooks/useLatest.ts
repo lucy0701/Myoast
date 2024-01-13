@@ -1,16 +1,16 @@
 import { useState } from 'react';
 
-import { TestArr } from '@/types/testArr';
-import { getLatestsAPI } from '@/services/latest';
+import { getLatestListAPI } from '@/services/latest';
+import { TestAll } from '@/types/test';
 
 export const useLatest = () => {
-  const [latests, setLatest] = useState<TestArr[]>();
+  const [latestList, setLatestList] = useState<TestAll[]>();
 
-  const getLatests = async (id: string) => {
+  const getLatestList = async (id: string) => {
     try {
-      const response = await getLatestsAPI(id);
+      const response = await getLatestListAPI(id);
       if (response) {
-        setLatest(response.data.testCoverDTOList);
+        setLatestList(response.data.testCoverDTOList);
       }
     } catch (error) {
       alert(error);
@@ -18,7 +18,7 @@ export const useLatest = () => {
   };
 
   return {
-    getLatests,
-    latests
+    getLatestList,
+    latestList,
   };
 };

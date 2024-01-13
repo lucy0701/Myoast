@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes } from 'react';
+import React, { ButtonHTMLAttributes, MouseEventHandler } from 'react';
 import Link from 'next/link';
 import cx from 'classnames';
 
@@ -9,10 +9,11 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
   link?: string;
   skin?: 'startBtn' | 'bottomBtn' | 'answerBtn' | 'backBtn';
+  onClick: MouseEventHandler<HTMLButtonElement>;
 }
 
 const Button = (props: Props) => {
-  const { children, className, link, skin } = props;
+  const { children, className, link, skin, onClick } = props;
 
   if (link) {
     return (
@@ -24,7 +25,7 @@ const Button = (props: Props) => {
   }
 
   return (
-    <button className={cx(styles.wrap, className, styles[skin ?? 'normal'])}>
+    <button className={cx(styles.wrap, className, styles[skin ?? 'normal'])} onClick={onClick}>
       {children}
       <div className={styles.nexticon} />
     </button>

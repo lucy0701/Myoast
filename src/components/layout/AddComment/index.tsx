@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+
 import styles from './index.module.css';
 
 interface Props {

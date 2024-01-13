@@ -1,20 +1,26 @@
+import { CommentData } from '@/types/comment';
+
 import styles from './index.module.css';
 import Comment from './Comment';
 
 interface Props {
-  imgUrl: string;
-  userName: string;
-  data: string;
-  text: string;
+  commentList: CommentData[];
 }
 
 const Comments = (props: Props) => {
-  const { imgUrl, userName, data, text } = props;
+  const { commentList } = props;
+
   return (
     <div className={styles.wrap}>
-      <Comment imgUrl={imgUrl} userName={userName} data={data} text={text}/>
-      <Comment imgUrl={imgUrl} userName={userName} data={data} text={text}/>
-      <Comment imgUrl={imgUrl} userName={userName} data={data} text={text}/>
+      {commentList.map((c, i) => (
+        <Comment
+          key={i}
+          imgUrl={c.thumbnailImage}
+          userName={c.username}
+          commentDate={c.commentDate}
+          content={c.content}
+        />
+      ))}
     </div>
   );
 };

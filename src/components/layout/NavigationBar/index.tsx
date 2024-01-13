@@ -28,12 +28,12 @@ export default function NavigationBar({ menuClicked, setMenuClicked }: Props) {
             <ul className={styles.ulWrap}>
               <p>심리테스트</p>
               <li>
-                <Link href="/test/latest" onClick={() => setMenuClicked(false)}>
+                <Link href="/latest" onClick={() => setMenuClicked(false)}>
                   최신 심리테스트
                 </Link>
               </li>
               <li>
-                <Link href="/test/list" onClick={() => setMenuClicked(false)}>
+                <Link href="/list" onClick={() => setMenuClicked(false)}>
                   전체 보기
                 </Link>
               </li>

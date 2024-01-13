@@ -1,38 +1,44 @@
+'use client';
+
 import { useEffect, useState } from 'react';
 
-import { TestArr } from '@/types/testArr';
-import { getTestAPI, getTestsAPI } from '@/services/test';
+import { Questions, TestAll } from '@/types/test';
+import { getTestAPI, getTestListAPI } from '@/services/test';
 
 export const useTest = () => {
-  const [tests, setTests] = useState<TestArr[]>();
+  const [testList, setTestList] = useState<TestAll[]>();
+  const [questions, setQuestions] = useState<Questions[]>();
+
 
   const getTestList = async () => {
     try {
-      const response = await getTestsAPI();
+      const response = await getTestListAPI();
       if (response) {
-        setTests(response.data);
+        setTestList(response.data);
       }
     } catch (error) {
       alert(error);
     }
   };
 
-  const getTests = async (id:string) => {
+  const getQuestions =async (testid:string) => {
     try {
-      const response = await getTestAPI(id);
-      if (response) {
-        setTests([response.data]);
+      const response = await getTestAPI(testid);
+      if(response) {
+        setQuestions(response.data.questions);
       }
-    } catch (error) {
-      alert(error);
+    }catch (errer) {
+      alert(errer)
     }
-  };
+  }
 
   useEffect(() => {
     getTestList();
   }, []);
+
   return {
-    tests,
-    getTests
+    testList,
+    getQuestions,
+    questions
   };
 };

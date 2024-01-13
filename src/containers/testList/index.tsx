@@ -9,16 +9,17 @@ import Button from '@/components/common/Button';
 import TestCardList from '@/components/layout/TestCardList';
 
 export default function TestList() {
-  const { tests } = useTest();
+  const { testList } = useTest();
+
   return (
     <div className={styles.wrap}>
       <Title title={'전체 테스트'} contents={'모든 테스트가 있어요!'} />
       <div className={styles.cardList}>
-        {tests &&
-          tests.map((t, i) => (
+        {testList &&
+          testList.map((t, i) => (
             <TestCardList
               key={i}
-              link={'/'}
+              testId={t.id}
               testTitle={t.title}
               imgUrl={t.imageUrl}
               playCount={t.playCount}

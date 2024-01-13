@@ -3,20 +3,20 @@ import styles from './index.module.css';
 interface Props {
   imgUrl: string;
   userName: string;
-  data: string;
-  text: string;
+  commentDate: string;
+  content: string;
 }
 
 const Comment = (props: Props) => {
-  const { imgUrl, userName, data, text } = props;
+  const { imgUrl, userName, commentDate, content } = props;
   return (
     <div className={styles.commentWrap}>
-      <div className={styles.imgUrl}>{imgUrl}</div>
+      <img src={imgUrl} className={styles.imgUrl} alt="comment" />
       <div className={styles.textBox}>
         <div>
           <div>
             <span>{userName}</span>
-            <span>{data}</span>
+            <span>{commentDate}</span>
           </div>
           <div className={styles.commentBtn}>
             <button>수정</button>
@@ -24,7 +24,7 @@ const Comment = (props: Props) => {
           </div>
         </div>
         <div>
-          <p>{text}</p>
+          <p>{content}</p>
         </div>
       </div>
     </div>

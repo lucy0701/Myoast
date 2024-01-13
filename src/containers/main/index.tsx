@@ -2,7 +2,6 @@
 
 import { useEffect } from 'react';
 
-import { testData1 } from '@/utils/testData';
 import {
   OG_MBTI_TEST_IMAGE,
   TEST_CARD_SIZE_L,
@@ -16,13 +15,13 @@ import Button from '@/components/common/Button';
 import styles from './index.module.css';
 import Footer from '@/components/layout/Footer';
 import Title from '@/components/common/Title';
-import { TestCard } from '@/components/common/TestCard';
+import { TestCard } from '@/components/layout/TestCard';
 
 export default function Main() {
-  const { latests, getLatests } = useLatest();
+  const { latestList, getLatestList } = useLatest();
 
   useEffect(() => {
-    getLatests('6');
+    getLatestList('6');
   }, []);
 
   return (
@@ -30,8 +29,8 @@ export default function Main() {
       <Title title={'MBTI 검사'} />
       <div className={styles.mbtiTast}>
         <TestCard
-          link={'/test/main'}
-          testTitle={"신속하고 아마도 정확한 퀵 MBTI!"}
+          testId={'649a7bccaa04db61384808c5'}
+          testTitle={'신속하고 아마도 정확한 퀵 MBTI!'}
           imgUrl={OG_MBTI_TEST_IMAGE}
           size={TEST_CARD_SIZE_L}
         />
@@ -42,11 +41,11 @@ export default function Main() {
       </div>
       <Title title={'최신 심테'} />
       <div className={styles.newTestWrap}>
-        {latests &&
-          latests.map((t, i) => (
+        {latestList &&
+          latestList.map((t, i) => (
             <TestCard
               key={i}
-              link={'/test/main'}
+              testId={t.id}
               testTitle={t.title}
               imgUrl={t.imageUrl}
               playCount={t.playCount}

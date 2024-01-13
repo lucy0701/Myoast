@@ -1,40 +1,53 @@
 'use client';
 
-import { testData1, commentData } from '@/utils/testData';
-import { TYPE_play_CNT, TYPE_START_BTN } from '@/constants/constant';
+import { useEffect } from 'react';
 
-import { MainTestCard } from '@/components/common/TestCard';
+import { TYPE_play_CNT, TYPE_START_BTN } from '@/constants/constant';
+import { Test } from '@/types/test';
+import { useLike } from '@/hooks/useLike';
+import { useComment } from '@/hooks/useComment';
+
+import { MainTestCard } from '@/components/layout/TestCard';
 import CountIcon from '@/components/common/Count';
 import Button from '@/components/common/Button';
 import { CountBtn } from '@/components/layout/CountBtn';
 import AddComment from '@/components/layout/AddComment';
 import Comments from '@/components/layout/Comments';
 import Footer from '@/components/layout/Footer';
-
 import styles from './index.module.css';
 
-export default function TestMain() {
-  return (
-    <div className={styles.wrap}>
-      <div>
-        <MainTestCard testTitle={testData1.testTitle} imgUrl={testData1.imgUrl} />
-        <CountIcon playCount={0} type={TYPE_play_CNT} />
+interface Props {
+  testData: Test;
+}
+export default function TestMain(props: Props) {
+  const { testData } = props;
+  const { getLikeCount, likeCount } = useLike();
+  const { commentList, getCommentList, commentCount, getCommentCount } = useComment();
+
+  useEffect(() => {
+    getLikeCount(testData.id);
+    getCommentList(testData.id,'0');
+    getCommentCount(testData.id);
+  }, []);
+
+  if (commentList) {
+    return (
+      <div className={styles.wrap}>
+        <div>
+          <MainTestCard testTitle={testData.title} imgUrl={testData.imageUrl} />
+          <CountIcon playCount={testData.playCount} type={TYPE_play_CNT} />
+        </div>
+        <div className={styles.textBox}>
+          <p>{testData.content}</p>
+        </div>
+        <Button link={`/test/play/${testData.id}`} skin={TYPE_START_BTN}>
+          테스트 시작
+        </Button>
+        <CountBtn likeCount={likeCount} />
+        <AddComment commentCount={commentCount} />
+        <Comments commentList={commentList}></Comments>
+        <Footer />
       </div>
-      <div className={styles.textBox}>
-        <p>테스트 설명1</p>
-      </div>
-      <Button link={'/test/play'} skin={TYPE_START_BTN}>
-        테스트 시작
-      </Button>
-      <CountBtn likeCount={0}></CountBtn>
-      <AddComment commentCount={0} />
-      <Comments
-        imgUrl={commentData.imgUrl}
-        userName={commentData.name}
-        data={commentData.date}
-        text={commentData.text}
-      ></Comments>
-      <Footer />
-    </div>
-  );
+    );
+  }
 }

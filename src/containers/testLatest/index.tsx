@@ -10,19 +10,20 @@ import TestCardList from '@/components/layout/TestCardList';
 import Button from '@/components/common/Button';
 
 export default function TestLatest() {
-  const { latests, getLatests } = useLatest();
+  const { latestList, getLatestList } = useLatest();
   useEffect(() => {
-    getLatests('5');
+    getLatestList('5');
   }, []);
+
   return (
     <div className={styles.wrap}>
       <Title title={'최신 테스트'} contents={'신규 테스트는 여기에'} />
       <div className={styles.cardList}>
-        {latests &&
-          latests.map((t, i) => (
+        {latestList &&
+          latestList.map((t, i) => (
             <TestCardList
               key={i}
-              link={'/'}
+              testId={t.id}
               testTitle={t.title}
               imgUrl={t.imageUrl}
               playCount={t.playCount}

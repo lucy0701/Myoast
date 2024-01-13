@@ -19,12 +19,22 @@
 .playWrap {
   width: 100%;
   height: 680px;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: rgb(241, 233, 221);
 }
 
+.contentWarp{
+  width: 100%;
+  /* background-color: #999; */
+  position: absolute;
+  top: 80px;
+}
+.contentWarpNone {
+  display: none;
+}
 /* 진행 게이지 */
 .progressBarWrap {
   width: 100%;

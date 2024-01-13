@@ -6,6 +6,8 @@ interface Props {
 
 export const CountBtn = (props: Props) => {
   const { likeCount } = props;
+  console.log(likeCount);
+
   return (
     <div className={styles.wrap}>
       <div className={styles.btnWarp}>
