@@ -8,7 +8,7 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   className?: string;
   link?: string;
-  skin?: 'startBtn' | 'bottomBtn' | 'answerBtn' | 'backBtn' ;
+  skin?: 'startBtn' | 'bottomBtn' | 'answerBtn' | 'backBtn';
   onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
