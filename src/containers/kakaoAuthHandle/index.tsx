@@ -1,5 +1,5 @@
 'use client';
-import { useRouter } from 'next/router';
+import { useRouter, useSearchParams } from 'next/navigation';
 import axios from 'axios';
 import { useEffect } from 'react';
 
@@ -14,9 +14,11 @@ export default function KaKaoAuthHandle() {
 
   useEffect(() => {
     const router = useRouter();
+    const searchParams = useSearchParams();
+
     // 클라이언트 내에서만 실행
     if (typeof window !== 'undefined') {
-      const searchParams = new URLSearchParams(window.location.search);
+      // const searchParams = new URLSearchParams(window.location.search);
       let code = searchParams.get('code');
       let headers = getHeaders();
       // code, headers 전송, 받아온 user정보 session 저장
@@ -46,7 +48,7 @@ export default function KaKaoAuthHandle() {
 
             if (prev) {
               sessionStorage.setItem('ngb', 'false');
-              prev.indexOf('need_login') > -1 ? router.back() : router.push(prev);
+              // prev.indexOf('need_login') > -1 ? router.back() : router.push(prev);
             } else {
               router.push('/');
             }
