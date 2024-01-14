@@ -1,4 +1,5 @@
 import jwtDecode from 'jwt-decode';
+
 import { TOKEN_NAME, USER_INFO } from '@/constants/constant';
 
 export function clearSessionStorage() {
