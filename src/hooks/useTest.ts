@@ -1,44 +1,40 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
-import { Questions, TestAll } from '@/types/test';
-import { getTestAPI, getTestListAPI } from '@/services/test';
+import { Test, TestAll } from '@/types/test';
+import { getLatestListAPI, getTestAPI } from '@/services/test';
 
 export const useTest = () => {
-  const [testList, setTestList] = useState<TestAll[]>();
-  const [questions, setQuestions] = useState<Questions[]>();
+  const [tsetData, setTestData] = useState<Test>();
+  const [latestList, setLatestList] = useState<TestAll[]>();
 
-
-  const getTestList = async () => {
+  const getLatestList = async (id: string) => {
     try {
-      const response = await getTestListAPI();
+      const response = await getLatestListAPI(id);
       if (response) {
-        setTestList(response.data);
+        setLatestList(response.data.testCoverDTOList);
       }
     } catch (error) {
       alert(error);
     }
   };
 
-  const getQuestions =async (testid:string) => {
+  const getTest = async (testid: string) => {
     try {
-      const response = await getTestAPI(testid);
-      if(response) {
-        setQuestions(response.data.questions);
+      const res = await getTestAPI(testid);
+      if (res) {
+        setTestData(res.data);
       }
-    }catch (errer) {
-      alert(errer)
+    } catch (errer) {
+      alert(errer);
     }
-  }
-
-  useEffect(() => {
-    getTestList();
-  }, []);
+  };
 
   return {
-    testList,
-    getQuestions,
-    questions
+    getTest,
+    tsetData,
+    getLatestList,
+    latestList,
   };
 };

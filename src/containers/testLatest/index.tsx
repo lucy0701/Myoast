@@ -1,26 +1,26 @@
 'use client';
-import { useEffect } from 'react';
 
-import { useLatest } from '@/hooks/useLatest';
 import { TYPE_BOTTOM_BTN } from '@/constants/constant';
+import { TestAll } from '@/types/test';
 
 import styles from './index.module.css';
 import Title from '@/components/common/Title';
 import TestCardList from '@/components/layout/TestCardList';
 import Button from '@/components/common/Button';
 
-export default function TestLatest() {
-  const { latestList, getLatestList } = useLatest();
-  useEffect(() => {
-    getLatestList('5');
-  }, []);
+interface Props {
+  testLatestData: [TestAll];
+}
+
+export default function TestLatest(props: Props) {
+  const { testLatestData } = props;
 
   return (
     <div className={styles.wrap}>
       <Title title={'최신 테스트'} contents={'신규 테스트는 여기에'} />
       <div className={styles.cardList}>
-        {latestList &&
-          latestList.map((t, i) => (
+        {testLatestData &&
+          testLatestData.map((t, i) => (
             <TestCardList
               key={i}
               testId={t.id}

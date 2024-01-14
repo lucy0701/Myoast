@@ -4,17 +4,20 @@ import { useParams, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 import { TYPE_ANSWER_BTN } from '@/constants/constant';
-import { useTest } from '@/hooks/useTest';
+import { Questions } from '@/types/test';
 
 import Button from '@/components/common/Button';
 import Footer from '@/components/layout/Footer';
 import styles from './index.module.css';
 
-export default function TestPlay() {
-  const router = useRouter();
-  const { ...params } = useParams();
-  const { questions, getQuestions } = useTest();
+interface Props {
+  testData: [Questions];
+}
 
+export default function TestPlay(props:Props) {
+  const router = useRouter();
+  const { testData } = props;
+  const { ...params } = useParams();
   const initialArray = Array(12).fill(0);
 
   const [testDone, setTestDone] = useState({
@@ -26,12 +29,9 @@ export default function TestPlay() {
   const [qstStageIndex, setQstStageIndex] = useState(0);
   const [putArr, setPutArr] = useState(initialArray);
 
-  useEffect(() => {
-    getQuestions(params.testId);
-  }, [setQstStageIndex]);
 
   useEffect(() => {
-    let timer:ReturnType<typeof setTimeout>
+    let timer: ReturnType<typeof setTimeout>;
     if (testDone.lastClick) {
       timer = setTimeout(() => {
         setTestDone((prev) => ({ ...prev, state: true }));
@@ -60,9 +60,9 @@ export default function TestPlay() {
   }
 
   const hendleOnClick = () => {
-    if (questions && qstStageIndex <= questions.length - 1) {
+    if (testData && qstStageIndex <= testData.length - 1) {
       setQstStageIndex(qstStageIndex + 1);
-    } else if (questions && qstStageIndex === questions.length) {
+    } else if (testData && qstStageIndex === testData.length) {
       makeScore();
     }
   };
@@ -82,7 +82,7 @@ export default function TestPlay() {
     return `${percentage}%`;
   };
 
-  if (questions) {
+  if (testData) {
     return (
       <div className={styles.wrap}>
         <div className={styles.playWrap}>
@@ -91,10 +91,10 @@ export default function TestPlay() {
               <div className={styles.gaugeBar} style={{ width: calculateWidth(qstStageIndex) }} />
             </div>
             <p>
-              질문<span>{qstStageIndex + 1}</span>/{questions.length}
+              질문<span>{qstStageIndex + 1}</span>/{testData.length}
             </p>
           </div>
-          {questions.map(
+          {testData.map(
             (q, i) =>
               qstStageIndex === q.index && (
                 <div key={i} className={cx(styles.contentWarp, { [styles.contentWarpNone]: false })}>

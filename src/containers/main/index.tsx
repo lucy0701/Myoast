@@ -9,7 +9,7 @@ import {
   TYPE_START_BTN,
   TYPE_TEST_CARD,
 } from '@/constants/constant';
-import { useLatest } from '@/hooks/useLatest';
+import { useTest } from '@/hooks/useTest';
 
 import Button from '@/components/common/Button';
 import styles from './index.module.css';
@@ -18,7 +18,7 @@ import Title from '@/components/common/Title';
 import { TestCard } from '@/components/layout/TestCard';
 
 export default function Main() {
-  const { latestList, getLatestList } = useLatest();
+  const { latestList, getLatestList } = useTest();
 
   useEffect(() => {
     getLatestList('6');
@@ -37,7 +37,9 @@ export default function Main() {
       </div>
       <div className={styles.randomTast}>
         <Title title={'랜덤 심리테스트'} contents={'일단 시작 하자'} />
-        <Button link={'/test/random'} skin={TYPE_START_BTN}>아무거나 시작</Button>
+        <Button link={'/test/random'} skin={TYPE_START_BTN}>
+          아무거나 시작
+        </Button>
       </div>
       <Title title={'최신 심테'} />
       <div className={styles.newTestWrap}>
