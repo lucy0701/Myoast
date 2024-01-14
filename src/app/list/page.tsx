@@ -4,9 +4,9 @@ import TestList from '@/containers/testList';
 import { getTestListAPI } from '@/services/test';
 
 export default async function Page() {
-  const testListData = await getTestListAPI()
+  const testData = await getTestListAPI()
     .then((res) => res.data)
     .catch((error) => error);
-  if (!testListData) return notFound;
-  return <TestList testListData={testListData} />;
+  if (!testData) return notFound;
+  return <TestList testData={testData} />;
 }

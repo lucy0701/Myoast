@@ -56,7 +56,7 @@ export default function Main() {
             />
           ))}
       </div>
-      <Button link={'/test/list'} skin={TYPE_START_BTN}>
+      <Button link={'/list'} skin={TYPE_START_BTN}>
         전체 보기
       </Button>
       <Footer />

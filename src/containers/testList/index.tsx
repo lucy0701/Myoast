@@ -9,16 +9,16 @@ import Button from '@/components/common/Button';
 import TestCardList from '@/components/layout/TestCardList';
 
 interface Props {
-  testListData: TestAll[];
+  testData: TestAll[];
 }
 export default function TestList(props: Props) {
-  const { testListData } = props;
+  const { testData } = props;
   return (
     <div className={styles.wrap}>
       <Title title={'전체 테스트'} contents={'모든 테스트가 있어요!'} />
       <div className={styles.cardList}>
-        {testListData &&
-          testListData.map((t, i) => (
+        {testData &&
+          testData.map((t, i) => (
             <TestCardList
               key={i}
               testId={t.id}
