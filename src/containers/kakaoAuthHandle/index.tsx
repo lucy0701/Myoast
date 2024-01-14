@@ -13,9 +13,9 @@ export default function KaKaoAuthHandle() {
   // 인가 코드
 
   useEffect(() => {
+    const router = useRouter();
     // 클라이언트 내에서만 실행
     if (typeof window !== 'undefined') {
-      const router = useRouter();
       const searchParams = new URLSearchParams(window.location.search);
       let code = searchParams.get('code');
       let headers = getHeaders();

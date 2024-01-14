@@ -17,7 +17,6 @@ const AddComment = (props: Props) => {
 
   const handleOnClick = () => {
     if (!inputValue) return;
-    alert('ㅇㅋ');
     setInputValue('');
   };
 
