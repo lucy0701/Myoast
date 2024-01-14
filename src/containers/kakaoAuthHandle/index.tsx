@@ -17,7 +17,6 @@ export default function KaKaoAuthHandle() {
 
   useEffect(() => {
     const fetchData = async () => {
-
       // const code = new URL(window.location.href).searchParams.get('code');
       if (typeof window !== 'undefined') {
         let headers = getHeaders();
@@ -35,7 +34,7 @@ export default function KaKaoAuthHandle() {
               // 로그인 후, 생성된 토큰 정보를 저장하기 위해 다시 호출
               headers = getHeaders();
 
-              if (!decodeToken()?.role || decodeToken()?.role === 'ROLE_USER') {
+              if (!decodeToken().role || decodeToken().role === 'ROLE_USER') {
                 axios
                   .post(`${DOMAIN_BE_PROD}/api/v1/loginTracker/${response.data.memberId}/track`, {}, { headers })
                   .catch((err) => {

@@ -30,7 +30,7 @@ interface DecodedToken {
 }
 // 토큰 딩 만료시간 계산
 export function decodeToken() {
-  if (typeof sessionStorage === 'undefined') return;
+  if (typeof sessionStorage === 'undefined') return { state: false };
 
   const token = sessionStorage.getItem(TOKEN_NAME);
   if (!token) {
