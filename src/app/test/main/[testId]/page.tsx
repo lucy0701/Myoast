@@ -10,8 +10,7 @@ interface Props {
 }
 export default async function Page({ params: { testId } }: Props) {
   const testData = await getTestAPI(testId)
-    .then(async (res) => res.data)
-    .catch((error) => alert(error));
+    .then(async (res) => res.data);
   if (!testData) return notFound;
   return <TestMain testData={testData} />;
 }
