@@ -1,5 +1,5 @@
 'use client';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import { useEffect } from 'react';
 
@@ -14,12 +14,12 @@ export default function KaKaoAuthHandle() {
 
   useEffect(() => {
     const router = useRouter();
-    const searchParams = useSearchParams();
+    // const searchParams = useSearchParams();
 
     // 클라이언트 내에서만 실행
     if (typeof window !== 'undefined') {
-      // const searchParams = new URLSearchParams(window.location.search);
-      let code = searchParams.get('code');
+      const code = new URL(window.location.href).searchParams.get('code');;
+      // let code = searchParams.get('code');
       let headers = getHeaders();
       // code, headers 전송, 받아온 user정보 session 저장
       // 로그인 전이므로 headers은 undefind임
