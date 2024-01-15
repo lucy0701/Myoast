@@ -37,3 +37,12 @@ export const OG_MBTI_TEST_IMAGE = 'https://i.ibb.co/GJ08BC3/quick-mbti-cover.png
 // Type of the page
 export const TYPE_MYPAGE = 'mypage';
 export const TYPE_LOGIN = 'login';
+
+// kakao
+export const KAKAO_REDIRECT_URI_DEV = 'http://localhost:3000';
+export const KAKAO_REST_API_KEY = process.env.NEXT_PUBLIC_REST_API_KEY;
+export const KAKAO_INIT_KEY = process.env.NEXT_PUBLIC_KAKAO_KEY;
+
+export const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${KAKAO_REST_API_KEY}&redirect_uri=${DOMAIN}/login/oauth2/kakao/code&response_type=code`;
+
+export const KAKAO_AUTH_URL_DEV = `https://kauth.kakao.com/oauth/authorize?client_id=${KAKAO_REST_API_KEY}&redirect_uri=${KAKAO_REDIRECT_URI_DEV}/login/oauth2/kakao/code&response_type=code`;

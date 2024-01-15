@@ -14,12 +14,13 @@ interface Props {
   testData: [Questions];
 }
 
-export default function TestPlay(props:Props) {
+export default function TestPlay(props: Props) {
   const router = useRouter();
   const { testData } = props;
-  const { ...params } = useParams();
-  const initialArray = Array(12).fill(0);
+  // const { ...params } = useParams();
+  const params = useParams();
 
+  const initialArray = Array(12).fill(0);
   const [testDone, setTestDone] = useState({
     state: false,
     lastClick: false,
@@ -28,7 +29,6 @@ export default function TestPlay(props:Props) {
   const [score, setScore] = useState([0, 0, 0, 0]);
   const [qstStageIndex, setQstStageIndex] = useState(0);
   const [putArr, setPutArr] = useState(initialArray);
-
 
   useEffect(() => {
     let timer: ReturnType<typeof setTimeout>;
@@ -46,7 +46,7 @@ export default function TestPlay(props:Props) {
     if (testDone.state) {
       sessionStorage.setItem('mbScore', JSON.stringify(score));
       sessionStorage.setItem('mbTestDone', JSON.stringify(true));
-      return router.push(`/result/${params.testId}`);
+      router.push(`/result/${params.testId}`);
     }
   }, [testDone.state]);
 

@@ -1,6 +1,7 @@
 import jwtDecode from 'jwt-decode';
 
-import { TOKEN_NAME, USER_INFO } from '@/constants/constant';
+import { DecodedToken } from '@/types/kakao';
+import { KAKAO_INIT_KEY, TOKEN_NAME, USER_INFO } from '@/constants/constant';
 
 export function clearSessionStorage() {
   sessionStorage.setItem(TOKEN_NAME, '');
@@ -23,14 +24,8 @@ export function getHeaders(): { Authorization?: string } | undefined {
   return undefined;
 }
 
-// 토큰 타입
-interface DecodedToken {
-  auth: string;
-  exp: number;
-}
-// 토큰 딩 만료시간 계산
 export function decodeToken() {
-  if (typeof sessionStorage === 'undefined') return;
+  if (typeof sessionStorage === 'undefined') return { state: false };
 
   const token = sessionStorage.getItem(TOKEN_NAME);
   if (!token) {
@@ -38,7 +33,6 @@ export function decodeToken() {
       state: false,
     };
   }
-  // 토큰 읽기 :jwtDecode는 검증X, 데이터만 읽음
   const decodeToken = jwtDecode(token) as DecodedToken;
   const expiration = decodeToken.exp;
   const expirationTime = new Date(expiration * 1000);
@@ -51,7 +45,11 @@ export function decodeToken() {
   } else {
     return {
       state: true,
-      role: decodeToken.auth,
+      role: decodeToken.sub,
     };
   }
 }
+
+export const kakaoInit = () => {
+  if (!window.Kakao.isInitialized()) window.Kakao.init(KAKAO_INIT_KEY);
+};

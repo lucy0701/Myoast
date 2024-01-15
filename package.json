@@ -10,6 +10,7 @@
     "format": "prettier --write ./src"
   },
   "dependencies": {
+    "@types/node": "^20.11.0",
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",
     "axios": "^1.4.0",
@@ -25,7 +26,6 @@
     "typescript": "5.1.6"
   },
   "devDependencies": {
-    "@types/node": "^20.11.0",
     "eslint": "^8.56.0",
     "eslint-config-next": "^13.4.8",
     "eslint-config-prettier": "^8.8.0",

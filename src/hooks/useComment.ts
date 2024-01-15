@@ -25,7 +25,7 @@ export const useComment = () => {
       if (response) {
         setCommentCount(response.data);
       }
-    } catch (error) {
+    }   catch (error) {
       alert(error);
     }
   };
