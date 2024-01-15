@@ -40,8 +40,8 @@ export const TYPE_LOGIN = 'login';
 
 // kakao
 export const KAKAO_REDIRECT_URI_DEV = 'http://localhost:3000';
-export const KAKAO_REST_API_KEY = '4d714bede2cc5137d16d85362b73db5a';
-export const KAKAO_INIT_KEY = '987c3a9f0e1aa3ff5ef1dc94ee19d648';
+export const KAKAO_REST_API_KEY = process.env.NEXT_PUBLIC_REST_API_KEY;
+export const KAKAO_INIT_KEY = process.env.NEXT_PUBLIC_KAKAO_KEY;
 
 export const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${KAKAO_REST_API_KEY}&redirect_uri=${DOMAIN}/login/oauth2/kakao/code&response_type=code`;
 
