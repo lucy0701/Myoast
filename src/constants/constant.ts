@@ -1,6 +1,6 @@
 // Domain
 export const DOMAIN = 'https://mongbit.vercel.app';
-export const DOMAIN_BE_PROD = process.env.NEXT_PUBLIC_BE_URL;
+export const DOMAIN_BE_PROD = 'https://mongbit.site';
 export const DOMAIN_FE_DEV = 'http://localhost:3000';
 
 // Type of the button
