@@ -47,7 +47,7 @@ export default function Main() {
           latestList.map((t, i) => (
             <TestCard
               key={i}
-              testId={t.id}
+              testId={t.testId}
               testTitle={t.title}
               imgUrl={t.imageUrl}
               playCount={t.playCount}
