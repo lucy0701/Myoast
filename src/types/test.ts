@@ -2,22 +2,22 @@ export interface Test {
   id: string;
   title: string;
   content: string;
-  questions: [Questions];
-  results: [Results];
+  questions: [Question];
+  results: [TestResultData];
   imageUrl: string;
-  type: 'test';
   playCount: number;
+  type: ['MBTI', 'PCL_R'];
 }
 
-export interface Results {
+export interface TestResultData {
   id: string;
   result: string;
   title: string;
   content: string;
-  imamgeUrl: string;
+  imageUrl: string;
 }
 
-export interface Questions {
+export interface Question {
   id: string;
   index: number;
   question: string;
@@ -25,25 +25,26 @@ export interface Questions {
   answerMinus: string;
 }
 
-export interface TestAll {
-  id: string;
+export interface TestCover {
+  testId: string;
   title: string;
   imageUrl: string;
   playCount: number;
-  type: 'MBTI';
+  type: ['MBTI', 'PCL_R'];
   likeCount: number;
   commentCount: number;
 }
 
-export interface Latest {
-  testCoverDTOList: [{
-    id: string;
-    title: string;
-    imageUrl: string;
-    playCount: number;
-    type: 'MBTI';
-    likeCount: number;
-    commentCount: number;
-  }];
+export interface TestCoverResponse {
+  testCoverDTOList: [TestCover];
   hasNextPage: boolean;
+}
+
+export interface TestResultFromMyPage {
+  testId: string;
+  result: string;
+  title: string;
+  content: string;
+  imamgeUrl: string;
+  likeCount: number;
 }

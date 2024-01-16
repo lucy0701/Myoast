@@ -4,31 +4,31 @@ import { useParams, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 import { TYPE_ANSWER_BTN } from '@/constants/constant';
-import { Questions } from '@/types/test';
+import { Question } from '@/types/test';
 
 import Button from '@/components/common/Button';
 import Footer from '@/components/layout/Footer';
 import styles from './index.module.css';
 
 interface Props {
-  testData: [Questions];
+  testData: [Question];
 }
 
 export default function TestPlay(props: Props) {
   const router = useRouter();
-  const { testData } = props;
-  // const { ...params } = useParams();
   const params = useParams();
+  const { testData } = props;
 
-  const initialArray = Array(12).fill(0);
+  const arryLength = testData.length;
+  const initialArray = Array(arryLength).fill(0);
+  const [putArr, setPutArr] = useState(initialArray);
+
+  const [qstStageIndex, setQstStageIndex] = useState(0);
+  const [score, setScore] = useState([0, 0, 0, 0]);
   const [testDone, setTestDone] = useState({
     state: false,
     lastClick: false,
   });
-
-  const [score, setScore] = useState([0, 0, 0, 0]);
-  const [qstStageIndex, setQstStageIndex] = useState(0);
-  const [putArr, setPutArr] = useState(initialArray);
 
   useEffect(() => {
     let timer: ReturnType<typeof setTimeout>;
@@ -52,33 +52,31 @@ export default function TestPlay(props: Props) {
 
   function makeScore() {
     setTestDone((prve) => ({ ...prve, lastClick: true }));
-    const part_1 = putArr[0] + putArr[1] + putArr[2];
-    const part_2 = putArr[3] + putArr[4] + putArr[5];
-    const part_3 = putArr[6] + putArr[7] + putArr[8];
-    const part_4 = putArr[9] + putArr[10] + putArr[11];
-    setScore([part_1, part_2, part_3, part_4]);
+    const calculate = (start: number, end: number) => putArr.slice(start, end).reduce((acc, value) => acc + value, 0);
+    const score = [0, 1, 2, 3].map((index) => calculate(index * 3, (index + 1) * 3));
+    setScore(score);
   }
 
   const hendleOnClick = () => {
-    if (testData && qstStageIndex <= testData.length - 1) {
+    if (testData && qstStageIndex !== arryLength - 1) {
       setQstStageIndex(qstStageIndex + 1);
-    } else if (testData && qstStageIndex === testData.length) {
+    } else if (qstStageIndex === arryLength - 1) {
       makeScore();
     }
   };
 
-  const onClickYesBtn = () => {
-    hendleOnClick();
+  const onClickPlusBtn = () => {
     putArr[qstStageIndex] = 1;
     setPutArr([...putArr]);
-  };
-  const onClickNoBtn = () => {
     hendleOnClick();
+  };
+  const onClickMinusBtn = () => {
     putArr[qstStageIndex] = -1;
     setPutArr([...putArr]);
+    hendleOnClick();
   };
   const calculateWidth = (index: number) => {
-    const percentage = ((index + 1) / initialArray.length) * 100;
+    const percentage = ((index + 1) / arryLength) * 100;
     return `${percentage}%`;
   };
 
@@ -91,7 +89,7 @@ export default function TestPlay(props: Props) {
               <div className={styles.gaugeBar} style={{ width: calculateWidth(qstStageIndex) }} />
             </div>
             <p>
-              질문<span>{qstStageIndex + 1}</span>/{testData.length}
+              질문<span>{Math.min(qstStageIndex + 1, arryLength)}</span>/{arryLength}
             </p>
           </div>
           {testData.map(
@@ -102,10 +100,10 @@ export default function TestPlay(props: Props) {
                     <p>{q.question}</p>
                   </div>
                   <div className={styles.answerWrap}>
-                    <Button skin={TYPE_ANSWER_BTN} onClick={onClickYesBtn}>
+                    <Button skin={TYPE_ANSWER_BTN} onClick={onClickPlusBtn}>
                       {q.answerPlus}
                     </Button>
-                    <Button skin={TYPE_ANSWER_BTN} onClick={onClickNoBtn}>
+                    <Button skin={TYPE_ANSWER_BTN} onClick={onClickMinusBtn}>
                       {q.answerMinus}
                     </Button>
                   </div>

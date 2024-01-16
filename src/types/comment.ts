@@ -1,5 +1,5 @@
 
-  export interface CommentData {
+  export interface CommentDTO {
     id: string;
     memberId: string;
     testId: string;
@@ -9,7 +9,15 @@
     thumbnailImage: string;
   }
 
-  export interface CommentsData {
-    commentDTOList: [CommentData];
+  export interface CommentData {
+    id: string;
+    memberId: string;
+    testId: string;
+    commentDate: string;
+    content: string;
+  }
+
+  export interface CommentResponse {
+    commentDTOList: [CommentDTO];
     hasNextPage: boolean;
   }

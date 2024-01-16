@@ -1,10 +1,10 @@
-import { CommentData } from '@/types/comment';
+import { CommentDTO } from '@/types/comment';
 
 import styles from './index.module.css';
 import Comment from './Comment';
 
 interface Props {
-  commentList: CommentData[];
+  commentList: CommentDTO[];
 }
 
 const Comments = (props: Props) => {

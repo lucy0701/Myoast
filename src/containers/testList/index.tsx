@@ -1,7 +1,7 @@
 'use client';
 
 import { TYPE_BOTTOM_BTN } from '@/constants/constant';
-import { TestAll } from '@/types/test';
+import { TestCover } from '@/types/test';
 
 import styles from './index.module.css';
 import Title from '@/components/common/Title';
@@ -9,7 +9,7 @@ import Button from '@/components/common/Button';
 import TestCardList from '@/components/layout/TestCardList';
 
 interface Props {
-  testData: TestAll[];
+  testData: TestCover[];
 }
 export default function TestList(props: Props) {
   const { testData } = props;

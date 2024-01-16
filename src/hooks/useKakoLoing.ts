@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useState } from 'react';
 
-import { KAKAO_REDIRECT_URI_DEV, KAKAO_REST_API_KEY } from '@/constants/constant';
+import { DOMAIN_FE_DEV, KAKAO_REST_API_KEY } from '@/constants/constant';
 
 const useKakaoLogin = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -9,7 +9,7 @@ const useKakaoLogin = () => {
   const handleLogin = async (code: string | string[]) => {
     const options = {
       method: 'POST',
-      url: `https://kauth.kakao.com/oauth/authorize?client_id=${KAKAO_REST_API_KEY}&redirect_uri=${KAKAO_REDIRECT_URI_DEV}/login/oauth2/kakao/code&code=${code}`,
+      url: `https://kauth.kakao.com/oauth/authorize?client_id=${KAKAO_REST_API_KEY}&redirect_uri=${DOMAIN_FE_DEV}/login/oauth2/kakao/code&code=${code}`,
       data: code,
     };
 

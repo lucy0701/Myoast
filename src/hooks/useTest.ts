@@ -2,12 +2,12 @@
 
 import { useState } from 'react';
 
-import { Test, TestAll } from '@/types/test';
+import { Test, TestCover } from '@/types/test';
 import { getLatestListAPI, getTestAPI } from '@/services/test';
 
 export const useTest = () => {
   const [tsetData, setTestData] = useState<Test>();
-  const [latestList, setLatestList] = useState<TestAll[]>();
+  const [latestList, setLatestList] = useState<TestCover[]>();
 
   const getLatestList = async (id: string) => {
     try {

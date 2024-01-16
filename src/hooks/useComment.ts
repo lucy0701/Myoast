@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
 import { getCommentCountAPI, getCommentsAPI } from '@/services/comment';
-import { CommentData } from '@/types/comment';
+import { CommentDTO } from '@/types/comment';
 
 export const useComment = () => {
-  const [commentList, setCommentsList] = useState<CommentData[]>();
+  const [commentList, setCommentsList] = useState<CommentDTO[]>();
   const [commentCount, setCommentCount] = useState(0);
 
   // page별 목록 가져오기

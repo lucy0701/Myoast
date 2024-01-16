@@ -15,8 +15,6 @@ export default function KaKaoAuthHandle() {
   const code = searchParams.get('code');
 
   useEffect(() => {
-    // const code = new URL(window.location.href).searchParams.get('code');
-    // if (typeof window !== 'undefined') {
     let headers = getHeaders();
     if (code) {
       axios
@@ -28,9 +26,8 @@ export default function KaKaoAuthHandle() {
           sessionStorage.setItem(USER_INFO + 'thumbnail', response.data.thumbnail);
           sessionStorage.setItem(USER_INFO + 'registDate', response.data.registDate);
 
-          const prev = sessionStorage.getItem('ngb');
-          // 로그인 후, 생성된 토큰 정보를 저장하기 위해 다시 호출
           headers = getHeaders();
+          // 회원 로그인 기록
           if (!decodeToken().role || decodeToken().role === 'ROLE_USER') {
             axios
               .post(`${DOMAIN_BE_PROD}/api/v1/loginTracker/${response.data.memberId}/track`, {}, { headers })
@@ -39,20 +36,13 @@ export default function KaKaoAuthHandle() {
                 router.push('/login');
               });
           }
-
-          if (prev) {
-            sessionStorage.setItem('ngb', 'false');
-            // prev.indexOf('need_login') > -1 ? router.back() : router.push(prev);
-          } else {
-            router.push('/');
-          }
+          router.push('/');
         })
         .catch((err) => {
           alert(err.response.data);
           router.push('/login');
         });
     }
-    // }
   }, []);
 
   return (
