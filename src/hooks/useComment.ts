@@ -1,32 +1,72 @@
 import { useState } from 'react';
+import { useRecoilState } from 'recoil';
 
-import { getCommentCountAPI, getCommentsAPI } from '@/services/comment';
+import {
+  deleteCommentAPI,
+  getCommentCountAPI,
+  getCommentsAPI,
+  postAddCommentAPI,
+  updateCommentAPI,
+} from '@/services/comment';
 import { CommentDTO } from '@/types/comment';
+import { commentListState } from '@/states/commentListState';
 
 export const useComment = () => {
-  const [commentList, setCommentsList] = useState<CommentDTO[]>();
+  const [commentList, setCommentsList] = useRecoilState<CommentDTO[]>(commentListState);
   const [commentCount, setCommentCount] = useState(0);
 
-  // page별 목록 가져오기
   const getCommentList = async (testid: string, pageNumber: string) => {
     try {
-      const response = await getCommentsAPI(testid, pageNumber);
-      if (response) {
-        setCommentsList(response.data.commentDTOList);
+      const res = await getCommentsAPI(testid, pageNumber);
+      if (res) {
+        setCommentsList(res.data.commentDTOList);
       }
-    } catch (error) {
-      alert(error);
+    } catch (err) {
+      alert(err);
     }
   };
 
   const getCommentCount = async (testid: string) => {
     try {
-      const response = await getCommentCountAPI(testid);
-      if (response) {
-        setCommentCount(response.data);
+      const res = await getCommentCountAPI(testid);
+      if (res) {
+        setCommentCount(res.data);
       }
-    }   catch (error) {
-      alert(error);
+    } catch (err) {
+      alert(err);
+    }
+  };
+
+  const postAddCommentData = async (memberId: string, testId: string, content: string) => {
+    try {
+      const res = await postAddCommentAPI(memberId, testId, content);
+      if (res) {
+        getCommentList(testId, '0');
+      }
+    } catch (err) {
+      alert(err);
+    }
+  };
+
+  const updateCommentData = async (memberId: string, testId: string, content: string, commentId: string) => {
+    try {
+      await updateCommentAPI(memberId, testId, content, commentId);
+      await getCommentList(testId, '0');
+    } catch (err) {
+      alert(err);
+    }
+  };
+
+  const deleteCommentData = async (commentId: string, memberId: string, testId: string) => {
+    const data = {
+      id: commentId,
+      memberId: memberId,
+    };
+    try {
+      await deleteCommentAPI(data);
+      await getCommentList(testId, '0');
+    } catch (err) {
+      alert(err);
     }
   };
 
@@ -34,6 +74,9 @@ export const useComment = () => {
     commentList,
     getCommentList,
     commentCount,
-    getCommentCount
+    getCommentCount,
+    postAddCommentData,
+    updateCommentData,
+    deleteCommentData,
   };
 };

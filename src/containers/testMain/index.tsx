@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 
-import { TYPE_play_CNT, TYPE_START_BTN } from '@/constants/constant';
+import { TYPE_PLAY_CNT, TYPE_START_BTN } from '@/constants/constant';
 import { Test } from '@/types/test';
 import { useLike } from '@/hooks/useLike';
 import { useComment } from '@/hooks/useComment';
@@ -26,7 +26,7 @@ export default function TestMain(props: Props) {
 
   useEffect(() => {
     getLikeCount(testData.id);
-    getCommentList(testData.id,'0');
+    getCommentList(testData.id, '0');
     getCommentCount(testData.id);
   }, []);
 
@@ -35,7 +35,7 @@ export default function TestMain(props: Props) {
       <div className={styles.wrap}>
         <div>
           <MainTestCard testTitle={testData.title} imgUrl={testData.imageUrl} />
-          <CountIcon playCount={testData.playCount} type={TYPE_play_CNT} />
+          <CountIcon playCount={testData.playCount} type={TYPE_PLAY_CNT} />
         </div>
         <div className={styles.textBox}>
           <p>{testData.content}</p>
@@ -44,8 +44,8 @@ export default function TestMain(props: Props) {
           테스트 시작
         </Button>
         <CountBtn likeCount={likeCount} />
-        <AddComment commentCount={commentCount} />
-        <Comments commentList={commentList}/>
+        <AddComment testId={testData.id} commentCount={commentCount} />
+        <Comments commentList={commentList} />
         <Footer />
       </div>
     );

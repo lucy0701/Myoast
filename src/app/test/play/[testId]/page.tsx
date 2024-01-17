@@ -11,7 +11,7 @@ interface Props {
 export default async function Page({ params: { testId } }: Props) {
   const testData = await getTestAPI(testId)
     .then(async (res) => res.data.questions)
-    .catch((error) => error);
+    .catch((err) => err);
   if (!testData) return notFound;
   return <TestPlay testData={testData} />;
 }

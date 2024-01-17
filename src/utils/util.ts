@@ -1,14 +1,17 @@
 import jwtDecode from 'jwt-decode';
 
 import { DecodedToken } from '@/types/login';
-import { KAKAO_INIT_KEY, TOKEN_NAME, USER_INFO } from '@/constants/constant';
+import { KAKAO_INIT_KEY } from '@/constants/constant';
+import { MEMBER_ID, REGIST_DATA, THUMBNAIL, TOKEN_NAME, USER_INFO, USER_NAME } from '@/constants/sessionStorage';
 
 export function clearSessionStorage() {
-  sessionStorage.setItem(TOKEN_NAME, '');
-  sessionStorage.setItem(USER_INFO + 'memeberId', '');
-  sessionStorage.setItem(USER_INFO + 'thumbnail', '');
-  sessionStorage.setItem(USER_INFO + 'registDate', '');
-  sessionStorage.setItem(USER_INFO + 'username', '');
+  if (typeof window !== 'undefined') {
+    sessionStorage.setItem(TOKEN_NAME, '');
+    sessionStorage.setItem(USER_INFO + MEMBER_ID, '');
+    sessionStorage.setItem(USER_INFO + THUMBNAIL, '');
+    sessionStorage.setItem(USER_INFO + REGIST_DATA, '');
+    sessionStorage.setItem(USER_INFO + USER_NAME, '');
+  }
 }
 
 export function getHeaders(): { Authorization?: string } | undefined {

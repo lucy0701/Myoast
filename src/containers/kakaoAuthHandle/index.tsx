@@ -3,7 +3,16 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import axios from 'axios';
 import { useEffect } from 'react';
 
-import { DOMAIN_BE_PROD, TOKEN_NAME, USER_INFO } from '@/constants/constant';
+import { DOMAIN_BE_PROD } from '@/constants/constant';
+import {
+  AUTHORIZATION,
+  MEMBER_ID,
+  REGIST_DATA,
+  THUMBNAIL,
+  TOKEN_NAME,
+  USER_INFO,
+  USER_NAME,
+} from '@/constants/sessionStorage';
 import { decodeToken, getHeaders } from '@/utils/util';
 
 import styles from './index.module.css';
@@ -20,11 +29,13 @@ export default function KaKaoAuthHandle() {
       axios
         .get(`${DOMAIN_BE_PROD}/login/oauth2/kakao/code?code=${code}`, { headers })
         .then((response) => {
-          sessionStorage.setItem(TOKEN_NAME, response.headers['authorization']);
-          sessionStorage.setItem(USER_INFO + 'memeberId', response.data.memberId);
-          sessionStorage.setItem(USER_INFO + 'username', response.data.username);
-          sessionStorage.setItem(USER_INFO + 'thumbnail', response.data.thumbnail);
-          sessionStorage.setItem(USER_INFO + 'registDate', response.data.registDate);
+          if (typeof window !== 'undefined') {
+            sessionStorage.setItem(TOKEN_NAME, response.headers[AUTHORIZATION]);
+            sessionStorage.setItem(USER_INFO + MEMBER_ID, response.data.memberId);
+            sessionStorage.setItem(USER_INFO + USER_NAME, response.data.username);
+            sessionStorage.setItem(USER_INFO + THUMBNAIL, response.data.thumbnail);
+            sessionStorage.setItem(USER_INFO + REGIST_DATA, response.data.registDate);
+          }
 
           headers = getHeaders();
           // 회원 로그인 기록
@@ -32,7 +43,7 @@ export default function KaKaoAuthHandle() {
             axios
               .post(`${DOMAIN_BE_PROD}/api/v1/loginTracker/${response.data.memberId}/track`, {}, { headers })
               .catch((err) => {
-                alert(err.responsw.daga);
+                alert(err.response.data);
                 router.push('/login');
               });
           }

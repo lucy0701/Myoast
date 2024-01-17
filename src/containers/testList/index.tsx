@@ -21,7 +21,7 @@ export default function TestList(props: Props) {
           testData.map((t, i) => (
             <TestCardList
               key={i}
-              testId={t.testId}
+              testId={t.id}
               testTitle={t.title}
               imgUrl={t.imageUrl}
               playCount={t.playCount}

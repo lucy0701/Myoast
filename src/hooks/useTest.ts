@@ -1,40 +1,68 @@
-'use client';
-
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
-import { Test, TestCover } from '@/types/test';
-import { getLatestListAPI, getTestAPI } from '@/services/test';
+import { Test, TestCover, TestResultData } from '@/types/test';
+import { getLatestListAPI, getTestAPI, postTestResultAPI, postMemberTestResultAPI } from '@/services/test';
 
 export const useTest = () => {
   const [tsetData, setTestData] = useState<Test>();
   const [latestList, setLatestList] = useState<TestCover[]>();
+  const [testResultData, setTestResultData] = useState<TestResultData>();
 
-  const getLatestList = async (id: string) => {
+  const router = useRouter();
+
+  const getLatestListData = async (testId: string) => {
     try {
-      const response = await getLatestListAPI(id);
-      if (response) {
-        setLatestList(response.data.testCoverDTOList);
+      const res = await getLatestListAPI(testId);
+      if (res) {
+        setLatestList(res.data.testCoverDTOList);
       }
-    } catch (error) {
-      alert(error);
+    } catch (err) {
+      alert(err);
     }
   };
 
-  const getTest = async (testid: string) => {
+  const getTestData = async (testId: string) => {
     try {
-      const res = await getTestAPI(testid);
+      const res = await getTestAPI(testId);
       if (res) {
         setTestData(res.data);
       }
-    } catch (errer) {
-      alert(errer);
+    } catch (err) {
+      alert(err);
+    }
+  };
+
+  const postTestResultData = async (testId: string, score: []) => {
+    try {
+      const res = await postTestResultAPI(testId, score);
+      if (res) {
+        setTestResultData(res.data);
+      }
+    } catch (err) {
+      alert(err);
+      router.push('/login');
+    }
+  };
+  const postMemberTestResultData = async (testId: string, memberId: string, score: []) => {
+    try {
+      const res = await postMemberTestResultAPI(testId, memberId, score);
+      if (res) {
+        setTestResultData(res.data);
+      }
+    } catch (err) {
+      alert(err);
+      router.push('/login');
     }
   };
 
   return {
-    getTest,
+    getTestData,
     tsetData,
-    getLatestList,
+    getLatestListData,
     latestList,
+    postTestResultData,
+    postMemberTestResultData,
+    testResultData,
   };
 };

@@ -26,7 +26,7 @@ export interface Question {
 }
 
 export interface TestCover {
-  testId: string;
+  id: string;
   title: string;
   imageUrl: string;
   playCount: number;

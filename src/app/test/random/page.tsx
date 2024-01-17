@@ -1,18 +1,10 @@
 import { notFound } from 'next/navigation';
 
-import { apiBe } from '@/services';
-import { Test } from '@/types/test';
-import { getHeaders } from '@/utils/util';
 import TestMain from '@/containers/testMain';
+import { getRandomTestAPI } from '@/services/test';
 
 export default async function Page() {
-  const headers = getHeaders();
-  const testData = await apiBe<Test>(`v1/tests/random`, { headers }).then(async (res) => {
-    if (!res.data) {
-      return null;
-    }
-    return { ...res.data };
-  });
+  const testData = await getRandomTestAPI().then(async (res) => res.data).catch((err)=> err);
   if (!testData) return notFound;
   return <TestMain testData={testData} />;
 }

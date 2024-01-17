@@ -12,7 +12,7 @@ export const TYPE_COMMENT_BTN = 'comment';
 
 // count
 export const TYPE_ALL_CNT = 'allCnt';
-export const TYPE_play_CNT = 'playCnt';
+export const TYPE_PLAY_CNT = 'playCnt';
 export const TYPE_LIKE_CNT = 'likeCnt';
 export const TYPE_COMMENT_CNT = 'commentCnt';
 
@@ -22,11 +22,6 @@ export const TEST_CARD_SIZE_M = 'medium';
 export const TEST_CARD_SIZE_L = 'large';
 export const TYPE_TEST_CARD = 'testCard';
 export const TYPE_MY_TEST_CARD = 'myTestCade';
-
-// Storage
-export const TOKEN_NAME = 'mongBitToken';
-export const USER_INFO = 'mongBit';
-export const COUPANG_VISIT = 'mbCoupangVisitDate';
 
 //OG Image url
 export const OG_STANDARD_IMAGE = 'https://i.ibb.co/mvVsyTr/Frame-17.png';

@@ -18,10 +18,10 @@ import Title from '@/components/common/Title';
 import { TestCard } from '@/components/layout/TestCard';
 
 export default function Main() {
-  const { latestList, getLatestList } = useTest();
+  const { latestList, getLatestListData } = useTest();
 
   useEffect(() => {
-    getLatestList('6');
+    getLatestListData('6');
   }, []);
 
   return (
@@ -47,7 +47,7 @@ export default function Main() {
           latestList.map((t, i) => (
             <TestCard
               key={i}
-              testId={t.testId}
+              testId={t.id}
               testTitle={t.title}
               imgUrl={t.imageUrl}
               playCount={t.playCount}

@@ -23,7 +23,7 @@ export default function TestLatest(props: Props) {
           testLatestData.map((t, i) => (
             <TestCardList
               key={i}
-              testId={t.testId}
+              testId={t.id}
               testTitle={t.title}
               imgUrl={t.imageUrl}
               playCount={t.playCount}

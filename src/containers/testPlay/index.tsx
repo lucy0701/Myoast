@@ -43,7 +43,7 @@ export default function TestPlay(props: Props) {
   }, [testDone.lastClick]);
 
   useEffect(() => {
-    if (testDone.state) {
+    if (testDone.state && typeof window !== 'undefined') {
       sessionStorage.setItem('mbScore', JSON.stringify(score));
       sessionStorage.setItem('mbTestDone', JSON.stringify(true));
       router.push(`/result/${params.testId}`);

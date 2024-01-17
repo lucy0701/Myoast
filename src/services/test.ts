@@ -10,7 +10,9 @@ export const getLatestListAPI = (testId: string) => apiBe<TestCoverResponse>(`/v
 
 export const getTestAPI = (testid: string) => apiBe<Test>(`v1/tests/test/${testid}`, { headers });
 
-export const postTestResult = (testId: string, score: []) =>
+export const postTestResultAPI = (testId: string, score: []) =>
   apiBe.post(`/v1/member-test-result/${testId}`, score, { headers });
 
-export const postMemberTestResult = (testId: string, memberId:string, score: []) => apiBe.post(`/v1/member-test-result/${testId}/${memberId}`, score, { headers });
+export const postMemberTestResultAPI = (testId: string, memberId:string, score: []) => apiBe.post(`/v1/member-test-result/${testId}/${memberId}`, score, { headers });
+
+export const getRandomTestAPI = () => apiBe<Test>(`v1/tests/random`, { headers });
