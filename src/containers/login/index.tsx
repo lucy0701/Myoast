@@ -1,13 +1,13 @@
 'use client';
 
-import { KAKAO_AUTH_URL, KAKAO_AUTH_URL_DEV } from '@/constants/constant';
+import { KAKAO_AUTH_URL } from '@/constants/constant';
 
 import Footer from '@/components/layout/Footer';
 import styles from './index.module.css';
 
 export default function Login() {
   const kakaoLogin = () => {
-    window.location.href = KAKAO_AUTH_URL_DEV || KAKAO_AUTH_URL;
+    window.location.href = KAKAO_AUTH_URL;
   };
 
   return (
