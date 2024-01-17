@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 
 import { CommentDTO } from '@/types/comment';
 import { useComment } from '@/hooks/useComment';
+import SessionStorage from '@/utils/SessionStorage';
+import { MEMBER_ID, USER_INFO } from '@/constants/sessionStorage';
 
 import styles from './index.module.css';
 
@@ -15,6 +17,7 @@ const Comments = (props: Props) => {
   const [inputValue, setInputValue] = useState('');
   const [editingCommentId, setEditingCommentId] = useState<string | null>(null);
   const maxCharCount = 100;
+  const memberId = SessionStorage.getItem(USER_INFO + MEMBER_ID);
 
   const handleDeleteCommentBtn = (commentId: string, memberId: string, testId: string) => {
     deleteCommentData(commentId, memberId, testId);
@@ -69,11 +72,16 @@ const Comments = (props: Props) => {
                 </div>
               ) : (
                 <div className={styles.commentBtn}>
-                  <button onClick={() => onClickUpdateBtn(c.id)}>수정</button>
-                  <button onClick={() => handleDeleteCommentBtn(c.id, c.memberId, c.testId)}>삭제</button>
+                  {memberId === c.memberId && (
+                    <>
+                      <button onClick={() => onClickUpdateBtn(c.id)}>수정</button>
+                      <button onClick={() => handleDeleteCommentBtn(c.id, c.memberId, c.testId)}>삭제</button>
+                    </>
+                  )}
                 </div>
               )}
             </div>
+
             <div>
               {editingCommentId === c.id ? (
                 <div className={styles.inputWrap}>
