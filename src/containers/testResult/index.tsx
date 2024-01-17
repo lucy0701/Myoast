@@ -22,8 +22,8 @@ export default function TestResult() {
   const { commentList, getCommentList, commentCount, getCommentCount } = useComment();
   const { postTestResultData, postMemberTestResultData, testResultData } = useTest();
 
-  const memberId = typeof window !== 'undefined' ? sessionStorage.getItem(USER_INFO + MEMBER_ID) : null;
-  const storedScore = typeof window !== 'undefined' ? sessionStorage.getItem('mbScore'):null;
+  const memberId = sessionStorage.getItem(USER_INFO + MEMBER_ID);
+  const storedScore = sessionStorage.getItem('mbScore');
   const score = storedScore !== null ? JSON.parse(storedScore) : null;
 
   useEffect(() => {
