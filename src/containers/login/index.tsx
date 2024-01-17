@@ -1,14 +1,11 @@
 'use client';
 
-import { KAKAO_AUTH_URL } from '@/constants/constant';
+import setKakaoLogin from '@/services/kakaoLogin';
 
 import Footer from '@/components/layout/Footer';
 import styles from './index.module.css';
 
 export default function Login() {
-  const kakaoLogin = () => {
-    window.location.href = KAKAO_AUTH_URL;
-  };
 
   return (
     <div className={styles.wrap}>
@@ -23,7 +20,7 @@ export default function Login() {
           <img src="/images/og_logo.png" alt="logo" />
           <p>© 2023 MongMoongCrew. All rights reserved </p>
         </div>
-        <button className={styles.loginBtn} onClick={() => kakaoLogin()} />
+        <button className={styles.loginBtn} onClick={() => setKakaoLogin()} />
       </div>
       <Footer />
     </div>

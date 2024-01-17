@@ -9,6 +9,7 @@ import { useComment } from '@/hooks/useComment';
 import { useLike } from '@/hooks/useLike';
 import { useTest } from '@/hooks/useTest';
 import { MEMBER_ID, USER_INFO } from '@/constants/sessionStorage';
+import SessionStorage from '@/utils/SessionStorage';
 
 import Button from '@/components/common/Button';
 import { ResultCountBtn } from '@/components/layout/CountBtn';
@@ -22,11 +23,11 @@ export default function TestResult() {
   const { commentList, getCommentList, commentCount, getCommentCount } = useComment();
   const { postTestResultData, postMemberTestResultData, testResultData } = useTest();
 
-  const memberId = sessionStorage.getItem(USER_INFO + MEMBER_ID);
-  const storedScore = sessionStorage.getItem('mbScore');
-  const score = storedScore !== null ? JSON.parse(storedScore) : null;
-
   useEffect(() => {
+    const memberId = SessionStorage.getItem(USER_INFO + MEMBER_ID);
+    const storedScore = SessionStorage.getItem('mbScore');
+    const score = storedScore !== null ? JSON.parse(storedScore) : null;
+
     if (decodeToken().state && memberId) {
       postMemberTestResultData(params.testId, memberId, score);
     } else {

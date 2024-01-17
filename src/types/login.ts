@@ -1,9 +1,3 @@
-declare global {
-  interface Window {
-    Kakao: any;
-  }
-}
-
 export interface DecodedToken {
   auth: string;
   exp: number;
@@ -18,7 +12,7 @@ export interface KakaoLoigin {
 }
 
 export interface LoginTracker {
-  id : string;
+  id: string;
   memberId: string;
   loginDate: string;
 }

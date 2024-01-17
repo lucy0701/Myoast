@@ -1,5 +1,5 @@
 'use client';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import { useEffect } from 'react';
 
@@ -14,26 +14,27 @@ import {
   USER_NAME,
 } from '@/constants/sessionStorage';
 import { decodeToken, getHeaders } from '@/utils/util';
+import SessionStorage from '@/utils/SessionStorage';
 
 import styles from './index.module.css';
 import Footer from '@/components/layout/Footer';
 
 export default function KaKaoAuthHandle() {
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const code = searchParams.get('code');
+  // const searchParams = useSearchParams();
 
   useEffect(() => {
+    const code = new URL(window.location.href).searchParams.get('code');
     let headers = getHeaders();
     if (code) {
       axios
         .get(`${DOMAIN_BE_PROD}/login/oauth2/kakao/code?code=${code}`, { headers })
         .then((response) => {
-          sessionStorage.setItem(TOKEN_NAME, response.headers[AUTHORIZATION]);
-          sessionStorage.setItem(USER_INFO + MEMBER_ID, response.data.memberId);
-          sessionStorage.setItem(USER_INFO + USER_NAME, response.data.username);
-          sessionStorage.setItem(USER_INFO + THUMBNAIL, response.data.thumbnail);
-          sessionStorage.setItem(USER_INFO + REGIST_DATA, response.data.registDate);
+          SessionStorage.setItem(TOKEN_NAME, response.headers[AUTHORIZATION]);
+          SessionStorage.setItem(USER_INFO + MEMBER_ID, response.data.memberId);
+          SessionStorage.setItem(USER_INFO + USER_NAME, response.data.username);
+          SessionStorage.setItem(USER_INFO + THUMBNAIL, response.data.thumbnail);
+          SessionStorage.setItem(USER_INFO + REGIST_DATA, response.data.registDate);
 
           headers = getHeaders();
           // 회원 로그인 기록

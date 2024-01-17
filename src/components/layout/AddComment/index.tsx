@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import { useComment } from '@/hooks/useComment';
 import { MEMBER_ID, USER_INFO } from '@/constants/sessionStorage';
+import SessionStorage from '@/utils/SessionStorage';
 
 import styles from './index.module.css';
 
@@ -15,7 +16,8 @@ const AddComment = (props: Props) => {
   const { testId, commentCount } = props;
   const [inputValue, setInputValue] = useState('');
   const maxCharCount = 100;
-  const memberId = typeof window !== 'undefined' ? sessionStorage.getItem(USER_INFO + MEMBER_ID): null;
+  // const memberId = typeof window !== 'undefined' ? sessionStorage.getItem(USER_INFO + MEMBER_ID): null;
+  const memberId = SessionStorage.getItem(USER_INFO + MEMBER_ID);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const truncatedInput = e.currentTarget.value.replace(/</g, '\\u003c');

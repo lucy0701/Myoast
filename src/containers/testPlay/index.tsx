@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 
 import { TYPE_ANSWER_BTN } from '@/constants/constant';
 import { Question } from '@/types/test';
+import SessionStorage from '@/utils/SessionStorage';
 
 import Button from '@/components/common/Button';
 import Footer from '@/components/layout/Footer';
@@ -44,8 +45,8 @@ export default function TestPlay(props: Props) {
 
   useEffect(() => {
     if (testDone.state) {
-      sessionStorage.setItem('mbScore', JSON.stringify(score));
-      sessionStorage.setItem('mbTestDone', JSON.stringify(true));
+      SessionStorage.setItem('mbScore', JSON.stringify(score));
+      SessionStorage.setItem('mbTestDone', JSON.stringify(true));
       router.push(`/result/${params.testId}`);
     }
   }, [testDone.state]);
