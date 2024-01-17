@@ -29,13 +29,11 @@ export default function KaKaoAuthHandle() {
       axios
         .get(`${DOMAIN_BE_PROD}/login/oauth2/kakao/code?code=${code}`, { headers })
         .then((response) => {
-          if (typeof window !== 'undefined') {
-            sessionStorage.setItem(TOKEN_NAME, response.headers[AUTHORIZATION]);
-            sessionStorage.setItem(USER_INFO + MEMBER_ID, response.data.memberId);
-            sessionStorage.setItem(USER_INFO + USER_NAME, response.data.username);
-            sessionStorage.setItem(USER_INFO + THUMBNAIL, response.data.thumbnail);
-            sessionStorage.setItem(USER_INFO + REGIST_DATA, response.data.registDate);
-          }
+          sessionStorage.setItem(TOKEN_NAME, response.headers[AUTHORIZATION]);
+          sessionStorage.setItem(USER_INFO + MEMBER_ID, response.data.memberId);
+          sessionStorage.setItem(USER_INFO + USER_NAME, response.data.username);
+          sessionStorage.setItem(USER_INFO + THUMBNAIL, response.data.thumbnail);
+          sessionStorage.setItem(USER_INFO + REGIST_DATA, response.data.registDate);
 
           headers = getHeaders();
           // 회원 로그인 기록
