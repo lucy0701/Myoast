@@ -1,4 +1,4 @@
-import { memberTestResultData } from '@/types/test';
+import { memberTestResultData } from '@/types/mypage';
 import { getHeaders } from '@/utils/util';
 import {MypageData} from '@/types/mypage'
 

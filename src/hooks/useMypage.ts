@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { memberTestResultData } from '@/types/test';
+import { memberTestResultData } from '@/types/mypage';
 import { getMemberTestResultAPI } from '@/services/mypage';
 import { MypageData } from '@/types/mypage';
 

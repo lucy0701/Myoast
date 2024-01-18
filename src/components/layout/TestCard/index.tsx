@@ -24,12 +24,16 @@ interface MainTestCardProps {
 }
 
 export const TestCard = (props: Props) => {
-  const { className, testId,testResultId, imgUrl, size, type, testTitle, testResult, playCount } = props;
+  const { className, testId, testResultId, imgUrl, size, type, testTitle, testResult, playCount } = props;
 
   if (type === 'myTestCade') {
     return (
       <div className={styles.myTestCadeWrap}>
-        <Link href={`/record/${testId}/${testResultId}`} className={cx(className, styles[size ?? 'normal'], styles[type ?? 'normal'])}>
+        <Link
+          href={`/record/${testId}/${testResultId}`}
+          className={cx(className, styles[size ?? 'normal'], styles[type ?? 'normal'])}
+          prefetch={false}
+        >
           <img className={styles.testImg} src={imgUrl} alt={testTitle} />
           <div className={styles.textWrp}>
             <span className={styles.title}>{props.testTitle}</span>
@@ -39,9 +43,10 @@ export const TestCard = (props: Props) => {
       </div>
     );
   }
+
   return (
     <div className={styles.testCade}>
-      <Link href={`test/main/${testId}`} className={cx(className, styles[size ?? 'normal'], styles[type ?? 'normal'])}>
+      <Link href={`/test/main/${testId}`} className={cx(className, styles[size ?? 'normal'], styles[type ?? 'normal'])}>
         <div className={styles.iconBox}>
           <div className={styles.playIcon} />
           <p>{playCount}</p>
