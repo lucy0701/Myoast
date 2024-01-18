@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
-import { TYPE_MY_TEST_CARD } from '@/constants/constant';
+import { TYPE_MY_TEST_CARD, TYPE_START_BTN } from '@/constants/constant';
 import SessionStorage from '@/utils/SessionStorage';
 import { MEMBER_ID, REGIST_DATA, THUMBNAIL, USER_INFO, USER_NAME } from '@/constants/sessionStorage';
 import { useMypage } from '@/hooks/useMypage';
@@ -12,6 +12,7 @@ import Footer from '@/components/layout/Footer';
 import styles from './index.module.css';
 import { TestCard } from '@/components/layout/TestCard';
 import Title from '@/components/common/Title';
+import Button from '@/components/common/Button';
 
 export default function Mypage() {
   const { testResultList, getMemberTestResult } = useMypage();
@@ -36,25 +37,44 @@ export default function Mypage() {
   useEffect(() => {
     if (memberId) getMemberTestResult(memberId, mypageData);
   }, [memberId]);
-  return (
-    <div className={styles.wrap}>
-      <Title title={'마이 페이지'} />
-      <div className={styles.user}>이름 등등</div>
-      {testResultList &&
-        testResultList.memberTestResultDTOList &&
-        testResultList.memberTestResultDTOList.map((ts, i) => (
-          <div key={i} className={styles.cardList}>
-            <TestCard
-              testId={ts.testId}
-              testResultId={ts.testResultId}
-              testTitle={ts.title}
-              imgUrl={ts.imageUrl}
-              testResult={ts.content}
-              type={TYPE_MY_TEST_CARD}
-            />
+
+  if (memberId && userName && thumbnail && registDate)
+    return (
+      <div className={styles.wrap}>
+        <Title title={`${userName}님의 결과 모음`} />
+        <div className={styles.userWrap}>
+          <img src={thumbnail} alt="thumbnail" className={styles.thumbnail} />
+          <div className={styles.userinfoWrap}>
+            <span className={styles.name}>{userName}</span>
+            <span className={styles.date}>{registDate}</span>
           </div>
-        ))}
-      <Footer />
-    </div>
-  );
+        </div>
+        {testResultList.memberTestResultDTOList ? (
+          testResultList.memberTestResultDTOList.map((ts, i) => (
+            <div key={i} className={styles.cardList}>
+              <TestCard
+                testId={ts.testId}
+                testResultId={ts.testResultId}
+                testTitle={ts.title}
+                imgUrl={ts.imageUrl}
+                testResult={ts.content}
+                type={TYPE_MY_TEST_CARD}
+              />
+            </div>
+          ))
+        ) : (
+          <div className={styles.noTest}>
+            <span>테스트 결과가 없어요!</span>
+            <Button link={'/test/random'} skin={TYPE_START_BTN}>
+              아무거나 시작
+            </Button>
+            <Button link={'/list'} skin={TYPE_START_BTN}>
+              전체 보기
+            </Button>
+          </div>
+        )}
+
+        <Footer />
+      </div>
+    );
 }

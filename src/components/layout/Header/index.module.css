@@ -6,7 +6,7 @@
 
 @media (min-width: 376px) {
   .wrap {
-    width: 400px;
+    min-width: 400px;
   }
 }
 
@@ -22,14 +22,12 @@
   align-items: center;
   background-color: rgb(255, 255, 255);
 }
-.mypageWrap{
-  width: 40px;
-  height: 40px;
-}
+.mypageWrap,
 .meunWrap {
   width: 40px;
   height: 40px;
   display: flex;
+  cursor: pointer;
   justify-content: center;
   align-items: center;
 }
@@ -43,6 +41,7 @@
 .logoIcon,
 .logoTitle,
 .menuIcon,
+.myPageIcon,
 .loginIcon {
   background-repeat: no-repeat;
   background-position: center;
@@ -65,13 +64,13 @@
 .menuIcon {
   width: 1rem;
   height: 1rem;
-  cursor: pointer;
   background-image: url('../../../../public/svgs/menuIcon.svg');
 }
 .myPageIcon {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+  width: 1.2rem;
+  height: 1.2rem;
+  margin: auto;
+  background-image: url('../../../../public/svgs/mypage.svg');
 }
 .loginIcon {
   width: 15px;

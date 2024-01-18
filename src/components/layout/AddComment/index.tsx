@@ -46,8 +46,8 @@ const AddComment = (props: Props) => {
     <div className={styles.wrap}>
       <div className={styles.commentText}>
         <div>
-          <span></span>
           <p>댓글</p>
+          <span></span>
           <p>{commentCount}</p>
         </div>
         <p>
@@ -67,7 +67,7 @@ const AddComment = (props: Props) => {
             <button className={styles.addBtn} onClick={handleOnClick} />
           </>
         ) : (
-          <Link href={'/login'}>
+          <Link href={'/login'} prefetch={false}>
             <p className={styles.nonLogin}>
               CLICK! 로그인 하고 댓글 작성 하기!
             </p>

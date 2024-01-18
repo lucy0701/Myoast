@@ -1,29 +1,17 @@
 'use client';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useState } from 'react';
 import Link from 'next/link';
+import { useRecoilValue } from 'recoil';
 
-import SessionStorage from '@/utils/SessionStorage';
-import { MEMBER_ID, THUMBNAIL, USER_INFO } from '@/constants/sessionStorage';
+import { isLoginState } from '@/states/isLoignState';
 
 import styles from './index.module.css';
 import NavigationBar from '../NavigationBar';
 
 export default function Header() {
   const [menuClicked, setMenuClicked] = useState(false);
-  const [memberId, setMemberId] = useState<string | null>(null);
-  const [thumbnail, setThumbnail] = useState<string | null>(null);
-
-  const [isLogin, setIsLogin] = useState(false);
-
-  useEffect(() => {
-    setMemberId(SessionStorage.getItem(USER_INFO + MEMBER_ID));
-    setThumbnail(SessionStorage.getItem(USER_INFO + THUMBNAIL));
-  }, []);
-
-  useEffect(() => {
-    if (memberId) setIsLogin(true);
-  }, [memberId]);
+  const isLogin = useRecoilValue(isLoginState);
 
   return (
     <div className={styles.wrap}>
@@ -33,7 +21,7 @@ export default function Header() {
         </div>
         {/* 클릭하면 메인페이지로 */}
         <div>
-          <Link href="/">
+          <Link href="/" prefetch={false}>
             <div className={styles.logoWrap}>
               <div className={styles.logoIcon} />
               <div className={styles.logoTitle} />
@@ -43,11 +31,11 @@ export default function Header() {
         {/* 로그인 */}
         <div className={styles.mypageWrap}>
           {isLogin ? (
-            <Link href="/mypage">
-              {thumbnail !== null && <img src={thumbnail} className={styles.myPageIcon} alt="thumbnail" />}
+            <Link href="/mypage" prefetch={false}>
+              <div className={styles.myPageIcon}/>
             </Link>
           ) : (
-            <Link href="/login">
+            <Link href="/login" prefetch={false}>
               <div className={styles.loginIcon}></div>
             </Link>
           )}

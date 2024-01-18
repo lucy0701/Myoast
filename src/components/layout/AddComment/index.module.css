@@ -18,14 +18,15 @@
 }
 .commentText p {
   font-size: 0.8em;
-  margin-left: 2px;
+  margin-right: 2px;
 }
 .commentText p:last-child {
   color: #999;
 }
 .commentText span {
-  width: 1rem;
-  height: 1rem;
+  width: 0.9rem;
+  height: 0.9rem;
+  margin: 0 3px;
   background-image: url('../../../../public/svgs/comment.svg');
 }
 .inputWarp {

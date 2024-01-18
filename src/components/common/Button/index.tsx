@@ -17,7 +17,7 @@ const Button = (props: Props) => {
 
   if (link) {
     return (
-      <Link href={link} className={cx(styles.wrap, className, styles[skin ?? 'normal'])}>
+      <Link href={link} className={cx(styles.wrap, className, styles[skin ?? 'normal'])} prefetch={false} >
         {children}
         <div className={styles.nexticon} />
       </Link>

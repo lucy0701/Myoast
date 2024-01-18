@@ -14,7 +14,7 @@ interface Props {
 export default function TestList(props: Props) {
   const { testData } = props;
   return (
-    <div className={styles.wrap}>
+    <div className={styles.wrap} >
       <Title title={'전체 테스트'} contents={'모든 테스트가 있어요!'} />
       <div className={styles.cardList}>
         {testData &&
@@ -30,7 +30,7 @@ export default function TestList(props: Props) {
             />
           ))}
       </div>
-      <Button link={'/test/random'} skin={TYPE_BOTTOM_BTN}>
+      <Button link={'/test/random'} skin={TYPE_BOTTOM_BTN} >
         아무거나 시작
       </Button>
     </div>

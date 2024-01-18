@@ -22,8 +22,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body className={notoSansKr.className}>
-        <Header />
-        <RecoilRootProvider>{children}</RecoilRootProvider>
+        <RecoilRootProvider>
+          <Header />
+          {children}
+        </RecoilRootProvider>
         <script
           async
           src="https://t1.kakaocdn.net/kakao_js_sdk/2.6.0/kakao.js"

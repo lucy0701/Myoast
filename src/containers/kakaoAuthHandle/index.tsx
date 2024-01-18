@@ -2,7 +2,7 @@
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import { useEffect } from 'react';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useSetRecoilState } from 'recoil';
 
 import { DOMAIN_BE_PROD } from '@/constants/constant';
 import {
@@ -16,12 +16,15 @@ import {
 } from '@/constants/sessionStorage';
 import { decodeToken, getHeaders } from '@/utils/util';
 import SessionStorage from '@/utils/SessionStorage';
+import { isLoginState } from '@/states/isLoignState';
 
 import styles from './index.module.css';
 import Footer from '@/components/layout/Footer';
 
 export default function KaKaoAuthHandle() {
   const router = useRouter();
+  const setIsLogin = useSetRecoilState(isLoginState);
+
   useEffect(() => {
     const code = new URL(window.location.href).searchParams.get('code');
     let headers = getHeaders();
@@ -34,6 +37,8 @@ export default function KaKaoAuthHandle() {
           SessionStorage.setItem(USER_INFO + USER_NAME, response.data.username);
           SessionStorage.setItem(USER_INFO + THUMBNAIL, response.data.thumbnail);
           SessionStorage.setItem(USER_INFO + REGIST_DATA, response.data.registDate);
+
+          setIsLogin(decodeToken().state);
 
           headers = getHeaders();
           // 회원 로그인 기록

@@ -1,3 +1,21 @@
+@media (max-width: 375px) {
+  .medium {
+    max-width: 157px;
+  }
+  .large {
+    max-width: 327px;
+    max-height: 210px;
+  }
+}
+@media (min-width: 376px) {
+  .medium {
+    min-width: 170px;
+  }
+  .large {
+    min-width: 350px;
+  }
+}
+
 /* 테스트 카드 */
 .testCade {
   overflow: hidden;

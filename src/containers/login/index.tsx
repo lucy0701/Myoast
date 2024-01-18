@@ -6,7 +6,6 @@ import Footer from '@/components/layout/Footer';
 import styles from './index.module.css';
 
 export default function Login() {
-
   return (
     <div className={styles.wrap}>
       <div className={styles.contentsWrap}>

@@ -46,7 +46,11 @@ export const TestCard = (props: Props) => {
 
   return (
     <div className={styles.testCade}>
-      <Link href={`/test/main/${testId}`} className={cx(className, styles[size ?? 'normal'], styles[type ?? 'normal'])}>
+      <Link
+        href={`/test/main/${testId}`}
+        className={cx(className, styles[size ?? 'normal'], styles[type ?? 'normal'])}
+        prefetch={false}
+      >
         <div className={styles.iconBox}>
           <div className={styles.playIcon} />
           <p>{playCount}</p>
