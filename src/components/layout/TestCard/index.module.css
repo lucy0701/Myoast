@@ -106,7 +106,7 @@
 /* 마이페이지 결과카드 */
 .myTestCadeWrap {
   width: 300px;
-  height: 200px;
+  /* height: 200px; */
   border-radius: 1rem;
   overflow: hidden;
   border: #aaa solid 1.5px;
@@ -117,6 +117,8 @@
 .myTestCadeWrap img,
 .myTestCadeWrap div {
   width: 50%;
+  object-fit:cover;
+  /* border-radius: 0.8rem; */
 }
 .textWrp {
   overflow: hidden;
@@ -130,9 +132,10 @@
   white-space: nowrap;
 }
 .textWrp p {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-weight: 300;
   overflow-wrap: break-word;
+  color: #666;
   /* word-wrap: break-word; */
   display: -webkit-box;
   -webkit-line-clamp: 7;

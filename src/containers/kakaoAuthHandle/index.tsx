@@ -22,7 +22,6 @@ import Footer from '@/components/layout/Footer';
 
 export default function KaKaoAuthHandle() {
   const router = useRouter();
-
   useEffect(() => {
     const code = new URL(window.location.href).searchParams.get('code');
     let headers = getHeaders();

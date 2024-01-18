@@ -2,7 +2,13 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 import { Test, TestCover, TestResultData } from '@/types/test';
-import { getLatestListAPI, getTestAPI, postTestResultAPI, postMemberTestResultAPI } from '@/services/test';
+import {
+  getLatestListAPI,
+  getTestAPI,
+  postTestResultAPI,
+  postMemberTestResultAPI,
+  getTestResultAPI,
+} from '@/services/test';
 
 export const useTest = () => {
   const [tsetData, setTestData] = useState<Test>();
@@ -44,6 +50,19 @@ export const useTest = () => {
       router.push('/login');
     }
   };
+
+  const getTestResultData = async (testId: string, testResultId: string) => {
+    try {
+      const res = await getTestResultAPI(testId, testResultId);
+      if (res) {
+        setTestResultData(res.data);
+      }
+    } catch (err) {
+      alert(err);
+      router.push('/login');
+    }
+  };
+
   const postMemberTestResultData = async (testId: string, memberId: string, score: []) => {
     try {
       const res = await postMemberTestResultAPI(testId, memberId, score);
@@ -64,5 +83,6 @@ export const useTest = () => {
     postTestResultData,
     postMemberTestResultData,
     testResultData,
+    getTestResultData,
   };
 };

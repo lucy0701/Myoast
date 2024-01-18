@@ -9,6 +9,7 @@ interface Props {
   className?: string;
   testTitle: string;
   testId: string;
+  testResultId?: string;
   imgUrl: string;
   size?: 'small' | 'medium' | 'large';
   type?: 'myTestCade' | 'testCard';
@@ -23,12 +24,12 @@ interface MainTestCardProps {
 }
 
 export const TestCard = (props: Props) => {
-  const { className, testId, imgUrl, size, type, testTitle, testResult, playCount } = props;
+  const { className, testId,testResultId, imgUrl, size, type, testTitle, testResult, playCount } = props;
 
   if (type === 'myTestCade') {
     return (
       <div className={styles.myTestCadeWrap}>
-        <Link href={`test/main/${testId}`} className={cx(className, styles[size ?? 'normal'], styles[type ?? 'normal'])}>
+        <Link href={`/record/${testId}/${testResultId}`} className={cx(className, styles[size ?? 'normal'], styles[type ?? 'normal'])}>
           <img className={styles.testImg} src={imgUrl} alt={testTitle} />
           <div className={styles.textWrp}>
             <span className={styles.title}>{props.testTitle}</span>

@@ -15,4 +15,6 @@ export const postTestResultAPI = (testId: string, score: []) =>
 
 export const postMemberTestResultAPI = (testId: string, memberId:string, score: []) => apiBe.post(`/v1/member-test-result/${testId}/${memberId}`, score, { headers });
 
+export const getTestResultAPI = (testId: string, testResultId: string) => apiBe(`v1/tests/test/test-result/${testId}/${testResultId}`,{headers});
+
 export const getRandomTestAPI = () => apiBe<Test>(`v1/tests/random`, { headers });
