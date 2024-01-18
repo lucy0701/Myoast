@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import { useRecoilValue } from 'recoil';
 
 import {
   OG_MBTI_TEST_IMAGE,

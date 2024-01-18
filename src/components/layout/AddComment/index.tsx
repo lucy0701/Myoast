@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 import { useComment } from '@/hooks/useComment';
 import { MEMBER_ID, USER_INFO } from '@/constants/sessionStorage';
@@ -15,9 +16,12 @@ const AddComment = (props: Props) => {
 
   const { testId, commentCount } = props;
   const [inputValue, setInputValue] = useState('');
+  const [memberId, setMemberId] = useState<string | null>(null);
   const maxCharCount = 100;
-  // const memberId = typeof window !== 'undefined' ? sessionStorage.getItem(USER_INFO + MEMBER_ID): null;
-  const memberId = SessionStorage.getItem(USER_INFO + MEMBER_ID);
+
+  useEffect(() => {
+    setMemberId(SessionStorage.getItem(USER_INFO + MEMBER_ID));
+  }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const truncatedInput = e.currentTarget.value.replace(/</g, '\\u003c');
@@ -51,14 +55,24 @@ const AddComment = (props: Props) => {
         </p>
       </div>
       <div className={styles.inputWarp}>
-        <input
-          type="text"
-          placeholder="나쁜말 하면 신고합니다 ㅇㅅㅇ"
-          value={inputValue}
-          onChange={handleInputChange}
-          onKeyDown={(e) => handleKeyDown(e)}
-        />
-        <button className={styles.addBtn} onClick={handleOnClick} />
+        {memberId ? (
+          <>
+            <input
+              type="text"
+              placeholder="나쁜말 하면 신고합니다 ㅇㅅㅇ"
+              value={inputValue}
+              onChange={handleInputChange}
+              onKeyDown={(e) => handleKeyDown(e)}
+            />
+            <button className={styles.addBtn} onClick={handleOnClick} />
+          </>
+        ) : (
+          <Link href={'/login'}>
+            <p className={styles.nonLogin}>
+              CLICK! 로그인 하고 댓글 작성 하기!
+            </p>
+          </Link>
+        )}
       </div>
     </div>
   );

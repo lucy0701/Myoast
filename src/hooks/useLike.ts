@@ -1,23 +1,60 @@
-import { useState } from 'react';
+import { useRecoilState } from 'recoil';
 
-import { getLikeCountAPI } from '@/services/like';
+import { deleteLikeCountAPI, getLikeCountAPI, getIsLikeCountAPI, postLikeCountAPI } from '@/services/like';
+import { likeCountState, isLikeCountState } from '@/states/likeState';
 
 export const useLike = () => {
-  const [likeCount, setLikeCount] = useState(0);
+  const [likeCountData, setLikeCountData] = useRecoilState(likeCountState);
+  const [isLikeCount, setIsLikeCount] = useRecoilState(isLikeCountState);
 
-  const getLikeCount = async (tsetid: string) => {
+  const getLikeCountData = async (tsetid: string) => {
     try {
-      const response = await getLikeCountAPI(tsetid);
-      if (response) {
-        setLikeCount(response.data);
+      const res = await getLikeCountAPI(tsetid);
+      if (res) {
+        setLikeCountData(res.data);
       }
-    } catch (error) {
-      alert(error);
+    } catch (err) {
+      alert(err);
     }
   };
 
+  const getIsLikeCountData =async (testId: string, memberId: string) => {
+    try {
+      const res = await getIsLikeCountAPI(testId, memberId);
+      if (res) {
+        setIsLikeCount(res.data);
+      }
+    } catch (err) {
+      alert(err)
+    }
+  }
+
+  const postLikeCountData = async (testId: string, memberId: string) => {
+    try {
+      await postLikeCountAPI(testId, memberId);
+      await getLikeCountData(testId);
+      await getIsLikeCountData(testId, memberId);
+    } catch (err) {
+      alert(err);
+    }
+  };
+
+  const deleteLikeCountData =async (testId: string, memberId: string) => {
+    try {
+      await deleteLikeCountAPI(testId, memberId);
+      await getLikeCountData(testId);
+      await getIsLikeCountData(testId, memberId);
+    } catch (err) {
+      alert(err);
+    }
+  }
+
   return {
-    likeCount,
-    getLikeCount,
+    likeCountData,
+    isLikeCount,
+    getLikeCountData,
+    getIsLikeCountData,
+    postLikeCountData,
+    deleteLikeCountData,
   };
 };

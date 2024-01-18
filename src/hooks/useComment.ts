@@ -9,11 +9,11 @@ import {
   updateCommentAPI,
 } from '@/services/comment';
 import { CommentDTO } from '@/types/comment';
-import { commentListState } from '@/states/commentListState';
+import { commentCountState, commentListState } from '@/states/commentState';
 
 export const useComment = () => {
   const [commentList, setCommentsList] = useRecoilState<CommentDTO[]>(commentListState);
-  const [commentCount, setCommentCount] = useState(0);
+  const [commentCount, setCommentCount] = useRecoilState(commentCountState);
 
   const getCommentList = async (testid: string, pageNumber: string) => {
     try {
@@ -42,6 +42,7 @@ export const useComment = () => {
       const res = await postAddCommentAPI(memberId, testId, content);
       if (res) {
         getCommentList(testId, '0');
+        getCommentCount(testId);
       }
     } catch (err) {
       alert(err);
@@ -52,6 +53,7 @@ export const useComment = () => {
     try {
       await updateCommentAPI(memberId, testId, content, commentId);
       await getCommentList(testId, '0');
+      await getCommentCount(testId);
     } catch (err) {
       alert(err);
     }
@@ -65,6 +67,7 @@ export const useComment = () => {
     try {
       await deleteCommentAPI(data);
       await getCommentList(testId, '0');
+      await getCommentCount(testId);
     } catch (err) {
       alert(err);
     }

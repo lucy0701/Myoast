@@ -62,3 +62,9 @@ margin-right: 5px;
   background-repeat: no-repeat;
   background-size: contain;
 }
+
+.nonLogin{
+  text-align: center;
+  font-size: 0.8em;
+  color: #666;
+}

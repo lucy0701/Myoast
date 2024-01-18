@@ -23,7 +23,8 @@
 }
 
 .linkCopyBtn,
-.likeBtn,
+.offLikeBtn,
+.onLikeBtn,
 .shareBtn,
 .replayBtn  {
   width: 3rem;
@@ -37,8 +38,10 @@
 .linkCopyBtn {
   background-image: url('../../../../public/svgs/noneLinkCopyIcon.svg');
 }
-
-.likeBtn {
+.onLikeBtn {
+  background-image: url('../../../../public/svgs/liked.svg');
+}
+.offLikeBtn {
   background-image: url('../../../../public/svgs/noneLiked.svg');
 }
 

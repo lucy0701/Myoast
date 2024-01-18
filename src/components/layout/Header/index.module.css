@@ -20,9 +20,19 @@
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
 }
-
+.mypageWrap{
+  width: 40px;
+  height: 40px;
+}
+.meunWrap {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .logoWrap {
   display: flex;
   flex-direction: row;
@@ -33,7 +43,7 @@
 .logoIcon,
 .logoTitle,
 .menuIcon,
-.myPageIcon {
+.loginIcon {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -58,10 +68,17 @@
   cursor: pointer;
   background-image: url('../../../../public/svgs/menuIcon.svg');
 }
-
 .myPageIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.loginIcon {
   width: 15px;
   height: 15px;
+  margin: auto;
+  margin-top: 50%;
+  transform: translateY(-50%);
   border-style: none;
   background-image: url('../../../../public/svgs/user.svg');
 }
