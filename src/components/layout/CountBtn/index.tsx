@@ -24,6 +24,7 @@ export default function CountBtn(props: Props) {
   const { likeCountData, isLikeCount, getLikeCountData, getIsLikeCountData, postLikeCountData, deleteLikeCountData } =
     useLike();
   const { postShareData } = useShare();
+
   const [linkCopyCommand, setLinkCopyCommand] = useState('링크 복사');
   const [copyLink, setCopyLink] = useState('');
 
@@ -66,12 +67,18 @@ export default function CountBtn(props: Props) {
 
   const onClickTestShareBtn = () => {
     if (!decodeToken().state) router.push('/login');
-    if (window) shareTokakaotalkTest(testData.title, testData.imageUrl, testId, likeCountData);
+    if (!decodeToken().state && memberId) {
+      shareTokakaotalkTest(testData.title, testData.imageUrl, testId, likeCountData);
+      postShareData(testId, memberId, 'KAKAO');
+    }
   };
 
   const onClickResultShareBtn = () => {
     if (!decodeToken().state) router.push('/login');
-    shareToKakaotalkResult(testData.title, testData.imageUrl, testId, likeCountData,copyLink);
+    if (decodeToken().state && memberId) {
+      shareToKakaotalkResult(testData.title, testData.imageUrl, testId, likeCountData, testData.id);
+      postShareData(testId, memberId, 'KAKAO');
+    }
   };
 
   if (type === 'testMain')
