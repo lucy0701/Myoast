@@ -10,11 +10,23 @@
 }
 
 .wrap {
+  /* padding: 10px 25px 100px 25px; */
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
+  background-color: white;
+}
+.resultWrap {
+  padding: 10px 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.resultWrap_botton {
   padding: 10px 25px 100px 25px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: white;
 }
 .textBox {
   width: 100%;
@@ -25,15 +37,11 @@
   border-radius: 1em;
 }
 .resultImg {
-  width: 340px;
-  height: 420px;
-  border-radius: 1em;
-  overflow: hidden;
+  max-width: 340px;
 }
 .resultImg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  border-radius: 10px;
+  object-fit:cover;
 }
 .tsetTitle {
   width: 100%;

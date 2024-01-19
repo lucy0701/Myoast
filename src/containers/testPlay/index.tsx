@@ -3,7 +3,7 @@ import cx from 'classnames';
 import { useParams, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-import { TYPE_ANSWER_BTN } from '@/constants/constant';
+import { TYPE_ANSWER_BTN } from '@/constants/commonType';
 import { Question } from '@/types/test';
 import SessionStorage from '@/utils/SessionStorage';
 

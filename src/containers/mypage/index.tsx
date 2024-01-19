@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
-import { TYPE_MY_TEST_CARD, TYPE_START_BTN } from '@/constants/constant';
+import { TYPE_MY_TEST_CARD, TYPE_START_BTN } from '@/constants/commonType';
 import SessionStorage from '@/utils/SessionStorage';
 import { MEMBER_ID, REGIST_DATA, THUMBNAIL, USER_INFO, USER_NAME } from '@/constants/sessionStorage';
 import { useMypage } from '@/hooks/useMypage';

@@ -3,7 +3,7 @@
 import { useParams } from 'next/navigation';
 import { useEffect } from 'react';
 
-import { TYPE_BOTTOM_BTN } from '@/constants/constant';
+import { TYPE_BOTTOM_BTN } from '@/constants/commonType';
 import { useComment } from '@/hooks/useComment';
 import { useTest } from '@/hooks/useTest';
 
@@ -34,10 +34,9 @@ export default function TestResultRecord() {
         <div className={styles.textBox}>
           <p>{testResultData.content}</p>
         </div>
-        <CountBtn testId={params.testId} type={'tsetResult'} />
+        <CountBtn testData={testResultData} testId={params.testId} type={'tsetResult'} />
         <AddComment testId={params.testId} commentCount={commentCount} />
         <Comments commentList={commentList} />
-        <Button skin={TYPE_BOTTOM_BTN}>테스트 결과 공유하기</Button>
       </div>
     );
   }

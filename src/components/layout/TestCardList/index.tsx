@@ -1,4 +1,4 @@
-import { TEST_CARD_SIZE_L, TYPE_ALL_CNT, TYPE_TEST_CARD } from '@/constants/constant';
+import { TEST_CARD_SIZE_L, TYPE_ALL_CNT, TYPE_TEST_CARD } from '@/constants/commonType';
 
 import styles from './index.module.css';
 import { TestCard } from '@/components/layout/TestCard';

@@ -2,13 +2,8 @@
 
 import { useEffect } from 'react';
 
-import {
-  OG_MBTI_TEST_IMAGE,
-  TEST_CARD_SIZE_L,
-  TEST_CARD_SIZE_M,
-  TYPE_START_BTN,
-  TYPE_TEST_CARD,
-} from '@/constants/constant';
+import { MAIN_PAGE_TEST_IMG, MAIN_PAGE_TEST_TITLE, OG_MBTI_TEST_IMAGE } from '@/constants/constant';
+import { TEST_CARD_SIZE_L, TEST_CARD_SIZE_M, TYPE_START_BTN, TYPE_TEST_CARD } from '@/constants/commonType';
 import { useTest } from '@/hooks/useTest';
 
 import Button from '@/components/common/Button';
@@ -21,7 +16,7 @@ export default function Main() {
   const { latestList, getLatestListData } = useTest();
 
   useEffect(() => {
-    getLatestListData('6');
+    getLatestListData('0', '6');
   }, []);
 
   return (
@@ -29,8 +24,8 @@ export default function Main() {
       <Title title={'MBTI 검사'} />
       <div className={styles.mbtiTast}>
         <TestCard
-          testId={'649a7bccaa04db61384808c5'}
-          testTitle={'신속하고 아마도 정확한 퀵 MBTI!'}
+          testId={MAIN_PAGE_TEST_IMG}
+          testTitle={MAIN_PAGE_TEST_TITLE}
           imgUrl={OG_MBTI_TEST_IMAGE}
           size={TEST_CARD_SIZE_L}
         />

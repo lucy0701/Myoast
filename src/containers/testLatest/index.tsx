@@ -1,6 +1,6 @@
 'use client';
 
-import { TYPE_BOTTOM_BTN } from '@/constants/constant';
+import { TYPE_BOTTOM_BTN } from '@/constants/commonType';
 import { TestCover } from '@/types/test';
 
 import styles from './index.module.css';

@@ -5,16 +5,22 @@ import { useLike } from '@/hooks/useLike';
 import SessionStorage from '@/utils/SessionStorage';
 import { MEMBER_ID, USER_INFO } from '@/constants/sessionStorage';
 import { useShare } from '@/hooks/useShare';
+import { decodeToken } from '@/utils/util';
+import { shareToKakaotalkResult, shareTokakaotalkTest } from '@/utils/kakaoShare';
+import { Test, TestResultData } from '@/types/test';
+import { TYPE_BOTTOM_BTN } from '@/constants/commonType';
 
 import styles from './index.module.css';
+import Button from '@/components/common/Button';
 
 interface Props {
   testId: string;
+  testData: Test | TestResultData;
   type: 'testMain' | 'tsetResult';
 }
 
 export default function CountBtn(props: Props) {
-  const { testId, type } = props;
+  const { testData, testId, type } = props;
   const { likeCountData, isLikeCount, getLikeCountData, getIsLikeCountData, postLikeCountData, deleteLikeCountData } =
     useLike();
   const { postShareData } = useShare();
@@ -45,7 +51,7 @@ export default function CountBtn(props: Props) {
     }
   };
 
-  const coptURLClipboard = async () => {
+  const onClickcoptURLClipboard = async () => {
     try {
       await navigator.clipboard.writeText(copyLink);
       setLinkCopyCommand('복사 완료');
@@ -58,12 +64,22 @@ export default function CountBtn(props: Props) {
     }
   };
 
+  const onClickTestShareBtn = () => {
+    if (!decodeToken().state) router.push('/login');
+    if (window) shareTokakaotalkTest(testData.title, testData.imageUrl, testId, likeCountData);
+  };
+
+  const onClickResultShareBtn = () => {
+    if (!decodeToken().state) router.push('/login');
+    shareToKakaotalkResult(testData.title, testData.imageUrl, testId, likeCountData,copyLink);
+  };
+
   if (type === 'testMain')
     return (
       <div className={styles.wrap}>
         <div className={styles.btnWarp}>
           <div className={styles.btnBox}>
-            <button className={styles.linkCopyBtn} onClick={coptURLClipboard} />
+            <button className={styles.linkCopyBtn} onClick={onClickcoptURLClipboard} />
             <p>{linkCopyCommand}</p>
           </div>
           <div className={styles.btnBox}>
@@ -72,7 +88,7 @@ export default function CountBtn(props: Props) {
             <p className={styles.likeCnt}>{likeCountData}</p>
           </div>
           <div className={styles.btnBox}>
-            <button className={styles.shareBtn} />
+            <button className={styles.shareBtn} onClick={onClickTestShareBtn} />
             <p>공유 하기</p>
           </div>
         </div>
@@ -82,7 +98,7 @@ export default function CountBtn(props: Props) {
     <div className={styles.wrap}>
       <div className={styles.btnWarp}>
         <div className={styles.btnBox}>
-          <button className={styles.linkCopyBtn} onClick={coptURLClipboard} />
+          <button className={styles.linkCopyBtn} onClick={onClickcoptURLClipboard} />
           <p>{linkCopyCommand}</p>
         </div>
         <div className={styles.btnBox}>
@@ -95,6 +111,9 @@ export default function CountBtn(props: Props) {
           <p className={styles.likeCnt}>{likeCountData}</p>
         </div>
       </div>
+      <Button skin={TYPE_BOTTOM_BTN} onClick={onClickResultShareBtn}>
+        결과 공유 하기
+      </Button>
     </div>
   );
 }

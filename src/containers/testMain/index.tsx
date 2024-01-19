@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 
-import { TYPE_PLAY_CNT, TYPE_START_BTN } from '@/constants/constant';
+import { TYPE_PLAY_CNT, TYPE_START_BTN } from '@/constants/commonType';
 import { Test } from '@/types/test';
 import { useComment } from '@/hooks/useComment';
 
@@ -40,7 +40,7 @@ export default function TestMain(props: Props) {
         <Button link={`/test/play/${testData.id}`} skin={TYPE_START_BTN}>
           테스트 시작
         </Button>
-        <CountBtn testId={testData.id} type={'testMain'} />
+        <CountBtn testId={testData.id} testData={testData} type={'testMain'} />
         <AddComment testId={testData.id} commentCount={commentCount} />
         <Comments commentList={commentList} />
         <Footer />

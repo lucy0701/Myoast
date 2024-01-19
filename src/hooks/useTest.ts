@@ -17,9 +17,9 @@ export const useTest = () => {
 
   const router = useRouter();
 
-  const getLatestListData = async (testId: string) => {
+  const getLatestListData = async (page: string, size:string) => {
     try {
-      const res = await getLatestListAPI(testId);
+      const res = await getLatestListAPI(page,size);
       if (res) {
         setLatestList(res.data.testCoverDTOList);
       }
