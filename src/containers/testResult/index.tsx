@@ -1,6 +1,6 @@
 'use client';
 
-import { useParams, useRouter } from 'next/navigation';
+import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 import { decodeToken } from '@/utils/util';
@@ -16,7 +16,7 @@ import Comments from '@/components/layout/Comments';
 
 export default function TestResult() {
   const params = useParams();
-  const { commentList, getCommentList, commentCount, getCommentCount } = useComment();
+  const { commentListData, getCommentList, commentCount, getCommentCount } = useComment();
   const { postTestResultData, postMemberTestResultData, testResultData } = useTest();
 
   const [memberId, setMemberId] = useState<string | null>(null);
@@ -38,7 +38,7 @@ export default function TestResult() {
     }
   }, [memberId]);
 
-  if (testResultData && commentList) {
+  if (testResultData && commentListData) {
     return (
       <div className={styles.wrap}>
         <div className={styles.resultWrap}>
@@ -53,7 +53,7 @@ export default function TestResult() {
         <CountBtn testData={testResultData} testId={params.testId} type={'tsetResult'} />
         <div className={styles.resultWrap_botton}>
           <AddComment testId={params.testId} commentCount={commentCount} />
-          <Comments commentList={commentList} />
+          <Comments testId={params.testId} />
         </div>
       </div>
     );

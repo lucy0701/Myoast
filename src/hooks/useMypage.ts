@@ -1,32 +1,22 @@
 import { useState } from 'react';
 
-import { memberTestResultData } from '@/types/mypage';
+import { MemberTestResultDTOList, memberTestResultData } from '@/types/mypage';
 import { getMemberTestResultAPI } from '@/services/mypage';
-import { MypageData } from '@/types/mypage';
 
 export const useMypage = () => {
-  const [testResultList, setTestResultList] = useState<memberTestResultData>({
-    memberTestResultDTOList: [
-      {
-        testId: '',
-        testResultId: '',
-        testDate: '',
-        title: '',
-        content: '',
-        imageUrl: '',
-      },
-    ],
-    hasNextPage: 0,
-  });
-  const getMemberTestResult = async (memberId: string, data: MypageData) => {
+  const [testResultList, setTestResultList] = useState<MemberTestResultDTOList[]>([]);
+  const [isNextPage, setIsNextPage] = useState(0);
+  const getMemberTestResult = async (memberId: string, page: number) => {
+    const data = {
+      page: page,
+      size: 10,
+    };
     try {
       const res = await getMemberTestResultAPI(memberId, data);
       if (res) {
-        setTestResultList((prev) => ({
-          ...prev,
-          memberTestResultDTOList: res.data.memberTestResultDTOList,
-          hasNextPage: res.data.hasNextPage,
-        }));
+        // setTestResultList(res.data.memberTestResultDTOList);
+        setTestResultList((prev) => [...prev, ...res.data.memberTestResultDTOList]);
+        setIsNextPage(res.data.hasNextPage);
       }
     } catch (err) {
       alert(err);
@@ -34,6 +24,7 @@ export const useMypage = () => {
   };
   return {
     testResultList,
+    isNextPage,
     getMemberTestResult,
   };
 };

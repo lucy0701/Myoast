@@ -1,8 +1,3 @@
-export interface MypageData {
-  page: number;
-  size: number;
-}
-
 export interface memberTestResultData {
   memberTestResultDTOList: [MemberTestResultDTOList];
   hasNextPage: number;

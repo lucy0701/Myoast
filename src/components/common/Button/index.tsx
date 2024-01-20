@@ -8,7 +8,7 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   className?: string;
   link?: string;
-  skin?: 'startBtn' | 'bottomBtn' | 'answerBtn' | 'backBtn';
+  skin?: 'startBtn' | 'bottomBtn' | 'answerBtn' | 'backBtn' | 'moreBtn';
   onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
@@ -17,7 +17,7 @@ const Button = (props: Props) => {
 
   if (link) {
     return (
-      <Link href={link} className={cx(styles.wrap, className, styles[skin ?? 'normal'])} prefetch={false} >
+      <Link href={link} className={cx(styles.wrap, className, styles[skin ?? 'normal'])} prefetch={false}>
         {children}
         <div className={styles.nexticon} />
       </Link>
@@ -28,6 +28,7 @@ const Button = (props: Props) => {
     <button className={cx(styles.wrap, className, styles[skin ?? 'normal'])} onClick={onClick}>
       {children}
       <div className={styles.nexticon} />
+      <div className={styles.moreIcon} />
     </button>
   );
 };

@@ -1,21 +1,42 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { CommentDTO } from '@/types/comment';
 import { useComment } from '@/hooks/useComment';
 import SessionStorage from '@/utils/SessionStorage';
 import { MEMBER_ID, USER_INFO } from '@/constants/sessionStorage';
+import { TYPE_MORE_BTN } from '@/constants/commonType';
 
 import styles from './index.module.css';
+import Button from '@/components/common/Button';
 
 interface Props {
-  commentList: CommentDTO[];
+  testId: string;
 }
 
 const Comments = (props: Props) => {
-  const { commentList } = props;
-  const { deleteCommentData, updateCommentData } = useComment();
+  const { testId } = props;
+  const {
+    commentListData,
+    getCommentList,
+    isNextPage,
+    deleteCommentData,
+    updateCommentData,
+  } = useComment();
+
   const [inputValue, setInputValue] = useState('');
   const [editingCommentId, setEditingCommentId] = useState<string | null>(null);
+  const [moreCommentList, setMoreCommentList] = useState<CommentDTO[]>([]);
+  const [isMore, setIsMore] = useState(false);
+
+  useEffect(() => {
+    getCommentList(testId, '0');
+  }, [testId]);
+
+  useEffect(() => {
+    if (!isMore) setMoreCommentList(commentListData);
+    if (isMore) setMoreCommentList((prev) => [...prev, ...commentListData]);
+  }, [commentListData]);
+
   const maxCharCount = 100;
   const memberId = SessionStorage.getItem(USER_INFO + MEMBER_ID);
 
@@ -54,9 +75,15 @@ const Comments = (props: Props) => {
     setInputValue('');
   };
 
+  const onClickMoreBtn = () => {
+    const nextPageNumber = (moreCommentList.length / 10).toString();
+    if(isNextPage) setIsMore(true);
+    getCommentList(testId, nextPageNumber);
+  };
+
   return (
     <div className={styles.wrap}>
-      {commentList.map((c, i) => (
+      {moreCommentList.map((c, i) => (
         <div key={i} className={styles.commentWrap}>
           <img src={c.thumbnailImage} className={styles.imgUrl} alt="comment" />
           <div className={styles.textBox}>
@@ -102,6 +129,11 @@ const Comments = (props: Props) => {
           </div>
         </div>
       ))}
+      <div className={isNextPage ? styles.btnWrap : styles.display_none}>
+        <Button skin={TYPE_MORE_BTN} onClick={onClickMoreBtn}>
+          더보기
+        </Button>
+      </div>
     </div>
   );
 };

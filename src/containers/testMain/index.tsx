@@ -20,14 +20,13 @@ interface Props {
 }
 export default function TestMain(props: Props) {
   const { testData } = props;
-  const { commentList, getCommentList, commentCount, getCommentCount } = useComment();
+  const { commentListData, getCommentList, commentCount, getCommentCount } = useComment();
 
   useEffect(() => {
-    getCommentList(testData.id, '0');
     getCommentCount(testData.id);
   }, []);
 
-  if (commentList) {
+  if (commentListData) {
     return (
       <div className={styles.wrap}>
         <div>
@@ -42,7 +41,7 @@ export default function TestMain(props: Props) {
         </Button>
         <CountBtn testId={testData.id} testData={testData} type={'testMain'} />
         <AddComment testId={testData.id} commentCount={commentCount} />
-        <Comments commentList={commentList} />
+        <Comments testId={testData.id} />
         <Footer />
       </div>
     );

@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useRecoilState } from 'recoil';
 
 import {
@@ -9,17 +8,19 @@ import {
   updateCommentAPI,
 } from '@/services/comment';
 import { CommentDTO } from '@/types/comment';
-import { commentCountState, commentListState } from '@/states/commentState';
+import { commentCountState, commentListState, commentNextPageState } from '@/states/commentState';
 
 export const useComment = () => {
-  const [commentList, setCommentsList] = useRecoilState<CommentDTO[]>(commentListState);
+  const [commentListData, setCommentsListData] = useRecoilState<CommentDTO[]>(commentListState);
+  const [isNextPage, setIsNextPage] = useRecoilState(commentNextPageState);
   const [commentCount, setCommentCount] = useRecoilState(commentCountState);
 
   const getCommentList = async (testid: string, pageNumber: string) => {
     try {
       const res = await getCommentsAPI(testid, pageNumber);
       if (res) {
-        setCommentsList(res.data.commentDTOList);
+        setCommentsListData(res.data.commentDTOList);
+        setIsNextPage(res.data.hasNextPage);
       }
     } catch (err) {
       alert(err);
@@ -74,7 +75,8 @@ export const useComment = () => {
   };
 
   return {
-    commentList,
+    commentListData,
+    isNextPage,
     getCommentList,
     commentCount,
     getCommentCount,

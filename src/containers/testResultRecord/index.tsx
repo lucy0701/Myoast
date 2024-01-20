@@ -3,7 +3,6 @@
 import { useParams } from 'next/navigation';
 import { useEffect } from 'react';
 
-import { TYPE_BOTTOM_BTN } from '@/constants/commonType';
 import { useComment } from '@/hooks/useComment';
 import { useTest } from '@/hooks/useTest';
 
@@ -16,7 +15,7 @@ import Comments from '@/components/layout/Comments';
 export default function TestResultRecord() {
   const params = useParams();
   const { testResultData, getTestResultData } = useTest();
-  const { commentList, getCommentList, commentCount, getCommentCount } = useComment();
+  const { commentListData, getCommentList, commentCount, getCommentCount } = useComment();
 
   useEffect(() => {
     getTestResultData(params.testId, params.testResultId);
@@ -24,7 +23,7 @@ export default function TestResultRecord() {
     getCommentCount(params.testId);
   }, []);
 
-  if (testResultData && commentList) {
+  if (testResultData && commentListData) {
     return (
       <div className={styles.wrap}>
         <div className={styles.resultImg}>
@@ -36,7 +35,7 @@ export default function TestResultRecord() {
         </div>
         <CountBtn testData={testResultData} testId={params.testId} type={'tsetResult'} />
         <AddComment testId={params.testId} commentCount={commentCount} />
-        <Comments commentList={commentList} />
+        <Comments testId={params.testId} />
       </div>
     );
   }

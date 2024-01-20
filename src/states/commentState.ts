@@ -6,6 +6,10 @@ export const commentListState = atom<CommentDTO[]>({
   key: 'commentListState',
   default: [],
 });
+export const commentNextPageState = atom({
+  key:'commentNextPageState',
+  default: false,
+})
 
 export const commentCountState = atom({
   key: 'commentCountState',
