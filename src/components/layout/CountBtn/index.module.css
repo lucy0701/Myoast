@@ -21,6 +21,11 @@
 .likeCnt {
   color: #999;
 }
+.buttonBtnWarp{
+  width: 100%;
+  left: 0;
+  background-color: #999;
+}
 
 .linkCopyBtn,
 .offLikeBtn,

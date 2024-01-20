@@ -23,7 +23,6 @@ export default function Mypage() {
   const [thumbnail, setThumbnail] = useState<string | null>();
   const [registDate, setRegistDate] = useState<string | null>();
   const [page, setPage] = useState(0);
-  const memberId_1 = useRecoilValue(userInfo);
 
   useEffect(() => {
     setMemberId(SessionStorage.getItem(USER_INFO + MEMBER_ID));

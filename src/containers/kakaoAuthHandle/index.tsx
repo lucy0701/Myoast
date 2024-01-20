@@ -2,11 +2,13 @@
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import { useEffect } from 'react';
-import { useSetRecoilState } from 'recoil';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 
 import { DOMAIN_BE_PROD } from '@/constants/constant';
 import {
   AUTHORIZATION,
+  BACK_PAGE,
+  BACK_PAGE_TEST,
   MEMBER_ID,
   REGIST_DATA,
   THUMBNAIL,
@@ -17,7 +19,6 @@ import {
 import { decodeToken, getHeaders } from '@/utils/util';
 import SessionStorage from '@/utils/SessionStorage';
 import { isLoginState } from '@/states/isLoignState';
-import { userInfo } from '@/states/sessionStorageEffect';
 
 import styles from './index.module.css';
 import Footer from '@/components/layout/Footer';
@@ -25,11 +26,13 @@ import Footer from '@/components/layout/Footer';
 export default function KaKaoAuthHandle() {
   const router = useRouter();
   const setIsLogin = useSetRecoilState(isLoginState);
-  const setUserInfo = useSetRecoilState(userInfo);
 
   useEffect(() => {
     const code = new URL(window.location.href).searchParams.get('code');
     let headers = getHeaders();
+    const backPage = SessionStorage.getItem(BACK_PAGE);
+    const backPageTest = SessionStorage.getItem(BACK_PAGE_TEST);
+
     if (code) {
       axios
         .get(`${DOMAIN_BE_PROD}/login/oauth2/kakao/code?code=${code}`, { headers })
@@ -40,9 +43,7 @@ export default function KaKaoAuthHandle() {
           SessionStorage.setItem(USER_INFO + THUMBNAIL, response.data.thumbnail);
           SessionStorage.setItem(USER_INFO + REGIST_DATA, response.data.registDate);
 
-          setUserInfo(response.data);
           setIsLogin(decodeToken().state);
-
           headers = getHeaders();
           // 회원 로그인 기록
           if (!decodeToken().role || decodeToken().role === 'ROLE_USER') {
@@ -53,7 +54,11 @@ export default function KaKaoAuthHandle() {
                 router.push('/login');
               });
           }
-          router.push('/');
+          if (backPage) {
+            router.push(backPage + backPageTest);
+          } else {
+            router.push('/');
+          }
         })
         .catch((err) => {
           alert(err.response.data);

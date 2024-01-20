@@ -2,6 +2,8 @@ import React from 'react';
 import Link from 'next/link';
 import cx from 'classnames';
 
+import { contentArr } from '@/utils/textArr';
+
 import styles from './index.module.css';
 // import { useTest } from '@/hooks/useTest';
 
@@ -26,6 +28,8 @@ interface MainTestCardProps {
 export const TestCard = (props: Props) => {
   const { className, testId, testResultId, imgUrl, size, type, testTitle, testResult, playCount } = props;
 
+  const content = contentArr(testResult ? testResult : '');
+
   if (type === 'myTestCade') {
     return (
       <div className={styles.myTestCadeWrap}>
@@ -37,7 +41,9 @@ export const TestCard = (props: Props) => {
           <img className={styles.testImg} src={imgUrl} alt={testTitle} />
           <div className={styles.textWrp}>
             <span className={styles.title}>{props.testTitle}</span>
-            <p>{testResult}</p>
+            {content.map((text, i) => (
+              <p key={i}>{text}</p>
+            ))}
           </div>
         </Link>
       </div>

@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { useRecoilValue } from 'recoil';
 
 import { useComment } from '@/hooks/useComment';
 import { MEMBER_ID, USER_INFO } from '@/constants/sessionStorage';
 import SessionStorage from '@/utils/SessionStorage';
-import { userInfo } from '@/states/sessionStorageEffect';
 
 import styles from './index.module.css';
 
@@ -19,7 +17,6 @@ const AddComment = (props: Props) => {
   const { testId, commentCount } = props;
   const [inputValue, setInputValue] = useState('');
   const [memberId, setMemberId] = useState<string | null>(null);
-  const memberId_1 = useRecoilValue(userInfo);
   const maxCharCount = 100;
 
   useEffect(() => {

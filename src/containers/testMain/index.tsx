@@ -5,6 +5,9 @@ import { useEffect } from 'react';
 import { TYPE_PLAY_CNT, TYPE_START_BTN } from '@/constants/commonType';
 import { Test } from '@/types/test';
 import { useComment } from '@/hooks/useComment';
+import SessionStorage from '@/utils/SessionStorage';
+import { BACK_PAGE, BACK_PAGE_TEST } from '@/constants/sessionStorage';
+import { contentArr } from '@/utils/textArr';
 
 import { MainTestCard } from '@/components/layout/TestCard';
 import CountIcon from '@/components/common/Count';
@@ -21,10 +24,14 @@ interface Props {
 export default function TestMain(props: Props) {
   const { testData } = props;
   const { commentListData, commentCount, getCommentCount } = useComment();
+  const content = contentArr(testData.content);
 
   useEffect(() => {
+    SessionStorage.setItem(BACK_PAGE, '/test/main/');
+    SessionStorage.setItem(BACK_PAGE_TEST, testData.id);
     getCommentCount(testData.id);
   }, []);
+
 
   if (commentListData) {
     return (
@@ -34,7 +41,9 @@ export default function TestMain(props: Props) {
           <CountIcon playCount={testData.playCount} type={TYPE_PLAY_CNT} />
         </div>
         <div className={styles.textBox}>
-          <p>{testData.content}</p>
+          {content.map((text, i) => (
+            <p key={i}>{text}</p>
+          ))}
         </div>
         <Button link={`/test/play/${testData.id}`} skin={TYPE_START_BTN}>
           테스트 시작

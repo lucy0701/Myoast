@@ -1,14 +1,16 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { useRecoilValue } from 'recoil';
 
 import { useLike } from '@/hooks/useLike';
 import SessionStorage from '@/utils/SessionStorage';
 import { MEMBER_ID, USER_INFO } from '@/constants/sessionStorage';
 import { useShare } from '@/hooks/useShare';
-import { decodeToken } from '@/utils/util';
 import { shareToKakaotalkResult, shareTokakaotalkTest } from '@/utils/kakaoShare';
 import { Test, TestResultData } from '@/types/test';
 import { TYPE_BOTTOM_BTN } from '@/constants/commonType';
+import { isLoginState } from '@/states/isLoignState';
+import { decodeToken } from '@/utils/util';
 
 import styles from './index.module.css';
 import Button from '@/components/common/Button';
@@ -24,7 +26,6 @@ export default function CountBtn(props: Props) {
   const { likeCountData, isLikeCount, getLikeCountData, getIsLikeCountData, postLikeCountData, deleteLikeCountData } =
     useLike();
   const { postShareData } = useShare();
-
   const [linkCopyCommand, setLinkCopyCommand] = useState('링크 복사');
   const [copyLink, setCopyLink] = useState('');
 
@@ -67,7 +68,7 @@ export default function CountBtn(props: Props) {
 
   const onClickTestShareBtn = () => {
     if (!decodeToken().state) router.push('/login');
-    if (!decodeToken().state && memberId) {
+    if (decodeToken().state && memberId) {
       shareTokakaotalkTest(testData.title, testData.imageUrl, testId, likeCountData);
       postShareData(testId, memberId, 'KAKAO');
     }
@@ -79,6 +80,10 @@ export default function CountBtn(props: Props) {
       shareToKakaotalkResult(testData.title, testData.imageUrl, testId, likeCountData, testData.id);
       postShareData(testId, memberId, 'KAKAO');
     }
+  };
+
+  const onClickReplay = () => {
+    router.push(`/test/main/${testId}`);
   };
 
   if (type === 'testMain')
@@ -109,7 +114,7 @@ export default function CountBtn(props: Props) {
           <p>{linkCopyCommand}</p>
         </div>
         <div className={styles.btnBox}>
-          <button className={styles.replayBtn} />
+          <button className={styles.replayBtn} onClick={onClickReplay} />
           <p>다시 하기</p>
         </div>
         <div className={styles.btnBox}>
@@ -118,9 +123,11 @@ export default function CountBtn(props: Props) {
           <p className={styles.likeCnt}>{likeCountData}</p>
         </div>
       </div>
-      <Button skin={TYPE_BOTTOM_BTN} onClick={onClickResultShareBtn}>
-        결과 공유 하기
-      </Button>
+      <div className={styles.buttonBtnWarp}>
+        <Button skin={TYPE_BOTTOM_BTN} onClick={onClickResultShareBtn}>
+          결과 공유 하기
+        </Button>
+      </div>
     </div>
   );
 }

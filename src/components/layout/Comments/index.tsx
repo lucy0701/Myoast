@@ -76,9 +76,9 @@ const Comments = (props: Props) => {
   };
 
   const onClickMoreBtn = () => {
-    const nextPageNumber = (moreCommentList.length / 10).toString();
+    // const nextPageNumber = (moreCommentList.length / 10).toString();
     if(isNextPage) setIsMore(true);
-    getCommentList(testId, nextPageNumber);
+    getCommentList(testId, (moreCommentList.length / 10).toString());
   };
 
   return (

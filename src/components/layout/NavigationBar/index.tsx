@@ -3,11 +3,9 @@ import React, { useEffect, useState } from 'react';
 import cx from 'classnames';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useRecoilState } from 'recoil';
 
 import { decodeToken } from '@/utils/util';
 import { TOKEN_NAME, USER_INFO } from '@/constants/sessionStorage';
-import { isLoginState } from '@/states/isLoignState';
 
 import styles from './index.module.css';
 
@@ -17,12 +15,12 @@ interface Props {
 }
 
 export default function NavigationBar({ menuClicked, setMenuClicked }: Props) {
-  const [isLogin, setIsLogin] = useRecoilState(isLoginState);
   const router = useRouter();
+  const [isLogin, setIsLogin] = useState(false);
 
   useEffect(() => {
     setIsLogin(decodeToken().state);
-  }, []);
+  }, [decodeToken().state]);
 
   function clickLogOut() {
     sessionStorage.setItem(TOKEN_NAME, '');
@@ -30,8 +28,8 @@ export default function NavigationBar({ menuClicked, setMenuClicked }: Props) {
     sessionStorage.setItem(USER_INFO + 'thumbnail', '');
     sessionStorage.setItem(USER_INFO + 'registDate', '');
     sessionStorage.setItem(USER_INFO + 'username', '');
-    setMenuClicked(false);
     setIsLogin(false);
+    setMenuClicked(false);
     router.push('/');
   }
 

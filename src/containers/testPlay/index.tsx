@@ -2,11 +2,11 @@
 import cx from 'classnames';
 import { useParams, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { useRecoilState } from 'recoil';
 
 import { TYPE_ANSWER_BTN } from '@/constants/commonType';
 import { Question } from '@/types/test';
-import { scoreState } from '@/states/scoreState';
+import SessionStorage from '@/utils/SessionStorage';
+import { TEST_SCORE } from '@/constants/sessionStorage';
 
 import Button from '@/components/common/Button';
 import Footer from '@/components/layout/Footer';
@@ -26,7 +26,7 @@ export default function TestPlay(props: Props) {
   const [putArr, setPutArr] = useState(initialArray);
 
   const [qstStageIndex, setQstStageIndex] = useState(0);
-  const [score, setScore] = useRecoilState(scoreState);
+  const [score, setScore] = useState([0, 0, 0, 0]);
 
   const [testDone, setTestDone] = useState({
     state: false,
@@ -47,7 +47,7 @@ export default function TestPlay(props: Props) {
 
   useEffect(() => {
     if (testDone.state) {
-      setScore(score);
+      SessionStorage.setItem(TEST_SCORE, JSON.stringify(score));
       router.push(`/result/${params.testId}`);
     }
   }, [testDone.state]);

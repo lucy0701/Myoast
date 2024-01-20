@@ -1,9 +1,10 @@
 'use client';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import Link from 'next/link';
 import { useRecoilValue } from 'recoil';
 
+import { decodeToken } from '@/utils/util';
 import { isLoginState } from '@/states/isLoignState';
 
 import styles from './index.module.css';
@@ -11,7 +12,12 @@ import NavigationBar from '../NavigationBar';
 
 export default function Header() {
   const [menuClicked, setMenuClicked] = useState(false);
-  const isLogin = useRecoilValue(isLoginState);
+  const [isLogin, setIsLogin] = useState(false);
+  const isLogin_be = useRecoilValue(isLoginState);
+
+  useEffect(()=>{
+    setIsLogin(decodeToken().state)
+  },[decodeToken().state])
 
   return (
     <div className={styles.wrap}>
@@ -30,9 +36,9 @@ export default function Header() {
         </div>
         {/* 로그인 */}
         <div className={styles.mypageWrap}>
-          {isLogin ? (
+          {isLogin_be || isLogin ? (
             <Link href="/mypage" prefetch={false}>
-              <div className={styles.myPageIcon}/>
+              <div className={styles.myPageIcon} />
             </Link>
           ) : (
             <Link href="/login" prefetch={false}>

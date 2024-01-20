@@ -5,8 +5,8 @@ import { useEffect } from 'react';
 
 import { useComment } from '@/hooks/useComment';
 import { useTest } from '@/hooks/useTest';
+import { contentArr } from '@/utils/textArr';
 
-import Button from '@/components/common/Button';
 import CountBtn from '@/components/layout/CountBtn';
 import AddComment from '@/components/layout/AddComment';
 import styles from './index.module.css';
@@ -16,6 +16,7 @@ export default function TestResultRecord() {
   const params = useParams();
   const { testResultData, getTestResultData } = useTest();
   const { commentListData, getCommentList, commentCount, getCommentCount } = useComment();
+  const content = contentArr(testResultData ? testResultData.content : '');
 
   useEffect(() => {
     getTestResultData(params.testId, params.testResultId);
@@ -26,16 +27,25 @@ export default function TestResultRecord() {
   if (testResultData && commentListData) {
     return (
       <div className={styles.wrap}>
-        <div className={styles.resultImg}>
-          <img src={testResultData.imageUrl} alt="test" />
-        </div>
-        <h2 className={styles.tsetTitle}>{testResultData.title}</h2>
-        <div className={styles.textBox}>
-          <p>{testResultData.content}</p>
+        <div className={styles.resultWrap}>
+          <div className={styles.resultImg}>
+            <img src={testResultData.imageUrl} alt="test" />
+          </div>
+          <h2 className={styles.tsetTitle}>{testResultData.title}</h2>
+          <div className={styles.textWrap}>
+            {content.map((text, i) => (
+              <div key={i} className={styles.textBox}>
+                <p> * </p>
+                <p>{text}</p>
+              </div>
+            ))}
+          </div>
         </div>
         <CountBtn testData={testResultData} testId={params.testId} type={'tsetResult'} />
-        <AddComment testId={params.testId} commentCount={commentCount} />
-        <Comments testId={params.testId} />
+        <div className={styles.resultWrap_botton}>
+          <AddComment testId={params.testId} commentCount={commentCount} />
+          <Comments testId={params.testId} />
+        </div>
       </div>
     );
   }

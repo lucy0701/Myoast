@@ -8,3 +8,10 @@ export const REGIST_DATA = 'registDate';
 export const USER_NAME = 'username';
 
 export const AUTHORIZATION = 'authorization';
+
+export const TEST_SCORE = 'testScore';
+
+// 이전페이지
+export const BACK_PAGE = 'backPage';
+export const BACK_PAGE_TEST = 'backPageTest';
+export const BACK_PAGE_RESULT = 'backPageTesult';

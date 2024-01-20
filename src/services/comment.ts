@@ -38,5 +38,4 @@ interface Data {
   memberId: string;
 }
 
-// export const deleteCommentAPI = (data: Data) => apiBe.delete(`v1/test/comments`, { headers, data });
 export const deleteCommentAPI = (data: Data) => apiBe.delete(`v1/test/comments`, { data, headers });
