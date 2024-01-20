@@ -6,12 +6,13 @@
 
 @media (min-width: 376px) {
   .wrap {
-    min-width: 400px;
+    width: 400px;
   }
 }
 
 .wrap {
   z-index: 1;
+  margin: auto;
 }
 
 .headerWrap {
@@ -62,19 +63,19 @@
 }
 
 .menuIcon {
-  width: 1rem;
-  height: 1rem;
+  width: 1.3rem;
+  height: 1.3rem;
   background-image: url('../../../../public/svgs/menuIcon.svg');
 }
 .myPageIcon {
-  width: 1.2rem;
-  height: 1.2rem;
+  width: 1.4rem;
+  height: 1.4rem;
   margin: auto;
   background-image: url('../../../../public/svgs/mypage.svg');
 }
 .loginIcon {
-  width: 15px;
-  height: 15px;
+  width: 1.3rem;
+  height: 1.3rem;
   margin: auto;
   margin-top: 50%;
   transform: translateY(-50%);

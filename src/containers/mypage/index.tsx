@@ -5,9 +5,10 @@ import { useRecoilValue } from 'recoil';
 
 import { TYPE_MORE_BTN, TYPE_MY_TEST_CARD, TYPE_START_BTN } from '@/constants/commonType';
 import SessionStorage from '@/utils/SessionStorage';
-import { MEMBER_ID, REGIST_DATA, THUMBNAIL, USER_INFO, USER_NAME } from '@/constants/sessionStorage';
+import { MEMBER_ID, REGIST_DATE, THUMBNAIL, USER_INFO, USER_NAME } from '@/constants/sessionStorage';
 import { useMypage } from '@/hooks/useMypage';
 import { userInfo } from '@/states/sessionStorageEffect';
+import { dateSplit } from '@/utils/dateSplit';
 
 import Footer from '@/components/layout/Footer';
 import styles from './index.module.css';
@@ -28,7 +29,7 @@ export default function Mypage() {
     setMemberId(SessionStorage.getItem(USER_INFO + MEMBER_ID));
     setUserName(SessionStorage.getItem(USER_INFO + USER_NAME));
     setThumbnail(SessionStorage.getItem(USER_INFO + THUMBNAIL));
-    setRegistDate(SessionStorage.getItem(USER_INFO + REGIST_DATA));
+    setRegistDate(SessionStorage.getItem(USER_INFO + REGIST_DATE));
   }, []);
 
   useEffect(() => {
@@ -36,6 +37,7 @@ export default function Mypage() {
       getMemberTestResult(memberId, page);
       setPage(page + 1);
     }
+    if (registDate) setRegistDate(dateSplit(registDate));
   }, [memberId]);
 
   const onClickMoreBtn = () => {

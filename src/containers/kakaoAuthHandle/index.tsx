@@ -10,7 +10,7 @@ import {
   BACK_PAGE,
   BACK_PAGE_TEST,
   MEMBER_ID,
-  REGIST_DATA,
+  REGIST_DATE,
   THUMBNAIL,
   TOKEN_NAME,
   USER_INFO,
@@ -41,7 +41,7 @@ export default function KaKaoAuthHandle() {
           SessionStorage.setItem(USER_INFO + MEMBER_ID, response.data.memberId);
           SessionStorage.setItem(USER_INFO + USER_NAME, response.data.username);
           SessionStorage.setItem(USER_INFO + THUMBNAIL, response.data.thumbnail);
-          SessionStorage.setItem(USER_INFO + REGIST_DATA, response.data.registDate);
+          SessionStorage.setItem(USER_INFO + REGIST_DATE, response.data.registDate);
 
           setIsLogin(decodeToken().state);
           headers = getHeaders();

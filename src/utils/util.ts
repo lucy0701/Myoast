@@ -2,7 +2,7 @@ import jwtDecode from 'jwt-decode';
 import { useRecoilState } from 'recoil';
 
 import { DecodedToken } from '@/types/login';
-import { MEMBER_ID, REGIST_DATA, THUMBNAIL, TOKEN_NAME, USER_INFO, USER_NAME } from '@/constants/sessionStorage';
+import { MEMBER_ID, REGIST_DATE, THUMBNAIL, TOKEN_NAME, USER_INFO, USER_NAME } from '@/constants/sessionStorage';
 import { isLoginState } from '@/states/isLoignState';
 
 import SessionStorage from './SessionStorage';
@@ -12,7 +12,7 @@ export function clearSessionStorage() {
     SessionStorage.setItem(TOKEN_NAME, '');
     SessionStorage.setItem(USER_INFO + MEMBER_ID, '');
     SessionStorage.setItem(USER_INFO + THUMBNAIL, '');
-    SessionStorage.setItem(USER_INFO + REGIST_DATA, '');
+    SessionStorage.setItem(USER_INFO + REGIST_DATE, '');
     SessionStorage.setItem(USER_INFO + USER_NAME, '');
   }
 }

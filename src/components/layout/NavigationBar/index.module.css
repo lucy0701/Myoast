@@ -59,15 +59,15 @@
 }
 .ulWrap {
   font-weight: bold;
-  margin: 10px 0 25px 0;
+  margin: 10px 0 30px 0;
 }
 .ulWrap > p {
   margin-bottom: 10px;
 }
 .ulWrap > li {
   font-weight: normal;
-  font-size: 0.9rem;
-  margin: 8px 15px;
+  font-size: 1rem;
+  margin: 10px 15px;
 }
 
 .ulWrap > ul:last-child {
@@ -93,7 +93,6 @@
 }
 .logOutWrap > p {
   padding-left: 5px;
-  font-size: 0.9rem;
 }
 
 /* ICON */

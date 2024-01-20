@@ -10,7 +10,7 @@
 }
 
 .wrap {
-  height: 750px;
+  margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -80,7 +80,7 @@
 }
 .questionWrap p {
   width: 100%;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 800px;
   text-align: center;
   overflow-wrap: break-word;
@@ -89,9 +89,10 @@
 /* 응답 */
 .answerWrap {
   width: 100%;
+  height: 200px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  height: 160px;
+  justify-content: space-around;
+  /* height: 160px; */
 }

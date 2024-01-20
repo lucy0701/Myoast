@@ -31,7 +31,9 @@ export default function TestResultRecord() {
           <div className={styles.resultImg}>
             <img src={testResultData.imageUrl} alt="test" />
           </div>
+          <div className={styles.titleWrap}>
           <h2 className={styles.tsetTitle}>{testResultData.title}</h2>
+          </div>
           <div className={styles.textWrap}>
             {content.map((text, i) => (
               <div key={i} className={styles.textBox}>

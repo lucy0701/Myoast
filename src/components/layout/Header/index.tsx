@@ -15,15 +15,15 @@ export default function Header() {
   const [isLogin, setIsLogin] = useState(false);
   const isLogin_be = useRecoilValue(isLoginState);
 
-  useEffect(()=>{
-    setIsLogin(decodeToken().state)
-  },[decodeToken().state])
+  useEffect(() => {
+    setIsLogin(decodeToken().state);
+  }, [decodeToken().state]);
 
   return (
     <div className={styles.wrap}>
       <div className={styles.headerWrap}>
-        <div className={styles.meunWrap}>
-          <div className={styles.menuIcon} onClick={() => setMenuClicked(true)} />
+        <div className={styles.meunWrap} onClick={() => setMenuClicked(true)}>
+          <div className={styles.menuIcon} />
         </div>
         {/* 클릭하면 메인페이지로 */}
         <div>

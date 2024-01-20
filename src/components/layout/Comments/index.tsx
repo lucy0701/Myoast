@@ -5,6 +5,7 @@ import { useComment } from '@/hooks/useComment';
 import SessionStorage from '@/utils/SessionStorage';
 import { MEMBER_ID, USER_INFO } from '@/constants/sessionStorage';
 import { TYPE_MORE_BTN } from '@/constants/commonType';
+import { getTimeDifference } from '@/utils/dateSplit';
 
 import styles from './index.module.css';
 import Button from '@/components/common/Button';
@@ -15,13 +16,7 @@ interface Props {
 
 const Comments = (props: Props) => {
   const { testId } = props;
-  const {
-    commentListData,
-    getCommentList,
-    isNextPage,
-    deleteCommentData,
-    updateCommentData,
-  } = useComment();
+  const { commentListData, getCommentList, isNextPage, deleteCommentData, updateCommentData } = useComment();
 
   const [inputValue, setInputValue] = useState('');
   const [editingCommentId, setEditingCommentId] = useState<string | null>(null);
@@ -33,8 +28,23 @@ const Comments = (props: Props) => {
   }, [testId]);
 
   useEffect(() => {
-    if (!isMore) setMoreCommentList(commentListData);
-    if (isMore) setMoreCommentList((prev) => [...prev, ...commentListData]);
+    if (!isMore) {
+      setMoreCommentList(
+        commentListData.map((comment) => ({
+          ...comment,
+          commentDate: getTimeDifference(comment.commentDate) as string
+        })),
+      );
+    }
+    if (isMore) {
+      setMoreCommentList((prev) => [
+        ...prev,
+        ...commentListData.map((comment) => ({
+          ...comment,
+          commentDate: getTimeDifference(comment.commentDate) as string,
+        })),
+      ]);
+    }
   }, [commentListData]);
 
   const maxCharCount = 100;
@@ -77,7 +87,7 @@ const Comments = (props: Props) => {
 
   const onClickMoreBtn = () => {
     // const nextPageNumber = (moreCommentList.length / 10).toString();
-    if(isNextPage) setIsMore(true);
+    if (isNextPage) setIsMore(true);
     getCommentList(testId, (moreCommentList.length / 10).toString());
   };
 
