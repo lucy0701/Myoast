@@ -20,7 +20,7 @@ interface Props {
 }
 export default function TestMain(props: Props) {
   const { testData } = props;
-  const { commentListData, getCommentList, commentCount, getCommentCount } = useComment();
+  const { commentListData, commentCount, getCommentCount } = useComment();
 
   useEffect(() => {
     getCommentCount(testData.id);

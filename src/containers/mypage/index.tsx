@@ -1,11 +1,13 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useRecoilValue } from 'recoil';
 
 import { TYPE_MORE_BTN, TYPE_MY_TEST_CARD, TYPE_START_BTN } from '@/constants/commonType';
 import SessionStorage from '@/utils/SessionStorage';
 import { MEMBER_ID, REGIST_DATA, THUMBNAIL, USER_INFO, USER_NAME } from '@/constants/sessionStorage';
 import { useMypage } from '@/hooks/useMypage';
+import { userInfo } from '@/states/sessionStorageEffect';
 
 import Footer from '@/components/layout/Footer';
 import styles from './index.module.css';
@@ -21,6 +23,7 @@ export default function Mypage() {
   const [thumbnail, setThumbnail] = useState<string | null>();
   const [registDate, setRegistDate] = useState<string | null>();
   const [page, setPage] = useState(0);
+  const memberId_1 = useRecoilValue(userInfo);
 
   useEffect(() => {
     setMemberId(SessionStorage.getItem(USER_INFO + MEMBER_ID));

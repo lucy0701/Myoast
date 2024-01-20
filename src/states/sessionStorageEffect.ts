@@ -1,4 +1,4 @@
-import { AtomEffect } from 'recoil';
+import { AtomEffect, atom } from 'recoil';
 
 export const sessionStorageEffect: <T>(Key: string) => AtomEffect<T> =
   (key: string) =>
@@ -10,7 +10,13 @@ export const sessionStorageEffect: <T>(Key: string) => AtomEffect<T> =
       }
 
       onSet((newValue, _, isReset) => {
-        isReset ? sessionStorage.removeItes(key) : sessionStorage.setItem(key, JSON.stringify(newValue));
+        isReset ? sessionStorage.removeItem(key) : sessionStorage.setItem(key, JSON.stringify(newValue));
       });
     }
   };
+
+export const userInfo = atom({
+  key: 'userInfo',
+  default: {},
+  effects_UNSTABLE: [sessionStorageEffect('userInfo')],
+});

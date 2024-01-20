@@ -2,7 +2,7 @@
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import { useEffect } from 'react';
-import { useRecoilState, useSetRecoilState } from 'recoil';
+import { useSetRecoilState } from 'recoil';
 
 import { DOMAIN_BE_PROD } from '@/constants/constant';
 import {
@@ -17,6 +17,7 @@ import {
 import { decodeToken, getHeaders } from '@/utils/util';
 import SessionStorage from '@/utils/SessionStorage';
 import { isLoginState } from '@/states/isLoignState';
+import { userInfo } from '@/states/sessionStorageEffect';
 
 import styles from './index.module.css';
 import Footer from '@/components/layout/Footer';
@@ -24,6 +25,7 @@ import Footer from '@/components/layout/Footer';
 export default function KaKaoAuthHandle() {
   const router = useRouter();
   const setIsLogin = useSetRecoilState(isLoginState);
+  const setUserInfo = useSetRecoilState(userInfo);
 
   useEffect(() => {
     const code = new URL(window.location.href).searchParams.get('code');
@@ -38,6 +40,7 @@ export default function KaKaoAuthHandle() {
           SessionStorage.setItem(USER_INFO + THUMBNAIL, response.data.thumbnail);
           SessionStorage.setItem(USER_INFO + REGIST_DATA, response.data.registDate);
 
+          setUserInfo(response.data);
           setIsLogin(decodeToken().state);
 
           headers = getHeaders();

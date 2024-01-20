@@ -2,12 +2,15 @@
 
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { useRecoilValue } from 'recoil';
 
 import { decodeToken } from '@/utils/util';
 import { useComment } from '@/hooks/useComment';
 import { useTest } from '@/hooks/useTest';
 import { MEMBER_ID, USER_INFO } from '@/constants/sessionStorage';
 import SessionStorage from '@/utils/SessionStorage';
+import { scoreState } from '@/states/scoreState';
+import { userInfo } from '@/states/sessionStorageEffect';
 
 import CountBtn from '@/components/layout/CountBtn';
 import AddComment from '@/components/layout/AddComment';
@@ -18,8 +21,9 @@ export default function TestResult() {
   const params = useParams();
   const { commentListData, getCommentList, commentCount, getCommentCount } = useComment();
   const { postTestResultData, postMemberTestResultData, testResultData } = useTest();
-
+  const score = useRecoilValue(scoreState);
   const [memberId, setMemberId] = useState<string | null>(null);
+  const memberId_1 = useRecoilValue(userInfo);
 
   useEffect(() => {
     setMemberId(SessionStorage.getItem(USER_INFO + MEMBER_ID));
@@ -28,9 +32,6 @@ export default function TestResult() {
   }, []);
 
   useEffect(() => {
-    const storedScore = SessionStorage.getItem('mbScore');
-    const score = storedScore !== null ? JSON.parse(storedScore) : null;
-
     if (decodeToken().state && memberId) {
       postMemberTestResultData(params.testId, memberId, score);
     } else if (!decodeToken().state) {

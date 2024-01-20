@@ -39,7 +39,7 @@ export const useTest = () => {
     }
   };
 
-  const postTestResultData = async (testId: string, score: []) => {
+  const postTestResultData = async (testId: string, score: number[]) => {
     try {
       const res = await postTestResultAPI(testId, score);
       if (res) {
@@ -63,7 +63,7 @@ export const useTest = () => {
     }
   };
 
-  const postMemberTestResultData = async (testId: string, memberId: string, score: []) => {
+  const postMemberTestResultData = async (testId: string, memberId: string, score: number[]) => {
     try {
       const res = await postMemberTestResultAPI(testId, memberId, score);
       if (res) {
