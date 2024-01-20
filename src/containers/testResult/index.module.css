@@ -17,6 +17,9 @@
   margin: auto;
   background-color: white;
 }
+.displayNone {
+  display: none;
+}
 .resultWrap {
   padding: 10px 25px;
   display: flex;

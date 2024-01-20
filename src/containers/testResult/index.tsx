@@ -2,7 +2,7 @@
 
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { useRecoilValue } from 'recoil';
+import cx from 'classnames';
 
 import { useComment } from '@/hooks/useComment';
 import { useTest } from '@/hooks/useTest';
@@ -15,6 +15,7 @@ import CountBtn from '@/components/layout/CountBtn';
 import AddComment from '@/components/layout/AddComment';
 import styles from './index.module.css';
 import Comments from '@/components/layout/Comments';
+import ResultLoading from '@/components/layout/ResultLoading';
 
 export default function TestResult() {
   const params = useParams();
@@ -22,6 +23,7 @@ export default function TestResult() {
   const { postTestResultData, postMemberTestResultData, testResultData } = useTest();
   const [memberId, setMemberId] = useState<string | null>(null);
   const content = contentArr(testResultData ? testResultData.content : '');
+  const [loading, setLoding] = useState(true);
 
   useEffect(() => {
     SessionStorage.setItem(BACK_PAGE, '/result/');
@@ -39,31 +41,41 @@ export default function TestResult() {
     } else if (!decodeToken().state) {
       postTestResultData(params.testId, score);
     }
+    const timer = setTimeout (()=> {
+      setLoding(false);
+    },3000);
+
+    return () => {
+      clearTimeout(timer);
+    };
   }, [memberId]);
 
   if (testResultData && commentListData) {
     return (
       <div className={styles.wrap}>
-        <div className={styles.resultWrap}>
-          <div className={styles.resultImg}>
-            <img src={testResultData.imageUrl} alt="test" />
+        {loading && <ResultLoading />}
+        <div className={cx({ [styles.displayNone]: loading })}>
+          <div className={cx(styles.resultWrap, { [styles.displayNone]: loading })}>
+            <div className={styles.resultImg}>
+              <img src={testResultData.imageUrl} alt="test" />
+            </div>
+            <div className={styles.titleWrap}>
+              <h2 className={styles.tsetTitle}>{testResultData.title}</h2>
+            </div>
+            <div className={styles.textWrap}>
+              {content.map((text, i) => (
+                <div key={i} className={styles.textBox}>
+                  <p> * </p>
+                  <p>{text}</p>
+                </div>
+              ))}
+            </div>
           </div>
-          <div className={styles.titleWrap}>
-            <h2 className={styles.tsetTitle}>{testResultData.title}</h2>
+          <CountBtn testData={testResultData} testId={params.testId} type={'tsetResult'} />
+          <div className={styles.resultWrap_botton}>
+            <AddComment testId={params.testId} commentCount={commentCount} />
+            <Comments testId={params.testId} />
           </div>
-          <div className={styles.textWrap}>
-            {content.map((text, i) => (
-              <div key={i} className={styles.textBox}>
-                <p> * </p>
-                <p>{text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-        <CountBtn testData={testResultData} testId={params.testId} type={'tsetResult'} />
-        <div className={styles.resultWrap_botton}>
-          <AddComment testId={params.testId} commentCount={commentCount} />
-          <Comments testId={params.testId} />
         </div>
       </div>
     );
