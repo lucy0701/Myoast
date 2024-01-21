@@ -14,6 +14,8 @@ React.js, Next.js, Recoil, OAuth2, TypeScript
 
 https://www.figma.com/file/0xu6ViOhTQjSbY7mmzXEMa/Mongbit?type=design&node-id=0-1&mode=design&t=sQSaPzZLTZYej9ou-0
 
+### 일지
+
 **01.07**  Start - UI구성, 환경세팅
 
 **01.13**  Vercel - 도메인 배포
