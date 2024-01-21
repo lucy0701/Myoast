@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 
-import { TYPE_PLAY_CNT, TYPE_START_BTN } from '@/constants/commonType';
+import { TYPE_PLAY_CNT, TYPE_START_BTN, TYPE_TEST_MAIN } from '@/constants/commonType';
 import { Test } from '@/types/test';
 import { useComment } from '@/hooks/useComment';
 import SessionStorage from '@/utils/SessionStorage';
@@ -32,7 +32,6 @@ export default function TestMain(props: Props) {
     getCommentCount(testData.id);
   }, []);
 
-
   if (commentListData) {
     return (
       <div className={styles.wrap}>
@@ -48,7 +47,7 @@ export default function TestMain(props: Props) {
         <Button link={`/test/play/${testData.id}`} skin={TYPE_START_BTN}>
           테스트 시작
         </Button>
-        <CountBtn testId={testData.id} testData={testData} type={'testMain'} />
+        <CountBtn testId={testData.id} testData={testData} type={TYPE_TEST_MAIN} />
         <AddComment testId={testData.id} commentCount={commentCount} />
         <Comments testId={testData.id} />
         <Footer />

@@ -12,6 +12,7 @@ import SessionStorage from '@/utils/SessionStorage';
 import { decodeToken } from '@/utils/util';
 import { contentArr } from '@/utils/textArr';
 import { isCoupangState } from '@/states/isCoupangState';
+import { TYPE_TEST_RESULT } from '@/constants/commonType';
 
 import CountBtn from '@/components/layout/CountBtn';
 import AddComment from '@/components/layout/AddComment';
@@ -28,7 +29,7 @@ export default function TestResult() {
   const [memberId, setMemberId] = useState<string | null>(null);
   const content = contentArr(testResultData ? testResultData.content : '');
   const [isloading, setIsLoding] = useState(true);
-  const [isCoupang,setIsCoupang] = useRecoilState(isCoupangState);
+  const [isCoupang, setIsCoupang] = useRecoilState(isCoupangState);
 
   useEffect(() => {
     SessionStorage.setItem(BACK_PAGE, '/result/');
@@ -59,9 +60,11 @@ export default function TestResult() {
     return (
       <div className={styles.wrap}>
         {isloading && <ResultLoading />}
-        {isCoupang && <div className={cx(styles.coupangWrap, { [styles.displayNone]: isloading })}>
-          <CoupangPage />
-        </div>}
+        {isCoupang && (
+          <div className={cx(styles.coupangWrap, { [styles.displayNone]: isloading })}>
+            <CoupangPage />
+          </div>
+        )}
         <div className={cx({ [styles.displayNone]: isloading }, { [styles.resultWrap_height]: isCoupang })}>
           <div className={styles.resultWrap}>
             <div className={styles.resultImg}>
@@ -79,7 +82,9 @@ export default function TestResult() {
               ))}
             </div>
           </div>
-          <CountBtn testData={testResultData} testId={params.testId} type={'tsetResult'} />
+          <div className={cx({ [styles.displayNone]: isCoupang })}>
+            <CountBtn testData={testResultData} testId={params.testId} type={TYPE_TEST_RESULT} />
+          </div>
           <div>
             <CoupangBanner_1 />
           </div>

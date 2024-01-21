@@ -5,6 +5,8 @@ import { useEffect } from 'react';
 import { MAIN_PAGE_TEST_IMG, MAIN_PAGE_TEST_TITLE, OG_MBTI_TEST_IMAGE } from '@/constants/constant';
 import { TEST_CARD_SIZE_L, TEST_CARD_SIZE_M, TYPE_START_BTN, TYPE_TEST_CARD } from '@/constants/commonType';
 import { useTest } from '@/hooks/useTest';
+import { BACK_PAGE, BACK_PAGE_TEST } from '@/constants/sessionStorage';
+import SessionStorage from '@/utils/SessionStorage';
 
 import Button from '@/components/common/Button';
 import styles from './index.module.css';
@@ -16,6 +18,8 @@ export default function Main() {
   const { latestList, getLatestListData } = useTest();
 
   useEffect(() => {
+    SessionStorage.setItem(BACK_PAGE, '/');
+    SessionStorage.setItem(BACK_PAGE_TEST, '');
     getLatestListData('0', '6');
   }, []);
 

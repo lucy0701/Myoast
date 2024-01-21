@@ -11,6 +11,9 @@ export const TYPE_PLAY_CNT = 'playCnt';
 export const TYPE_LIKE_CNT = 'likeCnt';
 export const TYPE_COMMENT_CNT = 'commentCnt';
 
+export const TYPE_TEST_RESULT = 'tsetResult';
+export const TYPE_TEST_MAIN='testMain'
+
 // test card
 export const TEST_CARD_SIZE_S = 'small';
 export const TEST_CARD_SIZE_M = 'medium';

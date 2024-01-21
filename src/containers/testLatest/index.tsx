@@ -1,7 +1,11 @@
 'use client';
 
+import { useEffect } from 'react';
+
 import { TYPE_BOTTOM_BTN } from '@/constants/commonType';
 import { TestCover } from '@/types/test';
+import { BACK_PAGE } from '@/constants/sessionStorage';
+import SessionStorage from '@/utils/SessionStorage';
 
 import styles from './index.module.css';
 import Title from '@/components/common/Title';
@@ -14,6 +18,10 @@ interface Props {
 
 export default function TestLatest(props: Props) {
   const { testLatestData } = props;
+
+  useEffect(() => {
+    SessionStorage.setItem(BACK_PAGE, '/latest');
+  },[]);
 
   return (
     <div className={styles.wrap}>

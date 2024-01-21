@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import { useComment } from '@/hooks/useComment';
 import { useTest } from '@/hooks/useTest';
 import { contentArr } from '@/utils/textArr';
+import { TYPE_TEST_RESULT} from '@/constants/commonType';
 
 import CountBtn from '@/components/layout/CountBtn';
 import AddComment from '@/components/layout/AddComment';
@@ -32,7 +33,7 @@ export default function TestResultRecord() {
             <img src={testResultData.imageUrl} alt="test" />
           </div>
           <div className={styles.titleWrap}>
-          <h2 className={styles.tsetTitle}>{testResultData.title}</h2>
+            <h2 className={styles.tsetTitle}>{testResultData.title}</h2>
           </div>
           <div className={styles.textWrap}>
             {content.map((text, i) => (
@@ -43,7 +44,7 @@ export default function TestResultRecord() {
             ))}
           </div>
         </div>
-        <CountBtn testData={testResultData} testId={params.testId} type={'tsetResult'} />
+        <CountBtn testData={testResultData} testId={params.testId} type={TYPE_TEST_RESULT} />
         <div className={styles.resultWrap_botton}>
           <AddComment testId={params.testId} commentCount={commentCount} />
           <Comments testId={params.testId} />
