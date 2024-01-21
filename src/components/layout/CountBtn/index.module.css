@@ -1,11 +1,10 @@
 .wrap {
   width: 100%;
   margin: 10px 0;
-  border-bottom: 1px solid #ddd;
 }
 .btnWarp {
   width: 90%;
-  height: 135px;
+  height: 120px;
   padding: 10px;
   margin: auto;
   display: flex;

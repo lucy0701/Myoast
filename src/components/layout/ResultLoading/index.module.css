@@ -10,11 +10,18 @@
   }
   .wrap {
     height: 100%;
-    background-color: #fff5da;
+    background-color: #fff;
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
+  }
+  .contentWrap{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff5da;
   }
   .content {
     margin: 130px 0 110px 0;
@@ -33,9 +40,4 @@
   .loadImg {
     width: 250px;
     height: 250px;
-  }
-  .banner{
-    width: 100%;
-    height: 100px;
-    background-color: #ffc52f;
   }

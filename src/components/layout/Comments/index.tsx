@@ -32,7 +32,7 @@ const Comments = (props: Props) => {
       setMoreCommentList(
         commentListData.map((comment) => ({
           ...comment,
-          commentDate: getTimeDifference(comment.commentDate) as string
+          commentDate: getTimeDifference(comment.commentDate) as string,
         })),
       );
     }
