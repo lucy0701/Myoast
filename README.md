@@ -25,3 +25,5 @@ https://www.figma.com/file/0xu6ViOhTQjSbY7mmzXEMa/Mongbit?type=design&node-id=0-
 **01.15**  OAuth2 - Kakao 
 
 **01.17**  Recoil 도입
+
+**01.21** Coupang 광고 등록
