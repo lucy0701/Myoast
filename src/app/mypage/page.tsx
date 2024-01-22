@@ -1,4 +1,4 @@
-import Mypage from '@/containers/Mypage';
+import Mypage from '@/containers/mypage';
 
 export default function Page() {
   return <Mypage />;

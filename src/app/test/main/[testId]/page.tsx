@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 
-import TestMain from '@/containers/TestMain';
+import TestMain from '@/containers/testMain';
 import { getTestAPI } from '@/services/test';
 
 interface Props {

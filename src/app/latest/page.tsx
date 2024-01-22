@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 
-import TestLatest from '@/containers/TestLatest';
+import TestLatest from '@/containers/testLatest';
 import { getLatestListAPI } from '@/services/test';
 
 export default async function Page() {

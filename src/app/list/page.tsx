@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 
-import TestList from '@/containers/TestList';
+import TestList from '@/containers/testList';
 import { getTestListAPI } from '@/services/test';
 
 export default async function Page() {
