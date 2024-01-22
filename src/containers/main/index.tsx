@@ -35,30 +35,29 @@ export default function Main() {
         />
       </div>
       <div className={styles.randomTast}>
-        <Title title={'랜덤 심리테스트'} contents={'일단 시작 하자'} />
-        <Button link={'/test/random'} skin={TYPE_START_BTN}>
+        <Title title="랜덤 심리테스트" contents="일단 시작 하자" />
+        <Button link="/test/random" skin={TYPE_START_BTN}>
           아무거나 시작
         </Button>
       </div>
       <Title title={'최신 심테'} />
       <div className={styles.newTestWrap}>
-        {latestList &&
-          latestList.map((t, i) => (
-            <TestCard
-              key={i}
-              testId={t.id}
-              testTitle={t.title}
-              imgUrl={t.imageUrl}
-              playCount={t.playCount}
-              size={TEST_CARD_SIZE_M}
-              type={TYPE_TEST_CARD}
-            />
-          ))}
+        {latestList?.map((t, i) => (
+          // TODO: key에 index 쓰지말기
+          <TestCard
+            key={t.id}
+            testId={t.id}
+            testTitle={t.title}
+            imgUrl={t.imageUrl}
+            playCount={t.playCount}
+            size={TEST_CARD_SIZE_M}
+            type={TYPE_TEST_CARD}
+          />
+        ))}
       </div>
       <Button link={'/list'} skin={TYPE_START_BTN}>
         전체 보기
       </Button>
-      <Footer />
     </div>
   );
 }

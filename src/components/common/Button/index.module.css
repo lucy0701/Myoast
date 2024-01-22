@@ -13,11 +13,11 @@
 }
 
 .startBtn {
-  height: 2.5rem;
+  height: 50px;
   font-size: 1.1rem;
   font-weight: 500;
   border-radius: 1rem;
-  background-color: #ffc52f;
+  background-color: #6CA4AA;
   color: white;
   text-decoration: none;
   text-align: center;
@@ -25,39 +25,43 @@
   justify-content: center;
   align-items: center;
   margin: 10px 0 10px 0;
+  box-shadow: 3px 5px 6px #01010137;
   transition: background-color 0.3s ease-in-out;
 }
 
 .startBtn:hover {
-  background-color: #f8b713;
+  background-color: #63969c;
 }
 
 .bottomBtn {
   width: 100%;
   max-width: 400px;
-  height: 50px;
+  height: 60px;
   font-size: 17px;
   font-weight: 500;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 10px 10px 0 0;
-  background-color: #ffc52f;
-  color: white;
+  background-color: #f6d676f0;
+  border: #F6D776 solid 2px;
+  color: #000;
   position: fixed;
   bottom: 0;
+  
   /* left: 0; */
   /* transform: translateY(0%);
   transition: all 0.5s ease-in-out; */
 }
 .bottomBtn:hover {
-  background-color: #f8b713;
+  background-color: #dabd66;
 }
 
 .startBtn .nexticon,
 .bottomBtn .nexticon {
   width: 1rem;
   height: 1rem;
+  margin-left: 5px;
   cursor: pointer;
   background-image: url('../../../../public/svgs/nextIcon.svg');
   background-repeat: no-repeat;
@@ -69,8 +73,7 @@
   width: 80%;
   min-height: 70px;
   font-size: 0.9rem;
-  background-color: #ffffff;
-  border: 1px solid #e6e6e6;
+  background-color: #F6D776;
   border-radius: 1rem;
   padding: 25px 15px;
   text-align: center;
@@ -104,7 +107,7 @@
 /* 더 보기 */
 .moreBtn {
   width: 80px;
-  height: 40px;
+  height: 45px;
   display: flex;
   padding: 7px;
   flex-direction: column;
@@ -117,7 +120,7 @@
 }
 .moreBtn .moreIcon {
   width: 1rem;
-  height: 0.5rem;
+  height: 1rem;
   margin: auto;
   background-image: url('../../../../public/svgs/seeMoreIcon.svg');
   background-repeat: no-repeat;

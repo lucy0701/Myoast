@@ -10,6 +10,7 @@ export const OG_TEST_RESULT = 'https://i.ibb.co/tQWt0dF/image.png';
 export const OG_MBTI_TEST_IMAGE = 'https://i.ibb.co/GJ08BC3/quick-mbti-cover.png';
 
 // Main page Test
+// TODO: 고정 테스트 말고 인기순 등으로 개선
 export const MAIN_PAGE_TEST_IMG = '649a7bccaa04db61384808c5';
 export const MAIN_PAGE_TEST_TITLE = '신속하고 아마도 정확한 퀵 MBTI!';
 

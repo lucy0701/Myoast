@@ -37,7 +37,7 @@
   align-items: center;
   border-radius: 5em;
   overflow: hidden;
-  background-color: #ece5dd;
+  background-color: #faf2d7;
 }
 .inputWarp input {
   width: 100%;
@@ -47,7 +47,7 @@
   letter-spacing: 0.7px;
   border: none;
   outline: none;
-  background-color: #ece5dd;
+  background-color: #faf2d7;
 }
 .inputWarp button {
   width: 2rem;
@@ -55,7 +55,7 @@
   padding: 15px;
   background-image: url('../../../../public/svgs/addComment.svg');
   background-color: transparent;
-margin-right: 5px;
+  margin-right: 5px;
 }
 
 .commentText span,
@@ -64,7 +64,7 @@ margin-right: 5px;
   background-size: contain;
 }
 
-.nonLogin{
+.nonLogin {
   text-align: center;
   font-size: 0.8em;
   color: #666;

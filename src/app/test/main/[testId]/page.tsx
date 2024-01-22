@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 
-import TestMain from '@/containers/testMain';
+import TestMain from '@/containers/TestMain';
 import { getTestAPI } from '@/services/test';
 
 interface Props {
@@ -9,8 +9,7 @@ interface Props {
   };
 }
 export default async function Page({ params: { testId } }: Props) {
-  const testData = await getTestAPI(testId)
-    .then(async (res) => res.data);
+  const testData = await getTestAPI(testId).then(async (res) => res.data);
   if (!testData) return notFound;
   return <TestMain testData={testData} />;
 }

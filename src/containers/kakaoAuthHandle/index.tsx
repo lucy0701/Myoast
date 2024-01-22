@@ -51,18 +51,18 @@ export default function KaKaoAuthHandle() {
               .post(`${DOMAIN_BE_PROD}/api/v1/loginTracker/${response.data.memberId}/track`, {}, { headers })
               .catch((err) => {
                 alert(err.response.data);
-                router.push('/login');
+                router.replace('/login');
               });
           }
           if (backPage) {
-            router.push(backPage + backPageTest);
+            router.replace(backPage + backPageTest);
           } else {
-            router.push('/');
+            router.replace('/');
           }
         })
         .catch((err) => {
           alert(err.response.data);
-          router.push('/login');
+          router.replace('/login');
         });
     }
   }, []);
@@ -70,7 +70,7 @@ export default function KaKaoAuthHandle() {
   return (
     <div className={styles.wrap}>
       <div className={styles.content}></div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

@@ -35,6 +35,7 @@ export default function CoupangPage() {
     }, 1000);
 
     return () => {
+      // clearInterval: 시간 간격으로 콜백
       clearInterval(intervalId);
     };
   }, []);
@@ -59,9 +60,6 @@ export default function CoupangPage() {
           <p>쿠팡 다녀오면</p>
           <p>12시간 동안 광고 없이 무제한 이용</p>
         </div>
-      </div>
-      <div className={styles.footerWrap}>
-        <Footer />
       </div>
     </div>
   );

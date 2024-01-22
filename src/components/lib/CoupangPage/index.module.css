@@ -27,20 +27,12 @@
   width: 280px;
   height: 60px;
   font-size: 1.2rem;
-  background-color: rgb(255, 229, 194);
+  background-color: #FAEF9A;
   border-radius: 1rem;
-}
-.footerWrap {
-  width: 100%;
-  height: 90px;
-  position: absolute;
-  bottom: 0;
-  display: flex;
-  justify-content: center;
-  background-color: #fff;
 }
 .textBox {
   text-align: center;
+  color: #fff;
 }
 .bannerWrap {
   position: relative;

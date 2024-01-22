@@ -85,7 +85,6 @@ export default function Mypage() {
             더보기
           </Button>
         </div>
-        <Footer />
       </div>
     );
 }

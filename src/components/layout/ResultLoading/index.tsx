@@ -37,7 +37,7 @@ export default function ResultLoading() {
         </div>
       </div>
       <CoupangBanner_2 />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

@@ -5,6 +5,7 @@ import { Metadata } from 'next';
 
 import RecoilRootProvider from '../components/layout/RecoilRootProvider';
 import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
 
 const notoSansKr = Noto_Sans_KR({
   weight: ['100', '300', '400', '500', '700', '900'],
@@ -25,6 +26,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <RecoilRootProvider>
           <Header />
           {children}
+          <Footer />
         </RecoilRootProvider>
         <script
           async

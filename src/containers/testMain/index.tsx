@@ -50,7 +50,6 @@ export default function TestMain(props: Props) {
         <CountBtn testId={testData.id} testData={testData} type={TYPE_TEST_MAIN} />
         <AddComment testId={testData.id} commentCount={commentCount} />
         <Comments testId={testData.id} />
-        <Footer />
       </div>
     );
   }

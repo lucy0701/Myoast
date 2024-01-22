@@ -2,24 +2,24 @@
   .wrap {
     width: 375px;
   }
-  .footerWrap {
+  /* .footerWrap {
     width: 375px;
   }
   .content {
     width: 375px;
-  }
+  } */
 }
 
 @media (min-width: 376px) {
   .wrap {
     width: 400px;
   }
-  .footerWrap {
+  /* .footerWrap {
     width: 400px;
   }
   .content {
     width: 400px;
-  }
+  } */
 }
 
 .wrap {

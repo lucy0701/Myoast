@@ -1,4 +1,4 @@
-import TestResultRecord from '@/containers/testResultRecord';
+import TestResultRecord from '@/containers/TestResultRecord';
 
 export default function Page() {
   return <TestResultRecord />;

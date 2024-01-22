@@ -113,7 +113,7 @@ export default function TestPlay(props: Props) {
               ),
           )}
         </div>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     );
   }

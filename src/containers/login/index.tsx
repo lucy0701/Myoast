@@ -21,7 +21,7 @@ export default function Login() {
         </div>
         <button className={styles.loginBtn} onClick={() => setKakaoLogin()} />
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

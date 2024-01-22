@@ -12,6 +12,7 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
+// TODO: props 디스트럭쳐링 해서 사용
 const Button = (props: Props) => {
   const { children, className, link, skin, onClick } = props;
 
