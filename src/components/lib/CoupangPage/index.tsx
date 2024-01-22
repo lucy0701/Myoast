@@ -6,7 +6,6 @@ import { isCoupangState } from '@/states/isCoupangState';
 
 import styles from './index.module.css';
 import CoupangBanner_result from '../CoupangBanner_result';
-import Footer from '@/components/layout/Footer';
 
 export default function CoupangPage() {
   const setIsCoupang = useSetRecoilState(isCoupangState);

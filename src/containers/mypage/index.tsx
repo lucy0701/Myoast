@@ -1,13 +1,11 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useRecoilValue } from 'recoil';
 
 import { TYPE_MORE_BTN, TYPE_MY_TEST_CARD, TYPE_START_BTN } from '@/constants/commonType';
 import SessionStorage from '@/utils/SessionStorage';
-import { BACK_PAGE, MEMBER_ID, REGIST_DATE, THUMBNAIL, USER_INFO, USER_NAME } from '@/constants/sessionStorage';
+import { MEMBER_ID, REGIST_DATE, THUMBNAIL, USER_INFO, USER_NAME } from '@/constants/sessionStorage';
 import { useMypage } from '@/hooks/useMypage';
-import { userInfo } from '@/states/sessionStorageEffect';
 import { dateSplit } from '@/utils/dateSplit';
 
 import Footer from '@/components/layout/Footer';

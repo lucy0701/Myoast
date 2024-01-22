@@ -2,7 +2,7 @@
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import { useEffect } from 'react';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { useSetRecoilState } from 'recoil';
 
 import { DOMAIN_BE_PROD } from '@/constants/constant';
 import {
@@ -21,7 +21,6 @@ import SessionStorage from '@/utils/SessionStorage';
 import { isLoginState } from '@/states/isLoignState';
 
 import styles from './index.module.css';
-import Footer from '@/components/layout/Footer';
 
 export default function KaKaoAuthHandle() {
   const router = useRouter();
@@ -70,7 +69,6 @@ export default function KaKaoAuthHandle() {
   return (
     <div className={styles.wrap}>
       <div className={styles.content}></div>
-      {/* <Footer /> */}
     </div>
   );
 }

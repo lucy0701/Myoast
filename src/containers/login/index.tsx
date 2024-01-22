@@ -2,7 +2,6 @@
 
 import setKakaoLogin from '@/services/kakaoLogin';
 
-import Footer from '@/components/layout/Footer';
 import styles from './index.module.css';
 
 export default function Login() {
@@ -21,7 +20,6 @@ export default function Login() {
         </div>
         <button className={styles.loginBtn} onClick={() => setKakaoLogin()} />
       </div>
-      {/* <Footer /> */}
     </div>
   );
 }

@@ -5,7 +5,6 @@ import cx from 'classnames';
 import { contentArr } from '@/utils/textArr';
 
 import styles from './index.module.css';
-// import { useTest } from '@/hooks/useTest';
 
 interface Props {
   className?: string;

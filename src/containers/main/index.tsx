@@ -10,7 +10,6 @@ import SessionStorage from '@/utils/SessionStorage';
 
 import Button from '@/components/common/Button';
 import styles from './index.module.css';
-import Footer from '@/components/layout/Footer';
 import Title from '@/components/common/Title';
 import { TestCard } from '@/components/layout/TestCard';
 

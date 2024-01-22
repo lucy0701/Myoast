@@ -9,7 +9,6 @@ import SessionStorage from '@/utils/SessionStorage';
 import { TEST_SCORE } from '@/constants/sessionStorage';
 
 import Button from '@/components/common/Button';
-import Footer from '@/components/layout/Footer';
 import styles from './index.module.css';
 
 interface Props {
@@ -113,7 +112,6 @@ export default function TestPlay(props: Props) {
               ),
           )}
         </div>
-        {/* <Footer /> */}
       </div>
     );
   }

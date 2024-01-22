@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useRecoilValue } from 'recoil';
 
 import { useLike } from '@/hooks/useLike';
 import SessionStorage from '@/utils/SessionStorage';

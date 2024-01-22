@@ -15,7 +15,6 @@ import Button from '@/components/common/Button';
 import CountBtn from '@/components/layout/CountBtn';
 import AddComment from '@/components/layout/AddComment';
 import Comments from '@/components/layout/Comments';
-import Footer from '@/components/layout/Footer';
 import styles from './index.module.css';
 
 interface Props {
