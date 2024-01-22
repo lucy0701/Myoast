@@ -3,9 +3,11 @@ import React, { useEffect, useState } from 'react';
 import cx from 'classnames';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { useRecoilState } from 'recoil';
 
 import { decodeToken } from '@/utils/util';
 import { TOKEN_NAME, USER_INFO } from '@/constants/sessionStorage';
+import { isLoginState } from '@/states/isLoignState';
 
 import styles from './index.module.css';
 
@@ -16,7 +18,7 @@ interface Props {
 
 export default function NavigationBar({ menuClicked, setMenuClicked }: Props) {
   const router = useRouter();
-  const [isLogin, setIsLogin] = useState(false);
+  const [isLogin, setIsLogin] = useRecoilState(isLoginState);
 
   useEffect(() => {
     setIsLogin(decodeToken().state);
@@ -61,7 +63,7 @@ export default function NavigationBar({ menuClicked, setMenuClicked }: Props) {
               </li>
             </ul>
             {/* <ul className={styles.ulWrap}> */}
-            <ul className={isLogin ? styles.ulWrap : styles.display_none}>
+            <ul className={styles.ulWrap}>
               <p>마이 페이지</p>
               <li>
                 <Link href="/mypage" onClick={() => setMenuClicked(false)} prefetch={false}>

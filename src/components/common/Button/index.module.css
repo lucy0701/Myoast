@@ -63,11 +63,19 @@
   height: 1rem;
   margin-left: 5px;
   cursor: pointer;
-  background-image: url('../../../../public/svgs/nextIcon.svg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
 }
+.startBtn .nexticon {
+  background-image: url('../../../../public/svgs/nextIcon.svg');
+
+}
+.bottomBtn .nexticon {
+  background-image: url('../../../../public/svgs/nextIcon_2.svg');
+
+}
+
 
 .answerBtn {
   width: 80%;
