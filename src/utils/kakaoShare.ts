@@ -34,7 +34,7 @@ export const shareToKakaotalkResult = (
   imageUrl: string,
   testId: string,
   likeCnt: number,
-  resultLink: string,
+  resultid: string,
 ) => {
   if (!window.Kakao.isInitialized()) window.Kakao.init(KAKAO_INIT_KEY);
   window.Kakao.Share.sendDefault({
@@ -44,8 +44,8 @@ export const shareToKakaotalkResult = (
       description: title,
       imageUrl: imageUrl,
       link: {
-        mobileWebUrl: `${resultLink}`,
-        webUrl: `${resultLink}`,
+        mobileWebUrl: `${DOMAIN}/record/${testId}/${resultid}`,
+        webUrl: `${DOMAIN}/record/${testId}/${resultid}`,
       },
     },
     social: {
@@ -62,8 +62,8 @@ export const shareToKakaotalkResult = (
       {
         title: '결과 보기',
         link: {
-          mobileWebUrl: `${DOMAIN}/record/${testId}/${resultLink}`,
-          webUrl: `${DOMAIN}/record/${testId}/${resultLink}`,
+          mobileWebUrl: `${DOMAIN}/record/${testId}/${resultid}`,
+          webUrl: `${DOMAIN}/record/${testId}/${resultid}`,
         },
       },
     ],

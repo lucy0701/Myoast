@@ -8,7 +8,6 @@ import { useShare } from '@/hooks/useShare';
 import { shareToKakaotalkResult, shareTokakaotalkTest } from '@/utils/kakaoShare';
 import { Test, TestResultData } from '@/types/test';
 import { TYPE_BOTTOM_BTN } from '@/constants/commonType';
-import { isLoginState } from '@/states/isLoignState';
 import { decodeToken } from '@/utils/util';
 
 import styles from './index.module.css';

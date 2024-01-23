@@ -7,7 +7,15 @@ import { useRecoilState } from 'recoil';
 
 import { useComment } from '@/hooks/useComment';
 import { useTest } from '@/hooks/useTest';
-import { BACK_PAGE, BACK_PAGE_TEST, COUPANG_VISIT, MEMBER_ID, TEST_RESULT_ID, TEST_SCORE, USER_INFO } from '@/constants/sessionStorage';
+import {
+  BACK_PAGE,
+  BACK_PAGE_TEST,
+  COUPANG_VISIT,
+  MEMBER_ID,
+  TEST_RESULT_ID,
+  TEST_SCORE,
+  USER_INFO,
+} from '@/constants/sessionStorage';
 import SessionStorage from '@/utils/SessionStorage';
 import { decodeToken } from '@/utils/util';
 import { contentArr } from '@/utils/textArr';
