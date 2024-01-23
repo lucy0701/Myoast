@@ -113,7 +113,7 @@ export default function TestResult() {
             </div>
           </div>
           <div className={cx({ [styles.displayNone]: isCoupang })}>
-            <CountBtn testData={testResultData} testId={params.testId} type={TYPE_TEST_RESULT} />
+            <CountBtn testData={testResultData} testId={params.testId} resultId={testResultData.id} type={TYPE_TEST_RESULT} />
           </div>
           <div>
             <CoupangBanner_1 />

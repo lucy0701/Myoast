@@ -15,12 +15,12 @@ import Button from '@/components/common/Button';
 
 interface Props {
   testId: string;
+  resultId?: string
   testData: Test | TestResultData;
   type: 'testMain' | 'tsetResult';
 }
 
-export default function CountBtn(props: Props) {
-  const { testData, testId, type } = props;
+export default function CountBtn({ testData, testId, resultId, type }: Props) {
   const { likeCountData, isLikeCount, getLikeCountData, getIsLikeCountData, postLikeCountData, deleteLikeCountData } =
     useLike();
   const { postShareData } = useShare();
@@ -74,8 +74,8 @@ export default function CountBtn(props: Props) {
 
   const onClickResultShareBtn = () => {
     if (!decodeToken().state) router.push('/login');
-    if (decodeToken().state && memberId) {
-      shareToKakaotalkResult(testData.title, testData.imageUrl, testId, likeCountData, testData.id);
+    if (decodeToken().state && memberId && resultId) {
+      shareToKakaotalkResult(testData.title, testData.imageUrl, testId, likeCountData, resultId);
       postShareData(testId, memberId, 'KAKAO');
     }
   };

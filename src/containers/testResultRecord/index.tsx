@@ -44,7 +44,7 @@ export default function TestResultRecord() {
             ))}
           </div>
         </div>
-        <CountBtn testData={testResultData} testId={params.testId} type={TYPE_TEST_RESULT} />
+        <CountBtn testData={testResultData} testId={params.testId} resultId ={params.testResultId} type={TYPE_TEST_RESULT} />
         <div className={styles.resultWrap_botton}>
           <AddComment testId={params.testId} commentCount={commentCount} />
           <Comments testId={params.testId} />
