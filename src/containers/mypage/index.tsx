@@ -63,7 +63,7 @@ export default function Mypage() {
         </div>
         {testResultList ? (
           testResultList.map((ts, i) => (
-            <div key={i} className={styles.cardList}>
+            <div key={ts.testId} className={styles.cardList}>
               <TestCard
                 testId={ts.testId}
                 testResultId={ts.testResultId}

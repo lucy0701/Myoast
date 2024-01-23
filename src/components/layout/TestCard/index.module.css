@@ -124,18 +124,18 @@
 
 /* 마이페이지 결과카드 */
 .myTestCadeWrap {
-  width: 300px;
-  height: 250px;
+  width: 340px;
+  height: 200px;
   border-radius: 1rem;
   overflow: hidden;
-  border: 1px solid #ddd;
+  border: 1px solid #647E87;
 }
 .myTestCade {
   display: flex;
 }
 .myTestCadeWrap img {
-  width: 40%;
-  height: 250px;
+  width: 35%;
+  height: 200px;
   object-fit:cover;
 }
 .myTestCadeWrap div {

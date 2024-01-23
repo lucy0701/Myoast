@@ -114,7 +114,7 @@
 
 /* 더 보기 */
 .moreBtn {
-  width: 80px;
+  width: 100%;
   height: 45px;
   display: flex;
   padding: 7px;
@@ -123,8 +123,9 @@
   align-items: center;
   color: #777;
   font-size: 0.9rem;
-  background-color: #efe7d1;
+  background-color: #fff;
   border-radius: 1rem;
+  border-bottom: 1.5px solid #ddd;
 }
 .moreBtn .moreIcon {
   width: 1rem;

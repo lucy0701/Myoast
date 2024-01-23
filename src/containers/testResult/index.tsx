@@ -1,13 +1,13 @@
 'use client';
 
-import { useParams } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import cx from 'classnames';
 import { useRecoilState } from 'recoil';
 
 import { useComment } from '@/hooks/useComment';
 import { useTest } from '@/hooks/useTest';
-import { BACK_PAGE, BACK_PAGE_TEST, MEMBER_ID, TEST_SCORE, USER_INFO } from '@/constants/sessionStorage';
+import { BACK_PAGE, BACK_PAGE_TEST, COUPANG_VISIT, MEMBER_ID, TEST_RESULT_ID, TEST_SCORE, USER_INFO } from '@/constants/sessionStorage';
 import SessionStorage from '@/utils/SessionStorage';
 import { decodeToken } from '@/utils/util';
 import { contentArr } from '@/utils/textArr';
@@ -24,6 +24,8 @@ import CoupangPage from '@/components/lib/CoupangPage';
 
 export default function TestResult() {
   const params = useParams();
+  const router = useRouter();
+
   const { commentListData, getCommentList, commentCount, getCommentCount } = useComment();
   const { postTestResultData, postMemberTestResultData, testResultData } = useTest();
   const [memberId, setMemberId] = useState<string | null>(null);
@@ -37,15 +39,19 @@ export default function TestResult() {
     setMemberId(SessionStorage.getItem(USER_INFO + MEMBER_ID));
     getCommentList(params.testId, '0');
     getCommentCount(params.testId);
-    setIsCoupang(true);
+    checkCoupangSiteVisit();
   }, []);
 
   useEffect(() => {
     const storedScore = SessionStorage.getItem(TEST_SCORE);
     const score = storedScore !== null ? JSON.parse(storedScore) : null;
-    if (decodeToken().state && memberId) {
+
+    if (!score) {
+      return router.push(`/record/${params.testId}/${SessionStorage.getItem(TEST_RESULT_ID)}`);
+    }
+    if (decodeToken().state && memberId && !testResultData) {
       postMemberTestResultData(params.testId, memberId, score);
-    } else if (!decodeToken().state) {
+    } else if (!decodeToken().state && !testResultData) {
       postTestResultData(params.testId, score);
     }
     const timer = setTimeout(() => {
@@ -55,6 +61,22 @@ export default function TestResult() {
       clearTimeout(timer);
     };
   }, [memberId]);
+
+  function isWithin12Hours(date1: number, date2: number) {
+    const oneDay = 12 * 60 * 60 * 1000;
+    const diff = Math.abs(date1 - date2);
+    return diff < oneDay;
+  }
+  function checkCoupangSiteVisit() {
+    const coupangVisitData = localStorage.getItem(COUPANG_VISIT);
+    if (!coupangVisitData) {
+      setIsCoupang(true);
+      return;
+    }
+    const coupangVisitDate = new Date(coupangVisitData);
+    const currentDate = new Date();
+    if (!isWithin12Hours(coupangVisitDate.getTime(), currentDate.getTime())) setIsCoupang(true);
+  }
 
   if (testResultData && commentListData) {
     return (

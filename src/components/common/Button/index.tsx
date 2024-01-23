@@ -13,8 +13,7 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 // TODO: props 디스트럭쳐링 해서 사용
-const Button = (props: Props) => {
-  const { children, className, link, skin, onClick } = props;
+const Button = ({ children, className, link, skin, onClick }: Props) => {
 
   if (link) {
     return (

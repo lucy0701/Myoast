@@ -94,9 +94,9 @@ export default function TestPlay(props: Props) {
             </p>
           </div>
           {testData.map(
-            (q, i) =>
+            (q) =>
               qstStageIndex === q.index && (
-                <div key={i} className={cx(styles.contentWarp, { [styles.contentWarpNone]: false })}>
+                <div key={q.index} className={cx(styles.contentWarp, { [styles.contentWarpNone]: false })}>
                   <div className={styles.questionWrap}>
                     <p>{q.question}</p>
                   </div>

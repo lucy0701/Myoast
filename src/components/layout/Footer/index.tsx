@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 import styles from './index.module.css';
 
 // TODO: Footer 정리
-const DisabledPaths = ['/list', '/latest', '/result'];
+const DisabledPaths = ['/list', '/latest', '/result','/record'];
 
 export default function Footer() {
   const pathname = usePathname();

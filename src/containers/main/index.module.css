@@ -18,10 +18,19 @@
 }
 
 /* main mbti */
-.mbtiTast {
+.slideBox {
   width: 100%;
   overflow: hidden;
   margin: 10px 0 20px 0;
+}
+.slideWrap {
+  width: 100%;
+  height: 224px;
+  display: flex;
+  transition: transform 0.5s ease;
+}
+.slideItem {
+  width: 100%;
 }
 /* randomTest */
 .randomTast {

@@ -3,6 +3,8 @@ import { useEffect, useRef, useState } from 'react';
 import { useSetRecoilState } from 'recoil';
 
 import { isCoupangState } from '@/states/isCoupangState';
+import { COUPANG_VISIT } from '@/constants/sessionStorage';
+import SessionStorage from '@/utils/SessionStorage';
 
 import styles from './index.module.css';
 import CoupangBanner_result from '../CoupangBanner_result';
@@ -15,12 +17,14 @@ export default function CoupangPage() {
   useEffect(() => {
     const onClickCoupangBtn = () => {
       const link = 'https://link.coupang.com/a/2s6aq';
+      saveCoupangVisitDate();
+      setIsCoupang(false);
       window.open(link, '_blank');
     };
+
     if (typeof window !== 'undefined' && coupangBtnRef.current) {
       coupangBtnRef.current.addEventListener('click', onClickCoupangBtn);
     }
-
     return () => {
       if (typeof window !== 'undefined' && coupangBtnRef.current) {
         coupangBtnRef.current.removeEventListener('click', onClickCoupangBtn);
@@ -39,6 +43,11 @@ export default function CoupangPage() {
     };
   }, []);
 
+  function saveCoupangVisitDate() {
+    const currentDate = new Date();
+    const dateString = currentDate.toISOString();
+    localStorage.setItem(COUPANG_VISIT, dateString);
+  }
   const onClickCloseBtn = () => {
     setIsCoupang(false);
   };
