@@ -20,25 +20,27 @@
   display: none;
 }
 .commentWrap {
-  padding: 10px 30px;
+  padding: 8px 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
   /* background-color: #777; */
 }
 .imgUrl {
   width: 45px;
   height: 45px;
+  margin-right: 10px;
+  margin-top: 7px;
   background-color: rgb(215, 126, 126);
   border-radius: 50%;
 }
 
 .textBox {
   width: 85%;
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 2px; */
 }
 .textBox > div {
   display: flex;

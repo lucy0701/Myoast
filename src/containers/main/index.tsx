@@ -1,10 +1,10 @@
 'use client';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Autoplay, Navigation } from 'swiper/modules';
+import { Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import { MAIN_PAGE_TEST_IMG, MAIN_PAGE_TEST_TITLE, OG_MBTI_TEST_IMAGE } from '@/constants/constant';
 import { TEST_CARD_SIZE_L, TEST_CARD_SIZE_M, TYPE_START_BTN, TYPE_TEST_CARD } from '@/constants/commonType';
@@ -19,26 +19,36 @@ import { TestCard, TestMainBanner } from '@/components/layout/TestCard';
 
 export default function Main() {
   const { latestList, getTestListData, getLatestListData, testTestList } = useTest();
+  const [isDataLoaded, setDataLoaded] = useState(false);
 
   useEffect(() => {
     SessionStorage.setItem(BACK_PAGE, '/');
     SessionStorage.setItem(BACK_PAGE_TEST, '');
     getLatestListData('0', '6');
-    getTestListData();
+    // getTestListData();
+    getTestListData().then(() => {
+      setDataLoaded(true);
+    });
   }, []);
 
+  if(isDataLoaded)
   return (
     <div className={styles.wrap}>
       <Swiper
         className={styles.slideWrap}
-        modules={[Navigation, Pagination, Autoplay]}
+        modules={[ Pagination, Autoplay ]}
         spaceBetween={0}
         slidesPerView={1}
+        slidesPerGroup={1}
+        // observer={true}
+        // observeParents={true}
         speed={2000}
         // navigation
+        // loopAdditionalSlides={1}
         loop={true}
+        // loopedSlides={1}
         pagination={{ clickable: true }}
-        autoplay={{ delay: 3000, disableOnInteraction: false }}
+        autoplay={{ delay: 3000}}
       >
         {testTestList?.map((t, i) => (
           <SwiperSlide key={i} className={styles.slideItem}>
@@ -46,9 +56,6 @@ export default function Main() {
               testId={t.id}
               testTitle={t.title}
               imgUrl={t.imageUrl}
-              // testId={MAIN_PAGE_TEST_IMG}
-              // testTitle={MAIN_PAGE_TEST_TITLE}
-              // imgUrl={OG_MBTI_TEST_IMAGE}
               size={TEST_CARD_SIZE_L}
             />
           </SwiperSlide>
