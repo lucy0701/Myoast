@@ -24,9 +24,17 @@ interface MainTestCardProps {
   imgUrl: string;
 }
 
-export const TestCard = (props: Props) => {
-  const { className, testId, testResultId, imgUrl, size, type, testTitle, testResult, playCount } = props;
-
+export const TestCard = ({
+  className,
+  testId,
+  testResultId,
+  imgUrl,
+  size,
+  type,
+  testTitle,
+  testResult,
+  playCount,
+}: Props) => {
   const content = contentArr(testResult ? testResult : '');
 
   if (type === 'myTestCade') {
@@ -39,7 +47,7 @@ export const TestCard = (props: Props) => {
         >
           <img className={styles.testImg} src={imgUrl} alt={testTitle} />
           <div className={styles.textWrp}>
-            <span className={styles.title}>{props.testTitle}</span>
+            <span className={styles.title}>{testTitle}</span>
             {content.map((text, i) => (
               <p key={i}>{text}</p>
             ))}
@@ -81,3 +89,12 @@ export const MainTestCard = (props: MainTestCardProps) => {
     </div>
   );
 };
+
+export const TestMainBanner = ({ testId, imgUrl, testTitle }: Props) => (
+  <div className={styles.testCade}>
+    <Link href={`/test/main/${testId}`} className={styles.mainBanner} prefetch={false}>
+      <img className={styles.testImg} src={imgUrl} alt={testTitle} />
+      <span className={styles.title}>{testTitle}</span>
+    </Link>
+  </div>
+);

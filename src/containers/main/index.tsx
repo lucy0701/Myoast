@@ -1,7 +1,10 @@
 'use client';
-
-import { useEffect, useState } from 'react';
-import cx from 'classnames';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, Autoplay, Navigation } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import { useEffect } from 'react';
 
 import { MAIN_PAGE_TEST_IMG, MAIN_PAGE_TEST_TITLE, OG_MBTI_TEST_IMAGE } from '@/constants/constant';
 import { TEST_CARD_SIZE_L, TEST_CARD_SIZE_M, TYPE_START_BTN, TYPE_TEST_CARD } from '@/constants/commonType';
@@ -12,73 +15,80 @@ import SessionStorage from '@/utils/SessionStorage';
 import Button from '@/components/common/Button';
 import styles from './index.module.css';
 import Title from '@/components/common/Title';
-import { TestCard } from '@/components/layout/TestCard';
+import { TestCard, TestMainBanner } from '@/components/layout/TestCard';
 
 export default function Main() {
-  const { latestList, getLatestListData } = useTest();
-  // const [index, setIndex] = useState(0);
-  // const totalSlides = testTestList?.length || 0;
+  const { latestList, getTestListData, getLatestListData, testTestList } = useTest();
 
   useEffect(() => {
     SessionStorage.setItem(BACK_PAGE, '/');
     SessionStorage.setItem(BACK_PAGE_TEST, '');
     getLatestListData('0', '6');
+    getTestListData();
   }, []);
-
-  // const autoSlide = () => {
-  //   setIndex((prevIndex) => (prevIndex + 1) % totalSlides);
-  // };
-
-  // useEffect(() => {
-  //   const intervalId = setInterval(autoSlide, 3000);
-  //   return () => clearInterval(intervalId);
-  // }, [index, totalSlides]);
 
   return (
     <div className={styles.wrap}>
-      <Title title="MBTI 검사" />
-      <div className={styles.slideBox}>
-        {/* <div className={styles.slideWrap} style={{ transform: `translateX(-${index * 100}%)` }}> */}
-        <div className={styles.slideWrap}>
-          {/* {testTestList?.map((t, i) => ( */}
-          <div className={styles.slideItem}>
-            <TestCard
-              // testId={t.id}
-              // testTitle={t.title}
-              // imgUrl={t.imageUrl}
-              testId={MAIN_PAGE_TEST_IMG}
-              testTitle={MAIN_PAGE_TEST_TITLE}
-              imgUrl={OG_MBTI_TEST_IMAGE}
+      <Swiper
+        className={styles.slideWrap}
+        modules={[Navigation, Pagination, Autoplay]}
+        spaceBetween={0}
+        slidesPerView={1}
+        speed={2000}
+        // navigation
+        loop={true}
+        pagination={{ clickable: true }}
+        autoplay={{ delay: 3000, disableOnInteraction: false }}
+      >
+        {testTestList?.map((t, i) => (
+          <SwiperSlide key={i} className={styles.slideItem}>
+            <TestMainBanner
+              testId={t.id}
+              testTitle={t.title}
+              imgUrl={t.imageUrl}
+              // testId={MAIN_PAGE_TEST_IMG}
+              // testTitle={MAIN_PAGE_TEST_TITLE}
+              // imgUrl={OG_MBTI_TEST_IMAGE}
               size={TEST_CARD_SIZE_L}
             />
-          </div>
-          {/* ))} */}
+          </SwiperSlide>
+        ))}
+      </Swiper>
+      <div className={styles.contentsWrap}>
+        <Title title="쉽고 빠르게 ⚡️ MBTI 검사" contents="MBTI 궁금한데..귀찮지?! 그래서 준비했어!✨" />
+        <div className={styles.mbtiTest}>
+          <TestCard
+            testId={MAIN_PAGE_TEST_IMG}
+            testTitle={MAIN_PAGE_TEST_TITLE}
+            imgUrl={OG_MBTI_TEST_IMAGE}
+            size={TEST_CARD_SIZE_L}
+          />
         </div>
-      </div>
-      <div className={styles.randomTast}>
-        <Title title="랜덤 심리테스트" contents="일단 시작 하자" />
-        <Button link="/test/random" skin={TYPE_START_BTN}>
-          아무거나 시작
+        <div className={styles.randomTast}>
+          <Title title="당신... 운명을 믿으시나요?" contents="🐣 어떤 테스트가 나올까?!" />
+          <Button link="/test/random" skin={TYPE_START_BTN}>
+            오늘의 심리테스트
+          </Button>
+        </div>
+        <Title title="NEW 🌈" />
+        <div className={styles.newTestWrap}>
+          {latestList?.map((t) => (
+            // TODO: key에 index 쓰지말기
+            <TestCard
+              key={t.id}
+              testId={t.id}
+              testTitle={t.title}
+              imgUrl={t.imageUrl}
+              playCount={t.playCount}
+              size={TEST_CARD_SIZE_M}
+              type={TYPE_TEST_CARD}
+            />
+          ))}
+        </div>
+        <Button link="/list" skin={TYPE_START_BTN}>
+          몽빗의 모든 테스트
         </Button>
       </div>
-      <Title title="최신 심테" />
-      <div className={styles.newTestWrap}>
-        {latestList?.map((t) => (
-          // TODO: key에 index 쓰지말기
-          <TestCard
-            key={t.id}
-            testId={t.id}
-            testTitle={t.title}
-            imgUrl={t.imageUrl}
-            playCount={t.playCount}
-            size={TEST_CARD_SIZE_M}
-            type={TYPE_TEST_CARD}
-          />
-        ))}
-      </div>
-      <Button link="/list" skin={TYPE_START_BTN}>
-        전체 보기
-      </Button>
     </div>
   );
 }
