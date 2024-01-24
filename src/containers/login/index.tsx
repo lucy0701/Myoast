@@ -5,13 +5,21 @@ import { useEffect } from 'react';
 
 import setKakaoLogin from '@/services/kakaoLogin';
 import { decodeToken } from '@/utils/util';
+import { BACK_PAGE, BACK_PAGE_TEST } from '@/constants/sessionStorage';
+import SessionStorage from '@/utils/SessionStorage';
 
 import styles from './index.module.css';
 
 export default function Login() {
   const router = useRouter();
+  const backPage = SessionStorage.getItem(BACK_PAGE);
+  const backPageTest = SessionStorage.getItem(BACK_PAGE_TEST);
   useEffect(() => {
-    if (decodeToken().state) return router.push('/');
+    if (decodeToken().state && backPage && backPageTest) {
+      return router.push(backPage + backPageTest);
+    } else if (decodeToken().state) {
+      return router.push('/')
+    }
   }, []);
   return (
     <div className={styles.wrap}>

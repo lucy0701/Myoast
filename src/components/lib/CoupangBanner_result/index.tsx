@@ -17,6 +17,8 @@ export default function CoupangBanner() {
       ref={iframeRef}
       className={styles.iframe}
       src="https://ads-partners.coupang.com/widgets.html?id=665416&template=carousel&trackingCode=AF7346840&subId=&width=400&height=90&tsource="
+      width="350"
+      height="90"
       referrerPolicy="unsafe-url"
     ></iframe>
   );

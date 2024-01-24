@@ -22,7 +22,6 @@ import { decodeToken } from '@/utils/util';
 import { contentArr } from '@/utils/textArr';
 import { isCoupangState } from '@/states/isCoupangState';
 
-
 import CountBtn from '@/components/layout/CountBtn';
 import AddComment from '@/components/layout/AddComment';
 import styles from './index.module.css';
@@ -76,6 +75,7 @@ export default function TestResult() {
     const diff = Math.abs(date1 - date2);
     return diff < oneDay;
   }
+
   function checkCoupangSiteVisit() {
     const coupangVisitData = localStorage.getItem(COUPANG_VISIT);
     if (!coupangVisitData) {
@@ -92,7 +92,7 @@ export default function TestResult() {
       <div className={styles.wrap}>
         {isloading && <ResultLoading />}
         {isCoupang && (
-          <div className={cx(styles.coupangWrap, { [styles.displayNone]: isloading })}>
+          <div className={cx(styles.coupangWrap, { [styles.displayNone]: isCoupang })}>
             <CoupangPage />
           </div>
         )}
