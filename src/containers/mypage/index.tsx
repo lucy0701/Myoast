@@ -42,7 +42,6 @@ export default function Mypage() {
     }
     if (registDate) setRegistDate(dateSplit(registDate));
     SessionStorage.setItem(BACK_PAGE, `/mypage/${memberId}`);
-
   }, [memberId]);
 
   const onClickMoreBtn = () => {
@@ -63,7 +62,7 @@ export default function Mypage() {
         </div>
         {testResultList ? (
           testResultList.map((ts, i) => (
-            <div key={ts.testId} className={styles.cardList}>
+            <div key={i} className={styles.cardList}>
               <TestCard
                 testId={ts.testId}
                 testResultId={ts.testResultId}

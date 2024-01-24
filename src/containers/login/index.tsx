@@ -1,10 +1,18 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
+
 import setKakaoLogin from '@/services/kakaoLogin';
+import { decodeToken } from '@/utils/util';
 
 import styles from './index.module.css';
 
 export default function Login() {
+  const router = useRouter();
+  useEffect(() => {
+    if (decodeToken().state) return router.push('/');
+  }, []);
   return (
     <div className={styles.wrap}>
       <div className={styles.contentsWrap}>

@@ -15,7 +15,7 @@ import Button from '@/components/common/Button';
 
 interface Props {
   testId: string;
-  resultId?: string
+  resultId?: string;
   testData: Test | TestResultData;
   type: 'testMain' | 'tsetResult';
 }
@@ -26,6 +26,7 @@ export default function CountBtn({ testData, testId, resultId, type }: Props) {
   const { postShareData } = useShare();
   const [linkCopyCommand, setLinkCopyCommand] = useState('링크 복사');
   const [copyLink, setCopyLink] = useState('');
+  const [isLinkCopy, setIsLinkCopy] = useState(false);
 
   const router = useRouter();
   const memberId = SessionStorage.getItem(USER_INFO + MEMBER_ID);
@@ -55,9 +56,11 @@ export default function CountBtn({ testData, testId, resultId, type }: Props) {
     try {
       await navigator.clipboard.writeText(copyLink);
       setLinkCopyCommand('복사 완료');
+      setIsLinkCopy(true);
       if (memberId) postShareData(testId, memberId, 'LINK');
       setTimeout(() => {
         setLinkCopyCommand('링크 복사');
+        setIsLinkCopy(false);
       }, 3000);
     } catch (err) {
       alert('복사 실패');
@@ -89,7 +92,7 @@ export default function CountBtn({ testData, testId, resultId, type }: Props) {
       <div className={styles.wrap}>
         <div className={styles.btnWarp}>
           <div className={styles.btnBox}>
-            <button className={styles.linkCopyBtn} onClick={onClickcoptURLClipboard} />
+            <button className={isLinkCopy ? styles.onlinkCopyBtn : styles.linkCopyBtn } onClick={onClickcoptURLClipboard} />
             <p>{linkCopyCommand}</p>
           </div>
           <div className={styles.btnBox}>

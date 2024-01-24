@@ -27,11 +27,15 @@
 }
 .textBox p {
   display: flex;
-  justify-content: center;
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  /* justify-content: center;
   overflow-wrap: break-word;
   word-wrap: break-word;
   display: -webkit-box;
   -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
-  overflow: hidden;
+  overflow: hidden; */
 }
+

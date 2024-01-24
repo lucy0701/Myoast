@@ -3,8 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useSetRecoilState } from 'recoil';
 
 import { isCoupangState } from '@/states/isCoupangState';
-import { COUPANG_VISIT } from '@/constants/sessionStorage';
-import SessionStorage from '@/utils/SessionStorage';
+import { COUPANG_VISIT } from '@/constants/constant';
 
 import styles from './index.module.css';
 import CoupangBanner_result from '../CoupangBanner_result';

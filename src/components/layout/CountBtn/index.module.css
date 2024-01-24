@@ -16,6 +16,9 @@
   height: 100%;
   text-align: center;
 }
+.btnBox {
+  color: #666;
+}
 
 .likeCnt {
   color: #999;
@@ -26,6 +29,7 @@
   background-color: #999;
 }
 
+.onlinkCopyBtn,
 .linkCopyBtn,
 .offLikeBtn,
 .onLikeBtn,
@@ -37,6 +41,9 @@
   background-position: center;
   background-size: contain;
   background-color: transparent;
+}
+.onlinkCopyBtn {
+  background-image: url('../../../../public/svgs/linkCopyIcon.svg');
 }
 
 .linkCopyBtn {

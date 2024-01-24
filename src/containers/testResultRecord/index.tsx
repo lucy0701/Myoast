@@ -38,7 +38,7 @@ export default function TestResultRecord() {
           <div className={styles.textWrap}>
             {content.map((text, i) => (
               <div key={i} className={styles.textBox}>
-                <p> * </p>
+                <div className={styles.circle} />
                 <p>{text}</p>
               </div>
             ))}

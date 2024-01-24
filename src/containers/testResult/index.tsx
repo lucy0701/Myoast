@@ -10,17 +10,18 @@ import { useTest } from '@/hooks/useTest';
 import {
   BACK_PAGE,
   BACK_PAGE_TEST,
-  COUPANG_VISIT,
   MEMBER_ID,
   TEST_RESULT_ID,
   TEST_SCORE,
   USER_INFO,
 } from '@/constants/sessionStorage';
+import { COUPANG_VISIT } from '@/constants/constant';
+import { TYPE_TEST_RESULT } from '@/constants/commonType';
 import SessionStorage from '@/utils/SessionStorage';
 import { decodeToken } from '@/utils/util';
 import { contentArr } from '@/utils/textArr';
 import { isCoupangState } from '@/states/isCoupangState';
-import { TYPE_TEST_RESULT } from '@/constants/commonType';
+
 
 import CountBtn from '@/components/layout/CountBtn';
 import AddComment from '@/components/layout/AddComment';
@@ -106,14 +107,19 @@ export default function TestResult() {
             <div className={styles.textWrap}>
               {content.map((text, i) => (
                 <div key={i} className={styles.textBox}>
-                  <p> * </p>
+                  <div className={styles.circle} />
                   <p>{text}</p>
                 </div>
               ))}
             </div>
           </div>
           <div className={cx({ [styles.displayNone]: isCoupang })}>
-            <CountBtn testData={testResultData} testId={params.testId} resultId={testResultData.id} type={TYPE_TEST_RESULT} />
+            <CountBtn
+              testData={testResultData}
+              testId={params.testId}
+              resultId={testResultData.id}
+              type={TYPE_TEST_RESULT}
+            />
           </div>
           <div>
             <CoupangBanner_1 />

@@ -68,6 +68,7 @@
     height: 12px;
     border-radius: 5em;
     background-color: #6CA4AA;
+    transition: width 0.5s ease;
 }
 
 /* 질문 */

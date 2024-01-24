@@ -1,6 +1,5 @@
 export const TOKEN_NAME = 'mongBitToken';
 export const USER_INFO = 'mongBit';
-export const COUPANG_VISIT = 'coupangVisitDate';
 
 export const MEMBER_ID = 'memeberId';
 export const THUMBNAIL = 'thumbnail';
