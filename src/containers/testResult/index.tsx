@@ -53,6 +53,7 @@ export default function TestResult() {
   useEffect(() => {
     const storedScore = SessionStorage.getItem(TEST_SCORE);
     const score = storedScore !== null ? JSON.parse(storedScore) : null;
+    checkCoupangSiteVisit();
 
     if (!score) {
       return router.push(`/record/${params.testId}/${SessionStorage.getItem(TEST_RESULT_ID)}`);
@@ -92,7 +93,7 @@ export default function TestResult() {
       <div className={styles.wrap}>
         {isloading && <ResultLoading />}
         {isCoupang && (
-          <div className={cx(styles.coupangWrap, { [styles.displayNone]: isCoupang })}>
+          <div className={cx(styles.coupangWrap, { [styles.displayNone]: isloading })}>
             <CoupangPage />
           </div>
         )}

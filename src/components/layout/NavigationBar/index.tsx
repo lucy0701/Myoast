@@ -71,6 +71,19 @@ export default function NavigationBar({ menuClicked, setMenuClicked }: Props) {
                 </Link>
               </li>
             </ul>
+            <ul className={styles.ulWrap}>
+              <p>About</p>
+              <li>
+                <Link href="/about" onClick={() => setMenuClicked(false)} prefetch={false}>
+                  <p>몽빗 소개</p>
+                </Link>
+              </li>
+              <li>
+                <Link href="/devinfo" onClick={() => setMenuClicked(false)} prefetch={false}>
+                  <p>개발자 소개</p>
+                </Link>
+              </li>
+            </ul>
           </li>
           <li>
             <ul>

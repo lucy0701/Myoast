@@ -98,7 +98,7 @@ export default function Mypage() {
           <div className={styles.loginDisabledTextBox}>
             <span>로그인이 되어 있지 않아요 🥲</span>
             <span>로그인 하고</span>
-            <span>나의 결과 저장 하기</span>
+            <span>나의 결과 기록 하기</span>
           </div>
           <Button link={'/login'} skin={TYPE_START_BTN}>
             로그인 하러 가기

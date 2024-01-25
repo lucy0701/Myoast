@@ -1,0 +1,93 @@
+@media (max-width: 375px) {
+  .wrap {
+    width: 375px;
+  }
+}
+
+@media (min-width: 376px) {
+  .wrap {
+    width: 400px;
+  }
+}
+
+.wrap {
+  height: 600px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+}
+.contentWrap {
+  width: 90%;
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 30px 10px;
+  border-radius: 1rem;
+  border: #dddddd solid 1.2px;
+}
+.textWrap {
+  width: 85%;
+  padding: 10px 15px;
+  color: #fff;
+  border-radius: 1rem;
+  background-color: #6CA4AA;
+}
+.textBox {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.gitHubIcon {
+  display: flex;
+  justify-content: space-around;
+}
+.instagramIcon {
+  display: flex;
+}
+.please {
+  font-size: 0.9rem;
+  color: #333;
+  text-align: center;
+}
+.logoIcon {
+  width: 10rem;
+  height: 5rem;
+  margin: auto;
+  margin-bottom: 5px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-image: url('../../../public/svgs/logo_dog.svg');
+}
+.iconWrap {
+  font-size: 0.8rem;
+  color: #999;
+  text-align: center;
+}
+
+.gitHubIcon a,
+.instagramIcon a {
+  margin-left: 5px;
+  margin-top: 2px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.gitHubIcon a {
+  width: 1.2rem;
+  height: 1.2rem;
+  background-image: url('../../../public/svgs/gitHub.svg');
+}
+
+.instagramIcon a {
+    width: 1.4rem;
+    height: 1.4rem;
+  margin-top: 3px;
+  background-image: url('../../../public/svgs/instagram.svg');
+}

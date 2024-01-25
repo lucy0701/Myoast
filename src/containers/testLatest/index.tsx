@@ -24,7 +24,7 @@ export default function TestLatest( { testLatestData }: Props) {
 
   return (
     <div className={styles.wrap}>
-      <Title title="최신 테스트" contents="신규 테스트는 여기에" />
+      <Title title="최신 테스트 🐥" contents="못빗의 신규 테스트" />
       <div className={styles.cardList}>
         {testLatestData.map((t) => (
             <TestCardList
