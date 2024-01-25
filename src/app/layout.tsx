@@ -19,7 +19,6 @@ export const metadata: Metadata = {
   description: 'MBTI 심리테스트 공작소',
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_GA_ID,
-    naver : 'bd173df828ca4bb546689bea2053b978afda8110',
   },
   keywords: [
     'MBTI',
@@ -63,6 +62,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
+      <head>
+        <meta name="naver-site-verification" content="bd173df828ca4bb546689bea2053b978afda8110" />
+      </head>
       <body className={notoSansKr.className}>
         <RecoilRootProvider>
           <Header />
