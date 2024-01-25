@@ -16,8 +16,7 @@ interface Props {
   testLatestData: [TestCover];
 }
 
-export default function TestLatest(props: Props) {
-  const { testLatestData } = props;
+export default function TestLatest( { testLatestData }: Props) {
 
   useEffect(() => {
     SessionStorage.setItem(BACK_PAGE, '/latest');

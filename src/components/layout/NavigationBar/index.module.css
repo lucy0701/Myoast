@@ -60,7 +60,7 @@
 }
 .ulWrap {
   font-weight: bold;
-  margin: 10px 0 30px 0;
+  margin: 10px 0 25px 0;
 }
 .ulWrap > p {
   height: 35px;
@@ -72,11 +72,21 @@
   border-radius: 8px;
   margin-bottom: 20px;
 }
-.ulWrap > li {
+.ulWrap li {
+  margin: auto;
+  width: 90%;
+  /* padding: 4px 0; */
+  /* border-bottom: #647E87 dotted 1px; */
+  margin-bottom: 15px;
+  /* background-color: #fff7ea; */
+  /* border-radius: 1rem; */
+  /* margin: 10px 15px; */
+}
+.ulWrap li p{
   font-weight: normal;
-  color: #333;
-  font-size: 1rem;
-  margin: 10px 15px;
+  text-align: center;
+  color: #444;
+  font-size: 0.9rem;
 }
 
 .ulWrap > ul:last-child {
@@ -95,7 +105,7 @@
 .logOut {
   width: 100%;
   display: flex;
-  color: #666;
+  color: #888;
   align-items: center;
   justify-content: space-evenly;
   background-color: #fff;

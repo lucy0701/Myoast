@@ -11,10 +11,9 @@ interface Props {
   testId: string;
   commentCount: number;
 }
-const AddComment = (props: Props) => {
+const AddComment = ({testId,commentCount}: Props) => {
   const { postAddCommentData } = useComment();
 
-  const { testId, commentCount } = props;
   const [inputValue, setInputValue] = useState('');
   const [memberId, setMemberId] = useState<string | null>(null);
   const maxCharCount = 100;

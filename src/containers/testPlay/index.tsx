@@ -15,10 +15,9 @@ interface Props {
   testData: [Question];
 }
 
-export default function TestPlay(props: Props) {
+export default function TestPlay({ testData } : Props) {
   const router = useRouter();
   const params = useParams();
-  const { testData } = props;
 
   const arryLength = testData.length;
   const initialArray = Array(arryLength).fill(0);

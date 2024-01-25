@@ -15,8 +15,7 @@ import TestCardList from '@/components/layout/TestCardList';
 interface Props {
   testData: TestCover[];
 }
-export default function TestList(props: Props) {
-  const { testData } = props;
+export default function TestList({ testData }: Props) {
 
   useEffect(() => {
     SessionStorage.setItem(BACK_PAGE, '/list');

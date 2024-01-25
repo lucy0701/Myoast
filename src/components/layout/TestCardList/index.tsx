@@ -13,18 +13,10 @@ interface Props {
   commentCount: number;
 }
 
-const TestCardList = (props: Props) => {
-  const { testId, testTitle, imgUrl, playCount, likeCount, commentCount } = props;
-  return (
-    <div className={styles.card}>
-      <TestCard testId={testId} imgUrl={imgUrl} size={TEST_CARD_SIZE_L} type={TYPE_TEST_CARD} testTitle={testTitle} />
-      <CountIcon
-        type={TYPE_ALL_CNT}
-        playCount={playCount}
-        likeCount={likeCount}
-        commentCount={commentCount}
-      ></CountIcon>
-    </div>
-  );
-};
+const TestCardList = ({ testId, testTitle, imgUrl, playCount, likeCount, commentCount }: Props) => (
+  <div className={styles.card}>
+    <TestCard testId={testId} imgUrl={imgUrl} size={TEST_CARD_SIZE_L} type={TYPE_TEST_CARD} testTitle={testTitle} />
+    <CountIcon type={TYPE_ALL_CNT} playCount={playCount} likeCount={likeCount} commentCount={commentCount}></CountIcon>
+  </div>
+);
 export default TestCardList;

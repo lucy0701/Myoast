@@ -44,9 +44,7 @@ export default function Main() {
         // observeParents={true}
         speed={2000}
         // navigation
-        // loopAdditionalSlides={1}
         loop={true}
-        // loopedSlides={1}
         pagination={{ clickable: true }}
         autoplay={{ delay: 3000}}
       >

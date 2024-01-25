@@ -14,10 +14,8 @@ interface Props {
   testId: string;
 }
 
-const Comments = (props: Props) => {
-  const { testId } = props;
+const Comments = ({testId}: Props) => {
   const { commentListData, getCommentList, isNextPage, deleteCommentData, updateCommentData } = useComment();
-
   const [inputValue, setInputValue] = useState('');
   const [editingCommentId, setEditingCommentId] = useState<string | null>(null);
   const [moreCommentList, setMoreCommentList] = useState<CommentDTO[]>([]);
@@ -90,7 +88,6 @@ const Comments = (props: Props) => {
     if (isNextPage) setIsMore(true);
     getCommentList(testId, (moreCommentList.length / 10).toString());
   };
-
   return (
     <div className={styles.wrap}>
       {moreCommentList.map((c, i) => (

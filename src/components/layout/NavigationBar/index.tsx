@@ -53,12 +53,12 @@ export default function NavigationBar({ menuClicked, setMenuClicked }: Props) {
               <p>심리테스트</p>
               <li>
                 <Link href="/latest" onClick={() => setMenuClicked(false)} prefetch={false}>
-                  최신 심리테스트
+                  <p>최신 심리테스트</p>
                 </Link>
               </li>
               <li>
                 <Link href="/list" onClick={() => setMenuClicked(false)} prefetch={false}>
-                  전체 보기
+                  <p>전체 보기</p>
                 </Link>
               </li>
             </ul>
@@ -67,7 +67,7 @@ export default function NavigationBar({ menuClicked, setMenuClicked }: Props) {
               <p>마이 페이지</p>
               <li>
                 <Link href="/mypage" onClick={() => setMenuClicked(false)} prefetch={false}>
-                  나의 결과 기록
+                  <p>나의 결과 기록</p>
                 </Link>
               </li>
             </ul>

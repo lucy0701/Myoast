@@ -30,7 +30,7 @@
 .under {
   width: 100%;
   position: absolute;
-  bottom: 13px;
+  bottom: 8px;
   display: flex;
   padding: 0 15px;
   justify-content: space-between;
@@ -62,7 +62,7 @@
 .docs {
   width: 40%;
   position: absolute;
-  bottom: 30px;
+  bottom: 25px;
   right: 8px;
   display: flex;
   flex-direction: row;

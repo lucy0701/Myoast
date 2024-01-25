@@ -2,7 +2,6 @@ import jwtDecode from 'jwt-decode';
 
 import { DecodedToken } from '@/types/login';
 import { MEMBER_ID, REGIST_DATE, THUMBNAIL, TOKEN_NAME, USER_INFO, USER_NAME } from '@/constants/sessionStorage';
-import { isLoginState } from '@/states/isLoignState';
 
 import SessionStorage from './SessionStorage';
 
