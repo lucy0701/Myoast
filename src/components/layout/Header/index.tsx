@@ -25,7 +25,6 @@ export default function Header() {
         <div className={styles.meunWrap} onClick={() => setMenuClicked(true)}>
           <div className={styles.menuIcon} />
         </div>
-        {/* 클릭하면 메인페이지로 */}
         <div>
           <Link href="/" prefetch={false}>
             <div className={styles.logoWrap}>
@@ -34,7 +33,6 @@ export default function Header() {
             </div>
           </Link>
         </div>
-        {/* 로그인 */}
         <div className={styles.mypageWrap}>
           {isLogin_be || isLogin ? (
             <Link href="/mypage" prefetch={false}>
@@ -42,6 +40,7 @@ export default function Header() {
             </Link>
           ) : (
             <Link href="/login" prefetch={false}>
+              {/* <p>LOGIN</p> */}
               <div className={styles.loginIcon}></div>
             </Link>
           )}

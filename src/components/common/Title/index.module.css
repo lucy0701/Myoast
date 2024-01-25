@@ -4,10 +4,12 @@
 .title {
     font-size: 1.2rem;
     font-weight: bold;
-    color: #333;
+    color: #444;
+    margin-bottom: 2px;
 }
 .contents {
     font-size: 1rem;
-    color: #777;
+    color: #888;
     padding-left: 8px;
+    margin-bottom: 5px;
 }

@@ -14,13 +14,15 @@ export default function Login() {
   const router = useRouter();
   const backPage = SessionStorage.getItem(BACK_PAGE);
   const backPageTest = SessionStorage.getItem(BACK_PAGE_TEST);
+
   useEffect(() => {
     if (decodeToken().state && backPage) {
       return router.push(backPage + backPageTest);
-    } else {
+    } else if (decodeToken().state) {
       return router.push('/');
     }
   }, []);
+
   return (
     <div className={styles.wrap}>
       <div className={styles.contentsWrap}>
