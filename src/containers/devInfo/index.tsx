@@ -11,11 +11,11 @@ export default function DevInfo() {
             <p>GitHub : </p>
             <div className={styles.gitHubIcon}>
               <p>FrontEnd</p>
-              <Link href="https://github.com/lucy0701/Mongbit_FE.git" prefetch={false} />
+              <Link href="https://github.com/lucy0701/Mongbit_FE.git" target="_blank" prefetch={false} />
             </div>
             <div className={styles.gitHubIcon}>
               <p>BackEnd</p>
-              <Link href="https://github.com/lucy0701/Mongbit_FE.git" prefetch={false} />
+              <Link href="https://github.com/lucy0701/Mongbit_FE.git" target="_blank" prefetch={false} />
             </div>
           </div>
           <div className={styles.textBox}>

@@ -31,10 +31,10 @@ export default function Footer() {
         <div className={styles.under}>
           <div className={styles.iconBox}>
             <div className={styles.gitHubIcon}>
-              <Link href="https://github.com/lucy0701/Mongbit_FE.git" prefetch={false} />
+              <Link href="https://github.com/lucy0701/Mongbit_FE.git" target="_blank" prefetch={false} />
             </div>
             <div className={styles.instagramIcon}>
-              <Link href="https://www.instagram.com/mongbit_" prefetch={false} />
+              <Link href="https://www.instagram.com/mongbit_" target="_blank" prefetch={false} />
             </div>
           </div>
           <p>© 2023 MongMoongCrew. All rights reserved </p>

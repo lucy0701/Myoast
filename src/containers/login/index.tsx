@@ -15,10 +15,10 @@ export default function Login() {
   const backPage = SessionStorage.getItem(BACK_PAGE);
   const backPageTest = SessionStorage.getItem(BACK_PAGE_TEST);
   useEffect(() => {
-    if (decodeToken().state && backPage && backPageTest) {
+    if (decodeToken().state && backPage) {
       return router.push(backPage + backPageTest);
-    } else if (decodeToken().state) {
-      return router.push('/')
+    } else {
+      return router.push('/');
     }
   }, []);
   return (

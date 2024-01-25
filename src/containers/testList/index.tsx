@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import { TYPE_BOTTOM_BTN } from '@/constants/commonType';
 import { TestCover } from '@/types/test';
 import SessionStorage from '@/utils/SessionStorage';
-import { BACK_PAGE } from '@/constants/sessionStorage';
+import { BACK_PAGE, BACK_PAGE_TEST } from '@/constants/sessionStorage';
 
 import styles from './index.module.css';
 import Title from '@/components/common/Title';
@@ -19,6 +19,7 @@ export default function TestList({ testData }: Props) {
 
   useEffect(() => {
     SessionStorage.setItem(BACK_PAGE, '/list');
+    SessionStorage.setItem(BACK_PAGE_TEST, '');
   }, []);
 
   return (

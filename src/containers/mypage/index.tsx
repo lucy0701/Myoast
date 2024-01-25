@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 
 import { TYPE_MORE_BTN, TYPE_MY_TEST_CARD, TYPE_START_BTN } from '@/constants/commonType';
 import SessionStorage from '@/utils/SessionStorage';
-import { BACK_PAGE, MEMBER_ID, REGIST_DATE, THUMBNAIL, USER_INFO, USER_NAME } from '@/constants/sessionStorage';
+import { BACK_PAGE, BACK_PAGE_TEST, MEMBER_ID, REGIST_DATE, THUMBNAIL, USER_INFO, USER_NAME } from '@/constants/sessionStorage';
 import { useMypage } from '@/hooks/useMypage';
 import { dateSplit } from '@/utils/dateSplit';
 import { decodeToken } from '@/utils/util';
@@ -42,6 +42,7 @@ export default function Mypage() {
     }
     if (registDate) setRegistDate(dateSplit(registDate));
     SessionStorage.setItem(BACK_PAGE, `/mypage/${memberId}`);
+    SessionStorage.setItem(BACK_PAGE_TEST, '');
   }, [memberId]);
 
   const onClickMoreBtn = () => {

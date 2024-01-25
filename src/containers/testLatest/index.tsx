@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 
 import { TYPE_BOTTOM_BTN } from '@/constants/commonType';
 import { TestCover } from '@/types/test';
-import { BACK_PAGE } from '@/constants/sessionStorage';
+import { BACK_PAGE, BACK_PAGE_TEST } from '@/constants/sessionStorage';
 import SessionStorage from '@/utils/SessionStorage';
 
 import styles from './index.module.css';
@@ -20,6 +20,7 @@ export default function TestLatest( { testLatestData }: Props) {
 
   useEffect(() => {
     SessionStorage.setItem(BACK_PAGE, '/latest');
+    SessionStorage.setItem(BACK_PAGE_TEST, '');
   },[]);
 
   return (
