@@ -14,8 +14,12 @@ const notoSansKr = Noto_Sans_KR({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://mongbit-fe.vercel.app/'),
   title: '몽빗(MongBit)',
   description: 'MBTI 심리테스트 공작소',
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_GA_ID,
+  },
   keywords: [
     'MBTI',
     'MBTI 연애',
