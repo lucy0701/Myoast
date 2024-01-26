@@ -27,3 +27,5 @@ https://www.figma.com/file/0xu6ViOhTQjSbY7mmzXEMa/Mongbit?type=design&node-id=0-
 **01.17**  Recoil 도입
 
 **01.21** Coupang 광고 등록
+
+**01.26** SEO 등록 - Google, Naver
