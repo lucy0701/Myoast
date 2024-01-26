@@ -75,7 +75,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body className={notoSansKr.className}>
         <RecoilRootProvider>
           <Header />
-          {/* {children} */}
           <Suspense fallback={<Loading />}>{children}</Suspense>
           <Footer />
         </RecoilRootProvider>
