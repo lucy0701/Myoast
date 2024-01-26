@@ -3,7 +3,6 @@ import { useEffect, useRef } from 'react';
 
 import animationData from './loadingIcon.json';
 import styles from './index.module.css';
-import Footer from '../Footer';
 import CoupangBanner_1 from '../../lib/CoupangBanner_1';
 import CoupangBanner_2 from '@/components/lib/CoupangBanner_2';
 
@@ -33,7 +32,7 @@ export default function ResultLoading() {
           <span>잠깐만 기다려 주셈!</span>
         </div>
         <div>
-          <div ref={containerRef} className={styles.loadImg}></div>
+          <div ref={containerRef} className={styles.loadImg} />
         </div>
       </div>
       <CoupangBanner_2 />
