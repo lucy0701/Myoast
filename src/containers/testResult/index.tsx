@@ -38,7 +38,7 @@ export default function TestResult() {
   const { postTestResultData, postMemberTestResultData, testResultData } = useTest();
   const [memberId, setMemberId] = useState<string | null>(null);
   const content = contentArr(testResultData ? testResultData.content : '');
-  const [isloading, setIsLoding] = useState(true);
+  const [isloading, setIsLoading] = useState(true);
   const [isCoupang, setIsCoupang] = useRecoilState(isCoupangState);
 
   useEffect(() => {
@@ -64,7 +64,7 @@ export default function TestResult() {
       postTestResultData(params.testId, score);
     }
     const timer = setTimeout(() => {
-      setIsLoding(false);
+      setIsLoading(false);
     }, 3000);
     return () => {
       clearTimeout(timer);

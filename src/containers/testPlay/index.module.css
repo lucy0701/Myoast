@@ -32,7 +32,7 @@
   background-color: #fff;
 }
 
-.contentWarp{
+.contentWarp {
   width: 100%;
   /* background-color: #999; */
   position: absolute;
@@ -51,30 +51,30 @@
   padding: 0 15px;
 }
 .progressBarWrap p {
-    font-size: 0.8rem;
-    margin: 5px 10px;
-    font-weight: 300;
-    color: #999;
+  font-size: 0.8rem;
+  margin: 5px 10px;
+  font-weight: 300;
+  color: #999;
 }
 .progressBarWrap span {
-    color: #b78989;
-    font-weight: 500;
-    margin: 0 3px 0 8px;
+  color: #b78989;
+  font-weight: 500;
+  margin: 0 3px 0 8px;
 }
 
 .barWrap {
-    width: 360px;
-    height: 12px;
-    border-radius: 5em;
-    overflow: hidden;
-    background-color: #E9F3F5;
+  width: 360px;
+  height: 12px;
+  border-radius: 5em;
+  overflow: hidden;
+  background-color: #e9f3f5;
 }
 .gaugeBar {
-    width: 11%;
-    height: 12px;
-    border-radius: 5em;
-    background-color: #6CA4AA;
-    transition: width 0.5s ease;
+  width: 11%;
+  height: 12px;
+  border-radius: 5em;
+  background-color: #6ca4aa;
+  transition: width 0.5s ease;
 }
 
 /* 질문 */

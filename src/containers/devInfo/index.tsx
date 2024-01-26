@@ -15,13 +15,13 @@ export default function DevInfo() {
             </div>
             <div className={styles.gitHubIcon}>
               <p>BackEnd</p>
-              <Link href="https://github.com/lucy0701/Mongbit_FE.git" target="_blank" prefetch={false} />
+              <Link href="https://github.com/WillNeiman/MongBit_Portfolio" target="_blank" prefetch={false} />
             </div>
           </div>
           <div className={styles.textBox}>
             <div className={styles.instagramIcon}>
               <p>MongBit Instagram : </p>
-              <Link href="https://www.instagram.com/mongbit_" prefetch={false} />
+              <Link href="https://www.instagram.com/mongbit_" target="_blank" prefetch={false} />
             </div>
           </div>
         </div>
