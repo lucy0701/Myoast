@@ -3,9 +3,6 @@
     max-height: 255px;
   }
 }
-@media (min-width: 376px) {
-
-}
 .cardList {
   display: flex;
   flex-wrap: wrap;

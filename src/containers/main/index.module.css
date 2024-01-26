@@ -73,7 +73,7 @@
 /* 최신 심테 */
 .newTestWrap {
   margin: 10px 0 40px 0;
-  /* width: 100%; */
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
 }

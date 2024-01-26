@@ -33,7 +33,7 @@ export default function TestMain({ testData }: Props) {
   if (commentListData) {
     return (
       <div className={styles.wrap}>
-        <div>
+        <div className={styles.testCardImg}>
           <MainTestCard testTitle={testData.title} imgUrl={testData.imageUrl} />
           <CountIcon playCount={testData.playCount} type={TYPE_PLAY_CNT} />
         </div>
