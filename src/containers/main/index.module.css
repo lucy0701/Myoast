@@ -1,25 +1,31 @@
 @media (max-width: 375px) {
+  .newTestWrap,
+  .slideWrap,
   .wrap {
     max-width: 375px;
   }
-  .slideWrap{
-    max-width: 375px;
+  .newTestWrap {
+    gap: 30px 10px;
   }
 }
 @media (min-width: 376px) and (max-width: 390px) {
+  .newTestWrap
+  .slideWrap,
   .wrap {
     width: 390px;
   }
-  .slideWrap{
-    width: 390px;
+  .newTestWrap {
+    gap: 30px 10px;
   }
 }
 @media (min-width: 391px) {
+  .newTestWrap,
+  .slideWrap,
   .wrap {
     max-width: 412px;
   }
-  .slideWrap{
-    max-width: 412px;
+  .newTestWrap {
+    gap: 30px 20px;
   }
 }
 
@@ -67,8 +73,7 @@
 /* 최신 심테 */
 .newTestWrap {
   margin: 10px 0 40px 0;
-  width: 100%;
+  /* width: 100%; */
   display: flex;
   flex-wrap: wrap;
-  gap: 30px 10px;
 }

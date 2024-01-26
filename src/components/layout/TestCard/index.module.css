@@ -119,7 +119,7 @@
 }
 
 .large {
-  width: 350px;
+  /* width: 350px; */
   height: 227px;
   position: relative;
   border-radius: 1rem;

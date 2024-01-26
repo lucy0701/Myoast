@@ -1,6 +1,6 @@
 import '../styles/globals.css';
 import { Noto_Sans_KR } from 'next/font/google';
-import { ReactNode, Suspense } from 'react';
+import React, { ReactNode, Suspense } from 'react';
 import { Metadata } from 'next';
 
 import RecoilRootProvider from '../components/layout/RecoilRootProvider';
@@ -63,21 +63,22 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      {/* <head>
-        <meta name="naver-site-verification" content="bd173df828ca4bb546689bea2053b978afda8110" />
-      </head> */}
-      <body className={notoSansKr.className}>
-        <RecoilRootProvider>
-          <Header />
-          <Suspense fallback={<Loading />}>{children}</Suspense>
-          <Footer />
-        </RecoilRootProvider>
+      <head>
+        {/* <meta name="naver-site-verification" content="bd173df828ca4bb546689bea2053b978afda8110" /> */}
         <script
           async
           src="https://t1.kakaocdn.net/kakao_js_sdk/2.6.0/kakao.js"
           integrity="sha384-9Fs/wd1UNwjbBTnEsUvebAW7kzBWEOjRAXJvbaV+w+5kG1WXNXOui+4QV1KcRixH"
           crossOrigin="anonymous"
         ></script>
+      </head>
+      <body className={notoSansKr.className}>
+        <RecoilRootProvider>
+          <Header />
+          {/* {children} */}
+          <Suspense fallback={<Loading />}>{children}</Suspense>
+          <Footer />
+        </RecoilRootProvider>
       </body>
     </html>
   );

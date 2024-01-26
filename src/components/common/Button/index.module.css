@@ -1,18 +1,25 @@
+
 @media (max-width: 375px) {
+  .bottomBtn,
   .wrap {
-    width: 100%;
-    max-width: 345px;
+    max-width: 375px;
   }
 }
-
-@media (min-width: 376px) {
+@media (min-width: 376px) and (max-width: 390px) {
+  .bottomBtn,
   .wrap {
-    width: 100%;
-    max-width: 370px;
+    width: 390px;
+  }
+}
+@media (min-width: 391px) {
+  .bottomBtn,
+  .wrap {
+    width: 412px;
   }
 }
 
 .startBtn {
+  width: 100%;
   height: 50px;
   font-size: 1.1rem;
   font-weight: 500;
@@ -34,8 +41,6 @@
 }
 
 .bottomBtn {
-  width: 100%;
-  max-width: 400px;
   height: 60px;
   font-size: 17px;
   font-weight: 500;

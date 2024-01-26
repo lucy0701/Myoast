@@ -16,14 +16,13 @@
 }
 
 .wrap {
-  height: 60px;
+  height: 90px;
   margin: auto;
   background-color: #fff;
 }
 .contentsWrap {
   height: 100%;
   position: relative;
-  border-radius: 15px 15px 0 0;
   background-color: #6ca4aa;
 }
 .wrap p {
@@ -34,7 +33,7 @@
 .under {
   width: 100%;
   position: absolute;
-  bottom: 8px;
+  bottom: 20px;
   display: flex;
   padding: 0 15px;
   justify-content: space-between;
@@ -66,7 +65,7 @@
 .docs {
   width: 40%;
   position: absolute;
-  bottom: 25px;
+  bottom: 40px;
   right: 8px;
   display: flex;
   flex-direction: row;

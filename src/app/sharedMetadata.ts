@@ -24,7 +24,7 @@ export const getMetaData = ({ url, title, description, imageUrl, keywords }: Pro
         secureUrl: imageUrl,
         width: 1200,
         height: 630,
-        alt: title, // 이 부분에서 "alt:title"을 "alt: title"로 수정
+        alt: title,
       },
     ],
   },

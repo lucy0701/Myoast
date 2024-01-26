@@ -16,6 +16,7 @@ import Button from '@/components/common/Button';
 import styles from './index.module.css';
 import Title from '@/components/common/Title';
 import { TestCard, TestMainBanner } from '@/components/layout/TestCard';
+import Loading from '@/components/layout/Loding';
 
 export default function Main() {
   const { latestList, getTestListData, getLatestListData, testTestList } = useTest();
@@ -30,6 +31,7 @@ export default function Main() {
     });
   }, []);
 
+  if (!isDataLoaded) return <Loading />;
   if (isDataLoaded)
     return (
       <div className={styles.wrap}>

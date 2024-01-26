@@ -1,13 +1,18 @@
 @media (max-width: 375px) {
-    .wrap {
-      width: 375px;
-    }
+  .wrap {
+    max-width: 375px;
   }
-  @media (min-width: 376px) {
-    .wrap {
-      width: 400px;
-    }
+}
+@media (min-width: 376px) and (max-width: 390px) {
+  .wrap {
+    width: 390px;
   }
+}
+@media (min-width: 391px) {
+  .wrap {
+    max-width: 412px;
+  }
+}
   .wrap {
     height: 100%;
     background-color: #fff;
