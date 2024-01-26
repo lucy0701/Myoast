@@ -4,6 +4,7 @@ import TestList from '@/containers/testList';
 import { getTestListAPI } from '@/services/test';
 import { DOMAIN } from '@/constants/constant';
 
+
 export async function generateMetadata() {
   const url = `${DOMAIN}/list`;
   const title = '몽빗 [무료 | MBTI 심리테스트]';
@@ -30,7 +31,7 @@ export async function generateMetadata() {
 
 export default async function Page() {
   const testData = await getTestListAPI()
-    .then((res) => res.data);
+    .then((res) => res.data.reverse());
   if (!testData) return notFound;
   return <TestList testData={testData} />;
 }

@@ -19,4 +19,4 @@ export const TEST_CARD_SIZE_S = 'small';
 export const TEST_CARD_SIZE_M = 'medium';
 export const TEST_CARD_SIZE_L = 'large';
 export const TYPE_TEST_CARD = 'testCard';
-export const TYPE_MY_TEST_CARD = 'myTestCade';
+export const TYPE_MY_TEST_CARD = 'myTestCard';

@@ -2,11 +2,13 @@ import '../styles/globals.css';
 import { Noto_Sans_KR } from 'next/font/google';
 import React, { ReactNode, Suspense } from 'react';
 import { Metadata } from 'next';
+import dynamic from 'next/dynamic';
 
 import RecoilRootProvider from '../components/layout/RecoilRootProvider';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import Loading from '@/components/layout/Loding';
+
+const Loading = dynamic(() => import('@/components/layout/Loding'), { ssr: false });
 
 const notoSansKr = Noto_Sans_KR({
   weight: ['100', '300', '400', '500', '700', '900'],
@@ -18,9 +20,9 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://mongbit-fe.vercel.app/'),
   title: '몽빗(MongBit)',
   description: 'MBTI 심리테스트 공작소',
-  // verification: {
-  //   google: 'iIuHEzQvMG-caxyWhHVcaDcqhg8C9SoFiLg5JFTQHJM',
-  // },
+  verification: {
+    google: 'iIuHEzQvMG-caxyWhHVcaDcqhg8C9SoFiLg5JFTQHJM',
+  },
   keywords: [
     'MBTI',
     'MBTI 연애',
@@ -64,7 +66,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <head>
-        {/* <meta name="naver-site-verification" content="bd173df828ca4bb546689bea2053b978afda8110" /> */}
+        <meta name="naver-site-verification" content="bd173df828ca4bb546689bea2053b978afda8110" />
         <script
           async
           src="https://t1.kakaocdn.net/kakao_js_sdk/2.6.0/kakao.js"

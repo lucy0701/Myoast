@@ -37,14 +37,14 @@
 }
 
 /* 테스트 카드 */
-.testCade {
+.testCard {
   /* width: 100%; */
   overflow: hidden;
 }
-.testCade span {
+.testCard span {
   position: absolute;
 }
-.testCade img {
+.testCard img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -146,22 +146,22 @@
 }
 
 /* 마이페이지 결과카드 */
-.myTestCadeWrap {
+.myTestCardWrap {
   width: 340px;
   height: 200px;
   border-radius: 1rem;
   overflow: hidden;
   border: 1px solid #647e87;
 }
-.myTestCade {
+.myTestCard {
   display: flex;
 }
-.myTestCadeWrap img {
+.myTestCardWrap img {
   width: 35%;
   height: 200px;
   object-fit: cover;
 }
-.myTestCadeWrap div {
+.myTestCardWrap div {
   width: 60%;
 }
 .textWrp {

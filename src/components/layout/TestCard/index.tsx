@@ -13,7 +13,7 @@ interface Props {
   testResultId?: string;
   imgUrl: string;
   size?: 'small' | 'medium' | 'large';
-  type?: 'myTestCade' | 'testCard';
+  type?: 'myTestCard' | 'testCard';
   testResult?: string;
   playCount?: number;
 }
@@ -37,9 +37,9 @@ export const TestCard = ({
 }: Props) => {
   const content = contentArr(testResult ? testResult : '');
 
-  if (type === 'myTestCade') {
+  if (type === 'myTestCard') {
     return (
-      <div className={styles.myTestCadeWrap}>
+      <div className={styles.myTestCardWrap}>
         <Link
           href={`/record/${testId}/${testResultId}`}
           className={cx(className, styles[size ?? 'normal'], styles[type ?? 'normal'])}
@@ -58,7 +58,7 @@ export const TestCard = ({
   }
 
   return (
-    <div className={styles.testCade}>
+    <div className={styles.testCard}>
       <Link
         href={`/test/main/${testId}`}
         className={cx(className, styles[size ?? 'normal'], styles[type ?? 'normal'])}
@@ -78,7 +78,7 @@ export const TestCard = ({
 export const MainTestCard = (props: MainTestCardProps) => {
   const { className, imgUrl, testTitle } = props;
   return (
-    <div className={styles.testCade}>
+    <div className={styles.testCard}>
       <div className={cx(className, styles.large, styles.testCard)}>
         <div className={styles.iconBox}>
           <div className={styles.playIcon} />
@@ -91,7 +91,7 @@ export const MainTestCard = (props: MainTestCardProps) => {
 };
 
 export const TestMainBanner = ({ testId, imgUrl, testTitle }: Props) => (
-  <div className={styles.testCade}>
+  <div className={styles.testCard}>
     <Link href={`/test/main/${testId}`} className={styles.mainBanner} prefetch={false}>
       <img className={styles.testImg} src={imgUrl} alt={testTitle} />
       <span className={styles.title}>{testTitle}</span>

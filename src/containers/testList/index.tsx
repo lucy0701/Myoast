@@ -26,7 +26,7 @@ export default function TestList({ testData }: Props) {
     <div className={styles.wrap}>
       <Title title={'전체 테스트 🥰'} contents={'몽빗의 모든 테스트가 있어요!'} />
       <div className={styles.cardList}>
-        {testData?.reverse().map((t) => (
+        {testData?.map((t) => (
           <TestCardList
             key={t.id}
             testId={t.id}

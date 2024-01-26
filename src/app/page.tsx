@@ -25,7 +25,7 @@ export async function generateMetadata() {
     },
   };
 }
-
+// 패치
 export default function Page() {
   return <Main />;
 }

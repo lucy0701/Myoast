@@ -13,7 +13,7 @@ import TestCardList from '@/components/layout/TestCardList';
 import Button from '@/components/common/Button';
 
 interface Props {
-  testLatestData: [TestCover];
+  testLatestData: TestCover[];
 }
 
 export default function TestLatest( { testLatestData }: Props) {
@@ -25,7 +25,7 @@ export default function TestLatest( { testLatestData }: Props) {
 
   return (
     <div className={styles.wrap}>
-      <Title title="최신 테스트 🐥" contents="못빗의 신규 테스트" />
+      <Title title="최신 테스트 🐥" contents="몽빗의 신규 테스트" />
       <div className={styles.cardList}>
         {testLatestData.map((t) => (
             <TestCardList
