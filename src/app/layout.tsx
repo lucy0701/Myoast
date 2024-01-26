@@ -1,6 +1,6 @@
 import '../styles/globals.css';
 import { Noto_Sans_KR } from 'next/font/google';
-import { ReactNode, Suspense } from 'react';
+import { ReactNode } from 'react';
 import { Metadata } from 'next';
 
 import RecoilRootProvider from '../components/layout/RecoilRootProvider';
