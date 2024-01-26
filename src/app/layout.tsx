@@ -23,6 +23,9 @@ export const metadata: Metadata = {
   verification: {
     google: 'iIuHEzQvMG-caxyWhHVcaDcqhg8C9SoFiLg5JFTQHJM',
   },
+  icons: {
+    icon: '/favicon.ico',
+  },
   keywords: [
     'MBTI',
     'MBTI 연애',
@@ -30,6 +33,7 @@ export const metadata: Metadata = {
     'MBTI 심리테스트',
     '무료 심테',
     'MBTI 검사',
+    'mbti검사하기',
     'MBTI 무료',
     '심리테스트',
     '심테',
@@ -72,6 +76,17 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           src="https://t1.kakaocdn.net/kakao_js_sdk/2.6.0/kakao.js"
           integrity="sha384-9Fs/wd1UNwjbBTnEsUvebAW7kzBWEOjRAXJvbaV+w+5kG1WXNXOui+4QV1KcRixH"
           crossOrigin="anonymous"
+        />
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_GA_ID}`} />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', ${process.env.NEXT_PUBLIC_GOOGLE_GA_ID});
+  `,
+          }}
         ></script>
       </head>
       <body className={notoSansKr.className}>
