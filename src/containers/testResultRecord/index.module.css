@@ -1,11 +1,16 @@
 @media (max-width: 375px) {
   .wrap {
-    width: 375px;
+    max-width: 375px;
   }
 }
-@media (min-width: 376px) {
+@media (min-width: 376px) and (max-width: 390px) {
   .wrap {
-    width: 400px;
+    min-width: 390px;
+  }
+}
+@media (min-width: 391px) {
+  .wrap {
+    width: 412px;
   }
 }
 
@@ -14,7 +19,8 @@
     display: flex;
     flex-direction: column;
     align-items: center; */
-    margin: auto;
+  overflow-x: hidden;
+  margin: auto;
   background-color: white;
   /* position: relative; */
 }

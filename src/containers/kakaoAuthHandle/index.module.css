@@ -9,21 +9,25 @@
     width: 375px;
   } */
 }
-
-@media (min-width: 376px) {
+@media (max-width: 375px) {
   .wrap {
-    width: 400px;
+    max-width: 375px;
   }
-  /* .footerWrap {
-    width: 400px;
+}
+@media (min-width: 376px) and (max-width: 390px) {
+  .wrap {
+    min-width: 390px;
   }
-  .content {
-    width: 400px;
-  } */
+}
+@media (min-width: 391px) {
+  .wrap {
+    width: 412px;
+  }
 }
 
 .wrap {
   margin: auto;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;

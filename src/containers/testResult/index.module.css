@@ -1,17 +1,16 @@
 @media (max-width: 375px) {
   .wrap {
-    width: 375px;
-  }
-  .coupangWrap {
-    width: 375px;
+    max-width: 375px;
   }
 }
-@media (min-width: 376px) {
+@media (min-width: 376px) and (max-width: 390px) {
   .wrap {
-    width: 400px;
+    min-width: 390px;
   }
-  .coupangWrap {
-    width: 400px;
+}
+@media (min-width: 391px) {
+  .wrap {
+    width: 412px;
   }
 }
 
@@ -20,6 +19,7 @@
   /* display: flex;
   flex-direction: column;
   align-items: center; */
+  overflow-x: hidden;
   margin: auto;
   background-color: white;
 }

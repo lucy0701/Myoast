@@ -6,13 +6,33 @@
     max-width: 327px;
     max-height: 210px;
   }
+  .mainBanner {
+    max-width: 376px;
+  }
+  .mainBanner .testImg {
+    max-width: 376px;
+  }
 }
-@media (min-width: 376px) {
+@media (min-width: 376px) and (max-width: 390px) {
   .medium {
     min-width: 170px;
   }
   .large {
     min-width: 350px;
+  }
+  .mainBanner {
+    width: 390px;
+  }
+  .mainBanner .testImg {
+    width: 390px;
+  }
+}
+@media (min-width: 391px) {
+  .mainBanner {
+    max-width: 412px;
+  }
+  .mainBanner .testImg {
+    max-width: 412px;
   }
 }
 
@@ -129,7 +149,7 @@
   height: 200px;
   border-radius: 1rem;
   overflow: hidden;
-  border: 1px solid #647E87;
+  border: 1px solid #647e87;
 }
 .myTestCade {
   display: flex;
@@ -137,7 +157,7 @@
 .myTestCadeWrap img {
   width: 35%;
   height: 200px;
-  object-fit:cover;
+  object-fit: cover;
 }
 .myTestCadeWrap div {
   width: 60%;
@@ -171,7 +191,7 @@
   overflow: hidden;
 }
 /* banner */
-.mainBanner{
+.mainBanner {
   width: 100%;
   height: 200px;
   position: relative;
@@ -189,5 +209,5 @@
   text-align: center;
   font-size: 1rem;
   color: #fff;
-  text-shadow: -1px -1px 0 #647E87, 1px -1px 0 #647E87, -1px 1px 0 #647E87, 1px 1px 0 #647E87;
+  text-shadow: -1px -1px 0 #647e87, 1px -1px 0 #647e87, -1px 1px 0 #647e87, 1px 1px 0 #647e87;
 }

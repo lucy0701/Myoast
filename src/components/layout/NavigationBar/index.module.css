@@ -1,31 +1,60 @@
+
 @media (max-width: 375px) {
   .modalWrap {
     width: 180px;
-    left: calc(50% - 400px);
+    left: calc(50% - 375px);
   }
 
   .modalMoveToRight {
-    left: calc(50% - 190px);
+    left: calc(50% - 180px);
+  }
+  .modalBackground {
+    width: 375px;
+  }
+  .hideModal {
+    left: calc(50% - 487.5px);
   }
 }
 
-@media (min-width: 376px) {
+@media (min-width: 376px) and (max-width: 390px) {
   .modalWrap {
-    width: 200px;
-    left: calc(50% - 400px);
+    width: 195px;
+    left: calc(50% - 390px);
   }
 
   .modalMoveToRight {
-    left: calc(50% - 200px);
+    left: calc(50% - 195px);
+  }
+  .modalBackground {
+    width: 390px;
+  }
+  .hideModal {
+    left: calc(50% - 495px);
   }
 }
+@media (min-width: 391px) {
+  .modalWrap {
+    width: 206px;
+    left: calc(50% - 412px);
+  }
+  .modalMoveToRight {
+    left: calc(50% - 206px);
+  }
+  .modalBackground {
+    width: 412px;
+  }
+  .hideModal {
+    left: calc(50% - 506px);
+  }
+}
+
 /* 모달 */
 .modalWrap {
   height: 100%;
   border: 1px solid rgb(242, 242, 242);
   background-color: white;
   position: fixed;
-  z-index :50;
+  z-index: 50;
   top: -1px;
   transition: all 0.3s ease-in-out;
 }
@@ -33,13 +62,12 @@
   width: 300px;
   height: 100%;
   position: fixed;
-  left: calc(50% - 500px);
+  /* left: calc(50% - 500px); */
   top: -1px;
   z-index: 60;
-  background-color: #f4f4f4;
+  background-color: #F4F4F4;
 }
 .modalBackground {
-  width: 400px;
   height: 100%;
   position: absolute;
   top: 0;
@@ -67,7 +95,7 @@
   margin: auto;
   text-align: center;
   line-height: 35px;
-  background-color: #6CA4AA;
+  background-color: #6ca4aa;
   color: #fff;
   border-radius: 8px;
   margin-bottom: 15px;
@@ -82,7 +110,7 @@
   /* border-radius: 1rem; */
   /* margin: 10px 15px; */
 }
-.ulWrap li p{
+.ulWrap li p {
   font-weight: normal;
   text-align: center;
   color: #444;
