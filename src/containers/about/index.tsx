@@ -19,7 +19,7 @@ export default function About() {
           </p>
         </div>
         <div className={styles.info_2}>
-          <h2>그래서 몽빗은 탄생했습니다.</h2>
+          <h2>그래서 묘스트는 탄생했습니다.</h2>
           <p>
             MBTI 검사는 물론이고 다양한 심리테스트를 <br />
             <span>누구나 손쉽게 즐길 수 있도록 만들었습니다.</span>

@@ -10,7 +10,7 @@ import { MAIN_PAGE_TEST_IMG, MAIN_PAGE_TEST_TITLE, OG_MBTI_TEST_IMAGE } from '@/
 import { TEST_CARD_SIZE_L, TEST_CARD_SIZE_M, TYPE_START_BTN, TYPE_TEST_CARD } from '@/constants/commonType';
 import { BACK_PAGE, BACK_PAGE_TEST } from '@/constants/sessionStorage';
 import SessionStorage from '@/utils/SessionStorage';
-import { TestCover, TestCoverResponse } from '@/types/test';
+import { TestCover } from '@/types/test';
 
 import Button from '@/components/common/Button';
 import styles from './index.module.css';
@@ -80,7 +80,7 @@ export default function Main({testListData, latestListData} : Props) {
             ))}
           </div>
           <Button link="/list" skin={TYPE_START_BTN}>
-            몽빗의 모든 테스트
+            묘스트의 모든 테스트
           </Button>
         </div>
       </div>

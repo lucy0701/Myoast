@@ -58,13 +58,13 @@
 .logoIcon {
   width: 5rem;
   height: 5.5rem;
-  background-image: url('../../../../public/svgs/logo_dog.svg');
+  /* background-image: url('../../../../public/svgs/logo_dog.svg'); */
 }
 
 .logoTitle {
   width: 7rem;
   height: 5.7rem;
-  background-image: url('../../../../public/svgs/logo_title.svg');
+  /* background-image: url('../../../../public/svgs/logo_title.svg'); */
 }
 
 .menuIcon {

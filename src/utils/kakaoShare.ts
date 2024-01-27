@@ -6,7 +6,7 @@ export const shareTokakaotalkTest = (title: string, imageUrl: string, testId: st
   window.Kakao.Share.sendDefault({
     objectType: 'feed',
     content: {
-      title: '심리테스트는 몽빗!',
+      title: '심리테스트는 묘스트!',
       description: title,
       imageUrl: imageUrl,
       link: {

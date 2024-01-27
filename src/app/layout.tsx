@@ -18,8 +18,8 @@ const notoSansKr = Noto_Sans_KR({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://mongbit-fe.vercel.app/'),
-  title: '몽빗(MongBit)',
-  description: 'MBTI 심리테스트 공작소',
+  title: '묘스트(MYOAST)',
+  description: '묘스트와 함께하는 MBTI 심리테스트',
   verification: {
     google: 'iIuHEzQvMG-caxyWhHVcaDcqhg8C9SoFiLg5JFTQHJM',
   },
@@ -45,8 +45,8 @@ export const metadata: Metadata = {
     '연애',
     '짝사랑',
     '궁합',
-    'MongBit',
-    '몽빗',
+    'myoast',
+    '묘스트',
     'INFP',
     'ISFP',
     'INFJ',

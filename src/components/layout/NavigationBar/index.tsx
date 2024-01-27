@@ -75,7 +75,7 @@ export default function NavigationBar({ menuClicked, setMenuClicked }: Props) {
               <p>About</p>
               <li>
                 <Link href="/about" onClick={() => setMenuClicked(false)} prefetch={false}>
-                  <p>몽빗 소개</p>
+                  <p>묘스트 소개</p>
                 </Link>
               </li>
               <li>

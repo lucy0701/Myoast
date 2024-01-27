@@ -5,8 +5,8 @@ import { TestCover } from '@/types/test';
 
 export async function generateMetadata() {
   const url = `${DOMAIN}/list`;
-  const title = '몽빗 [무료 | MBTI 심리테스트]';
-  let description = 'MBTI 심리테스트 공작소';
+  const title = '묘스트 [무료 | MBTI 심리테스트]';
+  let description = '묘스트와 함께 하는 MBTI 심리테스트';
   let imageUrl = `${DOMAIN}/common/opengraph-image`;
 
   return {

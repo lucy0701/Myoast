@@ -28,8 +28,9 @@ export default function Header() {
         <div>
           <Link href="/" prefetch={false}>
             <div className={styles.logoWrap}>
-              <div className={styles.logoIcon} />
-              <div className={styles.logoTitle} />
+              {/* <div className={styles.logoIcon} ></div>
+              <div className={styles.logoTitle} ></div> */}
+              <p className={styles.logoTitle}>MYOAST</p>
             </div>
           </Link>
         </div>
