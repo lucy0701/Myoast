@@ -12,7 +12,7 @@ React.js, Next.js, Recoil, OAuth2, TypeScript
 
 ### Figma
 
-https://www.figma.com/file/0xu6ViOhTQjSbY7mmzXEMa/Mongbit?type=design&node-id=0-1&mode=design&t=sQSaPzZLTZYej9ou-0
+https://www.figma.com/file/0xu6ViOhTQjSbY7mmzXEMa/Myoast?type=design&node-id=0-1&mode=design&t=cWKZodZf0g3JwtqX-0
 
 ### 일지
 

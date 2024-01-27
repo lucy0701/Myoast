@@ -3,23 +3,23 @@ import { MetadataRoute } from 'next';
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: 'https://mongbit-fe.vercel.app/',
+      url: 'https://myoast.vercel.app/',
       lastModified: new Date(),
     },
     {
-      url: 'https://mongbit-fe.vercel.app/list',
+      url: 'https://myoast.vercel.app/list',
       lastModified: new Date(),
     },
     {
-      url: 'https://mongbit-fe.vercel.app/latest',
+      url: 'https://myoast.vercel.app/latest',
       lastModified: new Date(),
     },
     {
-      url: 'https://mongbit-fe.vercel.app/about',
+      url: 'https://myoast.vercel.app/about',
       lastModified: new Date(),
     },
     {
-      url: 'https://mongbit-fe.vercel.app/devinfo',
+      url: 'https://myoast.vercel.app/devinfo',
       lastModified: new Date(),
     },
   ];

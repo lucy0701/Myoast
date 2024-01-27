@@ -6,6 +6,6 @@ export default function robot(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://mongbit-fe.vercel.app/sitemap.xml',
+    sitemap: 'https://myoast.vercel.app//sitemap.xml',
   };
 }

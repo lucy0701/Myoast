@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 import styles from './index.module.css';
 
 // TODO: Footer 정리
-const DisabledPaths = ['/list', '/latest', '/result','/record'];
+const DisabledPaths = ['/list', '/latest', '/result', '/record'];
 
 export default function Footer() {
   const pathname = usePathname();
@@ -31,7 +31,7 @@ export default function Footer() {
         <div className={styles.under}>
           <div className={styles.iconBox}>
             <div className={styles.gitHubIcon}>
-              <Link href="https://github.com/lucy0701/Mongbit_FE.git" target="_blank" prefetch={false} />
+              <Link href="https://github.com/lucy0701/Myoast" target="_blank" prefetch={false} />
             </div>
             <div className={styles.instagramIcon}>
               <Link href="https://www.instagram.com/mongbit_" target="_blank" prefetch={false} />
