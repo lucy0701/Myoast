@@ -20,3 +20,7 @@ export const COUPANG_VISIT ='mbCoupangVisitDate';
 // Type of the page
 export const TYPE_MYPAGE = 'mypage';
 export const TYPE_LOGIN = 'login';
+
+// Latest
+export const LATEST_PAGE = 0;
+export const LATEST_SIZE = 6;

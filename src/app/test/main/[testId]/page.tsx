@@ -1,8 +1,7 @@
-
-// import { notFound } from 'next/navigation';
-
+import { DOMAIN_BE_PROD } from '@/constants/constant';
 import TestMain from '@/containers/testMain';
-import { getTestAPI } from '@/services/test';
+import { Test } from '@/types/test';
+import { getHeaders } from '@/utils/util';
 
 interface Props {
   params: {
@@ -10,7 +9,9 @@ interface Props {
   };
 }
 export default async function Page({ params: { testId } }: Props) {
-  const testData = await getTestAPI(testId).then(async (res) => res.data);
-  // if (!testData) return notFound;
+  const headers = getHeaders();
+  const testData = await fetch(`${DOMAIN_BE_PROD}/api/v1/tests/test/${testId}`, { headers }).then(
+    (res) => res.json() as Promise<Test>,
+  );
   return <TestMain testData={testData} />;
 }

@@ -1,8 +1,7 @@
-import { notFound } from 'next/navigation';
-
 import TestLatest from '@/containers/testLatest';
-import { getLatestListAPI } from '@/services/test';
-import { DOMAIN } from '@/constants/constant';
+import { DOMAIN, DOMAIN_BE_PROD, LATEST_PAGE, LATEST_SIZE } from '@/constants/constant';
+import { getHeaders } from '@/utils/util';
+import { TestCoverResponse } from '@/types/test';
 
 export async function generateMetadata() {
   const url = `${DOMAIN}/latest`;
@@ -29,7 +28,9 @@ export async function generateMetadata() {
 }
 
 export default async function Page() {
-  const testLatestData = await getLatestListAPI('0','5').then((res) => res.data.testCoverDTOList);
-  if (!testLatestData) return notFound;
-  return <TestLatest testLatestData={testLatestData} />;
+  const headers = getHeaders();
+  const latestListData = await fetch(`${DOMAIN_BE_PROD}/api/v1/tests/${LATEST_PAGE}/${LATEST_SIZE}`, { headers }).then(
+    (res) => res.json() as Promise<TestCoverResponse>
+  );
+  return <TestLatest testLatestData={latestListData.testCoverDTOList} />;
 }

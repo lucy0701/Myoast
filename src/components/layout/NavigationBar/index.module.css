@@ -62,7 +62,6 @@
   width: 300px;
   height: 100%;
   position: fixed;
-  /* left: calc(50% - 500px); */
   top: -1px;
   z-index: 60;
   background-color: #F4F4F4;
@@ -91,27 +90,24 @@
   margin: 10px 0 25px 0;
 }
 .ulWrap > p {
-  width: 80%;
-  height: 35px;
+  width: 100%;
   margin: auto;
   text-align: center;
   line-height: 35px;
-  /* background-color: #6ca4aa; */
   color: #333;
-  /* border-bottom: #6ca4aa dotted 1.5px; */
-  /* border-radius: 8px; */
   margin-bottom: 15px;
 }
-.ulWrap li {
+.ulWrap li a {
   margin: auto;
-  width: 70%;
-  padding: 10px 0;
-  border-bottom: #6ca4aa solid 2px;
-  /* box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2); */
-  margin-bottom: 10px;
-  /* background-color: #fff7ea; */
-  border-radius: 1rem;
-  /* margin: 10px 15px; */
+  width: 75%;
+  height: 30px;
+  border-bottom: #6ca4aa dotted 2px;
+  margin-bottom: 15px;
+}
+.ulWrap li a:hover {
+  background-color: #FAF2D7;
+  border-radius: 0.5rem 0.5rem 0 0 ;
+  transition: 0.3s ease-in-out;
 }
 .ulWrap li p {
   font-weight: normal;

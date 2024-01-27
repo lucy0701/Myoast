@@ -1,4 +1,6 @@
-import { DOMAIN } from '@/constants/constant';
+import { DOMAIN, DOMAIN_BE_PROD, LATEST_PAGE, LATEST_SIZE } from '@/constants/constant';
+import { getHeaders } from '@/utils/util';
+import { TestCover, TestCoverResponse } from '@/types/test';
 
 import Main from '../containers/main';
 
@@ -25,7 +27,13 @@ export async function generateMetadata() {
     },
   };
 }
-// 패치
-export default function Page() {
-  return <Main />;
+export default async function Page() {
+  const headers = getHeaders();
+  const testListData = await fetch(`${DOMAIN_BE_PROD}/api/v1/tests`, { headers }).then(
+    (res) => res.json() as Promise<TestCover[]>,
+  );
+  const latestListData = await fetch(`${DOMAIN_BE_PROD}/api/v1/tests/${LATEST_PAGE}/${LATEST_SIZE}`, { headers }).then(
+    (res) => res.json() as Promise<TestCoverResponse>,
+  );
+  return <Main testListData={testListData} latestListData={latestListData.testCoverDTOList} />;
 }

@@ -1,47 +1,21 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-import { Test, TestCover, TestResultData } from '@/types/test';
+import { Test, TestResultData } from '@/types/test';
 import {
-  getLatestListAPI,
   getTestAPI,
   postTestResultAPI,
   postMemberTestResultAPI,
   getTestResultAPI,
-  getTestListAPI,
 } from '@/services/test';
 import SessionStorage from '@/utils/SessionStorage';
 import { TEST_RESULT_ID, TEST_SCORE } from '@/constants/sessionStorage';
 
 export const useTest = () => {
   const [tsetData, setTestData] = useState<Test>();
-  const [latestList, setLatestList] = useState<TestCover[]>();
-  const [testTestList, setTestList] = useState<TestCover[]>();
   const [testResultData, setTestResultData] = useState<TestResultData>();
 
   const router = useRouter();
-
-  const getTestListData = async () => {
-    try {
-      const res = await getTestListAPI();
-      if (res) {
-        setTestList(res.data);
-      }
-    } catch (err) {
-      alert(err);
-    }
-  };
-
-  const getLatestListData = async (page: string, size: string) => {
-    try {
-      const res = await getLatestListAPI(page, size);
-      if (res) {
-        setLatestList(res.data.testCoverDTOList);
-      }
-    } catch (err) {
-      alert(err);
-    }
-  };
 
   const getTestData = async (testId: string) => {
     try {
@@ -96,12 +70,8 @@ export const useTest = () => {
 
 
   return {
-    getTestListData,
-    testTestList,
     getTestData,
     tsetData,
-    getLatestListData,
-    latestList,
     postTestResultData,
     postMemberTestResultData,
     testResultData,

@@ -3,7 +3,7 @@
 import { useEffect } from 'react';
 
 import { TYPE_BOTTOM_BTN } from '@/constants/commonType';
-import { TestCover } from '@/types/test';
+import { TestCover, TestCoverResponse } from '@/types/test';
 import { BACK_PAGE, BACK_PAGE_TEST } from '@/constants/sessionStorage';
 import SessionStorage from '@/utils/SessionStorage';
 

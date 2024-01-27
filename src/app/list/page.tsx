@@ -1,9 +1,7 @@
-import { notFound } from 'next/navigation';
-
 import TestList from '@/containers/testList';
-import { getTestListAPI } from '@/services/test';
-import { DOMAIN } from '@/constants/constant';
-
+import { DOMAIN, DOMAIN_BE_PROD } from '@/constants/constant';
+import { getHeaders } from '@/utils/util';
+import { TestCover } from '@/types/test';
 
 export async function generateMetadata() {
   const url = `${DOMAIN}/list`;
@@ -30,8 +28,7 @@ export async function generateMetadata() {
 }
 
 export default async function Page() {
-  const testData = await getTestListAPI()
-    .then((res) => res.data.reverse());
-  if (!testData) return notFound;
-  return <TestList testData={testData} />;
+  const headers = getHeaders();
+  const testListData = await fetch(`${DOMAIN_BE_PROD}/api/v1/tests`, { headers }).then((res) => res.json() as Promise<TestCover[]>);
+  return <TestList testData={testListData} />;
 }

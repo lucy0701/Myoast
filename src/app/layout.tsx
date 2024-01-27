@@ -8,7 +8,7 @@ import RecoilRootProvider from '../components/layout/RecoilRootProvider';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 
-const Loading = dynamic(() => import('@/components/layout/Loding'), { ssr: false });
+const Loading = dynamic(() => import('./loading'), { ssr: false });
 
 const notoSansKr = Noto_Sans_KR({
   weight: ['100', '300', '400', '500', '700', '900'],
@@ -87,13 +87,15 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   gtag('config', ${process.env.NEXT_PUBLIC_GOOGLE_GA_ID});
   `,
           }}
-        ></script>
+        />
       </head>
       <body className={notoSansKr.className}>
         <RecoilRootProvider>
-          <Header />
-          <Suspense fallback={<Loading />}>{children}</Suspense>
-          <Footer />
+          <Suspense fallback={<Loading />}>
+            <Header />
+            {children}
+            <Footer />
+          </Suspense>
         </RecoilRootProvider>
       </body>
     </html>
