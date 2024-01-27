@@ -70,7 +70,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <head>
-        <meta name="naver-site-verification" content="bd173df828ca4bb546689bea2053b978afda8110" />
+        <meta name="naver-site-verification" content="c9ed2e2055f664378fb304affcea9418318bb46c" />
         <script
           async
           src="https://t1.kakaocdn.net/kakao_js_sdk/2.6.0/kakao.js"
