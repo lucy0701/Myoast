@@ -1,10 +1,10 @@
-# MONG BIT
+# MYOAST
 
 2024.01.07
 
 ### Site
 
-https://mongbit-fe.vercel.app/
+https://myoast.vercel.app/
 
 ### Skill set
 
