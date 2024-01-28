@@ -7,7 +7,7 @@ export async function generateMetadata() {
   const url = `${DOMAIN}/latest`;
   const title = '묘스트 [무료 | MBTI 심리테스트]';
   let description = '묘스트와 함께 하는 MBTI 심리테스트';
-  let imageUrl = `${DOMAIN}/common/opengraph-image`;
+  let imageUrl = `${DOMAIN}/latest/opengraph-image`;
 
   return {
     title,
