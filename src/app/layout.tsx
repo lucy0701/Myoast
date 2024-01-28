@@ -17,7 +17,7 @@ const notoSansKr = Noto_Sans_KR({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://myoast.vercel.app/'),
+  metadataBase: new URL('https://myoast.vercel.app'),
   title: '묘스트(MYOAST)',
   description: '묘스트와 함께하는 MBTI 심리테스트',
   verification: {
