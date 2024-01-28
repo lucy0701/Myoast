@@ -1,11 +1,10 @@
 import { DOMAIN, DOMAIN_BE_PROD, LATEST_PAGE, LATEST_SIZE } from '@/constants/constant';
 import { getHeaders } from '@/utils/util';
 import { TestCover, TestCoverResponse } from '@/types/test';
-
-import Main from '../containers/main';
+import Main from '@/containers/main';
 
 export async function generateMetadata() {
-  const url = `${DOMAIN}/`;
+  const url = `${DOMAIN}/main`;
   const title = '묘스트 [무료 | MBTI 심리테스트]';
   let description = '묘스트의 MBTI 심리테스트';
   let imageUrl = `${DOMAIN}/main/opengraph-image`;

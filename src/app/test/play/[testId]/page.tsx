@@ -1,8 +1,5 @@
-import { headers } from 'next/dist/client/components/headers';
-
 import { DOMAIN_BE_PROD } from '@/constants/constant';
 import TestPlay from '@/containers/testPlay';
-import { getTestAPI } from '@/services/test';
 import { Test } from '@/types/test';
 import { getHeaders } from '@/utils/util';
 
