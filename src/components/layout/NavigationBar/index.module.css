@@ -77,6 +77,17 @@
 }
 
 /* ul */
+.logoTitle {
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  font-weight: 500;
+  cursor: pointer;
+  color: #647E87;
+  text-shadow: 5px 5px 5px #ccc;
+}
 .menuUlWrap {
   width: 90%;
   margin: auto;

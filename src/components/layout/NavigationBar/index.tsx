@@ -43,7 +43,8 @@ export default function NavigationBar({ menuClicked, setMenuClicked }: Props) {
         })}
       >
         <Link href="/" prefetch={false}>
-          <div className={styles.logoIcon} onClick={() => setMenuClicked(false)} />
+              <p className={styles.logoTitle}>MYOAST</p>
+          {/* <div className={styles.logoIcon} onClick={() => setMenuClicked(false)} /> */}
         </Link>
 
         {/* ul 시작 */}

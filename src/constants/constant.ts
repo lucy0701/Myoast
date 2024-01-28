@@ -1,5 +1,5 @@
 // Domain
-export const DOMAIN = 'https://myoast.vercel.app/';
+export const DOMAIN = 'https://myoast.vercel.app';
 export const DOMAIN_BE_PROD = 'https://mongbit.site';
 export const DOMAIN_FE_DEV = 'http://localhost:3000';
 

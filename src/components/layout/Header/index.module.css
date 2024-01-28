@@ -37,15 +37,28 @@
   justify-content: center;
   align-items: center;
 }
-.logoWrap {
+/* 로고 있을때 사용 예정 */
+/* .logoWrap {
   display: flex;
   flex-direction: row;
   padding: 0 30px 0 30px;
   cursor: pointer;
+} */
+.logoTitle {
+  height: 5.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 500;
+  /* padding: 0 30px 0 30px; */
+  cursor: pointer;
+  color: #647E87;
+  text-shadow: 5px 5px 5px #ccc;
 }
 
-.logoIcon,
-.logoTitle,
+/* .logoIcon, */
+/* .logoTitle, */
 .menuIcon,
 .myPageIcon,
 .loginIcon {
@@ -55,17 +68,17 @@
 }
 
 /* ICON */
-.logoIcon {
+/* .logoIcon {
   width: 5rem;
   height: 5.5rem;
-  /* background-image: url('../../../../public/svgs/logo_dog.svg'); */
-}
+  background-image: url('../../../../public/svgs/logo_dog.svg');
+} */
 
-.logoTitle {
+/* .logoTitle {
   width: 7rem;
   height: 5.7rem;
-  /* background-image: url('../../../../public/svgs/logo_title.svg'); */
-}
+  background-image: url('../../../../public/svgs/logo_title.svg');
+} */
 
 .menuIcon {
   width: 1.3rem;
