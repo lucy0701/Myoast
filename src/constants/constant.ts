@@ -4,7 +4,7 @@ export const DOMAIN_BE_PROD = 'https://mongbit.site';
 export const DOMAIN_FE_DEV = 'http://localhost:3000';
 
 //OG Image url
-export const OG_STANDARD_IMAGE = 'https://i.ibb.co/WPSYXR8/Screenshot-2024-01-28-20-51-11-60g-Wu-U.png';
+export const OG_STANDARD_IMAGE = 'https://i.ibb.co/Hp16TzN/Screenshot-2024-01-28-20-51-11-60g-Wu-U.png';
 export const OG_MBTI_TEST_IMAGE = 'https://i.ibb.co/GJ08BC3/quick-mbti-cover.png';
 
 // Main page Test
