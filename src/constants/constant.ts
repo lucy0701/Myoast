@@ -5,8 +5,6 @@ export const DOMAIN_FE_DEV = 'http://localhost:3000';
 
 //OG Image url
 export const OG_STANDARD_IMAGE = 'https://i.ibb.co/WPSYXR8/Screenshot-2024-01-28-20-51-11-60g-Wu-U.png';
-export const OG_RANDOM_IMAGE = 'https://i.ibb.co/N9ntw7s/og-random.png';
-export const OG_TEST_RESULT = 'https://i.ibb.co/tQWt0dF/image.png';
 export const OG_MBTI_TEST_IMAGE = 'https://i.ibb.co/GJ08BC3/quick-mbti-cover.png';
 
 // Main page Test
