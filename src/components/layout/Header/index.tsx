@@ -36,11 +36,11 @@ export default function Header() {
         </div>
         <div className={styles.mypageWrap}>
           {isLogin_be || isLogin ? (
-            <Link href="/mypage" prefetch={false} aria-label="mypageIcon">
+            <Link href="/mypage" prefetch={false} aria-label="mypage">
               <div className={styles.myPageIcon} />
             </Link>
           ) : (
-            <Link href="/login" prefetch={false} aria-label="loginIcon">
+            <Link href="/login" prefetch={false} aria-label="login">
               {/* <p>LOGIN</p> */}
               <div className={styles.loginIcon}></div>
             </Link>

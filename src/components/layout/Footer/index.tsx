@@ -35,7 +35,7 @@ export default function Footer() {
                 href="https://github.com/lucy0701/Myoast"
                 target="_blank"
                 prefetch={false}
-                aria-label="gitHubIcon"
+                aria-label="gitHub"
               />
             </div>
             <div className={styles.instagramIcon}>
@@ -43,11 +43,11 @@ export default function Footer() {
                 href="https://www.instagram.com/myoast_"
                 target="_blank"
                 prefetch={false}
-                aria-label="instagramIcon"
+                aria-label="instagram"
               />
             </div>
             <div className={styles.rss}>
-              <Link href="/api/rss" target="_blank" prefetch={false} aria-label="rssIcon">
+              <Link href="/api/rss" target="_blank" prefetch={false} aria-label="rss">
                 <div className={styles.rssIcon}></div>
               </Link>
             </div>

@@ -3,7 +3,7 @@ import DevInfo from '@/containers/devInfo';
 
 export async function generateMetadata() {
   const url = `${DOMAIN}/devinfo`;
-  const title = '묘스트 [개발자 소개]';
+  const title = '묘스트';
   let description = '묘스트 개발자들';
   let imageUrl = `${DOMAIN}/devinfo/opengraph-image`;
 
