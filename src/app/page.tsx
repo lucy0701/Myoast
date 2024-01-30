@@ -6,8 +6,8 @@ import Main from '../containers/main';
 
 export async function generateMetadata() {
   const url = `${DOMAIN}/`;
-  const title = '묘스트 [무료 | MBTI 심리테스트]';
-  let description = '묘스트의 MBTI 심리테스트';
+  const title = '묘스트(MYOAST)';
+  let description = 'MBTI검사, 심리테스트! 묘스트에서 무료로 즐겨요!';
   let imageUrl = `${DOMAIN}/main/opengraph-image`;
 
   return {
