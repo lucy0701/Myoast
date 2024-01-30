@@ -20,9 +20,9 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://myoast.vercel.app/'),
   title: '묘스트(MYOAST)',
   description: '묘스트와 함께하는 MBTI 심리테스트',
-  verification: {
-    google: 'iIuHEzQvMG-caxyWhHVcaDcqhg8C9SoFiLg5JFTQHJM',
-  },
+  // verification: {
+  //   google: 'iIuHEzQvMG-caxyWhHVcaDcqhg8C9SoFiLg5JFTQHJM',
+  // },
   icons: {
     icon: '/favicon.ico',
   },
@@ -70,7 +70,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <head>
-        <meta name="naver-site-verification" content="c9ed2e2055f664378fb304affcea9418318bb46c" />
+        {/* <meta name="naver-site-verification" content="c9ed2e2055f664378fb304affcea9418318bb46c" /> */}
         <script
           async
           src="https://t1.kakaocdn.net/kakao_js_sdk/2.6.0/kakao.js"
@@ -81,11 +81,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <script
           dangerouslySetInnerHTML={{
             __html: `
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', ${process.env.NEXT_PUBLIC_GOOGLE_GA_ID});
-  `,
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_GA_ID}');
+            `,
           }}
         />
       </head>
