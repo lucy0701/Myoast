@@ -3,7 +3,7 @@ import About from '@/containers/about';
 
 export async function generateMetadata() {
   const url = `${DOMAIN}/about`;
-  const title = '묘스트 [묘스트 소개]';
+  const title = '묘스트';
   let description = '묘스트를 소개합니다';
   let imageUrl = `${DOMAIN}/about/opengraph-image`;
 
