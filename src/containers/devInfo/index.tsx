@@ -21,7 +21,7 @@ export default function DevInfo() {
           <div className={styles.textBox}>
             <div className={styles.instagramIcon}>
               <p>Myoast Instagram : </p>
-              <Link href="https://www.instagram.com/mongbit_" target="_blank" prefetch={false} />
+              <Link href="https://www.instagram.com/myoast_" target="_blank" prefetch={false} />
             </div>
           </div>
         </div>

@@ -34,7 +34,12 @@ export default function Footer() {
               <Link href="https://github.com/lucy0701/Myoast" target="_blank" prefetch={false} />
             </div>
             <div className={styles.instagramIcon}>
-              <Link href="https://www.instagram.com/mongbit_" target="_blank" prefetch={false} />
+              <Link href="https://www.instagram.com/myoast_" target="_blank" prefetch={false} />
+            </div>
+            <div className={styles.rss}>
+              <Link href="/api/rss" target="_blank" prefetch={false}>
+                <div className={styles.rssIcon}></div>
+              </Link>
             </div>
           </div>
           <p>© 2023 MongMoongCrew. All rights reserved </p>
