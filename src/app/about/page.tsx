@@ -3,8 +3,8 @@ import About from '@/containers/about';
 
 export async function generateMetadata() {
   const url = `${DOMAIN}/about`;
-  const title = '묘스트 [무료 | MBTI 심리테스트]';
-  let description = '묘스트와 함께하는 MBTI 심리테스트';
+  const title = '묘스트 [묘스트 소개]';
+  let description = '묘스트를 소개합니다';
   let imageUrl = `${DOMAIN}/about/opengraph-image`;
 
   return {

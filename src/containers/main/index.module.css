@@ -9,7 +9,7 @@
   }
 }
 @media (min-width: 376px) and (max-width: 390px) {
-  .newTestWrap
+  .newTestWrap,
   .slideWrap,
   .wrap {
     width: 390px;

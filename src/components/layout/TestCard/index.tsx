@@ -45,7 +45,7 @@ export const TestCard = ({
           className={cx(className, styles[size ?? 'normal'], styles[type ?? 'normal'])}
           prefetch={false}
         >
-          <img className={styles.testImg} src={imgUrl} alt={testTitle} />
+          <img className={styles.testImg} src={imgUrl} alt="testImage" />
           <div className={styles.textWrp}>
             <span className={styles.title}>{testTitle}</span>
             {content.map((text, i) => (
@@ -68,7 +68,7 @@ export const TestCard = ({
           <div className={styles.playIcon} />
           <p>{playCount}</p>
         </div>
-        <img className={styles.testImg} src={imgUrl} alt={testTitle} />
+        <img className={styles.testImg} src={imgUrl} alt="testImage" />
         <span className={styles.title}>{testTitle}</span>
       </Link>
     </div>
@@ -83,7 +83,7 @@ export const MainTestCard = (props: MainTestCardProps) => {
         <div className={styles.iconBox}>
           <div className={styles.playIcon} />
         </div>
-        <img className={styles.testImg} src={imgUrl} alt={testTitle} />
+        <img className={styles.testImg} src={imgUrl} alt="testImage" />
         <span className={styles.title}>{testTitle}</span>
       </div>
     </div>
@@ -93,7 +93,7 @@ export const MainTestCard = (props: MainTestCardProps) => {
 export const TestMainBanner = ({ testId, imgUrl, testTitle }: Props) => (
   <div className={styles.testCard}>
     <Link href={`/test/main/${testId}`} className={styles.mainBanner} prefetch={false}>
-      <img className={styles.testImg} src={imgUrl} alt={testTitle} />
+      <img className={styles.testImg} src={imgUrl} alt="testImage" />
       <span className={styles.title}>{testTitle}</span>
     </Link>
   </div>

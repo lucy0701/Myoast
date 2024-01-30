@@ -100,7 +100,7 @@ export default function TestResult() {
         <div className={cx({ [styles.displayNone]: isloading }, { [styles.resultWrap_height]: isCoupang })}>
           <div className={styles.resultWrap}>
             <div className={styles.resultImg}>
-              <img src={testResultData.imageUrl} alt="test" />
+              <img src={testResultData.imageUrl} alt="TestResultImage" />
             </div>
             <div className={styles.titleWrap}>
               <h2 className={styles.tsetTitle}>{testResultData.title}</h2>

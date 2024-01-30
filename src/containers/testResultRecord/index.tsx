@@ -30,7 +30,7 @@ export default function TestResultRecord() {
       <div className={styles.wrap}>
         <div className={styles.resultWrap}>
           <div className={styles.resultImg}>
-            <img src={testResultData.imageUrl} alt="test" />
+            <img src={testResultData.imageUrl} alt="TestResultImage" />
           </div>
           <div className={styles.titleWrap}>
             <h2 className={styles.tsetTitle}>{testResultData.title}</h2>

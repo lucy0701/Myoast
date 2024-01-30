@@ -31,13 +31,23 @@ export default function Footer() {
         <div className={styles.under}>
           <div className={styles.iconBox}>
             <div className={styles.gitHubIcon}>
-              <Link href="https://github.com/lucy0701/Myoast" target="_blank" prefetch={false} />
+              <Link
+                href="https://github.com/lucy0701/Myoast"
+                target="_blank"
+                prefetch={false}
+                aria-label="gitHubIcon"
+              />
             </div>
             <div className={styles.instagramIcon}>
-              <Link href="https://www.instagram.com/myoast_" target="_blank" prefetch={false} />
+              <Link
+                href="https://www.instagram.com/myoast_"
+                target="_blank"
+                prefetch={false}
+                aria-label="instagramIcon"
+              />
             </div>
             <div className={styles.rss}>
-              <Link href="/api/rss" target="_blank" prefetch={false}>
+              <Link href="/api/rss" target="_blank" prefetch={false} aria-label="rssIcon">
                 <div className={styles.rssIcon}></div>
               </Link>
             </div>

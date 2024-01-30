@@ -3,8 +3,8 @@ import DevInfo from '@/containers/devInfo';
 
 export async function generateMetadata() {
   const url = `${DOMAIN}/devinfo`;
-  const title = '묘스트 [무료 | MBTI 심리테스트]';
-  let description = '묘스트와 함께 하는 MBTI 심리테스트';
+  const title = '묘스트 [개발자 소개]';
+  let description = '묘스트 개발자들';
   let imageUrl = `${DOMAIN}/devinfo/opengraph-image`;
 
   return {
