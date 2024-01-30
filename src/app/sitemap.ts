@@ -26,7 +26,7 @@ export const Sitemap = async ():  Promise<MetadataRoute.Sitemap> => {
 
   return [
     {
-      url: 'https://myoast.vercel.app/',
+      url: 'https://myoast.vercel.app',
       lastModified: new Date(),
     },
     {
