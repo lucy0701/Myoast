@@ -18,7 +18,7 @@ const notoSansKr = Noto_Sans_KR({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://myoast.vercel.app/'),
-  title: '묘스트(MYOAST)',
+  title: '묘스트',
   description: '묘스트와 함께하는 MBTI검사와 심리테스트!',
   // verification: {
   //   google: 'iIuHEzQvMG-caxyWhHVcaDcqhg8C9SoFiLg5JFTQHJM',
