@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
 import { TYPE_PLAY_CNT, TYPE_START_BTN, TYPE_TEST_MAIN } from '@/constants/commonType';
 import { Test } from '@/types/test';
@@ -23,6 +24,7 @@ interface Props {
 export default function TestMain({ testData }: Props) {
   const { commentListData, commentCount, getCommentCount } = useComment();
   const content = contentArr(testData.content);
+  const router = useRouter();
 
   useEffect(() => {
     SessionStorage.setItem(BACK_PAGE, '/test/main/');
@@ -32,7 +34,7 @@ export default function TestMain({ testData }: Props) {
 
   if (commentListData) {
     return (
-      <div className={styles.wrap}>
+      <main className={styles.wrap}>
         <div className={styles.testCardImg}>
           <MainTestCard testTitle={testData.title} imgUrl={testData.imageUrl} />
           <CountIcon playCount={testData.playCount} type={TYPE_PLAY_CNT} />
@@ -42,13 +44,13 @@ export default function TestMain({ testData }: Props) {
             <p key={i}>{text}</p>
           ))}
         </div>
-        <Button link={`/test/play/${testData.id}`} skin={TYPE_START_BTN}>
+        <Button onClick={() => router.push(`/test/play/${testData.id}`)} skin={TYPE_START_BTN}>
           테스트 시작
         </Button>
         <CountBtn testId={testData.id} testData={testData} type={TYPE_TEST_MAIN} />
         <AddComment testId={testData.id} commentCount={commentCount} />
         <Comments testId={testData.id} />
-      </div>
+      </main>
     );
   }
 }

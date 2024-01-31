@@ -90,7 +90,7 @@ export default function TestResult() {
 
   if (testResultData && commentListData) {
     return (
-      <div className={styles.wrap}>
+      <main className={styles.wrap}>
         {isloading && <ResultLoading />}
         {isCoupang && (
           <div className={cx(styles.coupangWrap, { [styles.displayNone]: isloading })}>
@@ -130,7 +130,7 @@ export default function TestResult() {
             <Comments testId={params.testId} />
           </div>
         </div>
-      </div>
+      </main>
     );
   }
 }

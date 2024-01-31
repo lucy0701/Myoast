@@ -23,9 +23,9 @@ export default function Loading() {
 
   if (typeof window === 'undefined') return null;
   return (
-    <div className={styles.wrap}>
+    <main className={styles.wrap}>
       <div ref={containerRef} className={styles.loadImg} />
       <p>Loding...</p>
-    </div>
+    </main>
   );
 }

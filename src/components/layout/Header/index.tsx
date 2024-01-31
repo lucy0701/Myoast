@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import Link from 'next/link';
 import { useRecoilValue } from 'recoil';
+import { useRouter } from 'next/navigation';
 
 import { decodeToken } from '@/utils/util';
 import { isLoginState } from '@/states/isLoignState';
@@ -14,40 +15,40 @@ export default function Header() {
   const [menuClicked, setMenuClicked] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
   const isLogin_be = useRecoilValue(isLoginState);
+  const router = useRouter();
 
   useEffect(() => {
     setIsLogin(decodeToken().state);
   }, [decodeToken().state]);
-
   return (
-    <div className={styles.wrap}>
+    <header className={styles.wrap}>
       <div className={styles.headerWrap}>
-        <div className={styles.meunWrap} onClick={() => setMenuClicked(true)}>
+        <button className={styles.meunWrap} onClick={() => setMenuClicked(true)}>
           <div className={styles.menuIcon} />
-        </div>
+        </button>
         <div>
           <Link href="/" prefetch={false}>
             {/* <div className={styles.logoWrap} >
               <div className={styles.logoIcon} ></div>
               <div className={styles.logoTitle} ></div>
             </div> */}
-              <p className={styles.logoTitle}>MYOAST</p>
+            <h1 className={styles.logoTitle}>MYOAST</h1>
           </Link>
         </div>
         <div className={styles.mypageWrap}>
           {isLogin_be || isLogin ? (
-            <Link href="/mypage" prefetch={false} aria-label="mypage">
+            <button onClick={() => router.push('/mypage')}>
               <div className={styles.myPageIcon} />
-            </Link>
+            </button>
           ) : (
-            <Link href="/login" prefetch={false} aria-label="login">
+            <button onClick={() => router.push('/login')}>
               {/* <p>LOGIN</p> */}
-              <div className={styles.loginIcon}></div>
-            </Link>
+              <div className={styles.loginIcon} />
+            </button>
           )}
         </div>
       </div>
       <NavigationBar menuClicked={menuClicked} setMenuClicked={setMenuClicked} />
-    </div>
+    </header>
   );
 }

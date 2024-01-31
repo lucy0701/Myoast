@@ -27,7 +27,7 @@ export default function TestResultRecord() {
 
   if (testResultData && commentListData) {
     return (
-      <div className={styles.wrap}>
+      <main className={styles.wrap}>
         <div className={styles.resultWrap}>
           <div className={styles.resultImg}>
             <img src={testResultData.imageUrl} alt="TestResultImage" />
@@ -49,7 +49,7 @@ export default function TestResultRecord() {
           <AddComment testId={params.testId} commentCount={commentCount} />
           <Comments testId={params.testId} />
         </div>
-      </div>
+      </main>
     );
   }
 }

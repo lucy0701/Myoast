@@ -36,7 +36,7 @@ export default function NavigationBar({ menuClicked, setMenuClicked }: Props) {
   }
 
   return (
-    <div>
+    <nav>
       <div
         className={cx(styles.modalWrap, {
           [styles.modalMoveToRight]: menuClicked,
@@ -104,6 +104,6 @@ export default function NavigationBar({ menuClicked, setMenuClicked }: Props) {
         style={{ opacity: menuClicked ? 0.5 : 0, visibility: menuClicked ? 'visible' : 'hidden' }}
         onClick={() => setMenuClicked(false)}
       />
-    </div>
+    </nav>
   );
 }

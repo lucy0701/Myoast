@@ -13,17 +13,17 @@ export default function Footer() {
   if (DisabledPaths.some((paths) => pathname.includes(paths))) return null;
 
   return (
-    <div className={styles.wrap}>
+    <footer className={styles.wrap}>
       <div className={styles.contentsWrap}>
           <div className={styles.iconBox}>
             <div className={styles.gitHubIcon}>
-              <Link href="https://github.com/lucy0701/Myoast" target="_blank" prefetch={false} aria-label="gitHub" />
+              <Link href="https://github.com/lucy0701/Myoast" target="_blank" prefetch={false} />
             </div>
             <div className={styles.instagramIcon}>
-              <Link href="https://www.instagram.com/myoast_" target="_blank" prefetch={false} aria-label="instagram" />
+              <Link href="https://www.instagram.com/myoast_" target="_blank" prefetch={false} />
             </div>
             <div className={styles.rss}>
-              <Link href="/api/rss" target="_blank" prefetch={false} aria-label="rss">
+              <Link href="/api/rss" target="_blank" prefetch={false}>
                 <div className={styles.rssIcon}></div>
               </Link>
             </div>
@@ -44,6 +44,6 @@ export default function Footer() {
 
         <p>© 2023 MongMoongCrew. All rights reserved </p>
       </div>
-    </div>
+    </footer>
   );
 }

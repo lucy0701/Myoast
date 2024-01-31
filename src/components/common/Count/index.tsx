@@ -17,15 +17,15 @@ const CountIcon = (props: Props) => {
       <div className={styles.wrap}>
         <div className={styles.countWarp}>
           <span className={styles.commentIcon} />
-          <p>{commentCount}</p>
+          <span>{commentCount}</span>
         </div>
         <div className={styles.countWarp}>
           <span className={styles.likeIcon} />
-          <p>{likeCount}</p>
+          <span>{likeCount}</span>
         </div>
         <div className={styles.countWarp}>
           <span className={styles.playIcon} />
-          <p>{playCount}</p>
+          <span>{playCount}</span>
         </div>
       </div>
     );
@@ -34,7 +34,7 @@ const CountIcon = (props: Props) => {
       <div className={styles.wrap}>
         <div className={styles.countWarp}>
           <span className={styles.playIcon} />
-          <p>{playCount}</p>
+          <span>{playCount}</span>
         </div>
       </div>
     );

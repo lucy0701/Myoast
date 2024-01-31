@@ -67,8 +67,8 @@ export default function KaKaoAuthHandle() {
   }, []);
 
   return (
-    <div className={styles.wrap}>
+    <main className={styles.wrap}>
       <div className={styles.content}></div>
-    </div>
+    </main>
   );
 }

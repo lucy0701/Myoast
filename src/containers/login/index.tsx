@@ -24,7 +24,7 @@ export default function Login() {
   }, []);
 
   return (
-    <div className={styles.wrap}>
+    <main className={styles.wrap}>
       <div className={styles.contentsWrap}>
         <div className={styles.text}>
           <p>3초만에 로그인하고</p>
@@ -38,6 +38,6 @@ export default function Login() {
         </div>
         <button className={styles.loginBtn} onClick={() => setKakaoLogin()} />
       </div>
-    </div>
+    </main>
   );
 }

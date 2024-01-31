@@ -82,7 +82,7 @@ export default function TestPlay({ testData } : Props) {
 
   if (testData) {
     return (
-      <div className={styles.wrap}>
+      <main className={styles.wrap}>
         <div className={styles.playWrap}>
           <div className={styles.progressBarWrap}>
             <div className={styles.barWrap}>
@@ -111,7 +111,7 @@ export default function TestPlay({ testData } : Props) {
               ),
           )}
         </div>
-      </div>
+      </main>
     );
   }
 }

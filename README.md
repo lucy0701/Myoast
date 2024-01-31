@@ -29,3 +29,5 @@ https://www.figma.com/file/0xu6ViOhTQjSbY7mmzXEMa/Myoast?type=design&node-id=0-1
 **01.21** Coupang 광고 등록
 
 **01.26** SEO 등록 - Google, Naver
+
+**01.26** SEO - Naver : 검색 노출 성공!

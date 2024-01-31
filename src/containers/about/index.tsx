@@ -2,7 +2,7 @@ import styles from './index.module.css';
 
 export default function About() {
   return (
-    <div className={styles.wrap}>
+    <main className={styles.wrap}>
       <div className={styles.contentWrap}>
         <div className={styles.info_1}>
           <h2>나를 알고, 더 나아가 상대를 알다</h2>
@@ -32,6 +32,6 @@ export default function About() {
         </div>
         <div className={styles.logoIcon} />
       </div>
-    </div>
+    </main>
   );
 }

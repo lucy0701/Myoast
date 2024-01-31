@@ -49,7 +49,7 @@
   outline: none;
   background-color: #faf2d7;
 }
-.inputWarp button {
+.addBtn {
   width: 2rem;
   height: 2rem;
   padding: 15px;
@@ -59,13 +59,16 @@
 }
 
 .commentText span,
-.inputWarp button {
+.addBtn {
   background-repeat: no-repeat;
   background-size: contain;
 }
 
 .nonLogin {
-  text-align: center;
-  font-size: 0.8em;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  font-size: 1em;
   color: #666;
+  background-color: transparent;
 }

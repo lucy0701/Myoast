@@ -166,7 +166,7 @@
 /* 마이페이지 결과카드 */
 .myTestCardWrap {
   /* width: 340px; */
-  height: 200px;
+  height: 190px;
   border-radius: 1rem;
   overflow: hidden;
   border: 1px solid #647e87;
@@ -190,20 +190,19 @@
   text-overflow: ellipsis;
   padding: 8px;
 }
-.textWrp span {
-  font-weight: 500;
-  height: 40px;
-  font-size: 0.9rem;
+.textWrp h3 {
+  height: 30px;
+  font-size: 1rem;
   margin-bottom: 7px;
   padding-bottom: 2px;
   border-bottom: 0.9px solid #ccc;
   /* white-space: nowrap; */
 }
 .textWrp p {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: 300;
   overflow-wrap: break-word;
-  color: #666;
+  color: #555;
   /* word-wrap: break-word; */
   display: -webkit-box;
   -webkit-line-clamp: 1;

@@ -28,7 +28,7 @@
   align-items: center;
   background-color: rgb(255, 255, 255);
 }
-.mypageWrap,
+.mypageWrap button,
 .meunWrap {
   width: 30px;
   height: 30px;
@@ -36,6 +36,7 @@
   cursor: pointer;
   justify-content: center;
   align-items: center;
+  background-color: #fff;
 }
 /* 로고 있을때 사용 예정 */
 /* .logoWrap {
@@ -88,16 +89,10 @@
 .myPageIcon {
   width: 1.4rem;
   height: 1.4rem;
-  margin: auto;
-  border-radius: 50%;
   background-image: url('../../../../public/svgs/mypage.svg');
 }
 .loginIcon {
   width: 1.3rem;
   height: 1.3rem;
-  margin: auto;
-  margin-top: 50%;
-  transform: translateY(-50%);
-  border-style: none;
   background-image: url('../../../../public/svgs/user.svg');
 }

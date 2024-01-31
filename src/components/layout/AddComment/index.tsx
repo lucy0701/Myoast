@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 import { useComment } from '@/hooks/useComment';
 import { MEMBER_ID, USER_INFO } from '@/constants/sessionStorage';
@@ -11,11 +12,12 @@ interface Props {
   testId: string;
   commentCount: number;
 }
-const AddComment = ({testId,commentCount}: Props) => {
+const AddComment = ({ testId, commentCount }: Props) => {
   const { postAddCommentData } = useComment();
 
   const [inputValue, setInputValue] = useState('');
   const [memberId, setMemberId] = useState<string | null>(null);
+  const router = useRouter();
   const maxCharCount = 100;
 
   useEffect(() => {
@@ -66,9 +68,9 @@ const AddComment = ({testId,commentCount}: Props) => {
             <button className={styles.addBtn} onClick={handleOnClick} />
           </>
         ) : (
-          <Link href={'/login'} prefetch={false}>
-            <p className={styles.nonLogin}>CLICK! 로그인 하고 댓글 작성 하기!</p>
-          </Link>
+          <button onClick={() => router.push('/login')} className={styles.nonLogin}>
+            CLICK! 로그인 하고 댓글 작성 하기!
+          </button>
         )}
       </div>
     </div>

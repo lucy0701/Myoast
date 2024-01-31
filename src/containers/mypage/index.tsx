@@ -1,10 +1,19 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 import { TYPE_MORE_BTN, TYPE_MY_TEST_CARD, TYPE_START_BTN } from '@/constants/commonType';
 import SessionStorage from '@/utils/SessionStorage';
-import { BACK_PAGE, BACK_PAGE_TEST, MEMBER_ID, REGIST_DATE, THUMBNAIL, USER_INFO, USER_NAME } from '@/constants/sessionStorage';
+import {
+  BACK_PAGE,
+  BACK_PAGE_TEST,
+  MEMBER_ID,
+  REGIST_DATE,
+  THUMBNAIL,
+  USER_INFO,
+  USER_NAME,
+} from '@/constants/sessionStorage';
 import { useMypage } from '@/hooks/useMypage';
 import { dateSplit } from '@/utils/dateSplit';
 import { decodeToken } from '@/utils/util';
@@ -23,6 +32,7 @@ export default function Mypage() {
   const [registDate, setRegistDate] = useState<string | null>();
   const [page, setPage] = useState(0);
   const [isLogin, setIsLogin] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     setMemberId(SessionStorage.getItem(USER_INFO + MEMBER_ID));
@@ -52,7 +62,7 @@ export default function Mypage() {
 
   if (memberId && userName && thumbnail && registDate)
     return (
-      <div className={styles.wrap}>
+      <main className={styles.wrap}>
         <Title title={`${userName}님의 결과 모음`} />
         <div className={styles.userWrap}>
           <img src={thumbnail} alt="thumbnail" className={styles.thumbnail} />
@@ -77,10 +87,10 @@ export default function Mypage() {
         ) : (
           <div className={styles.noTest}>
             <span>테스트 결과가 없어요!</span>
-            <Button link={'/test/random'} skin={TYPE_START_BTN}>
+            <Button onClick={() => router.push('/test/random')} skin={TYPE_START_BTN}>
               아무거나 시작
             </Button>
-            <Button link={'/list'} skin={TYPE_START_BTN}>
+            <Button onClick={() => router.push('/list')} skin={TYPE_START_BTN}>
               전체 보기
             </Button>
           </div>
@@ -90,21 +100,21 @@ export default function Mypage() {
             더보기
           </Button>
         </div>
-      </div>
+      </main>
     );
   if (!isLogin)
     return (
-      <div className={styles.wrap}>
+      <main className={styles.wrap}>
         <div className={styles.loginDisabled}>
           <div className={styles.loginDisabledTextBox}>
             <span>로그인이 되어 있지 않아요 🥲</span>
             <span>로그인 하고</span>
             <span>나의 결과 기록 하기</span>
           </div>
-          <Button link={'/login'} skin={TYPE_START_BTN}>
+          <Button onClick={() => router.push('/login')} skin={TYPE_START_BTN}>
             로그인 하러 가기
           </Button>
         </div>
-      </div>
+      </main>
     );
 }

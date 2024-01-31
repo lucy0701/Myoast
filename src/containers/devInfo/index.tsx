@@ -4,7 +4,7 @@ import styles from './index.module.css';
 
 export default function DevInfo() {
   return (
-    <div className={styles.wrap}>
+    <main className={styles.wrap}>
       <div className={styles.contentWrap}>
         <div className={styles.textWrap}>
           <div className={styles.textBox}>
@@ -35,6 +35,6 @@ export default function DevInfo() {
           <span>© 2023 MongMoongCrew. All rights reserved </span>
         </div>
       </div>
-    </div>
+    </main>
   );
 }

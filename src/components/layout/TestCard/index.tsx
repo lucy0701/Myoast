@@ -47,8 +47,8 @@ export const TestCard = ({
         >
           <img className={styles.testImg} src={imgUrl} alt="testImage" />
           <div className={styles.textWrp}>
-            <span className={styles.title}>{testTitle}</span>
-            {content.map((text, i) => (
+            <h3 className={styles.title}>{testTitle}</h3>
+            {content.slice(0, 6).map((text, i) => (
               <p key={i}>{text}</p>
             ))}
           </div>

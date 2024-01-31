@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
 import { TYPE_BOTTOM_BTN } from '@/constants/commonType';
 import { TestCover } from '@/types/test';
@@ -16,6 +17,7 @@ interface Props {
   testData: TestCover[];
 }
 export default function TestList({ testData }: Props) {
+  const router = useRouter();
 
   useEffect(() => {
     SessionStorage.setItem(BACK_PAGE, '/list');
@@ -23,7 +25,7 @@ export default function TestList({ testData }: Props) {
   }, []);
 
   return (
-    <div className={styles.wrap}>
+    <main className={styles.wrap}>
       <Title title={'전체 테스트 🥰'} contents={'묘스트의 모든 테스트가 있어요!'} />
       <div className={styles.cardList}>
         {testData?.map((t) => (
@@ -38,9 +40,9 @@ export default function TestList({ testData }: Props) {
           />
         ))}
       </div>
-      <Button link="/test/random" skin={TYPE_BOTTOM_BTN}>
+      <Button onClick={() => router.push('/test/random')} skin={TYPE_BOTTOM_BTN}>
         아무거나 시작
       </Button>
-    </div>
+    </main>
   );
 }
