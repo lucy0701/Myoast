@@ -1,20 +1,27 @@
+@media (max-width: 360px) { 
+  .bottomBtn,
+  .wrap {
+    max-width: 360px;
+  }
+ }
 
-@media (max-width: 375px) {
+@media (min-width: 361px) and (max-width: 375px) {
   .bottomBtn,
   .wrap {
     max-width: 375px;
   }
 }
+
 @media (min-width: 376px) and (max-width: 390px) {
   .bottomBtn,
   .wrap {
-    width: 390px;
+    max-width: 390px;
   }
 }
 @media (min-width: 391px) {
   .bottomBtn,
   .wrap {
-    width: 412px;
+    max-width: 412px;
   }
 }
 
@@ -41,6 +48,7 @@
 }
 
 .bottomBtn {
+  width: 100%;
   height: 60px;
   font-size: 17px;
   font-weight: 500;

@@ -1,4 +1,14 @@
-@media (max-width: 375px) {
+@media (max-width: 360px) {
+  .wrap {
+    max-width: 360px;
+  }
+  .barWrap {
+    min-width: 250px;
+    /* max-width: 325px; */
+  }
+}
+
+@media (min-width: 361px) and (max-width: 375px) {
   .wrap {
     max-width: 375px;
   }
@@ -63,7 +73,7 @@
 }
 
 .barWrap {
-  width: 360px;
+  width: 100%;
   height: 12px;
   border-radius: 5em;
   overflow: hidden;

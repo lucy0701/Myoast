@@ -1,4 +1,9 @@
-@media (max-width: 375px) {
+@media (max-width: 360px) { 
+  .wrap {
+    max-width: 360px;
+  }
+ }
+@media (min-width: 361px) and (max-width: 375px) {
   .wrap {
     max-width: 375px;
   }
@@ -15,7 +20,7 @@
 }
 
 .wrap {
-  height: 630px;
+  /* height: 630px; */
   overflow-x: hidden;
   margin: auto;
   text-align: center;
@@ -23,8 +28,9 @@
 }
 .contentWrap {
   width: 90%;
-  height: 610px;
+  /* height: 610px; */
   margin: auto;
+  margin-bottom: 20px;
   padding: 30px;
   border-radius: 1rem;
   border: #DDDDDD solid 1.2px;

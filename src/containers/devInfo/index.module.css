@@ -1,4 +1,13 @@
-@media (max-width: 375px) {
+@media (max-width: 360px) { 
+  .wrap {
+    max-width: 360px;
+  }
+  .textWrap{
+    font-size: 0.8rem;
+  }
+
+ }
+@media (min-width: 361px) and (max-width: 375px) {
   .wrap {
     max-width: 375px;
   }
@@ -35,7 +44,7 @@
   border: #dddddd solid 1.2px;
 }
 .textWrap {
-  width: 85%;
+  width: 90%;
   padding: 10px 15px;
   color: #fff;
   border-radius: 1rem;

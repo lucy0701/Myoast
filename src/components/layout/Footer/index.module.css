@@ -1,12 +1,17 @@
+@media (max-width: 360px) { 
+  .wrap {
+    max-width: 360px;
+  }
+ }
 
-@media (max-width: 375px) {
+@media (min-width: 361px) and (max-width: 375px) {
   .wrap {
     max-width: 375px;
   }
 }
 @media (min-width: 376px) and (max-width: 390px) {
   .wrap {
-    width: 390px;
+    min-width: 390px;
   }
 }
 @media (min-width: 391px) {
@@ -16,28 +21,23 @@
 }
 
 .wrap {
-  height: 90px;
+  height: 100px;
   margin: auto;
   background-color: #fff;
 }
 .contentsWrap {
   height: 100%;
-  position: relative;
+  /* position: relative; */
+  padding: 15px 0;
   background-color: #6ca4aa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
 .wrap p {
   font-size: 0.7rem;
   color: #fff;
-}
-
-.under {
-  width: 100%;
-  position: absolute;
-  bottom: 20px;
-  display: flex;
-  padding: 0 15px;
-  justify-content: space-between;
-  align-items: center;
 }
 .iconBox {
   width: 80px;
@@ -46,7 +46,7 @@
   justify-content: space-between;
 }
 
-.under a {
+.iconBox a {
   width: 1.2rem;
   height: 1.2rem;
   background-repeat: no-repeat;
@@ -74,10 +74,10 @@
 }
 
 .docs {
-  width: 40%;
-  position: absolute;
+  width: 150px;
+  /* position: absolute;
   bottom: 40px;
-  right: 8px;
+  right: 8px; */
   display: flex;
   flex-direction: row;
   justify-content: space-around;

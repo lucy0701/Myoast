@@ -15,6 +15,19 @@ export default function Footer() {
   return (
     <div className={styles.wrap}>
       <div className={styles.contentsWrap}>
+          <div className={styles.iconBox}>
+            <div className={styles.gitHubIcon}>
+              <Link href="https://github.com/lucy0701/Myoast" target="_blank" prefetch={false} aria-label="gitHub" />
+            </div>
+            <div className={styles.instagramIcon}>
+              <Link href="https://www.instagram.com/myoast_" target="_blank" prefetch={false} aria-label="instagram" />
+            </div>
+            <div className={styles.rss}>
+              <Link href="/api/rss" target="_blank" prefetch={false} aria-label="rss">
+                <div className={styles.rssIcon}></div>
+              </Link>
+            </div>
+          </div>
         <div className={styles.docs}>
           <span>
             <Link href="/terms" target="_blank" prefetch={false}>
@@ -28,32 +41,8 @@ export default function Footer() {
             </Link>
           </span>
         </div>
-        <div className={styles.under}>
-          <div className={styles.iconBox}>
-            <div className={styles.gitHubIcon}>
-              <Link
-                href="https://github.com/lucy0701/Myoast"
-                target="_blank"
-                prefetch={false}
-                aria-label="gitHub"
-              />
-            </div>
-            <div className={styles.instagramIcon}>
-              <Link
-                href="https://www.instagram.com/myoast_"
-                target="_blank"
-                prefetch={false}
-                aria-label="instagram"
-              />
-            </div>
-            <div className={styles.rss}>
-              <Link href="/api/rss" target="_blank" prefetch={false} aria-label="rss">
-                <div className={styles.rssIcon}></div>
-              </Link>
-            </div>
-          </div>
-          <p>© 2023 MongMoongCrew. All rights reserved </p>
-        </div>
+
+        <p>© 2023 MongMoongCrew. All rights reserved </p>
       </div>
     </div>
   );

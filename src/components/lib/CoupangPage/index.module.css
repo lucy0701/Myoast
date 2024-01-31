@@ -1,21 +1,30 @@
+@media (max-width: 360px) { 
+  .wrap {
+    max-width: 360px;
+  }
+  .button {
+    max-width: 250px;
+  }
+}
 
-@media (max-width: 375px) {
+@media (min-width: 361px) and (max-width: 375px) {
   .wrap {
     max-width: 375px;
   }
 }
 @media (min-width: 376px) and (max-width: 390px) {
   .wrap {
-    width: 390px;
+    max-width: 390px;
   }
 }
 @media (min-width: 391px) {
   .wrap {
-    width: 412px;
+    max-width: 412px;
   }
 }
 .wrap {
   height: 100%;
+  /* margin: auto; */
   display: flex;
   position: relative;
 }

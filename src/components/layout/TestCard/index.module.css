@@ -1,38 +1,57 @@
-@media (max-width: 375px) {
+@media (max-width: 360px) {
   .medium {
-    max-width: 157px;
+    max-width: 350px;
+    min-width: 230px;
   }
   .large {
-    max-width: 327px;
-    max-height: 210px;
+    height: 200px;
   }
-  .mainBanner {
-    width: 376px;
-  }
+  .mainBanner,
   .mainBanner .testImg {
-    width: 376px;
+    max-width: 360px;
+    height: 200px;
+  }
+}
+
+@media (min-width: 361px) and (max-width: 375px) {
+  .medium .testImg,
+  .medium {
+    width: 157px;
+  }
+  .large {
+    height: 210px;
+  }
+  .mainBanner,
+  .mainBanner .testImg {
+    max-width: 376px;
   }
 }
 @media (min-width: 376px) and (max-width: 390px) {
+  .medium .testImg,
   .medium {
-    min-width: 170px;
+    width: 160px;
+    /* height: 227px; */
   }
   .large {
-    width: 350px;
+    height: 227px;
   }
-  .mainBanner {
-    width: 390px;
-  }
+  .mainBanner,
   .mainBanner .testImg {
     width: 390px;
   }
 }
 @media (min-width: 391px) {
-  .mainBanner {
-    width: 412px;
+  .medium .testImg,
+  .medium {
+    width: 170px;
+    height: 227px;
   }
+  .mainBanner,
   .mainBanner .testImg {
     width: 412px;
+  }
+  .large {
+    height: 227px;
   }
 }
 
@@ -81,7 +100,7 @@
 }
 
 .medium {
-  width: 170px;
+  /* width: 170px; */
   height: 140px;
   position: relative;
 }
@@ -122,7 +141,6 @@
 
 .large {
   /* width: 350px; */
-  height: 227px;
   position: relative;
   border-radius: 1rem;
 }
@@ -147,7 +165,7 @@
 
 /* 마이페이지 결과카드 */
 .myTestCardWrap {
-  width: 340px;
+  /* width: 340px; */
   height: 200px;
   border-radius: 1rem;
   overflow: hidden;
@@ -165,7 +183,7 @@
   width: 60%;
 }
 .textWrp {
-  height: 250px;
+  height: 200px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -174,7 +192,7 @@
 }
 .textWrp span {
   font-weight: 500;
-  /* height: 40px; */
+  height: 40px;
   font-size: 0.9rem;
   margin-bottom: 7px;
   padding-bottom: 2px;

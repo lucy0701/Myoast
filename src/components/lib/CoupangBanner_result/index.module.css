@@ -1,16 +1,27 @@
-@media (max-width: 375px) {
+@media (max-width: 360px) { 
   .iframe {
-    width: 375px;
-  }
-}
-@media (min-width: 376px) {
-  .iframe {
-    width: 400px;
+    /* max-width: 360px; */
+    min-width: 280px;
   }
 }
 
+@media (min-width: 361px) and (max-width: 375px) {
+  .iframe {
+    max-width: 375px;
+  }
+}
+@media (min-width: 376px) and (max-width: 390px) {
+  .iframe {
+    min-width: 390px;
+  }
+}
+@media (min-width: 391px) {
+  .iframe {
+    max-width: 412px;
+  }
+}
 .iframe {
-  width: 350px;
+  width: 100%;
   height: 90px;
   overflow: hidden;
   border: none;
