@@ -34,7 +34,7 @@ export default function Footer() {
               <p>이용약관</p>
             </Link>
           </span>
-          <p>|</p>
+          <span>|</span>
           <span>
             <Link href="/policy" target="_blank" prefetch={false}>
               <p>개인정보처리방침</p>

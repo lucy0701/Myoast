@@ -33,7 +33,7 @@ export default function Login() {
           </h2>
         </div>
         <div className={styles.logoimg}>
-          {/* <img src="/images/og_logo.png" alt="logo" /> */}
+          <img src="/images/logoIcon.png" alt="logo" />
           <p>© 2023 MongMoongCrew. All rights reserved </p>
         </div>
         <button className={styles.loginBtn} onClick={() => setKakaoLogin()} />

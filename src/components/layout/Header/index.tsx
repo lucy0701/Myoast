@@ -28,11 +28,11 @@ export default function Header() {
         </button>
         <div>
           <Link href="/" prefetch={false}>
-            {/* <div className={styles.logoWrap} >
-              <div className={styles.logoIcon} ></div>
-              <div className={styles.logoTitle} ></div>
-            </div> */}
-            <h1 className={styles.logoTitle}>MYOAST</h1>
+            <div className={styles.logoWrap}>
+              <h1 className={styles.logoTitle}>MYOAST</h1>
+              <div className={styles.logoIcon}></div>
+              {/* <div className={styles.logoTitle} ></div> */}
+            </div>
           </Link>
         </div>
         <div className={styles.mypageWrap}>

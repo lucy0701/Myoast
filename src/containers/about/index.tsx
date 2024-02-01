@@ -30,7 +30,7 @@ export default function About() {
           </p>
           <p>함께 즐겁고 의미 있는 여정을 떠나봐요! 🚀</p>
         </div>
-        <div className={styles.logoIcon} />
+        <img className={styles.logoIcon} src="/images/logoIcon.png" alt="logo" />
       </div>
     </main>
   );
