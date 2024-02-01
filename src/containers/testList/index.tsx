@@ -15,18 +15,21 @@ import TestCardList from '@/components/layout/TestCardList';
 
 interface Props {
   testData: TestCover[];
+  title: string;
+  content: string;
+  backPage: string;
 }
-export default function TestList({ testData }: Props) {
+export default function TestList({ testData, title, content, backPage }: Props) {
   const router = useRouter();
 
   useEffect(() => {
-    SessionStorage.setItem(BACK_PAGE, '/list');
+    SessionStorage.setItem(BACK_PAGE, backPage);
     SessionStorage.setItem(BACK_PAGE_TEST, '');
   }, []);
 
   return (
     <main className={styles.wrap}>
-      <Title title={'전체 테스트 🥰'} contents={'묘스트의 모든 테스트가 있어요!'} />
+      <Title title={title} contents={content} />
       <div className={styles.cardList}>
         {testData?.map((t) => (
           <TestCardList

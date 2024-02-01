@@ -67,20 +67,21 @@ export default function Main({ testListData, latestListData }: Props) {
           </Button>
         </div>
         <Title title="NEW 🌈" />
-        <div className={styles.newTestWrap}>
+        <ul className={styles.newTestWrap}>
           {latestListData.map((t) => (
             // TODO: key에 index 쓰지말기
-            <TestCard
-              key={t.id}
-              testId={t.id}
-              testTitle={t.title}
-              imgUrl={t.imageUrl}
-              playCount={t.playCount}
-              size={TEST_CARD_SIZE_M}
-              type={TYPE_TEST_CARD}
-            />
+            <li key={t.id}>
+              <TestCard
+                testId={t.id}
+                testTitle={t.title}
+                imgUrl={t.imageUrl}
+                playCount={t.playCount}
+                size={TEST_CARD_SIZE_M}
+                type={TYPE_TEST_CARD}
+              />
+            </li>
           ))}
-        </div>
+        </ul>
         <Button onClick={() => router.push('/list')} skin={TYPE_START_BTN}>
           묘스트의 모든 테스트
         </Button>

@@ -29,6 +29,8 @@ export async function generateMetadata() {
 
 export default async function Page() {
   const headers = getHeaders();
-  const testListData = await fetch(`${DOMAIN_BE_PROD}/api/v1/tests`, { headers }).then((res) => res.json() as Promise<TestCover[]>);
-  return <TestList testData={testListData} />;
+  const testListData = await fetch(`${DOMAIN_BE_PROD}/api/v1/tests`, { headers }).then(
+    (res) => res.json() as Promise<TestCover[]>,
+  );
+  return <TestList testData={testListData} title="전체 테스트 🥰" content="묘스트의 모든 테스트가 있어요!" backPage="/list" />;
 }

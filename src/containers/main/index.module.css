@@ -2,7 +2,7 @@
   .newTestWrap,
   .slideWrap,
   .wrap {
-    min-height: 280px;
+    min-height: 20px;
     max-width: 360px;
   }
   .newTestWrap {
