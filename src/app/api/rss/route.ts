@@ -8,7 +8,7 @@ export const GET = async () => {
     `<?xml version="1.0"?>
         <rss version="2.0">
            <channel>
-              <title> 묘스트 [무료 | MBTI 심리테스트 ]</title>
+              <title> 묘스트 </title>
               <link>${DOMAIN}</link>
               <description> 묘스트와 함께 하는 MBTI 심리테스트 </description>
               <language>ko-KR</language>
