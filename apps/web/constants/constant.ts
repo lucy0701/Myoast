@@ -1,7 +1,8 @@
 // Domain
-export const DOMAIN = 'https://myoast.vercel.app';
-export const DOMAIN_BE_PROD = 'https://mongbit.site';
-export const DOMAIN_FE_DEV = 'http://localhost:3000';
+export const DOMAIN = process.env.NEXT_PUBLIC_DOMAIN;
+export const DOMAIN_BE_PROD = process.env.NEXT_PUBLIC_BE_URL;
+export const KAKAO_REST_API_KEY = process.env.NEXT_PUBLIC_REST_API_KEY;
+export const KAKAO_INIT_KEY = process.env.NEXT_PUBLIC_KAKAO_KEY;
 
 //OG Image url
 export const OG_STANDARD_IMAGE = 'https://i.ibb.co/Hp16TzN/Screenshot-2024-01-28-20-51-11-60g-Wu-U.png';

@@ -1,5 +1,4 @@
-import { DOMAIN } from '@/constants/constant';
-import { KAKAO_INIT_KEY } from '@/constants/kakao';
+import { DOMAIN, KAKAO_INIT_KEY } from '@/constants/constant';
 
 export const shareTokakaotalkTest = (title: string, imageUrl: string, testId: string, likeCnt: number) => {
   if (!window.Kakao.isInitialized()) window.Kakao.init(KAKAO_INIT_KEY);
