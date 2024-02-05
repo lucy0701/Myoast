@@ -1,0 +1,115 @@
+@media (max-width: 360px) {
+  .wrap {
+    max-width: 360px;
+  }
+  .barWrap {
+    min-width: 250px;
+    /* max-width: 325px; */
+  }
+}
+
+@media (min-width: 361px) and (max-width: 375px) {
+  .wrap {
+    max-width: 375px;
+  }
+}
+@media (min-width: 376px) and (max-width: 390px) {
+  .wrap {
+    min-width: 390px;
+  }
+}
+@media (min-width: 391px) {
+  .wrap {
+    width: 412px;
+  }
+}
+
+.wrap {
+  margin: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+}
+.playWrap {
+  width: 100%;
+  height: 650px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+}
+
+.contentWarp {
+  width: 100%;
+  /* background-color: #999; */
+  position: absolute;
+  top: 80px;
+}
+.contentWarpNone {
+  display: none;
+}
+/* 진행 게이지 */
+.progressBarWrap {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 15px;
+}
+.progressBarWrap p {
+  font-size: 0.8rem;
+  margin: 5px 10px;
+  font-weight: 300;
+  color: #999;
+}
+.progressBarWrap span {
+  color: #b78989;
+  font-weight: 500;
+  margin: 0 3px 0 8px;
+}
+
+.barWrap {
+  width: 100%;
+  height: 12px;
+  border-radius: 5em;
+  overflow: hidden;
+  background-color: #e9f3f5;
+}
+.gaugeBar {
+  width: 11%;
+  height: 12px;
+  border-radius: 5em;
+  background-color: #6ca4aa;
+  transition: width 0.5s ease;
+}
+
+/* 질문 */
+.questionWrap {
+  width: 100%;
+  height: 300px;
+  padding: 50px;
+  display: flex;
+  align-items: center;
+}
+.questionWrap p {
+  width: 100%;
+  font-size: 1.3rem;
+  font-weight: 800px;
+  text-align: center;
+  overflow-wrap: break-word;
+}
+
+/* 응답 */
+.answerWrap {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  /* height: 160px; */
+}

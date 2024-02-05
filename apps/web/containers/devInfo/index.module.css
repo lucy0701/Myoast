@@ -1,0 +1,114 @@
+@media (max-width: 360px) {
+  .wrap {
+    max-width: 360px;
+  }
+  .textWrap {
+    font-size: 0.7rem;
+  }
+}
+@media (min-width: 361px) and (max-width: 375px) {
+  .wrap {
+    max-width: 375px;
+  }
+  .textWrap {
+    font-size: 0.8rem;
+  }
+}
+@media (min-width: 376px) and (max-width: 390px) {
+  .wrap {
+    min-width: 390px;
+  }
+  .textWrap {
+    font-size: 0.8rem;
+  }
+}
+@media (min-width: 391px) {
+  .wrap {
+    width: 412px;
+  }
+  .textWrap {
+    font-size: 0.8rem;
+  }
+}
+
+.wrap {
+  height: 600px;
+  margin: auto;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+}
+.contentWrap {
+  width: 90%;
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 30px 10px;
+  border-radius: 1rem;
+  border: #dddddd solid 1.2px;
+}
+.textWrap {
+  width: 90%;
+  padding: 10px 15px;
+  color: #fff;
+  border-radius: 1rem;
+  background-color: #6ca4aa;
+}
+.textBox {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.textBox p:nth-child(1) {
+  margin-right: 5px;
+}
+.gitHubIcon {
+  display: flex;
+  justify-content: space-around;
+}
+.instagramIcon {
+  display: flex;
+}
+.please {
+  font-size: 0.9rem;
+  color: #333;
+  text-align: center;
+}
+.logoIcon {
+  width: 8rem;
+  margin: auto;
+}
+.iconWrap {
+  font-size: 0.8rem;
+  color: #999;
+  display: flex;
+  flex-direction: column;
+}
+
+.gitHubIcon a,
+.instagramIcon a {
+  margin-left: 5px;
+  margin-top: 2px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.gitHubIcon a {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 10px;
+  background-image: url('../../public/svgs/gitHub.svg');
+}
+
+.instagramIcon a {
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-top: 3px;
+  background-image: url('../../public/svgs/instagram.svg');
+}

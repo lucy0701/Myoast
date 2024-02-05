@@ -1,0 +1,20 @@
+@media (max-width: 375px) {
+  .iframe {
+    max-width: 375px;
+  }
+}
+@media (min-width: 376px) and (max-width: 390px) {
+  .iframe {
+    width: 390px;
+  }
+}
+@media (min-width: 391px) {
+  .iframe {
+    width: 412px;
+  }
+}
+
+.iframe {
+  overflow: hidden;
+  border: none;
+}

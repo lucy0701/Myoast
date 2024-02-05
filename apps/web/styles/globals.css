@@ -1,0 +1,101 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* html,
+body {
+  max-width: 100%;
+  min-height: 100%;
+} */
+
+html {
+  overflow-x: hidden;
+  -webkit-text-size-adjust: none;
+}
+
+body {
+  font-style: normal;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  background-color: #f4f4f4;
+}
+
+ul,
+li,
+dl,
+dt,
+dd {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  color: black;
+}
+
+img {
+  border: 0;
+  font-size: 0;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 16px;
+  font-family: 'DIGICO', 'Noto Sans KR', sans-serif;
+}
+
+textarea,
+select {
+  font-family: 'DIGICO', 'Noto Sans KR', sans-serif;
+  font-size: 16px;
+}
+
+select {
+  border: none;
+  border-radius: 0;
+}
+
+input,
+button {
+  margin: 0;
+  padding: 0;
+  font-family: 'DIGICO', 'Noto Sans KR', sans-serif;
+  font-size: 16px;
+  border: none;
+}
+input[type='submit'],
+button {
+  cursor: pointer;
+}
+
+table {
+  width: 100%;
+  border-spacing: 0;
+}
+
+table,
+tr,
+td {
+  border-collapse: collapse;
+}
+
+p {
+  word-break: keep-all;
+}
+
+caption {
+  display: none;
+}

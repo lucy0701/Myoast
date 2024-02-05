@@ -1,0 +1,29 @@
+{
+  "name": "myoast",
+  "private": true,
+  "scripts": {
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "lint": "turbo lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "dev:web": "dotenv -e .env.local -- turbo dev --filter=web",
+    "build:web": "dotenv -e .env -- turbo build --filter=web",
+    "dev:admin": "dotenv -e .env.local -- turbo dev --filter=admin",
+    "build:admin": "dotenv -e .env -- turbo build --filter=admin"
+  },
+  "devDependencies": {
+    "@myoast/eslint-config": "*",
+    "@myoast/typescript-config": "*",
+    "dotenv-cli": "^7.3.0",
+    "prettier": "^3.1.1",
+    "turbo": "latest"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "packageManager": "npm@10.2.4",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
+}

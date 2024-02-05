@@ -1,0 +1,102 @@
+@media (max-width: 375px) {
+  .wrap {
+    max-width: 375px;
+  }
+}
+@media (min-width: 376px) and (max-width: 390px) {
+  .wrap {
+    min-width: 390px;
+  }
+}
+@media (min-width: 391px) {
+  .wrap {
+    width: 412px;
+  }
+}
+
+.wrap {
+  padding: 10px 25px;
+  overflow-x: hidden;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+}
+.btnWrap {
+  width: 100%;
+  margin: 15px 0 15px 0;
+  display: flex;
+  justify-content: center;
+}
+.dispaly {
+  display: none;
+}
+.cardList {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  margin: 15px 0;
+}
+.userWrap {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+  border: 1px solid #eee;
+  border-radius: 10px;
+}
+
+.thumbnail {
+  width: 50px;
+  height: 50px;
+  margin: 0 15px;
+  border-radius: 1rem;
+}
+.userinfoWrap {
+  display: flex;
+  font-size: 0.9rem;
+  flex-direction: column;
+}
+.name {
+  font-weight: bold;
+  color: #666;
+}
+.date {
+  font-size: 0.8rem;
+  color: #999;
+}
+.noTest {
+  height: 400px;
+  padding: 50px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.noTest span {
+  height: 100px;
+  color: #999;
+  font-size: 1.5rem;
+}
+
+/* 로그인 안되어 있을 경우 */
+.loginDisabled {
+  height: 600px;
+  padding: 50px 0 100px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.loginDisabledTextBox{
+  height: 130px;
+  font-size: 1.4rem;
+  color: #999;
+  font-weight: 500;
+  text-align: center;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+}

@@ -1,0 +1,74 @@
+@media (max-width: 375px) {
+  .wrap {
+    max-width: 375px;
+  }
+}
+@media (min-width: 376px) and (max-width: 390px) {
+  .wrap {
+    min-width: 390px;
+  }
+}
+@media (min-width: 391px) {
+  .wrap {
+    width: 412px;
+  }
+}
+
+.wrap {
+  overflow-x: hidden;
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+}
+.contentsWrap {
+  height: 600px;
+  padding: 20px;
+}
+.text {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+.text p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+.text h2 {
+  font-size: 1.4rem;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.logoimg {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  margin-bottom: 30px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.logoimg p {
+    font-size: 0.8rem;
+    color: #999;
+}
+.logoimg img {
+  width: 150px;
+  height: auto;
+}
+.loginBtn {
+  width: 354px;
+  height: 53px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-image: url('../../../../apps/web/public/images/kakaoLogInBtn.png');
+}

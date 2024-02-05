@@ -1,0 +1,88 @@
+@media (max-width: 360px) { 
+  .wrap {
+    max-width: 360px;
+  }
+ }
+
+@media (min-width: 361px) and (max-width: 375px) {
+  .wrap {
+    max-width: 375px;
+  }
+}
+@media (min-width: 376px) and (max-width: 390px) {
+  .wrap {
+    min-width: 390px;
+  }
+}
+@media (min-width: 391px) {
+  .wrap {
+    width: 412px;
+  }
+}
+
+.wrap {
+  height: 100px;
+  margin: auto;
+  background-color: #fff;
+}
+.contentsWrap {
+  height: 100%;
+  /* position: relative; */
+  padding: 15px 0;
+  background-color: #6ca4aa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.wrap p {
+  font-size: 0.7rem;
+  color: #fff;
+}
+.iconBox {
+  width: 80px;
+  height: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.iconBox a {
+  width: 1.2rem;
+  height: 1.2rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.gitHubIcon a {
+  background-image: url('../../../public/svgs/gitHub.svg');
+}
+.rss a{
+  padding: 1.5px;
+  border-radius: 0.3rem;
+  background-color: #fe932e;
+}
+.rssIcon {
+  width: 0.9rem;
+  height: 0.9rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-image: url('../../../public/svgs/rss.svg');
+}
+.instagramIcon a {
+  background-image: url('../../../public/svgs/instagram.svg');
+}
+
+.docs {
+  width: 150px;
+  /* position: absolute;
+  bottom: 40px;
+  right: 8px; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.docs span {
+  color: #fff;
+  font-size: 0.6rem;
+}

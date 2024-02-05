@@ -1,0 +1,101 @@
+@media (max-width: 375px) {
+  .wrap {
+    max-width: 375px;
+  }
+}
+
+@media (min-width: 376px) and (max-width: 390px) {
+  .wrap {
+    width: 390px;
+  }
+}
+@media (min-width: 391px) {
+  .wrap {
+    width: 412px;
+  }
+}
+
+.wrap {
+  z-index: 1;
+  margin: auto;
+}
+
+.headerWrap {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+}
+.mypageWrap button,
+.meunWrap {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+}
+/* 로고 있을때 사용 예정 */
+.logoWrap {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  /* padding: 0 30px 0 30px; */
+  cursor: pointer;
+  /* background-color: #ccc; */
+}
+.logoTitle {
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  font-size: 1.8rem;
+  font-weight: 800;
+  /* padding: 0 30px 0 30px; */
+  cursor: pointer;
+  color: #647E87;
+  /* text-shadow: 5px 5px 5px #ccc; */
+}
+
+/* .logoTitle, */
+.logoIcon,
+.menuIcon,
+.myPageIcon,
+.loginIcon {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+/* ICON */
+.logoIcon {
+  width: 3rem;
+  height: 3rem;
+  background-image: url('../../../public/images/logoIcon.png');
+}
+
+/* .logoTitle {
+  width: 7rem;
+  height: 5.7rem;
+  background-image: url('../../../public/svgs/logo_title.svg');
+} */
+
+.menuIcon {
+  width: 1.3rem;
+  height: 1.3rem;
+  background-image: url('../../../public/svgs/menuIcon.svg');
+}
+.myPageIcon {
+  width: 1.4rem;
+  height: 1.4rem;
+  background-image: url('../../../public/svgs/mypage.svg');
+}
+.loginIcon {
+  width: 1.3rem;
+  height: 1.3rem;
+  background-image: url('../../../public/svgs/user.svg');
+}

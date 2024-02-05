@@ -1,0 +1,49 @@
+@media (max-width: 375px) {
+  .wrap {
+    max-width: 375px;
+  }
+}
+@media (min-width: 376px) and (max-width: 390px) {
+  .wrap {
+    width: 390px;
+  }
+}
+@media (min-width: 391px) {
+  .wrap {
+    max-width: 412px;
+  }
+}
+  .wrap {
+    height: 100%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+  .contentWrap{
+    width: 100%;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff5da;
+  }
+  .content {
+    margin: 130px 0 110px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .pointText {
+    color: #ffc52f;
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+  
+  .loadImg {
+    width: 250px;
+    height: 250px;
+  }

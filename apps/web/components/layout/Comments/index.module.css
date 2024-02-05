@@ -1,0 +1,128 @@
+@media (max-width: 360px) {
+  .commentWrap,
+  .wrap {
+    min-width: 280px;
+    max-width: 360px;
+  }
+  .commentWrap {
+    padding: 8px 5px;
+  }
+}
+
+@media (min-width: 361px) and (max-width: 375px) {
+  .commentWrap,
+  .wrap {
+    min-width: 361px;
+    max-width: 375px;
+  }
+  .commentWrap {
+    padding: 8px 18px;
+  }
+}
+@media (min-width: 376px) and (max-width: 390px) {
+  .commentWrap,
+  .wrap {
+    min-width: 376px;
+    max-width: 390px;
+  }
+  .commentWrap {
+    padding: 8px 20px;
+  }
+}
+@media (min-width: 391px) {
+  .wrap {
+    width: 412px;
+  }
+  .commentWrap {
+    padding: 8px 25px;
+  }
+}
+
+.wrap {
+  margin-bottom: 15px;
+}
+.btnWrap {
+  width: 100%;
+  margin: 30px 0 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.display_none {
+  display: none;
+}
+.commentWrap {
+  width: 100%;
+  /* padding: 8px 20px; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* margin-bottom: 10px; */
+  /* background-color: #777; */
+}
+.imgUrl {
+  width: 45px;
+  height: 45px;
+  margin-right: 10px;
+  margin-top: 7px;
+  background-color: rgb(215, 126, 126);
+  border-radius: 50%;
+}
+
+.textBox {
+  width: 85%;
+  /* display: flex;
+  flex-direction: column;
+  gap: 2px; */
+}
+.textBox > div {
+  display: flex;
+  justify-content: space-between;
+}
+.textBox span {
+  font-size: 0.8rem;
+  margin-right: 8px;
+  color: #777;
+}
+.textBox p {
+  width: 100%;
+  overflow-wrap: break-word;
+  overflow: hidden;
+  font-size: 0.8rem;
+}
+
+.commentBtn button {
+  width: 32px;
+  font-size: 0.8rem;
+  margin-left: 3px;
+  color: #999;
+  background-color: transparent;
+}
+
+.inputWrap {
+  width: 100%;
+  height: 25px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  letter-spacing: 0.7px;
+  border-bottom: 1px solid #ddd;
+}
+.inputWrap input {
+  width: 82%;
+  height: 20px;
+  border: none;
+  outline: none;
+  position: absolute;
+  left: 0;
+  font-size: 0.9em;
+  padding: 5px 10px;
+}
+.inputWrap p {
+  width: 18%;
+  font-size: 0.7em;
+  text-align: right;
+  position: absolute;
+  color: #999;
+  right: 0;
+}

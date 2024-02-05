@@ -1,0 +1,46 @@
+@media (max-width: 360px) { 
+  .wrap {
+    max-width: 360px;
+  }
+ }
+@media (min-width: 361px) and (max-width: 375px) {
+  .wrap {
+    max-width: 375px;
+  }
+}
+@media (min-width: 376px) and (max-width: 390px) {
+  .wrap {
+    min-width: 390px;
+  }
+}
+@media (min-width: 391px) {
+  .wrap {
+    width: 412px;
+  }
+}
+
+.wrap {
+  padding: 10px 25px;
+  overflow-x: hidden;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+}
+.textBox {
+  width: 100%;
+  margin: 15px;
+  padding: 10px 20px;
+  border: 1px solid #eee;
+  border-radius: 1em;
+}
+.textBox p {
+  display: block;
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+.testCardImg{
+  width: 100%;
+}

@@ -1,0 +1,65 @@
+.wrap {
+  width: 100%;
+  margin: 10px 0;
+}
+.btnWarp {
+  width: 90%;
+  height: 120px;
+  padding: 10px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.btnBox {
+  width: 75px;
+  height: 100%;
+  text-align: center;
+}
+.btnBox {
+  color: #666;
+}
+
+.likeCnt {
+  color: #999;
+}
+.buttonBtnWarp{
+  width: 100%;
+  left: 0;
+  background-color: #999;
+}
+
+.onlinkCopyBtn,
+.linkCopyBtn,
+.offLikeBtn,
+.onLikeBtn,
+.shareBtn,
+.replayBtn  {
+  width: 3rem;
+  height: 3rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-color: transparent;
+}
+.onlinkCopyBtn {
+  background-image: url('../../../public/svgs/linkCopyIcon.svg');
+}
+
+.linkCopyBtn {
+  background-image: url('../../../public/svgs/noneLinkCopyIcon.svg');
+}
+.onLikeBtn {
+  background-image: url('../../../public/svgs/liked.svg');
+}
+.offLikeBtn {
+  background-image: url('../../../public/svgs/noneLiked.svg');
+}
+
+.shareBtn {
+  background-image: url('../../../public/svgs/shareIcon.svg');
+}
+
+.replayBtn {
+  background-image: url('../../../public/svgs/retryIcon.svg');
+}
