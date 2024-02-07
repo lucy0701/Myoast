@@ -1,4 +1,9 @@
-import { DOMAIN, DOMAIN_BE_PROD, LATEST_PAGE, LATEST_SIZE } from '@/constants/constant';
+import {
+  DOMAIN,
+  DOMAIN_BE_PROD,
+  LATEST_PAGE,
+  LATEST_SIZE,
+} from '@/constants/constant';
 import { getHeaders } from '@/utils/util';
 import { TestCover, TestCoverResponse } from '@/types/test';
 
@@ -29,12 +34,23 @@ export async function generateMetadata() {
   };
 }
 export default async function Page() {
-  const headers = getHeaders();
-  const testListData = await fetch(`${DOMAIN_BE_PROD}/api/v1/tests`, { headers }).then(
-    (res) => res.json() as Promise<TestCover[]>,
-  );
-  const latestListData = await fetch(`${DOMAIN_BE_PROD}/api/v1/tests/${LATEST_PAGE}/${LATEST_SIZE}`, { headers }).then(
-    (res) => res.json() as Promise<TestCoverResponse>,
-  );
-  return <Main testListData={testListData} latestListData={latestListData.testCoverDTOList} />;
+  try {
+    const headers = getHeaders();
+    const testListData = await fetch(`${DOMAIN_BE_PROD}/api/v1/tests`, {
+      headers,
+    }).then((res) => res.json() as Promise<TestCover[]>);
+    const latestListData = await fetch(
+      `${DOMAIN_BE_PROD}/api/v1/tests/${LATEST_PAGE}/${LATEST_SIZE}`,
+      { headers },
+    ).then((res) => res.json() as Promise<TestCoverResponse>);
+    return (
+      <Main
+        testListData={testListData}
+        latestListData={latestListData.testCoverDTOList}
+      />
+    );
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    return <div>데이터를 불러오는 중 오류가 발생했습니다.</div>;
+  }
 }

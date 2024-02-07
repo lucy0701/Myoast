@@ -2,8 +2,8 @@
   "name": "myoast",
   "private": true,
   "scripts": {
-    "build": "turbo build",
-    "dev": "turbo dev",
+    "build": "dotenv -e .env -- turbo build",
+    "dev": "dotenv -e .env.local -- turbo dev",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "dev:web": "dotenv -e .env.local -- turbo dev --filter=web",
