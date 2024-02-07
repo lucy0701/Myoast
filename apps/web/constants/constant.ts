@@ -1,8 +1,8 @@
 // Domain
 export const DOMAIN = process.env.NEXT_PUBLIC_DOMAIN as string;
-export const DOMAIN_BE_PROD = process.env.NEXT_PUBLIC_BE_URL as string;
-export const KAKAO_REST_API_KEY = process.env.NEXT_PUBLIC_REST_API_KEY as string;
-export const KAKAO_INIT_KEY = process.env.NEXT_PUBLIC_KAKAO_KEY as string;
+export const DOMAIN_BE_PROD = process.env.BE_URL as string;
+export const KAKAO_REST_API_KEY = process.env.REST_API_KEY as string;
+export const KAKAO_INIT_KEY = process.env.KAKAO_KEY as string;
 
 //OG Image url
 export const OG_STANDARD_IMAGE =
