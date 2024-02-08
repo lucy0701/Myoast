@@ -1,10 +1,8 @@
-'use client';
 import styles from './index.module.css';
-
-export default function Main() {
+export default function ManagerSet() {
   return (
     <div className={styles.wrap}>
-      <div>메인 페이지 입니다</div>
+      <div>매니저 관리 페이지 예정</div>
     </div>
   );
 }
