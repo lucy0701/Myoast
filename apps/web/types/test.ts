@@ -1,4 +1,4 @@
-export interface Test {
+export type Test = {
   id: string;
   title: string;
   content: string;
@@ -9,7 +9,7 @@ export interface Test {
   type: ['MBTI', 'PCL_R'];
 }
 
-export interface TestResultData {
+export type TestResultData = {
   id: string;
   result: string;
   title: string;
@@ -17,7 +17,7 @@ export interface TestResultData {
   imageUrl: string;
 }
 
-export interface Question {
+export type Question = {
   id: string;
   index: number;
   question: string;
@@ -25,7 +25,7 @@ export interface Question {
   answerMinus: string;
 }
 
-export interface TestCover {
+export type TestCover = {
   id: string;
   title: string;
   imageUrl: string;
@@ -35,7 +35,7 @@ export interface TestCover {
   commentCount: number;
 }
 
-export interface TestCoverResponse {
-  testCoverDTOList: [TestCover];
+export type TestCoverResponse = {
+  testCoverDTOList: TestCover[];
   hasNextPage: boolean;
 }

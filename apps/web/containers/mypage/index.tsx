@@ -3,7 +3,11 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-import { TYPE_MORE_BTN, TYPE_MY_TEST_CARD, TYPE_START_BTN } from '@/constants/commonType';
+import {
+  TYPE_MORE_BTN,
+  TYPE_MY_TEST_CARD,
+  TYPE_START_BTN,
+} from '@/constants/commonType';
 import SessionStorage from '@/utils/SessionStorage';
 import {
   BACK_PAGE,
@@ -22,6 +26,7 @@ import styles from './index.module.css';
 import { TestCard } from '@/components/layout/TestCard';
 import Title from '@/components/common/Title';
 import Button from '@/components/common/Button';
+import Image from 'next/image';
 
 export default function Mypage() {
   const { testResultList, getMemberTestResult, isNextPage } = useMypage();
@@ -65,7 +70,13 @@ export default function Mypage() {
       <main className={styles.wrap}>
         <Title title={`${userName}님의 결과 모음`} />
         <div className={styles.userWrap}>
-          <img src={thumbnail} alt="thumbnail" className={styles.thumbnail} />
+          <Image
+            src={thumbnail}
+            alt='thumbnail'
+            className={styles.thumbnail}
+            width={50}
+            height={50}
+          />
           <div className={styles.userinfoWrap}>
             <span className={styles.name}>{userName}</span>
             <span className={styles.date}>{registDate}</span>
@@ -87,7 +98,9 @@ export default function Mypage() {
         ) : (
           <div className={styles.noTest}>
             <span>테스트 결과가 없어요!</span>
-            <Button onClick={() => router.push('/test/random')} skin={TYPE_START_BTN}>
+            <Button
+              onClick={() => router.push('/test/random')}
+              skin={TYPE_START_BTN}>
               아무거나 시작
             </Button>
             <Button onClick={() => router.push('/list')} skin={TYPE_START_BTN}>

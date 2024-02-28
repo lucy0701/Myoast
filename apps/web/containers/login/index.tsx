@@ -9,6 +9,7 @@ import { BACK_PAGE, BACK_PAGE_TEST } from '@/constants/sessionStorage';
 import SessionStorage from '@/utils/SessionStorage';
 
 import styles from './index.module.css';
+import Image from 'next/image';
 
 export default function Login() {
   const router = useRouter();
@@ -33,7 +34,12 @@ export default function Login() {
           </h2>
         </div>
         <div className={styles.logoimg}>
-          <img src='/images/logoIcon.png' alt='logo' />
+          <Image
+            src='/images/logoIcon.png'
+            alt='logo'
+            width={150}
+            height={150}
+          />
           <p>© 2023 MongMoongCrew. All rights reserved </p>
         </div>
         <button className={styles.loginBtn} onClick={() => setKakaoLogin()} />

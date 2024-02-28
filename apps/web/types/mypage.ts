@@ -1,9 +1,9 @@
-export interface memberTestResultData {
+export type memberTestResultData = {
   memberTestResultDTOList: [MemberTestResultDTOList];
   hasNextPage: number;
 }
 
-export interface MemberTestResultDTOList {
+export type MemberTestResultDTOList = {
   testId: string;
   testResultId: string;
   testDate: string;
@@ -11,7 +11,7 @@ export interface MemberTestResultDTOList {
   content: string;
   imageUrl: string;
 }
-export interface TestResultFromMyPage {
+export type TestResultFromMyPage = {
   testId: string;
   result: string;
   title: string;

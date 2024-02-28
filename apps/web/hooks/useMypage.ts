@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { MemberTestResultDTOList, memberTestResultData } from '@/types/mypage';
+import { MemberTestResultDTOList } from '@/types/mypage';
 import { getMemberTestResultAPI } from '@/services/mypage';
 
 export const useMypage = () => {

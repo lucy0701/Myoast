@@ -1,4 +1,5 @@
 import { ImageResponse } from 'next/og';
+import Image from 'next/image';
 
 import { OG_STANDARD_IMAGE } from '@/constants/constant';
 
@@ -9,7 +10,7 @@ export const size = {
 export const contentType = 'image/png';
 export const runtime = 'edge';
 
-export default async function Image() {
+export default async function OgImage() {
   try {
     let imgUrl;
 
@@ -27,7 +28,7 @@ export default async function Image() {
             justifyContent: 'center',
           }}
         >
-          <img
+          <Image
             src={imgUrl}
             style={{
               objectFit: 'cover',

@@ -12,6 +12,7 @@ import CountBtn from '@/components/layout/CountBtn';
 import AddComment from '@/components/layout/AddComment';
 import styles from './index.module.css';
 import Comments from '@/components/layout/Comments';
+import Image from 'next/image';
 
 export default function TestResultRecord() {
   const params = useParams<{ [key: string]: string }>();
@@ -31,7 +32,17 @@ export default function TestResultRecord() {
       <main className={styles.wrap}>
         <div className={styles.resultWrap}>
           <div className={styles.resultImg}>
-            <img src={testResultData.imageUrl} alt='TestResultImage' />
+            <Image
+              src={testResultData.imageUrl}
+              alt='TestResultImage'
+              sizes='100vw'
+              style={{
+                width: '100%',
+                height: 'auto',
+              }}
+              width={100}
+              height={130}
+            />
           </div>
           <div className={styles.titleWrap}>
             <h2 className={styles.tsetTitle}>{testResultData.title}</h2>

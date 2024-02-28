@@ -12,7 +12,7 @@ import SessionStorage from '@/utils/SessionStorage';
 import { TEST_RESULT_ID, TEST_SCORE } from '@/constants/sessionStorage';
 
 export const useTest = () => {
-  const [tsetData, setTestData] = useState<Test>();
+  const [testData, setTestData] = useState<Test>();
   const [testResultData, setTestResultData] = useState<TestResultData>();
 
   const router = useRouter();
@@ -71,7 +71,7 @@ export const useTest = () => {
 
   return {
     getTestData,
-    tsetData,
+    testData,
     postTestResultData,
     postMemberTestResultData,
     testResultData,

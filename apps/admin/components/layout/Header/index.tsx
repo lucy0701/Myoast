@@ -11,7 +11,10 @@ export default function Header() {
     <header className={styles.wrap}>
       <div className={styles.logoWrap}>
         <Link href='/'>
-          <h1>MYOAST</h1>
+          <div className={styles.logoBox}>
+            <h1>MYOAST</h1>
+            <h2>ADMIN</h2>
+          </div>
           <div className={styles.logoIcon} />
         </Link>
       </div>

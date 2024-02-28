@@ -29,6 +29,7 @@ import Comments from '@/components/layout/Comments';
 import ResultLoading from '@/components/layout/ResultLoading';
 import CoupangBanner_1 from '@/components/lib/CoupangBanner_1';
 import CoupangPage from '@/components/lib/CoupangPage';
+import Image from 'next/image';
 
 export default function TestResult() {
   const params = useParams<{ [key: string]: string }>();
@@ -112,7 +113,17 @@ export default function TestResult() {
           )}>
           <div className={styles.resultWrap}>
             <div className={styles.resultImg}>
-              <img src={testResultData.imageUrl} alt='TestResultImage' />
+              <Image
+                src={testResultData.imageUrl}
+                alt='TestResultImage'
+                sizes='100vw'
+                style={{
+                  width: '100%',
+                  height: 'auto',
+                }}
+                width={100}
+                height={130}
+              />
             </div>
             <div className={styles.titleWrap}>
               <h2 className={styles.tsetTitle}>{testResultData.title}</h2>

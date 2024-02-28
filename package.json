@@ -25,5 +25,8 @@
   "workspaces": [
     "apps/*",
     "packages/*"
-  ]
+  ],
+  "dependencies": {
+    "axios-cache-adapter": "^2.7.3"
+  }
 }

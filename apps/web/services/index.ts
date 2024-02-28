@@ -1,14 +1,23 @@
-import axios from 'axios';
+import axios, { AxiosAdapter } from 'axios';
+import { setupCache } from 'axios-cache-adapter';
 
-// import { DOMAIN_BE_PROD } from '@/constants/constant';
 
-// 브라우저 -> 백엔드 서버 or 프론트 서버 -> 백엔드 서버
-// 프론트엔드 서버에서 사용할 때는 쿠키가 포함될 수있음
+const cache = setupCache ({
+  maxAge: 15 * 60 * 1000,
+})
+
 export const apiBe = axios.create({
   baseURL: `${process.env.NEXT_PUBLIC_BE_URL}/api/`,
-  // baseURL: `${DOMAIN_BE_PROD}/api/`,
   timeout: 3_000,
   withCredentials: true,
+});
+
+// 캐시 사용
+export const apiBeWithCache = axios.create({
+  baseURL: `${process.env.NEXT_PUBLIC_BE_URL}/api/`,
+  timeout: 3_000,
+  withCredentials: true,
+  adapter: cache.adapter as AxiosAdapter,
 });
 
 apiBe.interceptors.response.use(

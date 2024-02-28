@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
 
 import { CommentDTO } from '@/types/comment';
 import { useComment } from '@/hooks/useComment';
@@ -14,8 +15,14 @@ interface Props {
   testId: string;
 }
 
-const Comments = ({testId}: Props) => {
-  const { commentListData, getCommentList, isNextPage, deleteCommentData, updateCommentData } = useComment();
+const Comments = ({ testId }: Props) => {
+  const {
+    commentListData,
+    getCommentList,
+    isNextPage,
+    deleteCommentData,
+    updateCommentData,
+  } = useComment();
   const [inputValue, setInputValue] = useState('');
   const [editingCommentId, setEditingCommentId] = useState<string | null>(null);
   const [moreCommentList, setMoreCommentList] = useState<CommentDTO[]>([]);
@@ -48,11 +55,19 @@ const Comments = ({testId}: Props) => {
   const maxCharCount = 100;
   const memberId = SessionStorage.getItem(USER_INFO + MEMBER_ID);
 
-  const handleDeleteCommentBtn = (commentId: string, memberId: string, testId: string) => {
+  const handleDeleteCommentBtn = (
+    commentId: string,
+    memberId: string,
+    testId: string,
+  ) => {
     deleteCommentData(commentId, memberId, testId);
   };
 
-  const handleUpdateCommentBtn = (memberId: string, testId: string, commentId: string) => {
+  const handleUpdateCommentBtn = (
+    memberId: string,
+    testId: string,
+    commentId: string,
+  ) => {
     updateCommentData(memberId, testId, inputValue, commentId);
     onClickCancelBtn();
   };
@@ -92,7 +107,13 @@ const Comments = ({testId}: Props) => {
     <div className={styles.wrap}>
       {moreCommentList.map((c, i) => (
         <div key={i} className={styles.commentWrap}>
-          <img src={c.thumbnailImage} className={styles.imgUrl} alt="comment" />
+          <Image
+            src={c.thumbnailImage}
+            className={styles.imgUrl}
+            width={45}
+            height={45}
+            alt='comment'
+          />
           <div className={styles.textBox}>
             <div>
               <div>
@@ -101,15 +122,27 @@ const Comments = ({testId}: Props) => {
               </div>
               {editingCommentId === c.id ? (
                 <div className={styles.commentBtn}>
-                  <button onClick={() => handleUpdateCommentBtn(c.memberId, c.testId, c.id)}>저장</button>
+                  <button
+                    onClick={() =>
+                      handleUpdateCommentBtn(c.memberId, c.testId, c.id)
+                    }>
+                    저장
+                  </button>
                   <button onClick={() => onClickCancelBtn()}>취소</button>
                 </div>
               ) : (
                 <div className={styles.commentBtn}>
                   {memberId === c.memberId && (
                     <>
-                      <button onClick={() => onClickUpdateBtn(c.id)}>수정</button>
-                      <button onClick={() => handleDeleteCommentBtn(c.id, c.memberId, c.testId)}>삭제</button>
+                      <button onClick={() => onClickUpdateBtn(c.id)}>
+                        수정
+                      </button>
+                      <button
+                        onClick={() =>
+                          handleDeleteCommentBtn(c.id, c.memberId, c.testId)
+                        }>
+                        삭제
+                      </button>
                     </>
                   )}
                 </div>
@@ -120,10 +153,12 @@ const Comments = ({testId}: Props) => {
               {editingCommentId === c.id ? (
                 <div className={styles.inputWrap}>
                   <input
-                    type="text"
+                    type='text'
                     value={inputValue || c.content}
                     onChange={handleInputChange}
-                    onKeyDown={(e) => handleKeyDown(e, c.memberId, c.testId, c.id)}
+                    onKeyDown={(e) =>
+                      handleKeyDown(e, c.memberId, c.testId, c.id)
+                    }
                   />
                   <p>
                     {inputValue.length}/{maxCharCount}

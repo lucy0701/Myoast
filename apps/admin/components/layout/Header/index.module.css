@@ -1,19 +1,24 @@
 .wrap {
   max-width: 1920px;
   min-width: 800px;
-  height: 150px;
+  height: 100px;
   display: flex;
   justify-content: space-between;
   margin: auto;
   background-color: #fff;
 }
 .logoWrap {
-  width: 300px;
+  width: 200px;
   display: flex;
   align-items: center;
 }
+.logoBox {
+  width: 120px;
+  height: 100%;
+}
+
 .navWrap {
-  max-width: 800px;
+  max-width: 700px;
   width: 50%;
   height: 100%;
 }
@@ -26,7 +31,7 @@
 }
 .navUl li a {
   width: 100px;
-  height: 100px;
+  height: 80px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -34,10 +39,10 @@
   color: #777;
 }
 .userWrap {
-  width: 170px;
+  width: 200px;
   padding: 10px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 .userWrap p {
   width: 70px;
@@ -67,11 +72,12 @@
   justify-content: center;
   cursor: pointer;
 }
-.logoWrap h1 {
+.logoWrap h1,
+.logoWrap h2 {
   height: 5rem;
   display: flex;
   align-items: center;
-  font-size: 2.2rem;
+  font-size: 2rem;
   font-weight: 800;
   cursor: pointer;
   color: #647e87;
@@ -85,22 +91,22 @@
   background-size: contain;
 }
 .logoIcon {
-  width: 4rem;
-  height: 4rem;
+  width: 3rem;
+  height: 3rem;
   background-image: url('../../../../../packages/ui/public/images/logoIcon.png');
 }
 .test {
-  width: 4rem;
-  height: 3.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
   background-image: url('../../../public/svgs/app.svg');
 }
 .statistics {
-  width: 4rem;
-  height: 3.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
   background-image: url('../../../public/svgs/chartPie.svg');
 }
 .system {
-  width: 4rem;
-  height: 3.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
   background-image: url('../../../public/svgs/gears.svg');
 }

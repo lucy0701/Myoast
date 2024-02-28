@@ -1,17 +1,17 @@
-export interface DecodedToken {
+export type DecodedToken = {
   auth: string;
   exp: number;
   sub: string;
 }
 
-export interface KakaoLoigin {
+export type KakaoLoigin = {
   memberId: string;
   username: string;
   thumbnail: string;
   registDate: string;
 }
 
-export interface LoginTracker {
+export type LoginTracker = {
   id: string;
   memberId: string;
   loginDate: string;

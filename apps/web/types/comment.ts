@@ -1,5 +1,5 @@
 
-  export interface CommentDTO {
+  export type CommentDTO = {
     id: string;
     memberId: string;
     testId: string;
@@ -9,7 +9,7 @@
     thumbnailImage: string;
   }
 
-  export interface CommentData {
+  export type CommentData = {
     id: string;
     memberId: string;
     testId: string;
@@ -17,7 +17,7 @@
     content: string;
   }
 
-  export interface CommentResponse {
+  export type CommentResponse = {
     commentDTOList: [CommentDTO];
     hasNextPage: boolean;
   }
