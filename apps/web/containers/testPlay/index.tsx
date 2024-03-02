@@ -57,7 +57,7 @@ export default function TestPlay({ testData } : Props) {
     setScore(score);
   }
 
-  const hendleOnClick = () => {
+  const handleOnClick = () => {
     if (testData && qstStageIndex !== arryLength - 1) {
       setQstStageIndex(qstStageIndex + 1);
     } else if (qstStageIndex === arryLength - 1) {
@@ -68,12 +68,12 @@ export default function TestPlay({ testData } : Props) {
   const onClickPlusBtn = () => {
     putArr[qstStageIndex] = 1;
     setPutArr([...putArr]);
-    hendleOnClick();
+    handleOnClick();
   };
   const onClickMinusBtn = () => {
     putArr[qstStageIndex] = -1;
     setPutArr([...putArr]);
-    hendleOnClick();
+    handleOnClick();
   };
   const calculateWidth = (index: number) => {
     const percentage = ((index + 1) / arryLength) * 100;
