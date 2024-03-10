@@ -1,5 +1,5 @@
-import ManagerSet from '@/containers/managerSet';
+import System from '@/containers/system';
 
 export default function Pgae() {
-  return <ManagerSet />;
+  return <System />;
 }

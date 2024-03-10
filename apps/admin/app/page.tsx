@@ -1,5 +1,5 @@
-import Main from '@/containers/main';
+import Dashboard from '@/containers/dashboard';
 
 export default function Page() {
-  return <Main />;
+  return <Dashboard />;
 }

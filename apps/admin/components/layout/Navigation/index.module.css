@@ -1,0 +1,13 @@
+.headerWarp {
+  /* min-width: 500px; */
+  position: relative;
+}
+.headerBox {
+  position: absolute;
+  right: 60px;
+}
+.logoWarp {
+  width: 100%;
+  height: 100px;
+  background-color: #fff;
+}

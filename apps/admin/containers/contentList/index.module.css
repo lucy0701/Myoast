@@ -1,0 +1,15 @@
+.wrap {
+  width: 100%;
+}
+.topBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.searchBox {
+  width: 520px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

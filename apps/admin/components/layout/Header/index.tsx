@@ -1,53 +1,23 @@
 import Link from 'next/link';
 import styles from './index.module.css';
-import {
-  STATISTICS,
-  SYSTEM_MANAGEMENT,
-  TEST_SETTING,
-} from '@/constants/navText';
 
 export default function Header() {
   return (
     <header className={styles.wrap}>
-      <div className={styles.logoWrap}>
-        <Link href='/'>
-          <div className={styles.logoBox}>
-            <h1>MYOAST</h1>
-            <h2>ADMIN</h2>
-          </div>
-          <div className={styles.logoIcon} />
-        </Link>
-      </div>
-      <nav className={styles.navWrap}>
-        <ul className={styles.navUl}>
-          <li>
-            <Link href='/test'>
-              <div className={styles.test} />
-              <p>{TEST_SETTING}</p>
-              <div className={styles.underBar}></div>
-            </Link>
-          </li>
-          <li>
-            <Link href='/statistics'>
-              <div className={styles.statistics} />
-              <p>{STATISTICS}</p>
-              <div className={styles.underBar}></div>
-            </Link>
-          </li>
-          <li>
-            <Link href='/system'>
-              <div className={styles.system} />
-              <p>{SYSTEM_MANAGEMENT}</p>
-              <div className={styles.underBar}></div>
-            </Link>
-          </li>
-        </ul>
-      </nav>
-      <div className={styles.userWrap}>
-        <p>
-          <span>관리자</span> 님
-        </p>
-        <button>Log Out</button>
+      <div className={styles.headerWrap}>
+        <div className={styles.linkWrap}>
+          <Link href='https://myoast.vercel.app/'>
+            묘스트 이동하기
+            <div className={styles.linkIcon} />
+          </Link>
+        </div>
+        <div className={styles.userWrap}>
+          <span className={styles.sp_1}>Admin</span>
+          <p>[닉네임]<span className={styles.sp_2}>님</span></p>
+          <button className={styles.logoutBtn}>
+            <div className={styles.logoutImg} />
+          </button>
+        </div>
       </div>
     </header>
   );
