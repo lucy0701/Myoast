@@ -9,6 +9,7 @@ import Image from 'next/image';
 import Selection from '@/components/common/Selection';
 import SearchInput from '@/components/common/SearchInput';
 import { useRouter } from 'next/navigation';
+import { getContentsSelectOptions } from '@/utils/getSelectOption';
 
 interface DataType {
   key: string;
@@ -147,14 +148,16 @@ const data: DataType[] = [
 export default function ContentList() {
   const router = useRouter();
   const onClickAddButton = () => {
-    router.push('/contents/add/mbti');
+    router.push('/contents/add');
   };
+  // 임시
+  const selectOptions = [getContentsSelectOptions('mbti', 'MBTI')];
 
   return (
     <div className={styles.wrap}>
       <div className={styles.topBox}>
         <div className={styles.searchBox}>
-          <Selection />
+          <Selection selectOptions = {selectOptions} />
           <p>Member ID</p>
           <SearchInput />
         </div>

@@ -1,24 +1,26 @@
+'use client';
+
 import React from 'react';
 import { Select, Space } from 'antd';
+import { ContentsSelectOptions } from '@/types/selectOptions';
 
-const handleChange = (value: string) => {
-  console.log(`selected ${value}`);
-};
+interface Props {
+  selectOptions: ContentsSelectOptions[];
+}
 
-const App: React.FC = () => (
-  <Space wrap>
-    <Select
-      defaultValue="lucy"
-      style={{ width: 120 }}
-      onChange={handleChange}
-      options={[
-        { value: 'jack', label: 'Jack' },
-        { value: 'lucy', label: 'Lucy' },
-        { value: 'Yiminghe', label: 'yiminghe' },
-        { value: 'disabled', label: 'Disabled', disabled: true },
-      ]}
-    />
-  </Space>
-);
+export default function Selection({ selectOptions }: Props) {
+  const handleChange = (value: string) => {
+    console.log(`${value}`);
+  };
 
-export default App;
+  return (
+    <Space wrap>
+      <Select
+        defaultValue='선택하기'
+        style={{ width: 120 }}
+        onChange={handleChange}
+        options={selectOptions}
+      />
+    </Space>
+  );
+}

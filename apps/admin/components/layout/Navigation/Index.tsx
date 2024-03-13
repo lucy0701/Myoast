@@ -56,21 +56,22 @@ const Navigation: React.FC<{ children: ReactNode }> = ({ children }) => {
   return (
     <Layout style={{ minHeight: '100vh' }}>
       <Sider
+        // theme='light'
         collapsible
         collapsed={collapsed}
         onCollapse={(value) => setCollapsed(value)}>
-        <div className={styles.logoWarp}>로고입니당</div>
         <Menu
           theme='dark'
-          defaultSelectedKeys={['1']}
+          // defaultSelectedKeys={['1']}
           mode='inline'
           items={items}
         />
       </Sider>
-      <Layout style={{ minWidth: '500px' }}>
+      <Layout style={{ minWidth: 800 }}>
         <Header
           className={styles.headerWarp}
-          style={{ padding: 0, background: colorBgContainer }}>
+          style={{ padding: 0, background: borderRadiusLG }}>
+          <div className={styles.logoWarp}>로고입니당</div>
           <div className={styles.headerBox}>
             <HeaderComponent />
           </div>
@@ -78,10 +79,12 @@ const Navigation: React.FC<{ children: ReactNode }> = ({ children }) => {
         <Content style={{ margin: '10px 16px' }}>
           <Breadcrumb
             style={{ margin: '16px 0' }}
-            items={[{ title: '링크' }, { title: '어케넣냐' }]} />
+            items={[{ title: '링크' }, { title: '어케넣냐' }]}
+          />
           <div
             style={{
               padding: 24,
+              minWidth: 700,
               minHeight: 360,
               background: colorBgContainer,
               borderRadius: borderRadiusLG,
