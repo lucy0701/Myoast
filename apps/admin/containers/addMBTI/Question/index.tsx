@@ -4,15 +4,13 @@ import styles from './index.module.css';
 import React from 'react';
 import QuestionCard from './QuestionCard';
 
-
 const questionNames = ['E / I', 'S / N', 'F / T', 'J / P'];
 
-export default function AddMBTITest() {
-
+export default function Question() {
   return (
     <div className={styles.wrap}>
-      <div style={{ marginBottom: 30 }}>
-        <h2 style={{ marginTop: 20 }} className={styles.questionTitle}>
+      <div style={{ maxWidth: 1200, width:`100%` }}>
+        <h2 className={styles.questionTitle}>
           Question
         </h2>
         {questionNames.map((questionName) => (
@@ -22,4 +20,3 @@ export default function AddMBTITest() {
     </div>
   );
 }
-

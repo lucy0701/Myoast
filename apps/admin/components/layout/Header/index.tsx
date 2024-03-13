@@ -3,7 +3,7 @@ import styles from './index.module.css';
 
 export default function Header() {
   return (
-    <header className={styles.wrap}>
+    <header>
       <div className={styles.headerWrap}>
         <div className={styles.linkWrap}>
           <Link href='https://myoast.vercel.app/'>

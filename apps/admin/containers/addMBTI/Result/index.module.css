@@ -1,0 +1,17 @@
+.contentsWrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+.resultWrap {
+  max-width: 450px;
+  width: 100%;
+  margin: auto;
+  gap: 20px;
+  color: #444;
+}
+.resultTitle {
+  text-align: center;
+  font-size: 18px;
+  color: #444;
+  margin: 20px 0 10px;
+}

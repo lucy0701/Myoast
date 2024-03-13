@@ -1,30 +1,50 @@
 .wrap {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  .testInpo {
-    background-color: #d2dbf1;
-    padding: 20px;
-    border-radius: 0.7rem;
-    margin-bottom: 25px;
-  }
-  .titleWarp {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-  }
-  .titleWarp p {
-    display: flex;
-    align-items: center;
-    font-size: 15px;
-    margin: 0 15px;
-  }
-  .contentsBox {
-    margin-top: 20px;
-  }
-  .contentInpoTitle {
-    text-align: center;
-    font-size: 18px;
-  }
+  width: 100%;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.contentsWrap {
+  width: 100%;
+  height: 55vh;
+  overflow-y: auto;
+  margin-bottom: 20px;
+  border-radius: 0.8rem;
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.105);
+  background-color: #F5F5F5;
+}
+.testInfo {
+  width: 100%;
+  max-width: 800px;
+  background-color: #d2dbf1;
+  padding: 20px;
+  border-radius: 0.7rem;
+  margin: auto;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.titleWarp {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.titleWarp p {
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  margin: 0 15px;
+}
+.contentsBox {
+  margin-top: 20px;
+}
+.contentInfoTitle {
+  text-align: center;
+  font-size: 18px;
+}
+.btnBox {
+  margin: auto;
+  width: 150px;
+  display: flex;
+  justify-content: space-between;
+}

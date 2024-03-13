@@ -27,17 +27,17 @@ export default function AddContents({ children }: React.PropsWithChildren) {
     router.push(`/contents/add/${value}/result`);
   };
 
-  // const onClickPrevBtn = (value: string) => {
-  //   router.push(`/contents/add/${value}/question`)
-  // }
+  const onClickPrevBtn = (value: string) => {
+    router.push(`/contents/add/${value}/question`)
+  }
 
   const selectOptions = [getContentsSelectOptions('mbti', 'MBTI')];
 
   return (
     <div className={styles.wrap}>
-      <div className={styles.testInpo}>
-        <h2 style={{ marginBottom: 15 }} className={styles.contentInpoTitle}>
-          Contents Inpo
+      <div className={styles.testInfo}>
+        <h2 style={{ marginBottom: 15 }} className={styles.contentInfoTitle}>
+          Contents Info
         </h2>
         <div className={styles.titleWarp}>
           <div className={styles.selection}>
@@ -65,12 +65,11 @@ export default function AddContents({ children }: React.PropsWithChildren) {
           />
         </div>
       </div>
-      {children}
-      <Button
-        style={{ margin: 'auto' }}
-        onClick={() => onClickNextBtn(selectedValue)}>
-        다음
-      </Button>
+      <div className={styles.contentsWrap}>{children}</div>
+      <div className={styles.btnBox}>
+        <Button onClick={() => onClickPrevBtn(selectedValue)}>이전</Button>
+        <Button onClick={() => onClickNextBtn(selectedValue)}>다음</Button>
+      </div>
     </div>
   );
 }

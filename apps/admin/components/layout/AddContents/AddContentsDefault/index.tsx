@@ -1,7 +1,7 @@
 import styles from './index.module.css';
 
 const DefaultPage = () => (
-  <div className={styles.wrap} style={{ margin: 'auto', marginBottom: 20 }}>
+  <div className={styles.wrap}>
     <p>Please select the content you want to add</p>
   </div>
 );

@@ -1,22 +1,10 @@
-/* .wrap {
-  max-width: 1720px;
-  min-width: 800px;
-  height: 50px;
-  margin: auto;
-  position: relative;
-  padding: 0 60px;
-} */
-
 .headerWrap {
   width: 410px;
   height: 40px;
   padding: 20px;
-  /* position: absolute;
-  right: 60px;
-  float: right; */
   display: flex;
   justify-content: space-between;
-  background-color: #dbe2f3;
+  background-color: #001529;
   border-radius: 0 0 10px 10px;
 }
 
@@ -28,6 +16,7 @@
 }
 
 .linkWrap a {
+  color: #ddd;
   display: flex;
   align-items: center;
 }
@@ -55,19 +44,17 @@
 .userWrap p {
   max-width: 120px;
   height: 25px;
-  /* padding-right: 10px; */
+  color: #ddd;
   font-size: 15px;
   line-height: 25px;
   display: flex;
   justify-content: right;
 }
 .sp_1 {
-  /* padding: 10px; */
   color: #E11D1D;
 }
 .sp_2 {
-  /* padding: 10px; */
-  color: #666;
+  color: #ddd;
   font-size: 12px;
   margin-left: 5px;
 }

@@ -28,7 +28,7 @@ export default function ResultCard({ title }: Props) {
           allowClear
           maxLength={100}
           style={{
-            minHeight: 200,
+            height: 200,
             resize: 'none',
             border: 'none',
           }}
