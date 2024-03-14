@@ -3,30 +3,30 @@ import ResultCard from './ResultCard';
 
 export default function Result() {
   const resultTitles = [
-    'ENTP',
-    'ESTP',
-    'ENTJ',
-    'ESTJ',
-    'ENFP',
-    'ESFP',
     'ENFJ',
+    'ENFP',
+    'ENTJ',
+    'ENTP',
     'ESFJ',
-    'INTP',
-    'ISTP',
-    'INTJ',
-    'ISTJ',
-    'INFP',
-    'ISFP',
+    'ESFP',
+    'ESTJ',
+    'ESTP',
     'INFJ',
+    'INFP',
+    'INTJ',
+    'INTP',
     'ISFJ',
+    'ISFP',
+    'ISTJ',
+    'ISTP',
   ];
   return (
     <div className={styles.wrap}>
       <h2 className={styles.resultTitle}>Result</h2>
       <div className={styles.contentsWrap}>
-        {resultTitles.map((title, columnIndex) => (
+        {resultTitles.map((resultName, columnIndex) => (
           <div key={`${columnIndex}`} className={styles.resultWrap}>
-            <ResultCard key={`${columnIndex}`} title={title} />
+            <ResultCard key={`${columnIndex}`} resultName={resultName} />
           </div>
         ))}
       </div>
