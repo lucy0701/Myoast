@@ -7,10 +7,3 @@ export const testInfoState = atom({
     content: '',
   },
 });
-
-export const testTypeState = atom({
-  key: 'testTypeState',
-  default: {
-    type: '',
-  }
-})

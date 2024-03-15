@@ -1,35 +1,41 @@
 'use client';
 
 import styles from './index.module.css';
-import { Button, Input, Select, Upload } from 'antd';
+import { Button, Input, Select } from 'antd';
 import { getContentsSelectOptions } from '@/utils/getSelectOption';
-import { PlusOutlined } from '@ant-design/icons';
-
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import { useRecoilState, useSetRecoilState } from 'recoil';
-import { testInfoState, testTypeState } from '@/states/testInfoState';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { testInfoState } from '@/states/testInfoState';
+import { CONTENT, TITLE } from '@/constants/addContent';
+import TextArea from 'antd/es/input/TextArea';
+import { mbtiImageAllState } from '@/states/testDataState';
 
-const { TextArea } = Input;
+type ContentType = 'title' | 'content';
 
 export default function AddContents({ children }: React.PropsWithChildren) {
   const setTestInfo = useSetRecoilState(testInfoState);
   const [page, setPage] = useState(1);
-  const [selectedType, setSelectedType] = useRecoilState<{ type: string }>(
-    testTypeState,
-  );
+  const [maxPage, setMaxPage] = useState(0);
+  const [selectedType, setSelectedType] = useState('');
+  const isAllImage = useRecoilValue(mbtiImageAllState);
+
   const router = useRouter();
 
-  const handleChange = (value: string) => {
-    setSelectedType({ type: value });
+  // console.log(isAllImage);
+
+  // 컨텐츠 추가 시, 배열에 추가
+  const selectOptions = [getContentsSelectOptions('mbti', 'MBTI', 3)];
+
+  const onSelectChange = (value: string) => {
+    setSelectedType(value);
+    const maxPage =
+      selectOptions.find((option) => option.value === value)?.page || 0;
+    setMaxPage(maxPage);
     router.push(`/contents/add/${value}/${page}`);
   };
 
-  const onChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-    type: 'title' | 'content',
-  ) => {
-    const { value } = e.target;
+  const onChange = (value: string, type: ContentType) => {
     setTestInfo((prev) => ({
       ...prev,
       [type]: value,
@@ -40,20 +46,17 @@ export default function AddContents({ children }: React.PropsWithChildren) {
     if (page > 1) {
       const prevPage = page - 1;
       setPage(prevPage);
-      router.push(`/contents/add/${selectedType.type}/${prevPage}`);
+      router.push(`/contents/add/${selectedType}/${prevPage}`);
     }
   };
 
   const onClickNextBtn = () => {
-    if (page < 2) {
+    if (page < maxPage) {
       const nextPage = page + 1;
       setPage(nextPage);
-      router.push(`/contents/add/${selectedType.type}/${nextPage}`);
+      router.push(`/contents/add/${selectedType}/${nextPage}`);
     }
   };
-
-  // 컨텐츠 추가 시, 배열에 추가
-  const selectOptions = [getContentsSelectOptions('mbti', 'MBTI')];
 
   return (
     <div className={styles.wrap}>
@@ -65,37 +68,36 @@ export default function AddContents({ children }: React.PropsWithChildren) {
           <div className={styles.titleWarp}>
             <div className={styles.selection}>
               <Select
-                defaultValue={selectedType.type ? selectedType.type : '선택'}
+                defaultValue={selectedType ? selectedType : '선택'}
                 style={{ width: 120 }}
-                onChange={handleChange}
+                onChange={onSelectChange}
                 options={selectOptions}
               />
             </div>
             <p>Title</p>
             <Input
-              placeholder={`Enter ${selectedType.type} test tilte.`}
+              placeholder={`Enter ${selectedType} test tilte.`}
+              maxLength={500}
+              // count={{
+              //   show: true,
+              //   max: 5,
+              // }}
               allowClear
-              onChange={(e) => onChange(e, 'title')}
+              onChange={(e) => onChange(e.target.value, TITLE)}
             />
           </div>
           <div className={styles.contentsWarp}>
             <TextArea
-              placeholder={`Enter ${selectedType.type} test contents.`}
+              placeholder={`Enter ${selectedType} test contents.`}
+              maxLength={500}
+              // count={{
+              //   show: true,
+              //   max: 500,
+              // }}
               allowClear
-              onChange={(e) => onChange(e, 'content')}
+              onChange={(e) => onChange(e.target.value, CONTENT)}
             />
           </div>
-        </div>
-        <div>
-          <Upload
-            action='https://run.mocky.io/v3/435e224c-44fb-4773-9faf-380c5e6a2188'
-            listType='picture-card'
-            maxCount={1}>
-            <button style={{ border: 0, background: 'none' }} type='button'>
-              <PlusOutlined />
-              <div style={{ marginTop: 8 }}>Upload</div>
-            </button>
-          </Upload>
         </div>
       </div>
       <div className={styles.TestContents}>{children}</div>
@@ -105,14 +107,15 @@ export default function AddContents({ children }: React.PropsWithChildren) {
             이전
           </Button>
         )}
-        {page === 2 ? (
+        {page === maxPage ? (
           <Button
             style={{ backgroundColor: '#FF9900' }}
-            onClick={onClickNextBtn}>
+            onClick={onClickNextBtn}
+            disabled={!isAllImage}>
             저장
           </Button>
         ) : (
-          <Button disabled={!selectedType.type} onClick={onClickNextBtn}>
+          <Button disabled={!selectedType} onClick={onClickNextBtn}>
             다음
           </Button>
         )}

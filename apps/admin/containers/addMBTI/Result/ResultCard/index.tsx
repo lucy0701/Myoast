@@ -1,11 +1,11 @@
 'use client';
 
 import styles from './index.module.css';
-import { Button, Input, Upload } from 'antd';
+import { Input } from 'antd';
 import TextArea from 'antd/es/input/TextArea';
 import { mbtiResultState } from '@/states/resultState';
 import { useRecoilState } from 'recoil';
-import { UploadOutlined } from '@ant-design/icons';
+import { CONTENT, TITLE } from '@/constants/addContent';
 
 interface Props {
   resultName: string;
@@ -16,37 +16,12 @@ export default function ResultCard({ resultName }: Props) {
 
   const existingResult = results.find((result) => result.result === resultName);
 
-  const onChangeValue = (result: string, type: string, value: string) => {
-    setResults((prevResults) => {
-      if (existingResult) {
-        return prevResults.map((result) =>
-          result.result === resultName
-            ? {
-                ...result,
-                [type]: value,
-              }
-            : result,
-        );
-      } else {
-        return [
-          ...prevResults,
-          {
-            result,
-            title: type === 'title' ? value : '',
-            content: type === 'content' ? value : '',
-            imageUrl: type === 'imageUrl' ? value : '',
-          },
-        ];
-      }
-    });
-  };
-
-  const onChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-    type: string,
-  ) => {
-    const { value } = e.target;
-    onChangeValue(resultName, type, value);
+  const onChange = (value: string, type: string): void => {
+    setResults((prevResults) =>
+      prevResults.map((result) =>
+        result.result === resultName ? { ...result, [type]: value } : result,
+      ),
+    );
   };
 
   return (
@@ -55,43 +30,26 @@ export default function ResultCard({ resultName }: Props) {
       <div className={styles.titleWrap}>
         <p>Title</p>
         <Input
-          value={
-            existingResult && existingResult.title ? existingResult.title : ''
-          }
+          value={existingResult?.title || ''}
+          maxLength={500}
           allowClear
-          placeholder='Title'
-          onChange={(e) => onChange(e, 'title')}
-          style={{
-            border: 'none',
-          }}
+          placeholder={TITLE}
+          onChange={(e) => onChange(e.target.value, TITLE)}
         />
       </div>
       <div className={styles.contentsWrap}>
         <p>Contents</p>
         <TextArea
-          value={
-            existingResult && existingResult.content
-              ? existingResult.content
-              : ''
-          }
-          placeholder='Contents'
-          onChange={(e) => onChange(e, 'content')}
+          value={existingResult?.content || ''}
+          placeholder={CONTENT}
+          onChange={(e) => onChange(e.target.value, CONTENT)}
           allowClear
-          maxLength={100}
+          maxLength={500}
           style={{
             height: 200,
             resize: 'none',
-            border: 'none',
           }}
         />
-      </div>
-      <div>
-        <Upload
-          action='https://run.mocky.io/v3/435e224c-44fb-4773-9faf-380c5e6a2188'
-          listType='picture'
-          maxCount={1}>
-          <Button icon={<UploadOutlined />}>Upload</Button>
-        </Upload>
       </div>
     </div>
   );
