@@ -151,7 +151,7 @@ export default function ContentList() {
     router.push('/contents/add');
   };
   // 임시
-  const selectOptions = [getContentsSelectOptions('mbti', 'MBTI')];
+  const selectOptions = [getContentsSelectOptions('mbti', 'MBTI',3)];
 
   return (
     <div className={styles.wrap}>
