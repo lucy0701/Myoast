@@ -25,3 +25,25 @@ export type MbtiResults = {
   content: string;
   imageUrl: string;
 };
+
+export type TestCover = {
+  id: string;
+  title: string;
+  imageUrl: string;
+  playCount: number;
+  type: ['MBTI', 'PCL_R'];
+  likeCount: number;
+  commentCount: number;
+};
+
+export type ContentList = {
+  id: string;
+  title: string;
+  imageUrl: string;
+  createDate?: string;
+  playCount: number;
+  likeCount: number;
+  sharesCount: number;
+  linkCount: number;
+  commentsCount: number;
+};

@@ -1,5 +1,5 @@
-import ContentList from "@/containers/contentList";
+import ContentList from '@/containers/contentList';
 
-export default function Page () {
-    return <ContentList />
+export default async function Page() {
+  return <ContentList />;
 }

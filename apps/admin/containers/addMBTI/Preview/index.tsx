@@ -10,7 +10,7 @@ import {
 import { testInfoState } from '@/states/testInfoState';
 import { MbtiQuestions, MbtiResults } from '@/types/test';
 import { Button, Card, Space, Table, TableProps, Upload } from 'antd';
-import { ChangeEvent, useEffect, useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import { mbtiImageState } from '@/states/testImageState';
 import {
@@ -28,6 +28,8 @@ export default function Preview() {
   const setData = useSetRecoilState(mbtiTestDataState);
   const setIsMbtiAllTestData = useSetRecoilState(isMbtiAllTestDataState);
   const [imageUploads, setImageUploads] = useRecoilState(mbtiImageState);
+  
+  const questionNames = ['E / I', 'N / S', 'F / T', 'J / P'];
 
   useEffect(() => {
     setData({
@@ -35,12 +37,7 @@ export default function Preview() {
       content: testInfo.content,
       questions: questions,
       results: results,
-      // createDate: new Date(
-      //   new Date().getTime() + 9 * 60 * 60 * 1000,
-      // ).toISOString(),
       imageUrl: '',
-      // playCount: 0,
-      // type: 'MBTI',
     });
   }, [testInfo, questions, results, setData]);
 
@@ -69,19 +66,6 @@ export default function Preview() {
     }
   }, [isAllDataValid, setIsMbtiAllTestData, testInfo]);
 
-  // const uploadImage = (index: number, e: ChangeEvent<HTMLInputElement>) => {
-  //   const files = e.target.files;
-  //   if (files && files.length > 0) {
-  //     console.log(files[0]);
-  //     const file = files[0];
-  //     setImageUploads((prevUploads) => {
-  //       return prevUploads.map((upload, idx) =>
-  //         idx === index ? file : upload,
-  //       );
-  //     });
-  //   }
-  // };
-
   const uploadImage = (
     index: number,
     info: UploadChangeParam<UploadFile>,
@@ -91,13 +75,11 @@ export default function Preview() {
       setImageUploads((prevUploads: File[]) => {
         return prevUploads.map((upload, idx) =>
           idx === index ? (file.originFileObj as File) : upload,
-
         );
       });
     }
   };
 
-  const questionNames = ['E / I', 'N / S', 'F / T', 'J / P'];
 
   const questionsColumns: TableProps<MbtiQuestions>['columns'] = [
     {

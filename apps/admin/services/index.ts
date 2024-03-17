@@ -7,7 +7,7 @@ const cache = setupCache({
 
 export const apiBe = axios.create({
   baseURL: `${process.env.NEXT_PUBLIC_BE_URL}/api/`,
-  timeout: 3_000,
+  timeout: 10_000,
   withCredentials: true,
 });
 
@@ -20,7 +20,7 @@ export const apiBeImag = axios.create({
 // 캐시 사용
 export const apiBeWithCache = axios.create({
   baseURL: `${process.env.NEXT_PUBLIC_BE_URL}/api/`,
-  timeout: 3_000,
+  timeout: 10_000,
   withCredentials: true,
   adapter: cache.adapter as AxiosAdapter,
 });

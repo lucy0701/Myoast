@@ -13,3 +13,13 @@
   justify-content: space-between;
   align-items: center;
 }
+.btnWarp {
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.btnWarp button {
+  width: 45px;
+  height: 25px;
+}
