@@ -4,8 +4,8 @@ import About from '@/containers/about';
 export async function generateMetadata() {
   const url = `${DOMAIN}/about`;
   const title = '묘스트';
-  let description = '묘스트를 소개합니다';
-  let imageUrl = `${DOMAIN}/about/opengraph-image`;
+  const description = '묘스트를 소개합니다';
+  const imageUrl = `${DOMAIN}/about/opengraph-image`;
 
   return {
     title,

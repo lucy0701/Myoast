@@ -3,6 +3,7 @@ import { atom } from 'recoil';
 
 const generateMbtiQuestions = (count: number): MbtiQuestions[] => {
   return Array.from({ length: count }, (_, index) => ({
+    id: '',
     index: index + 1,
     question: '',
     answerPlus: '',

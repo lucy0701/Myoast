@@ -11,8 +11,8 @@ import TestList from '@/containers/testList';
 export async function generateMetadata() {
   const url = `${DOMAIN}/latest`;
   const title = '묘스트';
-  let description = '묘스트의 신규 테스트';
-  let imageUrl = `${DOMAIN}/latest/opengraph-image`;
+  const description = '묘스트의 신규 테스트';
+  const imageUrl = `${DOMAIN}/latest/opengraph-image`;
 
   return {
     title,

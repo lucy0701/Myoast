@@ -9,7 +9,8 @@ import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { testInfoState } from '@/states/testInfoState';
 import { CONTENT, TITLE } from '@/constants/addContent';
 import TextArea from 'antd/es/input/TextArea';
-import { mbtiImageAllState } from '@/states/testDataState';
+import { isMbtiAllTestDataState } from '@/states/testDataState';
+import { useAddMbti } from '@/hooks/useAddMbti';
 
 type ContentType = 'title' | 'content';
 
@@ -18,11 +19,12 @@ export default function AddContents({ children }: React.PropsWithChildren) {
   const [page, setPage] = useState(1);
   const [maxPage, setMaxPage] = useState(0);
   const [selectedType, setSelectedType] = useState('');
-  const isAllImage = useRecoilValue(mbtiImageAllState);
+  const isMbtiAllTestData = useRecoilValue(isMbtiAllTestDataState);
+
+  const { postImageUpload } = useAddMbti();
+
 
   const router = useRouter();
-
-  // console.log(isAllImage);
 
   // 컨텐츠 추가 시, 배열에 추가
   const selectOptions = [getContentsSelectOptions('mbti', 'MBTI', 3)];
@@ -56,6 +58,10 @@ export default function AddContents({ children }: React.PropsWithChildren) {
       setPage(nextPage);
       router.push(`/contents/add/${selectedType}/${nextPage}`);
     }
+  };
+
+  const onClickSave = () => {
+    postImageUpload();
   };
 
   return (
@@ -110,8 +116,8 @@ export default function AddContents({ children }: React.PropsWithChildren) {
         {page === maxPage ? (
           <Button
             style={{ backgroundColor: '#FF9900' }}
-            onClick={onClickNextBtn}
-            disabled={!isAllImage}>
+            onClick={onClickSave}
+            disabled={!isMbtiAllTestData}>
             저장
           </Button>
         ) : (

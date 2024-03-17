@@ -3,36 +3,29 @@
 import styles from './index.module.css';
 import { mbtiQuestionsState } from '@/states/questionsState';
 import { mbtiResultState } from '@/states/resultState';
-import { mbtiImageAllState, mbtiTestDataState } from '@/states/testDataState';
+import {
+  isMbtiAllTestDataState,
+  mbtiTestDataState,
+} from '@/states/testDataState';
 import { testInfoState } from '@/states/testInfoState';
 import { MbtiQuestions, MbtiResults } from '@/types/test';
-import {
-  Button,
-  Card,
-  Space,
-  Table,
-  TableProps,
-  Upload,
-  UploadFile,
-  UploadProps,
-  message,
-} from 'antd';
-import { useEffect, useState } from 'react';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
-import { UploadOutlined, PlusOutlined } from '@ant-design/icons';
+import { Card, Space, Table, TableProps } from 'antd';
+import { ChangeEvent, useEffect, useMemo } from 'react';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+// import { PaperClipOutlined } from '@ant-design/icons';
+import { mbtiImageState } from '@/states/testImageState';
+import { DOMAIN_BE_PROD } from '@/constants/constant';
+import axios from 'axios';
+import { TOKEN_NAME } from '@/constants/sessionStorage';
 
 export default function Preview() {
   const testInfo = useRecoilValue(testInfoState);
   const questions = useRecoilValue(mbtiQuestionsState);
   const results = useRecoilValue(mbtiResultState);
-  const setIsAllImage = useSetRecoilState(mbtiImageAllState);
 
   const setData = useSetRecoilState(mbtiTestDataState);
-
-  const [imageUploadStates, setImageUploadStates] = useState(
-    new Array(17).fill(false),
-  );
-  const targetTime = new Date(new Date().getTime() + 9 * 60 * 60 * 1000);
+  const setIsMbtiAllTestData = useSetRecoilState(isMbtiAllTestDataState);
+  const [imageUploads, setImageUploads] = useRecoilState(mbtiImageState);
 
   useEffect(() => {
     setData({
@@ -40,40 +33,53 @@ export default function Preview() {
       content: testInfo.content,
       questions: questions,
       results: results,
-      createDate: targetTime.toISOString(),
+      // createDate: new Date(
+      //   new Date().getTime() + 9 * 60 * 60 * 1000,
+      // ).toISOString(),
       imageUrl: '',
-      playCount: 0,
-      type: 'MBTI',
+      // playCount: 0,
+      // type: 'MBTI',
     });
   }, [testInfo, questions, results, setData]);
 
-  useEffect(() => {
-    const allImagesUploaded = imageUploadStates.every((state) => state);
-    if (allImagesUploaded) {
-      setIsAllImage(true);
-    } else {
-      setIsAllImage(false);
-    }
-  }, [imageUploadStates]);
+  const isAllDataValid = useMemo(() => {
+    const isAllImagesUploaded = imageUploads.every(
+      (image) => image !== undefined,
+    );
+    const isAllQuestionsValid = questions.every(
+      (text) =>
+        text.question !== '' &&
+        text.answerPlus !== '' &&
+        text.answerMinus !== '',
+    );
+    const isAllResultsValid = results.every(
+      (text) => text.title !== '' && text.content !== '',
+    );
 
-  const props: UploadProps = {
-    name: 'file',
-    action: 'https://run.mocky.io/v3/435e224c-44fb-4773-9faf-380c5e6a2188',
-    headers: {
-      authorization: 'authorization-text',
-    },
-    listType: 'picture-card',
-    maxCount: 1,
-    onChange(info) {
-      if (info.file.status !== 'uploading') {
-        console.log(info.file, info.fileList);
-      }
-      if (info.file.status === 'done') {
-        message.success(`${info.file.name} file uploaded successfully`);
-      } else if (info.file.status === 'error') {
-        message.error(`${info.file.name} file upload failed.`);
-      }
-    },
+    return isAllImagesUploaded && isAllQuestionsValid && isAllResultsValid;
+  }, [imageUploads, questions, results]);
+
+  useEffect(() => {
+    if (isAllDataValid && testInfo.title !== '' && testInfo.content !== '') {
+      setIsMbtiAllTestData(true);
+    } else {
+      setIsMbtiAllTestData(false);
+    }
+  }, [isAllDataValid, setIsMbtiAllTestData, testInfo]);
+
+  const uploadImage = (index: number, e: ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (files && files.length > 0) {
+      console.log(files[0]);
+      const file = files[0];
+      const formData = new FormData();
+      formData.append('image', file);
+      setImageUploads((prevUploads) => {
+        return prevUploads.map((upload, idx) =>
+          idx === index ? file : upload,
+        );
+      });
+    }
   };
 
   const questionNames = ['E / I', 'N / S', 'F / T', 'J / P'];
@@ -120,43 +126,71 @@ export default function Preview() {
     {
       title: 'Image URL',
       dataIndex: 'imageUrl',
+      width: 250,
       render: (text, _, i) => (
-        <Upload
-          action='https://run.mocky.io/v3/435e224c-44fb-4773-9faf-380c5e6a2188'
-          listType='picture'
-          maxCount={1}
-          onChange={(info) => {
-            const index = i + 1;
-            const newImageUploadStates = [...imageUploadStates];
-            if (info.file.status === 'done') {
-              newImageUploadStates[index] = true;
-            } else if (
-              info.file.status === 'removed' ||
-              info.file.status === 'error'
-            ) {
-              newImageUploadStates[index] = false;
-            }
-            setImageUploadStates(newImageUploadStates);
-          }}>
-          <Button icon={<UploadOutlined />}>Upload</Button>
-        </Upload>
+        <div>
+          {/* <Upload
+            action='https://run.mocky.io/v3/435e224c-44fb-4773-9faf-380c5e6a2188'
+            listType='picture'
+            maxCount={1}
+            onChange={uploadImage(i + 1)}>
+            <Button icon={<UploadOutlined />}>Upload</Button>
+          </Upload> */}
+          <input type='file' onChange={(e) => uploadImage(i + 1, e)} />
+          {/* <div className={styles.imageFileNameWarp}>
+            <PaperClipOutlined />
+            <p className={styles.imageFileName}>{imageUploads[i + 1]?.name}</p>
+          </div> */}
+        </div>
       ),
     },
   ];
 
+  // type HeaderProps = {
+  //   'Content-Type': string;
+  //   Authorization?: string | null;
+  // };
+
+  // const headers: HeaderProps = {
+  //   'Content-Type': 'multipart/form-data',
+  //   Authorization:
+  //     typeof window !== 'undefined' ? sessionStorage.getItem(TOKEN_NAME) : null,
+  // };
+
   return (
     <div className={styles.wrap}>
+      {/* <input
+        type='file'
+        onChange={(evt: ChangeEvent<HTMLInputElement>) => {
+          const file = evt.target.files![0];
+          const formData = new FormData();
+          formData.append('file', file);
+
+          const test = axios.post(`${DOMAIN_BE_PROD}/upload`, formData, {
+            headers,
+          });
+
+          console.log(test)
+        }}
+      /> */}
       <Space direction='vertical'>
         <Card title={testInfo.title} extra={<p>MBTI</p>} style={{ width: 650 }}>
           <div className={styles.infoWrap}>
             <p style={{ marginBottom: 25 }}>{testInfo.content}</p>
             <div>
-              <Upload {...props}>
+              <input type='file' onChange={(e) => uploadImage(0, e)} />
+              {/* <Upload
+                name='file'
+                action='https://run.mocky.io/v3/435e224c-44fb-4773-9faf-380c5e6a2188'
+                listType='picture-card'
+                onChange={uploadImage(0)}
+                maxCount={1}>
                 <button style={{ border: 0, background: 'none' }} type='button'>
                   <PlusOutlined />
                   <div style={{ marginTop: 8 }}>Upload</div>
                 </button>
-              </Upload>
+              </Upload> */}
+              {/* <p className={styles.imageFileName}>{imageUploads[0]?.name}</p> */}
             </div>
           </div>
         </Card>

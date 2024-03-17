@@ -4,6 +4,7 @@ import { atom } from 'recoil';
 export const mbtiTestDataState = atom<MbtiTest>({
   key: 'testDataState',
   default: {
+    id: '',
     title: '',
     content: '',
     questions: [],
@@ -15,7 +16,7 @@ export const mbtiTestDataState = atom<MbtiTest>({
   },
 });
 
-export const mbtiImageAllState = atom({
+export const isMbtiAllTestDataState = atom({
   key: 'mbtiImageAllState',
   default: false,
 })

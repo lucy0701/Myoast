@@ -6,8 +6,8 @@ import { TestCover } from '@/types/test';
 export async function generateMetadata() {
   const url = `${DOMAIN}/list`;
   const title = '묘스트';
-  let description = '묘스트의 모든 테스트는 여기에!';
-  let imageUrl = `${DOMAIN}/list/opengraph-image`;
+  const description = '묘스트의 모든 테스트는 여기에!';
+  const imageUrl = `${DOMAIN}/list/opengraph-image`;
 
   return {
     title,

@@ -4,10 +4,10 @@ export type MbtiTest = {
   content: string;
   questions: MbtiQuestions[];
   results: MbtiResults[];
-  createDate?: string;
   imageUrl: string;
-  playCount: number;
-  type: 'MBTI';
+  createDate?: string;
+  playCount?: number;
+  type?: string;
 };
 
 export type MbtiQuestions = {

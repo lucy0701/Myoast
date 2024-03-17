@@ -11,8 +11,8 @@ import Main from '@/containers/main';
 export async function generateMetadata() {
   const url = `${DOMAIN}/`;
   const title = '묘스트(MYOAST)';
-  let description = '묘스트와 함께하는 MBTI검사와 심리테스트!';
-  let imageUrl = `${DOMAIN}/main/opengraph-image`;
+  const description = '묘스트와 함께하는 MBTI검사와 심리테스트!';
+  const imageUrl = `${DOMAIN}/main/opengraph-image`;
 
   return {
     title,
