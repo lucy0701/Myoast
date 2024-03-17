@@ -9,14 +9,16 @@ import {
 } from '@/states/testDataState';
 import { testInfoState } from '@/states/testInfoState';
 import { MbtiQuestions, MbtiResults } from '@/types/test';
-import { Card, Space, Table, TableProps } from 'antd';
+import { Button, Card, Space, Table, TableProps, Upload } from 'antd';
 import { ChangeEvent, useEffect, useMemo } from 'react';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
-// import { PaperClipOutlined } from '@ant-design/icons';
 import { mbtiImageState } from '@/states/testImageState';
-import { DOMAIN_BE_PROD } from '@/constants/constant';
-import axios from 'axios';
-import { TOKEN_NAME } from '@/constants/sessionStorage';
+import {
+  UploadOutlined,
+  PlusOutlined,
+  PaperClipOutlined,
+} from '@ant-design/icons';
+import { UploadChangeParam, UploadFile } from 'antd/es/upload';
 
 export default function Preview() {
   const testInfo = useRecoilValue(testInfoState);
@@ -67,16 +69,29 @@ export default function Preview() {
     }
   }, [isAllDataValid, setIsMbtiAllTestData, testInfo]);
 
-  const uploadImage = (index: number, e: ChangeEvent<HTMLInputElement>) => {
-    const files = e.target.files;
-    if (files && files.length > 0) {
-      console.log(files[0]);
-      const file = files[0];
-      const formData = new FormData();
-      formData.append('image', file);
-      setImageUploads((prevUploads) => {
+  // const uploadImage = (index: number, e: ChangeEvent<HTMLInputElement>) => {
+  //   const files = e.target.files;
+  //   if (files && files.length > 0) {
+  //     console.log(files[0]);
+  //     const file = files[0];
+  //     setImageUploads((prevUploads) => {
+  //       return prevUploads.map((upload, idx) =>
+  //         idx === index ? file : upload,
+  //       );
+  //     });
+  //   }
+  // };
+
+  const uploadImage = (
+    index: number,
+    info: UploadChangeParam<UploadFile>,
+  ) => {
+    const { file } = info;
+    if (file && file.originFileObj instanceof Blob) {
+      setImageUploads((prevUploads: File[]) => {
         return prevUploads.map((upload, idx) =>
-          idx === index ? file : upload,
+          idx === index ? (file.originFileObj as File) : upload,
+
         );
       });
     }
@@ -129,68 +144,42 @@ export default function Preview() {
       width: 250,
       render: (text, _, i) => (
         <div>
-          {/* <Upload
+          <Upload
             action='https://run.mocky.io/v3/435e224c-44fb-4773-9faf-380c5e6a2188'
             listType='picture'
             maxCount={1}
-            onChange={uploadImage(i + 1)}>
+            onChange={(info) => uploadImage(i + 1, info)}>
             <Button icon={<UploadOutlined />}>Upload</Button>
-          </Upload> */}
-          <input type='file' onChange={(e) => uploadImage(i + 1, e)} />
-          {/* <div className={styles.imageFileNameWarp}>
+          </Upload>
+          <div className={styles.imageFileNameWarp}>
             <PaperClipOutlined />
             <p className={styles.imageFileName}>{imageUploads[i + 1]?.name}</p>
-          </div> */}
+          </div>
         </div>
       ),
     },
   ];
 
-  // type HeaderProps = {
-  //   'Content-Type': string;
-  //   Authorization?: string | null;
-  // };
-
-  // const headers: HeaderProps = {
-  //   'Content-Type': 'multipart/form-data',
-  //   Authorization:
-  //     typeof window !== 'undefined' ? sessionStorage.getItem(TOKEN_NAME) : null,
-  // };
-
   return (
     <div className={styles.wrap}>
-      {/* <input
-        type='file'
-        onChange={(evt: ChangeEvent<HTMLInputElement>) => {
-          const file = evt.target.files![0];
-          const formData = new FormData();
-          formData.append('file', file);
-
-          const test = axios.post(`${DOMAIN_BE_PROD}/upload`, formData, {
-            headers,
-          });
-
-          console.log(test)
-        }}
-      /> */}
       <Space direction='vertical'>
         <Card title={testInfo.title} extra={<p>MBTI</p>} style={{ width: 650 }}>
           <div className={styles.infoWrap}>
             <p style={{ marginBottom: 25 }}>{testInfo.content}</p>
             <div>
-              <input type='file' onChange={(e) => uploadImage(0, e)} />
-              {/* <Upload
+              {/* <input type='file' onChange={(e) => uploadImage(0, e)} /> */}
+              <Upload
                 name='file'
                 action='https://run.mocky.io/v3/435e224c-44fb-4773-9faf-380c5e6a2188'
                 listType='picture-card'
-                onChange={uploadImage(0)}
+                onChange={(info) => uploadImage(0, info)}
                 maxCount={1}>
                 <button style={{ border: 0, background: 'none' }} type='button'>
                   <PlusOutlined />
                   <div style={{ marginTop: 8 }}>Upload</div>
                 </button>
-              </Upload> */}
-              {/* <p className={styles.imageFileName}>{imageUploads[0]?.name}</p> */}
+              </Upload>
+              <p className={styles.imageFileName}>{imageUploads[0]?.name}</p>
             </div>
           </div>
         </Card>

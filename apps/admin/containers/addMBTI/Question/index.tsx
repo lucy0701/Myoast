@@ -24,6 +24,11 @@ export default function Question() {
               }>{`${questionName[0]} / ${questionName[1]}`}</h2>
             <div className={styles.questionBoxesWarp}>
               <QuestionBox
+                key={index * 3}
+                index={index * 3}
+                qName={questionName}
+              />
+              <QuestionBox
                 key={index * 3 + 1}
                 index={index * 3 + 1}
                 qName={questionName}
@@ -31,11 +36,6 @@ export default function Question() {
               <QuestionBox
                 key={index * 3 + 2}
                 index={index * 3 + 2}
-                qName={questionName}
-              />
-              <QuestionBox
-                key={index * 3 + 3}
-                index={index * 3 + 3}
                 qName={questionName}
               />
             </div>

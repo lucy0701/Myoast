@@ -3,8 +3,8 @@ import { atom } from 'recoil';
 
 const generateMbtiQuestions = (count: number): MbtiQuestions[] => {
   return Array.from({ length: count }, (_, index) => ({
-    id: '',
-    index: index + 1,
+    // id: '',
+    index: index,
     question: '',
     answerPlus: '',
     answerMinus: '',
@@ -17,16 +17,3 @@ export const mbtiQuestionsState = atom<MbtiQuestions[]>({
   key: 'mbtiQuestionsState',
   default: generateMbtiQuestions(questionCount),
 });
-
-
-// const generateIsMbtiQuestionsInputs = (count: number) => {
-//   return Array.from({ length: count }, (_, index) => ({
-//     index: index + 1,
-//     isEmpty: true,
-//   }));
-// };
-
-// export const isMbtiQuestionsEmptyState = atom({
-//   key: 'isMbtiQuestionsInputState',
-//   default: generateIsMbtiQuestionsInputs(questionCount),
-// });

@@ -22,7 +22,7 @@ const generateMbtiResultState = () => {
   ];
 
   return resultTitles.map((title) => ({
-    id: '',
+    // id: '',
     result: title,
     title: '',
     content: '',

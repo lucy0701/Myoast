@@ -1,11 +1,14 @@
 import { DOMAIN_BE_PROD } from '@/constants/constant';
 import { TOKEN_NAME } from '@/constants/sessionStorage';
 import { postAddMbtiTestAPI } from '@/services/addMbtiTset';
-import { mbtiTestDataState } from '@/states/testDataState';
+import {
+  isMbtiAllTestDataState,
+  mbtiTestDataState,
+} from '@/states/testDataState';
 import { mbtiImageState } from '@/states/testImageState';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 
 type HeaderProps = {
   'Content-Type': string;
@@ -16,6 +19,7 @@ export const useAddMbti = () => {
   const imageUploads = useRecoilValue(mbtiImageState);
   const [mbtiTestData, setMbtiTestData] = useRecoilState(mbtiTestDataState);
   const [imgUploading, setImgUploading] = useState(true);
+  const setIsMbtiAllTestData = useSetRecoilState(isMbtiAllTestDataState);
 
   const headers: HeaderProps = {
     'Content-Type': 'multipart/form-data',
@@ -51,7 +55,6 @@ export const useAddMbti = () => {
         results: updatedResults,
       }));
 
-
       setImgUploading(false);
     } catch (error) {
       console.error('Error during image upload:', error);
@@ -60,16 +63,20 @@ export const useAddMbti = () => {
   };
 
   useEffect(() => {
-    if (!imgUploading) {
-      const mbtiTestJSON = JSON.stringify(mbtiTestData);
-      postAddMbtiTestAPI(mbtiTestJSON);
-    }
-  }, [imgUploading]);
+    const handlePostAddMbtiTestAPI = async () => {
+      if (!imgUploading) {
+        try {
+          const mbtiTestJSON = JSON.stringify(mbtiTestData);
+          await postAddMbtiTestAPI(mbtiTestJSON);
+          alert('이미지 업로드가 완료되었습니다.');
+          setIsMbtiAllTestData(false);
+        } catch (error) {
+          console.error('Error:', error);
+        }
+      }
+    };
 
-  useEffect(() => {
-    if (!imgUploading) {
-      alert('이미지 업로드가 완료되었습니다.');
-    }
+    handlePostAddMbtiTestAPI();
   }, [imgUploading]);
 
   return {

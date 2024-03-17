@@ -25,6 +25,7 @@ export default function TestMain({ testData }: Props) {
   const { commentListData, commentCount, getCommentCount } = useComment();
   const content = contentArr(testData.content);
   const router = useRouter();
+  console.log(testData)
 
   useEffect(() => {
     SessionStorage.setItem(BACK_PAGE, '/test/main/');

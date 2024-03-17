@@ -4,15 +4,15 @@ import { atom } from 'recoil';
 export const mbtiTestDataState = atom<MbtiTest>({
   key: 'testDataState',
   default: {
-    id: '',
+    // id: '',
     title: '',
     content: '',
     questions: [],
     results: [],
-    createDate: '',
+    // createDate: '',
     imageUrl: '',
-    playCount: 0,
-    type: 'MBTI',
+    // playCount: 0,
+    // type: 'MBTI',
   },
 });
 
