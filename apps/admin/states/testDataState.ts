@@ -12,11 +12,11 @@ export const mbtiTestDataState = atom<MbtiTest>({
     // createDate: '',
     imageUrl: '',
     // playCount: 0,
-    // type: 'MBTI',
+    type: 'MBTI',
   },
 });
 
 export const isMbtiAllTestDataState = atom({
   key: 'mbtiImageAllState',
   default: false,
-})
+});

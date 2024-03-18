@@ -60,6 +60,7 @@ export default function AddContents({ children }: React.PropsWithChildren) {
     }
   };
 
+  // 컨텐츠 추가시 타입별로 postAPI 실행
   const onClickSave = () => {
     postImageUpload();
   };
@@ -84,10 +85,6 @@ export default function AddContents({ children }: React.PropsWithChildren) {
             <Input
               placeholder={`Enter ${selectedType} test tilte.`}
               maxLength={500}
-              // count={{
-              //   show: true,
-              //   max: 5,
-              // }}
               allowClear
               onChange={(e) => onChange(e.target.value, TITLE)}
             />
@@ -96,10 +93,6 @@ export default function AddContents({ children }: React.PropsWithChildren) {
             <TextArea
               placeholder={`Enter ${selectedType} test contents.`}
               maxLength={500}
-              // count={{
-              //   show: true,
-              //   max: 500,
-              // }}
               allowClear
               onChange={(e) => onChange(e.target.value, CONTENT)}
             />

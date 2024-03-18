@@ -57,3 +57,10 @@ export function decodeToken() {
     };
   }
 }
+
+export const getTokenFromSessionStorage = (): string | null => {
+  if (typeof window !== 'undefined') {
+    return sessionStorage.getItem(TOKEN_NAME);
+  }
+  return null;
+};

@@ -1,6 +1,5 @@
 import {
   deleteContentAPI,
-  getCommentCountAPI,
   getContentAPI,
   getContentListAPI,
   getLinkCountAPI,
@@ -17,12 +16,11 @@ export const useContents = () => {
       const contentIdList = await getContentListAPI();
       if (contentIdList) {
         const contentPromises = contentIdList.data.map(async (content) => {
-          const [contentDetail, sharesCount, linkCount, commentsCount] =
+          const [contentDetail, sharesCount, linkCount] =
             await Promise.all([
               getContentAPI(content.id),
               getSharesCountAPI(content.id),
               getLinkCountAPI(content.id),
-              getCommentCountAPI(content.id),
             ]);
           return {
             id: content.id,
@@ -33,7 +31,8 @@ export const useContents = () => {
             likeCount: content.likeCount,
             sharesCount: sharesCount.data,
             linkCount: linkCount.data,
-            commentsCount: commentsCount.data,
+            commentsCount: content.commentCount,
+            type : content.type,
           };
         });
         const newContentsList = await Promise.all(contentPromises);

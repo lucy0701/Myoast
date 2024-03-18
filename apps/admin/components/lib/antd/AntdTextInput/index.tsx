@@ -1,0 +1,31 @@
+import { Input } from 'antd';
+import { valueType } from 'antd/es/statistic/utils';
+
+interface Props {
+  placeholder: string;
+  maxLength: number;
+  value: valueType;
+  style?: React.CSSProperties;
+  onChange: () => void;
+}
+
+const AntdTextInput: React.FC<Props> = ({
+  placeholder,
+  maxLength,
+  value,
+  style,
+  onChange,
+}) => {
+  return (
+    <Input
+      value={value}
+      placeholder={placeholder}
+      maxLength={maxLength}
+      allowClear
+      onChange={onChange}
+      style={style}
+    />
+  );
+};
+
+export default AntdTextInput;

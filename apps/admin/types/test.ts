@@ -46,4 +46,5 @@ export type ContentList = {
   sharesCount: number;
   linkCount: number;
   commentsCount: number;
+  type?: ['MBTI', 'PCL_R'];
 };

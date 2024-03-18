@@ -8,7 +8,7 @@ interface Props {
   selectOptions: ContentsSelectOptions[];
 }
 
-export default function Selection({ selectOptions }: Props) {
+export default function AntdSelect({ selectOptions }: Props) {
   const handleChange = (value: string) => {
     console.log(`${value}`);
   };
