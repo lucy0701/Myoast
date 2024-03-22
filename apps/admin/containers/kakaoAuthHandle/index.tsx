@@ -17,7 +17,7 @@ import {
   USER_NAME,
 } from '@/constants/sessionStorage';
 import { decodeToken, getHeaders } from '@/utils/util';
-import SessionStorage from '@/utils/sessionStorage';
+import SessionStorage from '@/utils/SessionStorage';
 import { isLoginState } from '@/states/isLoignState';
 
 import styles from './index.module.css';
