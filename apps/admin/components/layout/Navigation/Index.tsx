@@ -69,9 +69,9 @@ const Navigation: React.FC<{ children: ReactNode }> = ({ children }) => {
       </Sider>
       <Layout style={{ minWidth: 800 }}>
         <Header
-          className={styles.headerWarp}
+          className={styles.headerWrap}
           style={{ padding: 0, background: borderRadiusLG }}>
-          <div className={styles.logoWarp}>로고입니당</div>
+          <div className={styles.logoWrap}>로고입니당</div>
           <div className={styles.headerBox}>
             <HeaderComponent />
           </div>

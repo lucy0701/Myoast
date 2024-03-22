@@ -23,7 +23,6 @@ export default function AddContents({ children }: React.PropsWithChildren) {
 
   const { postImageUpload } = useAddMbti();
 
-
   const router = useRouter();
 
   // 컨텐츠 추가 시, 배열에 추가

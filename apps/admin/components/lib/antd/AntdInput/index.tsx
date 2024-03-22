@@ -9,7 +9,7 @@ interface Props {
   onChange: () => void;
 }
 
-const AntdTextInput: React.FC<Props> = ({
+const AntdInput: React.FC<Props> = ({
   placeholder,
   maxLength,
   value,
@@ -28,4 +28,4 @@ const AntdTextInput: React.FC<Props> = ({
   );
 };
 
-export default AntdTextInput;
+export default AntdInput;

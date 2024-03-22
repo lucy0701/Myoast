@@ -10,7 +10,7 @@ import {
   USER_NAME,
 } from '@/constants/sessionStorage';
 
-import SessionStorage from './SessionStorage';
+import SessionStorage from './sessionStorage';
 
 export function clearSessionStorage() {
   if (typeof window !== 'undefined') {

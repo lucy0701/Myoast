@@ -8,7 +8,7 @@ export const USER_NAME = 'username';
 
 export const AUTHORIZATION = 'authorization';
 
-export const TEST_RESULT_ID = 'resultId'
+export const TEST_RESULT_ID = 'resultId';
 export const TEST_SCORE = 'testScore';
 
 // 이전페이지

@@ -12,9 +12,7 @@ export const runtime = 'edge';
 
 export default async function OgImage() {
   try {
-    let imgUrl;
-
-    imgUrl = OG_STANDARD_IMAGE;
+    const imgUrl = OG_STANDARD_IMAGE;
 
     return new ImageResponse(
       (

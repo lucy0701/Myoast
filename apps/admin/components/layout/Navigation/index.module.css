@@ -1,4 +1,4 @@
-.headerWarp {
+.headerWrap {
   /* min-width: 500px; */
   position: relative;
 }
@@ -6,7 +6,7 @@
   position: absolute;
   right: 10px;
 }
-.logoWarp {
+.logoWrap {
   width: 200px;
   display: flex;
   align-items: center;

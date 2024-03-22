@@ -12,9 +12,9 @@ export default function Result() {
     <div className={styles.wrap}>
       <h2 className={styles.resultTitle}>Result</h2>
       <div className={styles.contentsWrap}>
-        {results.map((result, columnIndex) => (
-          <div key={`${columnIndex}`} className={styles.resultWrap}>
-            <ResultCard key={`${columnIndex}`} resultName={result.result} />
+        {results.map((result, index) => (
+          <div key={`${index}`} className={styles.resultWrap}>
+            <ResultCard key={`${index}`} resultName={result.result} />
           </div>
         ))}
       </div>
