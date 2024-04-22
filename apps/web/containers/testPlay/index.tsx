@@ -12,7 +12,7 @@ import Button from '@/components/common/Button';
 import styles from './index.module.css';
 
 interface Props {
-  testData: [Question];
+  testData: Question[];
 }
 
 export default function TestPlay({ testData } : Props) {
